@@ -19,7 +19,7 @@ book:
   description: Level 2 UG Analysis book
   cover-image: images/logos/logo_analysis.png
   image: images/logos/logo.png
-  favicon: images/logos/favicon.ico
+  favicon: images/logos/logo_analysis_small.png
   cookie-consent: false
   google-analytics: ''
   page-navigation: true
