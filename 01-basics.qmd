@@ -13,7 +13,7 @@ Part 2 is a link to book 1 if they are still working from the Server
 
 ### Creating an R Markdown file
 
-delete everything after the knitting part
+delete everything after the knitting part from line 12
 
 and save it in the project. All of the data files you need, should go into the same project folder too
 
@@ -21,4 +21,5 @@ and save it in the project. All of the data files you need, should go into the s
 
 
 ### Knitting 
+
 

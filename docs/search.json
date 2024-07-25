@@ -18,7 +18,7 @@
     "href": "01-basics.html#r-markdown-basics",
     "title": "1  Projects, R Markdown, and Data Wrangling",
     "section": "1.2 R Markdown basics",
-    "text": "1.2 R Markdown basics\n\n1.2.1 Creating an R Markdown file\ndelete everything after the knitting part\nand save it in the project. All of the data files you need, should go into the same project folder too\n\n\n1.2.2 Code Chunks vs Text\n\n\n1.2.3 Knitting"
+    "text": "1.2 R Markdown basics\n\n1.2.1 Creating an R Markdown file\ndelete everything after the knitting part from line 12\nand save it in the project. All of the data files you need, should go into the same project folder too\n\n\n1.2.2 Code Chunks vs Text\n\n\n1.2.3 Knitting"
   },
   {
     "objectID": "appendix-a-installing-r.html#installing-base-r",
