@@ -1,0 +1,24 @@
+# Projects, R Markdown, and Data Wrangling
+
+## Creating a new project
+
+### own computer
+Part 1 is how to set it up on your computer (with R and R Studio installed)
+
+### Server
+Part 2 is a link to book 1 if they are still working from the Server
+
+
+## R Markdown basics
+
+### Creating an R Markdown file
+
+delete everything after the knitting part
+
+and save it in the project. All of the data files you need, should go into the same project folder too
+
+### Code Chunks vs Text
+
+
+### Knitting 
+

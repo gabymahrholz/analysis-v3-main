@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Level 2 Ananlysis book",
+    "title": "Analysis",
     "section": "",
-    "text": "Overview\nWelcome to the quarto textbook template. Customize your book setup by editing the following code. It will create a project at the specified path (e.g., the code below will create a new folder called “book” in your working directory), render the demo book in Quarto, open the book in a web browser, and open the project in a new RStudio window.\n\ncreate_book(\n  path = \"book\",\n  title = \"Book Template\",\n  subtitle = \"\",\n  authors = \"Me\",\n  description = \"Book Description\",\n  output_dir = \"docs\",\n  license = \"CC-BY\",\n  google_analytics = \"\",\n  socials = list(),\n  downloads = c(\"pdf\", \"epub\"),\n  sharing = c(\"twitter\", \"facebook\", \"linkedin\"),\n  margin_header = \"\",\n  footer = paste0(license, \" (\",\n                  format(Sys.Date(), \"%Y\"),\n                  \") \", authors),\n  light_theme = \"flatly\",\n  dark_theme = \"darkly\",\n  css = stripes(),\n  df_print = \"kable\",\n  webexercises = TRUE,\n  open = rlang::is_interactive(),\n  render = TRUE\n)\n\nSee Chapter 1 for details of how to further customize the book."
+    "text": "Overview\nBook Name: Analysis\nSummary: Materials for the 2nd year undergraduate programme at the University of Glasgow, School of Psychology & Neuroscience.\nAuthors: CKT & GM. This version of the book is adapted from a previous version written by Phil McAleer, Carolina E. Kuepper-Tetzel, & Helena M. Paterson\nAim: This course covers data skills such as R Markdown, data wrangling with tidyverse, and data visualisation with ggplot2. It also introduces statistical concepts such as probabilities, Null Hypothesis Significance Testing (NHST), alpha, power, effect size, and sample size. The most common statistical analyses are covered in this book such as t-test, correlations, ANOVAs, and regressions.\nNote: This book is currently being updated which means that chapters are being published on a rolling basis.\nContact: This book is a living document and will be regularly checked and updated for improvements. Should you have any issues using the book or queries, please contact Carolina E. Kuepper-Tetzel.\nR Version: This book has been written with r R.version.string.\nRandomising Seed: In chapters that use some level of randomisation, where we have remembered, the seed is set as 1409.\n\n\n In this book, we will help you learn a whole host of skills and methods based around being a psychologist. If you have completed the Data Skills book in the PsyTeachR series (https://psyteachr.github.io/) the first few chapters will be familiar to you, with some additions. This is deliberate in order to refresh your knowledge and skills before moving on to more advanced topics. First, we will remind you how to work with R Markdown, before recapping the main functions we use for visualisation and data wrangling. From there we will build your understanding of probability before going on to using all these refreshed skills to analyse a variety of different experiments. The main idea of this book is being reproducible in our data analysis approach.\nThis book requires a higher level of self-directed learning than the first book; part of learning is trying things out yourself and recognising where you need help. If you get stuck, google the problem or what you would like to do and see if that helps.\nWhen working through this book remember that this is not about learning a software. We do not teach R independent of statistical knowledge and content. Rather, we teach data and analytical skills and knowledge within R. The goal is to continuously improve your data analysis skills!\nYou can do this!"
   },
   {
     "objectID": "instructions.html#sec-setup",
@@ -54,5 +54,19 @@
     "title": "References",
     "section": "",
     "text": "Wickham, H., Bryan, J., & Barrett, M. (2022). Usethis: Automate\npackage and project setup. https://CRAN.R-project.org/package=usethis"
+  },
+  {
+    "objectID": "01-basics.html#creating-a-new-project",
+    "href": "01-basics.html#creating-a-new-project",
+    "title": "1  Projects, R Markdown, and Data Wrangling",
+    "section": "1.1 Creating a new project",
+    "text": "1.1 Creating a new project\n\n1.1.1 own computer\nPart 1 is how to set it up on your computer (with R and R Studio installed)\n\n\n1.1.2 Server\nPart 2 is a link to book 1 if they are still working from the Server"
+  },
+  {
+    "objectID": "01-basics.html#r-markdown-basics",
+    "href": "01-basics.html#r-markdown-basics",
+    "title": "1  Projects, R Markdown, and Data Wrangling",
+    "section": "1.2 R Markdown basics",
+    "text": "1.2 R Markdown basics\n\n1.2.1 Creating an R Markdown file\ndelete everything after the knitting part\nand save it in the project. All of the data files you need, should go into the same project folder too\n\n\n1.2.2 Code Chunks vs Text\n\n\n1.2.3 Knitting"
   }
 ]

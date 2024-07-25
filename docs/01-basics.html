@@ -8,7 +8,7 @@
 
 <meta name="description" content="Level 2 UG Analysis book">
 
-<title>Analysis</title>
+<title>Analysis - 1&nbsp; Projects, R Markdown, and Data Wrangling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-basics.html" rel="next">
+<link href="./webexercises.html" rel="next">
+<link href="./index.html" rel="prev">
 <link href="./images/logos/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -80,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Overview</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./01-basics.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Projects, R Markdown, and Data Wrangling</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -133,13 +134,13 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./01-basics.html" class="sidebar-item-text sidebar-link">
+  <a href="./01-basics.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Projects, R Markdown, and Data Wrangling</span></span></a>
   </div>
 </li>
@@ -176,7 +177,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#creating-a-new-project" id="toc-creating-a-new-project" class="nav-link active" data-scroll-target="#creating-a-new-project"><span class="header-section-number">1.1</span> Creating a new project</a>
+  <ul class="collapse">
+  <li><a href="#own-computer" id="toc-own-computer" class="nav-link" data-scroll-target="#own-computer"><span class="header-section-number">1.1.1</span> own computer</a></li>
+  <li><a href="#server" id="toc-server" class="nav-link" data-scroll-target="#server"><span class="header-section-number">1.1.2</span> Server</a></li>
+  </ul></li>
+  <li><a href="#r-markdown-basics" id="toc-r-markdown-basics" class="nav-link" data-scroll-target="#r-markdown-basics"><span class="header-section-number">1.2</span> R Markdown basics</a>
+  <ul class="collapse">
+  <li><a href="#creating-an-r-markdown-file" id="toc-creating-an-r-markdown-file" class="nav-link" data-scroll-target="#creating-an-r-markdown-file"><span class="header-section-number">1.2.1</span> Creating an R Markdown file</a></li>
+  <li><a href="#code-chunks-vs-text" id="toc-code-chunks-vs-text" class="nav-link" data-scroll-target="#code-chunks-vs-text"><span class="header-section-number">1.2.2</span> Code Chunks vs Text</a></li>
+  <li><a href="#knitting" id="toc-knitting" class="nav-link" data-scroll-target="#knitting"><span class="header-section-number">1.2.3</span> Knitting</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -185,24 +196,13 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Analysis</h1>
+<h1 class="title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Projects, R Markdown, and Data Wrangling</span></h1>
 </div>
 
-<div>
-  <div class="description">
-    Level 2 UG Analysis book
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Gaby Mahrholz <a href="https://orcid.org/0000-0002-2135-6888" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
-          </div>
-  </div>
     
   
     
@@ -211,25 +211,32 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="creating-a-new-project" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="creating-a-new-project"><span class="header-section-number">1.1</span> Creating a new project</h2>
+<section id="own-computer" class="level3" data-number="1.1.1">
+<h3 data-number="1.1.1" class="anchored" data-anchor-id="own-computer"><span class="header-section-number">1.1.1</span> own computer</h3>
+<p>Part 1 is how to set it up on your computer (with R and R Studio installed)</p>
+</section>
+<section id="server" class="level3" data-number="1.1.2">
+<h3 data-number="1.1.2" class="anchored" data-anchor-id="server"><span class="header-section-number">1.1.2</span> Server</h3>
+<p>Part 2 is a link to book 1 if they are still working from the Server</p>
+</section>
+</section>
+<section id="r-markdown-basics" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="r-markdown-basics"><span class="header-section-number">1.2</span> R Markdown basics</h2>
+<section id="creating-an-r-markdown-file" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="creating-an-r-markdown-file"><span class="header-section-number">1.2.1</span> Creating an R Markdown file</h3>
+<p>delete everything after the knitting part</p>
+<p>and save it in the project. All of the data files you need, should go into the same project folder too</p>
+</section>
+<section id="code-chunks-vs-text" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="code-chunks-vs-text"><span class="header-section-number">1.2.2</span> Code Chunks vs Text</h3>
+</section>
+<section id="knitting" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="knitting"><span class="header-section-number">1.2.3</span> Knitting</h3>
 
-<section id="overview" class="level1 unnumbered">
-<h1 class="unnumbered">Overview</h1><p><img src="images/logos/logo_analysis.png" title="Analysis" class="quarto-cover-image img-fluid"></p>
-<p><strong>Book Name:</strong> Analysis</p>
-<p><strong>Summary:</strong> Materials for the 2nd year undergraduate programme at the University of Glasgow, School of Psychology &amp; Neuroscience.</p>
-<p><strong>Authors:</strong> CKT &amp; GM. This version of the book is adapted from a previous version written by Phil McAleer, Carolina E. Kuepper-Tetzel, &amp; Helena M. Paterson</p>
-<p><strong>Aim:</strong> This course covers data skills such as R Markdown, data wrangling with tidyverse, and data visualisation with ggplot2. It also introduces statistical concepts such as probabilities, Null Hypothesis Significance Testing (NHST), alpha, power, effect size, and sample size. The most common statistical analyses are covered in this book such as t-test, correlations, ANOVAs, and regressions.</p>
-<p><strong>Note:</strong> This book is currently being updated which means that chapters are being published on a rolling basis.</p>
-<p><strong>Contact:</strong> This book is a living document and will be regularly checked and updated for improvements. Should you have any issues using the book or queries, please contact <a href="mailto:carolina.kuepper-tetzel@glasgow.ac.uk">Carolina E. Kuepper-Tetzel</a>.</p>
-<p><strong>R Version:</strong> This book has been written with <code>r R.version.string</code>.</p>
-<p><strong>Randomising Seed:</strong> In chapters that use some level of randomisation, where we have remembered, the seed is set as 1409.</p>
-<!-- **Cite as:** McAleer, P., Kuepper-Tetzel, C. E., & Paterson, H. M. (2021, July 14). Analysis (Version 2). Zenodo. <a href = "http://doi.org/10.5281/zenodo.3822464" target = "_blank">http://doi.org/10.5281/zenodo.3822464</a> -->
-<!-- <span style="font-size: 22px; font-weight: bold; color: var(--purple);">Welcome to the Analysis Book</span> -->
-<p><br> In this book, we will help you learn a whole host of skills and methods based around being a psychologist. If you have completed the Data Skills book in the <strong>PsyTeachR</strong> series (<a href="https://psyteachr.github.io/" target="_blank">https://psyteachr.github.io/</a>) the first few chapters will be familiar to you, with some additions. This is deliberate in order to refresh your knowledge and skills before moving on to more advanced topics. First, we will remind you how to work with R Markdown, before recapping the main functions we use for visualisation and data wrangling. From there we will build your understanding of probability before going on to using all these refreshed skills to analyse a variety of different experiments. The main idea of this book is being reproducible in our data analysis approach.</p>
-<p>This book requires a higher level of self-directed learning than the first book; part of learning is trying things out yourself and recognising where you need help. If you get stuck, google the problem or what you would like to do and see if that helps.</p>
-<p>When working through this book remember that this is not about learning a software. We do not teach R independent of statistical knowledge and content. Rather, we teach data and analytical skills and knowledge within R. The goal is to continuously improve your data analysis skills!</p>
-<p>You can do this!</p>
 
-
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -817,10 +824,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Overview</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-basics.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Projects, R Markdown, and Data Wrangling</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./webexercises.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Webexercises</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

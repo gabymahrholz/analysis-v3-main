@@ -6,7 +6,7 @@ project:
 execute:
   freeze: auto
 book:
-  title: Level 2 Ananlysis book
+  title: Analysis
   subtitle: ''
   author:
     orcid: 0000-0002-2135-6888
@@ -16,10 +16,10 @@ book:
     roles: ~
   doi: ''
   license: CC-BY
-  description: Book Description
-  cover-image: images/logos/logo.png
+  description: Level 2 UG Analysis book
+  cover-image: images/logos/logo_analysis.png
   image: images/logos/logo.png
-  favicon: images/logos/logo.png
+  favicon: images/logos/favicon.ico
   cookie-consent: false
   google-analytics: ''
   page-navigation: true
@@ -46,7 +46,7 @@ book:
   page-footer: CC-BY (2024) Gaby Mahrholz
   chapters:
   - index.qmd
-  - instructions.qmd
+  - 01-basics.qmd
   appendices:
   - webexercises.qmd
   - references.qmd
