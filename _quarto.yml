@@ -9,7 +9,7 @@ book:
   title: Level 2 Ananlysis book
   subtitle: ''
   author:
-  - orcid: The ORCiD -9025 is not valid.
+    orcid: 0000-0002-2135-6888
     name:
       family: Mahrholz
       given: Gaby
@@ -24,9 +24,6 @@ book:
   google-analytics: ''
   page-navigation: true
   search: true
-  downloads:
-  - pdf
-  - epub
   sharing:
   - twitter
   - facebook
@@ -46,7 +43,7 @@ book:
     header: ''
     footer: ''
   margin-header: ''
-  page-footer: CC-BY (2024) c("Gaby", "Mahrholz", "-9025")
+  page-footer: CC-BY (2024) Gaby Mahrholz
   chapters:
   - index.qmd
   - instructions.qmd
