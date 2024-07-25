@@ -18,8 +18,8 @@ book:
   license: CC-BY
   description: Level 2 UG Analysis book
   cover-image: images/logos/logo_analysis.png
-  image: images/logos/logo.png
-  favicon: images/logos/logo_analysis_small.png
+  image: images/logos/logo_analysis.png
+  favicon: images/logos/logo_analysis.png
   cookie-consent: false
   google-analytics: ''
   page-navigation: true
