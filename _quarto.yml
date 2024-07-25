@@ -48,7 +48,12 @@ book:
   - index.qmd
   - 01-basics.qmd
   appendices:
-  - webexercises.qmd
+  - appendix-a-installing-r.qmd
+  - appendix-b-updating-packages.qmd
+  - appendix-c-exporting-server.qmd
+  - appendix-d-symbols.qmd
+  - appendix-x-How-to-cite-R.qmd
+  - appendix-y-license.qmd
   - references.qmd
 bibliography: include/references.bib
 csl: include/apa.csl

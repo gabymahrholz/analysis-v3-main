@@ -68,5 +68,96 @@
     "title": "1  Projects, R Markdown, and Data Wrangling",
     "section": "1.2 R Markdown basics",
     "text": "1.2 R Markdown basics\n\n1.2.1 Creating an R Markdown file\ndelete everything after the knitting part\nand save it in the project. All of the data files you need, should go into the same project folder too\n\n\n1.2.2 Code Chunks vs Text\n\n\n1.2.3 Knitting"
+  },
+  {
+    "objectID": "appendix-a-installing-r.html#installing-base-r",
+    "href": "appendix-a-installing-r.html#installing-base-r",
+    "title": "Appendix A — Installing R",
+    "section": "\nA.1 Installing Base R",
+    "text": "A.1 Installing Base R\nInstall base R. Choose the download link for your operating system (Linux, Mac OS X, or Windows).\nIf you have a Mac, install the latest release from the newest R-x.x.x.pkg link (or a legacy version if you have an older operating system). After you install R, you should also install XQuartz to be able to use some visualisation packages.\nIf you are installing the Windows version, choose the “base” subdirectory and click on the download link at the top of the page. After you install R, you should also install RTools; use the “recommended” version highlighted near the top of the list.\nIf you are using Linux, choose your specific operating system and follow the installation instructions."
+  },
+  {
+    "objectID": "appendix-a-installing-r.html#installing-rstudio",
+    "href": "appendix-a-installing-r.html#installing-rstudio",
+    "title": "Appendix A — Installing R",
+    "section": "\nA.2 Installing RStudio",
+    "text": "A.2 Installing RStudio\nGo to rstudio.com and download the RStudio Desktop (Open Source License) version for your operating system under the list titled Installers for Supported Platforms."
+  },
+  {
+    "objectID": "appendix-a-installing-r.html#rstudio-settings",
+    "href": "appendix-a-installing-r.html#rstudio-settings",
+    "title": "Appendix A — Installing R",
+    "section": "\nA.3 RStudio Settings",
+    "text": "A.3 RStudio Settings\nThere are a few settings you should fix immediately after updating RStudio. Go to Global Options... under the Tools menu (⌘,), and in the General tab, uncheck the box that says Restore .RData into workspace at startup. If you keep things around in your workspace, things will get messy, and unexpected things will happen. You should always start with a clear workspace. This also means that you never want to save your workspace when you exit, so set this to Never. The only thing you want to save are your scripts.\nYou may also want to change the appearance of your code. Different fonts and themes can sometimes help with visual difficulties or dyslexia.\n\n\n\n\nRStudio General and Appearance settings\n\n\n\nYou may also want to change the settings in the Code tab. Foe example, Lisa prefers two spaces instead of tabs for my code and likes to be able to see the whitespace characters. But these are all a matter of personal preference.\n\n\n\n\nRStudio Code settings"
+  },
+  {
+    "objectID": "appendix-a-installing-r.html#installing-latex",
+    "href": "appendix-a-installing-r.html#installing-latex",
+    "title": "Appendix A — Installing R",
+    "section": "\nA.4 Installing LaTeX",
+    "text": "A.4 Installing LaTeX\nYou can install the LaTeX typesetting system to produce PDF reports from RStudio. Without this additional installation, you will be able to produce reports in HTML but not PDF. This course will not require you to make PDFs. To generate PDF reports, you will additionally need to install tinytex (R-tinytex?) and run the following code:\n\ntinytex::install_tinytex()"
+  },
+  {
+    "objectID": "appendix-b-updating-packages.html#updating-r",
+    "href": "appendix-b-updating-packages.html#updating-r",
+    "title": "Appendix B — Updating R, RStudio, and packages",
+    "section": "\nB.2 Updating R",
+    "text": "B.2 Updating R\nFinally, you may also wish to update R itself. The key thing to be aware of is that when you update R, if you just download the latest version from the website, you will lose all your packages.\n\nB.2.1 Windows\nThe easiest way to update R on Windows and not cause yourself a huge headache is to use the installr package. When you use the updateR() function, a series of dialogue boxes will appear. These should be fairly self-explanatory but there is a full step-by-step guide available for how to use installr, the important bit is to select “Yes” when it asked if you would like to copy your packages from the older version of R.\n\n# Install the installr package\ninstall.packages(\"installr\")\n\n# Run the update function\ninstallR::updateR()\n\n\nB.2.2 Mac\nFor a Mac, you can use the updateR package. You’ll need to install this from GitHub. You will be asked to type your system password (that you use to log into your computer) in the console pane. If relevant, it will ask you if you want to restore your packages for a new major version.\n\n# install from github\ndevtools::install_github(\"AndreaCirilloAC/updateR\")\n\n# update your R version, you will need your system password\nupdateR::updateR()"
+  },
+  {
+    "objectID": "appendix-d-symbols.html",
+    "href": "appendix-d-symbols.html",
+    "title": "Appendix D — Symbols",
+    "section": "",
+    "text": "Symbol\npsyTeachR Term\nAlso Known As\n\n\n\n()\n(round) brackets\nparentheses\n\n\n[]\nsquare brackets\nbrackets\n\n\n{}\ncurly brackets\nsquiggly brackets\n\n\n&lt;&gt;\nchevrons\nangled brackets / guillemets\n\n\n&lt;\nless than\n\n\n\n&gt;\ngreater than\n\n\n\n&\nampersand\n“and” symbol\n\n\n#\nhash\npound / octothorpe\n\n\n/\nslash\nforward slash\n\n\n\\\nbackslash\n\n\n\n-\ndash\nhyphen / minus\n\n\n_\nunderscore\n\n\n\n*\nasterisk\nstar\n\n\n^\ncaret\npower symbol\n\n\n~\ntilde\ntwiddle / squiggle\n\n\n=\nequal sign\n\n\n\n==\ndouble equal sign\n\n\n\n.\nfull stop\nperiod / point\n\n\n!\nexclamation mark\nbang / not\n\n\n?\nquestion mark\n\n\n\n’\nsingle quote\nquote / apostrophe\n\n\n”\ndouble quote\nquote\n\n\n%&gt;%\npipe\nmagrittr pipe\n\n\n|\nvertical bar\npipe\n\n\n,\ncomma\n\n\n\n;\nsemi-colon\n\n\n\n:\ncolon\n\n\n\n@\n“at” symbol\nvarious hilarious regional terms\n\n\n…\nglossary(\"ellipsis\")\ndots\n\n\n\n\n\n\n\nImage by James Chapman/Soundimals"
+  },
+  {
+    "objectID": "appendix-x-How-to-cite-R.html",
+    "href": "appendix-x-How-to-cite-R.html",
+    "title": "Appendix E — Citing R and RStudio",
+    "section": "",
+    "text": "How to cite R and RStudio\nYou may be some way off writing a scientific report where you have to cite and reference R, however, when the time comes it is important to do so to give the people who built it (most of them for free!) credit. You should provide separate citations for R, RStudio, and the packages you use.\nTo get the citation for the version of R you are using, simply run the citation() function which will always provide you with the most recent citation.\n\ncitation()\n\nTo cite R in publications use:\n\n  R Core Team (2024). _R: A Language and Environment for Statistical\n  Computing_. R Foundation for Statistical Computing, Vienna, Austria.\n  &lt;https://www.R-project.org/&gt;.\n\nA BibTeX entry for LaTeX users is\n\n  @Manual{,\n    title = {R: A Language and Environment for Statistical Computing},\n    author = {{R Core Team}},\n    organization = {R Foundation for Statistical Computing},\n    address = {Vienna, Austria},\n    year = {2024},\n    url = {https://www.R-project.org/},\n  }\n\nWe have invested a lot of time and effort in creating R, please cite it\nwhen using it for data analysis. See also 'citation(\"pkgname\")' for\nciting R packages.\n\n\nTo generate the citation for any packages you are using, you can also use the citation() function with the name of the package you wish to cite.\n\ncitation(\"tidyverse\")\n\nTo cite package 'tidyverse' in publications use:\n\n  Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R,\n  Grolemund G, Hayes A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller\n  E, Bache SM, Müller K, Ooms J, Robinson D, Seidel DP, Spinu V,\n  Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H (2019). \"Welcome to\n  the tidyverse.\" _Journal of Open Source Software_, *4*(43), 1686.\n  doi:10.21105/joss.01686 &lt;https://doi.org/10.21105/joss.01686&gt;.\n\nA BibTeX entry for LaTeX users is\n\n  @Article{,\n    title = {Welcome to the {tidyverse}},\n    author = {Hadley Wickham and Mara Averick and Jennifer Bryan and Winston Chang and Lucy D'Agostino McGowan and Romain François and Garrett Grolemund and Alex Hayes and Lionel Henry and Jim Hester and Max Kuhn and Thomas Lin Pedersen and Evan Miller and Stephan Milton Bache and Kirill Müller and Jeroen Ooms and David Robinson and Dana Paige Seidel and Vitalie Spinu and Kohske Takahashi and Davis Vaughan and Claus Wilke and Kara Woo and Hiroaki Yutani},\n    year = {2019},\n    journal = {Journal of Open Source Software},\n    volume = {4},\n    number = {43},\n    pages = {1686},\n    doi = {10.21105/joss.01686},\n  }\n\n\nTo generate the citation for the version of RStudio you are using, you can use the RStudio.Vesion() function:\n\nRStudio.Version()\n\nFinally, here’s an example of how that might look in the write-up of your method section:\n\nAnalysis was conducted using R (R Core Team, 2020), RStudio (Rstudio Team, 2020), and the tidyverse package (Wickham, 2017).\n\nAs noted, you may not have to do this for a while, but come back to this when you do because it’s important to give the open-source community credit for their work."
+  },
+  {
+    "objectID": "appendix-y-license.html#citation",
+    "href": "appendix-y-license.html#citation",
+    "title": "License",
+    "section": "Citation",
+    "text": "Citation\nBartlett, J.E. & Toivo, W. (2024). Fundamentals of Quantitative Analysis (Version 3.0). https://github.com/BartlettJE/quant-fun-v3"
+  },
+  {
+    "objectID": "appendix-c-exporting-server.html",
+    "href": "appendix-c-exporting-server.html",
+    "title": "Appendix C — Exporting files from the server",
+    "section": "",
+    "text": "If you are using the R server, you may need to export files to share them with other people or submit them for your assignments.\n\nFirst, make sure you have saved any changes you have made to the file. Do this by clicking “File - Save”, Ctrl + S, or clicking the save icon. If all your changes have been saved, the save icon will be greyed out. If there are new unsaved changes, you will be able to click the icon.\nSelect the file you and to download in the files pane (bottom right) by ticking the box next to it, then click “More - Export” and save the file to your computer.\nIf you do not have R installed, DO NOT try to open it on your computer. If you do, it will open in Word, Endnote or similar, and it may corrupt your code. Only open the file if you have R and R Studio installed.\nIf you want to double check that this file is definitely the right one to submit for an assignment, you can re-upload it to the server and open it again to make sure it has the answers in it."
+  },
+  {
+    "objectID": "appendix-b-updating-packages.html#updating-rstudio",
+    "href": "appendix-b-updating-packages.html#updating-rstudio",
+    "title": "Appendix B — Updating R, RStudio, and packages",
+    "section": "\nB.1 Updating RStudio",
+    "text": "B.1 Updating RStudio\nRStudio is the easiest component to update. Typically, updates to RStudio won’t affect your code, instead they add in new features, like spell-check or upgrades to what RStudio can do. There’s usually very little downside to updating RStudio and it’s easy to do.\nClick Help &gt; Check for updates\n\n\n\n\nUpdating RStudio\n\n\n\nIf an update is available, it will prompt you to download it and you can install it as usual."
+  },
+  {
+    "objectID": "appendix-b-updating-packages.html#updating-packages",
+    "href": "appendix-b-updating-packages.html#updating-packages",
+    "title": "Appendix B — Updating R, RStudio, and packages",
+    "section": "\nB.3 Updating packages",
+    "text": "B.3 Updating packages\nPackage developers will occasionally release updates to their packages. This is typically to add in new functions to the package, or to fix or amend existing functions. Be aware that some package updates may cause your previous code to stop working. This does not tend to happen with minor updates to packages, but occasionally with major updates, you can have serious issues if the developer has made fundamental changes to how the code works. For this reason, we recommend updating all your packages once at the beginning of each academic year (or semester) - don’t do it before an assessment or deadline just in case!\nTo update an individual package, the easiest way is to use the install.packages() function, as this always installs the most recent version of the package.\n\ninstall.packages(\"tidyverse\")\n\nTo update multiple packages, or indeed all packages, RStudio provides helpful tools. Click Tools &gt; Check for Package Updates. A dialogue box will appear and you can select the packages you wish to update. Be aware that if you select all packages, this may take some time and you will be unable to use R whilst the process completes.\n\n\n\n\nUpdating packages with RStudio"
+  },
+  {
+    "objectID": "appendix-b-updating-packages.html#sec-package-install-troubleshooting",
+    "href": "appendix-b-updating-packages.html#sec-package-install-troubleshooting",
+    "title": "Appendix B — Updating R, RStudio, and packages",
+    "section": "\nB.4 Troubleshooting",
+    "text": "B.4 Troubleshooting\nOccasionally, you might have a few problem packages that seemingly refuse to update. For me, rlang and vctrs cause me no end of trouble. These aren’t packages that you will likely every explicitly load, but they’re required beneath the surface for R to do things like knit your Markdown files etc.\n\nB.4.1 Non-zero exit status\nIf you try to update a package and get an error message that says something like Warning in install.packages : installation of package ‘vctrs’ had non-zero exit status or perhaps Error in loadNamespace(i, c(lib.loc, .libPaths()), versionCheck = vI[[i]]) :  namespace 'rlang' 0.4.9 is being loaded, but &gt;= 0.4.10 is required one solution I have found is to manually uninstall the package, restart R, and then install the package new, rather than trying to update an existing version. The installr package also has a useful function for uninstalling packages.\n\n# Load installr\nlibrary(installr)\n\n# Uninstall the problem package\nuninstall.packages(\"package_name\")\n\n# Then restart R using session - restart R\n# Then install the package fresh\n\ninstall.packages(\"package\")\n\n\nB.4.2 Cannot open file\nYou may get the following error after trying to install any packages at all:\n\nError in install packages : Cannot open file ‘C:/…..’: Permission denied\n\nThis usually indicates a permissions problem with writing to the default library (the folder that packages are kept in). Sometimes this means that you need to install R and RStudio as administrator or run it as administrator.\nOne other fix may be to change the library location using the following code (check in “C:/Program Files/R” for what version you should have instead of “R-3.5.2”):\n\n# change the library path\n.libPaths(c(\"C:/Program Files/R/R-3.5.2/library\"))\n\nIf that works and you can install packages, set this library path permanently:\n\nInstall the usethis package\nRun usethis::edit_r_profile() in the console; it will open up a blank file\nPaste into the file (your version of): .libPaths(c(\"C:/Program Files/R/R-3.5.2/library\"))\n\nSave and close the file\nRestart R for changes to take effect\n\nThe code in your .Rprofile will now run every time you start up R.\nAs always, if you’re having issues, please ask on Teams or come to office hours."
+  },
+  {
+    "objectID": "appendix-y-license.html",
+    "href": "appendix-y-license.html",
+    "title": "License",
+    "section": "",
+    "text": "This book is licensed under Creative Commons Attribution-ShareAlike 4.0 International License (CC-BY-SA 4.0). You are free to share and adapt this book. You must give appropriate credit, provide a link to the license, and indicate if changes were made. If you adapt the material, you must distribute your contributions under the same license as the original."
   }
 ]
