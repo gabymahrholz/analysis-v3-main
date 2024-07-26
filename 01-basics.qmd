@@ -1,13 +1,24 @@
 # Projects, R Markdown, and Data Wrangling
 
+## Intended Learning Outcomes {.unnumbered}
+
+By the end of this chapter you should be able to:
+
+-   Re-familiarise yourself with setting up projects
+-   Re-familiarise yourself with RMarkdown documents
+-   Recap and apply data wrangling procedures to analyse data
+
+## Individual walkthrough {.unnumbered}
+
 ## Creating a new project
 
 ### own computer
+
 Part 1 is how to set it up on your computer (with R and R Studio installed)
 
 ### Server
-Part 2 is a link to book 1 if they are still working from the Server
 
+Part 2 is a link to book 1 if they are still working from the Server --\> https://psyteachr.github.io/data-skills-v2/sec-intro.html?q=RMark#new-project
 
 ## R Markdown basics
 
@@ -19,7 +30,75 @@ and save it in the project. All of the data files you need, should go into the s
 
 ### Code Chunks vs Text
 
+### Knitting
 
-### Knitting 
+## Data Wrangling
 
+The basic ones are the **Wickham 6** that you've encountered already last year
 
+table of the Wickham 6 refer them back to the different chapters where they encountered it in level 1
+
+| Function    | Description                                                | Chapter                        |
+|:------------------|:---------------------------------|:------------------|
+| select()    | Include or exclude certain variables (columns)             | add links to final L1 chapters |
+| filter()    | Include or exclude certain observations/data (rows)        |                                |
+| mutate()    | Creates new variables (columns)                            |                                |
+| arrange()   | Changes the order of observations (rows)                   |                                |
+| group_by()  | Organises the observations (rows) into groups              |                                |
+| summarise() | Create summary variables for groups of observations (rows) |                                |
+
+### Brief recap of the Wickham 6
+
+#### select
+
+Massive dataframes use a lot of computing power - to reduce that, it would be worth focussing on the columns you need
+
+selecting variables - you can rename them too if you don't like the column name as is
+
+if you wanna rename something at a later stage, use rename. Works in the same manner as select as in new name = old name. --\> This could be in an information box
+
+deselecting deselecting multiple variables
+
+#### filter
+
+text - one condition vs more than one condition numbers - smaller/ larger
+
+#### arrange
+
+ascending, descending - NAs will always listed at the end regardless
+
+#### mutate
+
+Allison's drawing
+
+#### group_by & summarise
+
+## Other useful functions
+
+### count
+
+### joining things together from separate datasets
+
+**inner_join**
+
+**full_join**
+
+Use the 2 chopped up tables earlier and merge them. They have no values overlapping, so it's difficult
+
+## Tidy data
+
+### pivoting data
+
+pivot_wider and pivot_longer
+
+### recode
+
+### case_when
+
+## Pair-coding in the lab {.unnumbered}
+
+## Test your knowledge and challenge yourself {.unnumbered}
+
+or for the Wickham 6 part, we could just go here is some data, lets apply them all.
+
+Activity 1: selecting specific columns First of all, we want to select the relevant columns

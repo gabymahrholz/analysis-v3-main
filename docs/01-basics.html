@@ -207,7 +207,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#creating-a-new-project" id="toc-creating-a-new-project" class="nav-link active" data-scroll-target="#creating-a-new-project"><span class="header-section-number">1.1</span> Creating a new project</a>
+  <li><a href="#intended-learning-outcomes" id="toc-intended-learning-outcomes" class="nav-link active" data-scroll-target="#intended-learning-outcomes">Intended Learning Outcomes</a></li>
+  <li><a href="#individual-walkthrough" id="toc-individual-walkthrough" class="nav-link" data-scroll-target="#individual-walkthrough">Individual walkthrough</a></li>
+  <li><a href="#creating-a-new-project" id="toc-creating-a-new-project" class="nav-link" data-scroll-target="#creating-a-new-project"><span class="header-section-number">1.1</span> Creating a new project</a>
   <ul class="collapse">
   <li><a href="#own-computer" id="toc-own-computer" class="nav-link" data-scroll-target="#own-computer"><span class="header-section-number">1.1.1</span> own computer</a></li>
   <li><a href="#server" id="toc-server" class="nav-link" data-scroll-target="#server"><span class="header-section-number">1.1.2</span> Server</a></li>
@@ -218,6 +220,23 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#code-chunks-vs-text" id="toc-code-chunks-vs-text" class="nav-link" data-scroll-target="#code-chunks-vs-text"><span class="header-section-number">1.2.2</span> Code Chunks vs Text</a></li>
   <li><a href="#knitting" id="toc-knitting" class="nav-link" data-scroll-target="#knitting"><span class="header-section-number">1.2.3</span> Knitting</a></li>
   </ul></li>
+  <li><a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling"><span class="header-section-number">1.3</span> Data Wrangling</a>
+  <ul class="collapse">
+  <li><a href="#brief-recap-of-the-wickham-6" id="toc-brief-recap-of-the-wickham-6" class="nav-link" data-scroll-target="#brief-recap-of-the-wickham-6"><span class="header-section-number">1.3.1</span> Brief recap of the Wickham 6</a></li>
+  </ul></li>
+  <li><a href="#other-useful-functions" id="toc-other-useful-functions" class="nav-link" data-scroll-target="#other-useful-functions"><span class="header-section-number">1.4</span> Other useful functions</a>
+  <ul class="collapse">
+  <li><a href="#count" id="toc-count" class="nav-link" data-scroll-target="#count"><span class="header-section-number">1.4.1</span> count</a></li>
+  <li><a href="#joining-things-together-from-separate-datasets" id="toc-joining-things-together-from-separate-datasets" class="nav-link" data-scroll-target="#joining-things-together-from-separate-datasets"><span class="header-section-number">1.4.2</span> joining things together from separate datasets</a></li>
+  </ul></li>
+  <li><a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data"><span class="header-section-number">1.5</span> Tidy data</a>
+  <ul class="collapse">
+  <li><a href="#pivoting-data" id="toc-pivoting-data" class="nav-link" data-scroll-target="#pivoting-data"><span class="header-section-number">1.5.1</span> pivoting data</a></li>
+  <li><a href="#recode" id="toc-recode" class="nav-link" data-scroll-target="#recode"><span class="header-section-number">1.5.2</span> recode</a></li>
+  <li><a href="#case_when" id="toc-case_when" class="nav-link" data-scroll-target="#case_when"><span class="header-section-number">1.5.3</span> case_when</a></li>
+  </ul></li>
+  <li><a href="#pair-coding-in-the-lab" id="toc-pair-coding-in-the-lab" class="nav-link" data-scroll-target="#pair-coding-in-the-lab">Pair-coding in the lab</a></li>
+  <li><a href="#test-your-knowledge-and-challenge-yourself" id="toc-test-your-knowledge-and-challenge-yourself" class="nav-link" data-scroll-target="#test-your-knowledge-and-challenge-yourself">Test your knowledge and challenge yourself</a></li>
   </ul>
 </nav>
     </div>
@@ -241,6 +260,18 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="intended-learning-outcomes" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="intended-learning-outcomes">Intended Learning Outcomes</h2>
+<p>By the end of this chapter you should be able to:</p>
+<ul>
+<li>Re-familiarise yourself with setting up projects</li>
+<li>Re-familiarise yourself with RMarkdown documents</li>
+<li>Recap and apply data wrangling procedures to analyse data</li>
+</ul>
+</section>
+<section id="individual-walkthrough" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="individual-walkthrough">Individual walkthrough</h2>
+</section>
 <section id="creating-a-new-project" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="creating-a-new-project"><span class="header-section-number">1.1</span> Creating a new project</h2>
 <section id="own-computer" class="level3" data-number="1.1.1">
@@ -249,7 +280,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="server" class="level3" data-number="1.1.2">
 <h3 data-number="1.1.2" class="anchored" data-anchor-id="server"><span class="header-section-number">1.1.2</span> Server</h3>
-<p>Part 2 is a link to book 1 if they are still working from the Server</p>
+<p>Part 2 is a link to book 1 if they are still working from the Server –&gt; https://psyteachr.github.io/data-skills-v2/sec-intro.html?q=RMark#new-project</p>
 </section>
 </section>
 <section id="r-markdown-basics" class="level2" data-number="1.2">
@@ -264,9 +295,118 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="knitting" class="level3" data-number="1.2.3">
 <h3 data-number="1.2.3" class="anchored" data-anchor-id="knitting"><span class="header-section-number">1.2.3</span> Knitting</h3>
-
-
 </section>
+</section>
+<section id="data-wrangling" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="data-wrangling"><span class="header-section-number">1.3</span> Data Wrangling</h2>
+<p>The basic ones are the <strong>Wickham 6</strong> that you’ve encountered already last year</p>
+<p>table of the Wickham 6 refer them back to the different chapters where they encountered it in level 1</p>
+<table class="table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 47%">
+<col style="width: 26%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Function</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Chapter</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">select()</td>
+<td style="text-align: left;">Include or exclude certain variables (columns)</td>
+<td style="text-align: left;">add links to final L1 chapters</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">filter()</td>
+<td style="text-align: left;">Include or exclude certain observations/data (rows)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">mutate()</td>
+<td style="text-align: left;">Creates new variables (columns)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">arrange()</td>
+<td style="text-align: left;">Changes the order of observations (rows)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">group_by()</td>
+<td style="text-align: left;">Organises the observations (rows) into groups</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">summarise()</td>
+<td style="text-align: left;">Create summary variables for groups of observations (rows)</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<section id="brief-recap-of-the-wickham-6" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="brief-recap-of-the-wickham-6"><span class="header-section-number">1.3.1</span> Brief recap of the Wickham 6</h3>
+<section id="select" class="level4" data-number="1.3.1.1">
+<h4 data-number="1.3.1.1" class="anchored" data-anchor-id="select"><span class="header-section-number">1.3.1.1</span> select</h4>
+<p>Massive dataframes use a lot of computing power - to reduce that, it would be worth focussing on the columns you need</p>
+<p>selecting variables - you can rename them too if you don’t like the column name as is</p>
+<p>if you wanna rename something at a later stage, use rename. Works in the same manner as select as in new name = old name. –&gt; This could be in an information box</p>
+<p>deselecting deselecting multiple variables</p>
+</section>
+<section id="filter" class="level4" data-number="1.3.1.2">
+<h4 data-number="1.3.1.2" class="anchored" data-anchor-id="filter"><span class="header-section-number">1.3.1.2</span> filter</h4>
+<p>text - one condition vs more than one condition numbers - smaller/ larger</p>
+</section>
+<section id="arrange" class="level4" data-number="1.3.1.3">
+<h4 data-number="1.3.1.3" class="anchored" data-anchor-id="arrange"><span class="header-section-number">1.3.1.3</span> arrange</h4>
+<p>ascending, descending - NAs will always listed at the end regardless</p>
+</section>
+<section id="mutate" class="level4" data-number="1.3.1.4">
+<h4 data-number="1.3.1.4" class="anchored" data-anchor-id="mutate"><span class="header-section-number">1.3.1.4</span> mutate</h4>
+<p>Allison’s drawing</p>
+</section>
+<section id="group_by-summarise" class="level4" data-number="1.3.1.5">
+<h4 data-number="1.3.1.5" class="anchored" data-anchor-id="group_by-summarise"><span class="header-section-number">1.3.1.5</span> group_by &amp; summarise</h4>
+</section>
+</section>
+</section>
+<section id="other-useful-functions" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="other-useful-functions"><span class="header-section-number">1.4</span> Other useful functions</h2>
+<section id="count" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="count"><span class="header-section-number">1.4.1</span> count</h3>
+</section>
+<section id="joining-things-together-from-separate-datasets" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="joining-things-together-from-separate-datasets"><span class="header-section-number">1.4.2</span> joining things together from separate datasets</h3>
+<p><strong>inner_join</strong></p>
+<p><strong>full_join</strong></p>
+<p>Use the 2 chopped up tables earlier and merge them. They have no values overlapping, so it’s difficult</p>
+</section>
+</section>
+<section id="tidy-data" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="tidy-data"><span class="header-section-number">1.5</span> Tidy data</h2>
+<section id="pivoting-data" class="level3" data-number="1.5.1">
+<h3 data-number="1.5.1" class="anchored" data-anchor-id="pivoting-data"><span class="header-section-number">1.5.1</span> pivoting data</h3>
+<p>pivot_wider and pivot_longer</p>
+</section>
+<section id="recode" class="level3" data-number="1.5.2">
+<h3 data-number="1.5.2" class="anchored" data-anchor-id="recode"><span class="header-section-number">1.5.2</span> recode</h3>
+</section>
+<section id="case_when" class="level3" data-number="1.5.3">
+<h3 data-number="1.5.3" class="anchored" data-anchor-id="case_when"><span class="header-section-number">1.5.3</span> case_when</h3>
+</section>
+</section>
+<section id="pair-coding-in-the-lab" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="pair-coding-in-the-lab">Pair-coding in the lab</h2>
+</section>
+<section id="test-your-knowledge-and-challenge-yourself" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="test-your-knowledge-and-challenge-yourself">Test your knowledge and challenge yourself</h2>
+<p>or for the Wickham 6 part, we could just go here is some data, lets apply them all.</p>
+<p>Activity 1: selecting specific columns First of all, we want to select the relevant columns</p>
+
+
 </section>
 
 </main> <!-- /main -->
