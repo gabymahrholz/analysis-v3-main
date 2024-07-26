@@ -8,7 +8,7 @@ By the end of this chapter you should be able to:
 -   Re-familiarise yourself with RMarkdown documents
 -   Recap and apply data wrangling procedures to analyse data
 
-## Individual walkthrough {.unnumbered}
+## [Individual Walkthrough]{style="color: #EBA347; text-transform: uppercase;"} {.unnumbered}
 
 ## Creating a new project
 
@@ -39,7 +39,7 @@ The basic ones are the **Wickham 6** that you've encountered already last year
 table of the Wickham 6 refer them back to the different chapters where they encountered it in level 1
 
 | Function    | Description                                                | Chapter                        |
-|:------------------|:---------------------------------|:------------------|
+|:-----------------|:----------------------------------|:------------------|
 | select()    | Include or exclude certain variables (columns)             | add links to final L1 chapters |
 | filter()    | Include or exclude certain observations/data (rows)        |                                |
 | mutate()    | Creates new variables (columns)                            |                                |
@@ -95,9 +95,9 @@ pivot_wider and pivot_longer
 
 ### case_when
 
-## Pair-coding in the lab {.unnumbered}
+## [Pair-coding in the lab]{style="color: #EBA347; text-transform: uppercase;"} {.unnumbered}
 
-## Test your knowledge and challenge yourself {.unnumbered}
+## [Test your knowledge and challenge yourself]{style="color: #EBA347; text-transform: uppercase;"} {.unnumbered}
 
 or for the Wickham 6 part, we could just go here is some data, lets apply them all.
 

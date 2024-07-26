@@ -18,7 +18,6 @@ version <- R.version.string
 
 **R Version:** This book has been written with `r version`.
 
-
 **Randomising Seed:** In chapters that use some level of randomisation, where we have remembered, the seed is set as 1409.
 
 <!-- **Cite as:** McAleer, P., Kuepper-Tetzel, C. E., & Paterson, H. M. (2021, July 14). Analysis (Version 2). Zenodo. <a href = "http://doi.org/10.5281/zenodo.3822464" target = "_blank">http://doi.org/10.5281/zenodo.3822464</a> -->
