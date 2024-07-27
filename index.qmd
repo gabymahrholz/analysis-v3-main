@@ -14,9 +14,10 @@
 
 ```{r, echo=FALSE}
 version <- R.version.string
+nickname <- R.version$nickname
 ```
 
-**R Version:** This book has been written with `r version`.
+**R Version:** This book has been written with `r version` (`r nickname`) and RStudio version 2023.12.1-402 "Ocean Storm".
 
 **Randomising Seed:** In chapters that use some level of randomisation, where we have remembered, the seed is set as 1409.
 

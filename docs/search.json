@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Analysis",
     "section": "",
-    "text": "Overview\nBook Name: Analysis\nSummary: Materials for the 2nd year undergraduate programme at the University of Glasgow, School of Psychology & Neuroscience.\nAuthors: CKT & GM. This version of the book is adapted from a previous version written by Phil McAleer, Carolina E. Kuepper-Tetzel, & Helena M. Paterson\nAim: This course covers data skills such as R Markdown, data wrangling with tidyverse, and data visualisation with ggplot2. It also introduces statistical concepts such as probabilities, Null Hypothesis Significance Testing (NHST), alpha, power, effect size, and sample size. The most common statistical analyses are covered in this book such as t-test, correlations, ANOVAs, and regressions.\nNote: This book is currently being updated which means that chapters are being published on a rolling basis.\nContact: This book is a living document and will be regularly checked and updated for improvements. Should you have any issues using the book or queries, please contact Carolina E. Kuepper-Tetzel.\nR Version: This book has been written with R version 4.4.1 (2024-06-14 ucrt).\nRandomising Seed: In chapters that use some level of randomisation, where we have remembered, the seed is set as 1409.\n\n\n In this book, we will help you learn a whole host of skills and methods based around being a psychologist. If you have completed the Data Skills book in the PsyTeachR series (https://psyteachr.github.io/) the first few chapters will be familiar to you, with some additions. This is deliberate in order to refresh your knowledge and skills before moving on to more advanced topics. First, we will remind you how to work with R Markdown, before recapping the main functions we use for visualisation and data wrangling. From there we will build your understanding of probability before going on to using all these refreshed skills to analyse a variety of different experiments. The main idea of this book is being reproducible in our data analysis approach.\nThis book requires a higher level of self-directed learning than the first book; part of learning is trying things out yourself and recognising where you need help. If you get stuck, google the problem or what you would like to do and see if that helps.\nWhen working through this book remember that this is not about learning a software. We do not teach R independent of statistical knowledge and content. Rather, we teach data and analytical skills and knowledge within R. The goal is to continuously improve your data analysis skills!\nYou can do this!"
+    "text": "Overview\nBook Name: Analysis\nSummary: Materials for the 2nd year undergraduate programme at the University of Glasgow, School of Psychology & Neuroscience.\nAuthors: CKT & GM. This version of the book is adapted from a previous version written by Phil McAleer, Carolina E. Kuepper-Tetzel, & Helena M. Paterson\nAim: This course covers data skills such as R Markdown, data wrangling with tidyverse, and data visualisation with ggplot2. It also introduces statistical concepts such as probabilities, Null Hypothesis Significance Testing (NHST), alpha, power, effect size, and sample size. The most common statistical analyses are covered in this book such as t-test, correlations, ANOVAs, and regressions.\nNote: This book is currently being updated which means that chapters are being published on a rolling basis.\nContact: This book is a living document and will be regularly checked and updated for improvements. Should you have any issues using the book or queries, please contact Carolina E. Kuepper-Tetzel.\nR Version: This book has been written with R version 4.4.1 (2024-06-14 ucrt) (Race for Your Life) and RStudio version 2023.12.1-402 “Ocean Storm”.\nRandomising Seed: In chapters that use some level of randomisation, where we have remembered, the seed is set as 1409.\n\n\n In this book, we will help you learn a whole host of skills and methods based around being a psychologist. If you have completed the Data Skills book in the PsyTeachR series (https://psyteachr.github.io/) the first few chapters will be familiar to you, with some additions. This is deliberate in order to refresh your knowledge and skills before moving on to more advanced topics. First, we will remind you how to work with R Markdown, before recapping the main functions we use for visualisation and data wrangling. From there we will build your understanding of probability before going on to using all these refreshed skills to analyse a variety of different experiments. The main idea of this book is being reproducible in our data analysis approach.\nThis book requires a higher level of self-directed learning than the first book; part of learning is trying things out yourself and recognising where you need help. If you get stuck, google the problem or what you would like to do and see if that helps.\nWhen working through this book remember that this is not about learning a software. We do not teach R independent of statistical knowledge and content. Rather, we teach data and analytical skills and knowledge within R. The goal is to continuously improve your data analysis skills!\nYou can do this!"
   },
   {
     "objectID": "01-basics.html#intended-learning-outcomes",
@@ -21,39 +21,46 @@
     "text": "Individual Walkthrough"
   },
   {
-    "objectID": "01-basics.html#creating-a-new-project",
-    "href": "01-basics.html#creating-a-new-project",
+    "objectID": "01-basics.html#r-and-r-studio",
+    "href": "01-basics.html#r-and-r-studio",
     "title": "1  Projects, R Markdown, and Data Wrangling",
-    "section": "1.1 Creating a new project",
-    "text": "1.1 Creating a new project\n\n1.1.1 own computer\nPart 1 is how to set it up on your computer (with R and R Studio installed)\n\n\n1.1.2 Server\nPart 2 is a link to book 1 if they are still working from the Server –&gt; https://psyteachr.github.io/data-skills-v2/sec-intro.html?q=RMark#new-project"
+    "section": "1.1 R and R Studio",
+    "text": "1.1 R and R Studio\nRemember, R is a programming language that you will write code in and RStudio is an Integrated Development Environment (IDE) which makes working with R easier as it’s more user friendly. You need both components for this course.\nIf this is not ringing any bells yet, have a quick browse through the materials from year 1to refresh yopur memory.\n\n1.1.1 R server\nR and RStudio are already installed on the R server. We recommend using the server if your computer does not allow installation (e.g., a Chromebook), or if you have problems with installing R on your computer. Otherwise, you should consider installing R and RStudio on your own computer.\nYou will find the link to the server on Moodle.\n\n\n1.1.2 Installing R and RStudio on your computer\nAppendix A has detailed instructions on how to install R and RStudio on your own computer. There are also some links to a series of walkthroughs for installing R on different types of computers/ operating systems.\nIf you had R and RStudio installed on your own computer last year, we recommend updating to the latest versions. In fact, it might be good to do that at the start of each academic year. Detailed guidance can be found in Appendix B.\nOnce you have installed R and RStudio, come back to this chapter."
+  },
+  {
+    "objectID": "01-basics.html#activity-1-creating-a-new-project",
+    "href": "01-basics.html#activity-1-creating-a-new-project",
+    "title": "1  Projects, R Markdown, and Data Wrangling",
+    "section": "1.2 Activity 1: Creating a new project",
+    "text": "1.2 Activity 1: Creating a new project\nIt’s important that we create projects every time we start a new project. It makes life easier in terms of folder locations and working directories, basically keeping all the data and the RMarkdown documents in one location.\nLast year, you learnt how to create projects on the server, so you already know the steps. If cannot quite recall how that was done, go back to the Level 1 materials.\nNow we are moving on to setting up projects on the computer."
   },
   {
     "objectID": "01-basics.html#r-markdown-basics",
     "href": "01-basics.html#r-markdown-basics",
     "title": "1  Projects, R Markdown, and Data Wrangling",
-    "section": "1.2 R Markdown basics",
-    "text": "1.2 R Markdown basics\n\n1.2.1 Creating an R Markdown file\ndelete everything after the knitting part from line 12\nand save it in the project. All of the data files you need, should go into the same project folder too\n\n\n1.2.2 Code Chunks vs Text\n\n\n1.2.3 Knitting"
+    "section": "1.3 R Markdown basics",
+    "text": "1.3 R Markdown basics\n\n1.3.1 Creating an R Markdown file\ndelete everything after the knitting part from line 12\nand save it in the project. All of the data files you need, should go into the same project folder too\n\n\n1.3.2 Code Chunks vs Text\n\n\n1.3.3 Knitting"
   },
   {
     "objectID": "01-basics.html#data-wrangling",
     "href": "01-basics.html#data-wrangling",
     "title": "1  Projects, R Markdown, and Data Wrangling",
-    "section": "1.3 Data Wrangling",
-    "text": "1.3 Data Wrangling\nThe basic ones are the Wickham 6 that you’ve encountered already last year\ntable of the Wickham 6 refer them back to the different chapters where they encountered it in level 1\n\n\n\n\n\n\n\n\nFunction\nDescription\nChapter\n\n\n\n\nselect()\nInclude or exclude certain variables (columns)\nadd links to final L1 chapters\n\n\nfilter()\nInclude or exclude certain observations/data (rows)\n\n\n\nmutate()\nCreates new variables (columns)\n\n\n\narrange()\nChanges the order of observations (rows)\n\n\n\ngroup_by()\nOrganises the observations (rows) into groups\n\n\n\nsummarise()\nCreate summary variables for groups of observations (rows)\n\n\n\n\n\n1.3.1 Brief recap of the Wickham 6\n\n1.3.1.1 select\nMassive dataframes use a lot of computing power - to reduce that, it would be worth focussing on the columns you need\nselecting variables - you can rename them too if you don’t like the column name as is\nif you wanna rename something at a later stage, use rename. Works in the same manner as select as in new name = old name. –&gt; This could be in an information box\ndeselecting deselecting multiple variables\n\n\n1.3.1.2 filter\ntext - one condition vs more than one condition numbers - smaller/ larger\n\n\n1.3.1.3 arrange\nascending, descending - NAs will always listed at the end regardless\n\n\n1.3.1.4 mutate\nAllison’s drawing\n\n\n1.3.1.5 group_by & summarise"
+    "section": "1.4 Data Wrangling",
+    "text": "1.4 Data Wrangling\nThe basic ones are the Wickham 6 that you’ve encountered already last year\ntable of the Wickham 6 refer them back to the different chapters where they encountered it in level 1\n\n\n\n\n\n\n\n\nFunction\nDescription\nChapter\n\n\n\n\nselect()\nInclude or exclude certain variables (columns)\nadd links to final L1 chapters\n\n\nfilter()\nInclude or exclude certain observations/data (rows)\n\n\n\nmutate()\nCreates new variables (columns)\n\n\n\narrange()\nChanges the order of observations (rows)\n\n\n\ngroup_by()\nOrganises the observations (rows) into groups\n\n\n\nsummarise()\nCreate summary variables for groups of observations (rows)\n\n\n\n\n\n1.4.1 Brief recap of the Wickham 6\n\n1.4.1.1 select\nMassive dataframes use a lot of computing power - to reduce that, it would be worth focussing on the columns you need\nselecting variables - you can rename them too if you don’t like the column name as is\nif you wanna rename something at a later stage, use rename. Works in the same manner as select as in new name = old name. –&gt; This could be in an information box\ndeselecting deselecting multiple variables\n\n\n1.4.1.2 filter\ntext - one condition vs more than one condition numbers - smaller/ larger\n\n\n1.4.1.3 arrange\nascending, descending - NAs will always listed at the end regardless\n\n\n1.4.1.4 mutate\nAllison’s drawing\n\n\n1.4.1.5 group_by & summarise"
   },
   {
     "objectID": "01-basics.html#other-useful-functions",
     "href": "01-basics.html#other-useful-functions",
     "title": "1  Projects, R Markdown, and Data Wrangling",
-    "section": "1.4 Other useful functions",
-    "text": "1.4 Other useful functions\n\n1.4.1 count\n\n\n1.4.2 joining things together from separate datasets\ninner_join\nfull_join\nUse the 2 chopped up tables earlier and merge them. They have no values overlapping, so it’s difficult"
+    "section": "1.5 Other useful functions",
+    "text": "1.5 Other useful functions\n\n1.5.1 count\n\n\n1.5.2 joining things together from separate datasets\ninner_join\nfull_join\nUse the 2 chopped up tables earlier and merge them. They have no values overlapping, so it’s difficult"
   },
   {
     "objectID": "01-basics.html#tidy-data",
     "href": "01-basics.html#tidy-data",
     "title": "1  Projects, R Markdown, and Data Wrangling",
-    "section": "1.5 Tidy data",
-    "text": "1.5 Tidy data\n\n1.5.1 pivoting data\npivot_wider and pivot_longer\n\n\n1.5.2 recode\n\n\n1.5.3 case_when"
+    "section": "1.6 Tidy data",
+    "text": "1.6 Tidy data\n\n1.6.1 pivoting data\npivot_wider and pivot_longer\n\n\n1.6.2 recode\n\n\n1.6.3 case_when\nAllison’s drawing"
   },
   {
     "objectID": "01-basics.html#pair-coding-in-the-lab",
@@ -81,14 +88,14 @@
     "href": "appendix-a-installing-r.html#installing-rstudio",
     "title": "Appendix A — Installing R",
     "section": "\nA.2 Installing RStudio",
-    "text": "A.2 Installing RStudio\nGo to rstudio.com and download the RStudio Desktop (Open Source License) version for your operating system under the list titled Installers for Supported Platforms."
+    "text": "A.2 Installing RStudio\nGo to posit.co and download the RStudio Desktop (Open Source License) version for your operating system under the list titled Installers for Supported Platforms."
   },
   {
     "objectID": "appendix-a-installing-r.html#rstudio-settings",
     "href": "appendix-a-installing-r.html#rstudio-settings",
     "title": "Appendix A — Installing R",
     "section": "\nA.3 RStudio Settings",
-    "text": "A.3 RStudio Settings\nThere are a few settings you should fix immediately after updating RStudio. Go to Global Options... under the Tools menu (⌘,), and in the General tab, uncheck the box that says Restore .RData into workspace at startup. If you keep things around in your workspace, things will get messy, and unexpected things will happen. You should always start with a clear workspace. This also means that you never want to save your workspace when you exit, so set this to Never. The only thing you want to save are your scripts.\nYou may also want to change the appearance of your code. Different fonts and themes can sometimes help with visual difficulties or dyslexia.\n\n\n\n\nRStudio General and Appearance settings\n\n\n\nYou may also want to change the settings in the Code tab. Foe example, Lisa prefers two spaces instead of tabs for my code and likes to be able to see the whitespace characters. But these are all a matter of personal preference.\n\n\n\n\nRStudio Code settings"
+    "text": "A.3 RStudio Settings\nThere are a few settings you should fix immediately after updating RStudio. Go to Global Options... under the Tools menu (⌘,), and in the General tab, uncheck the box that says Restore .RData into workspace at startup. If you keep things around in your workspace, things will get messy, and unexpected things will happen. You should always start with a clear workspace. This also means that you never want to save your workspace when you exit, so set this to Never. The only thing you want to save are your scripts.\nYou may also want to change the appearance of your code. Different fonts and themes can sometimes help with visual difficulties or dyslexia.\n\n\n\n\nRStudio General and Appearance settings\n\n\n\nYou may also want to change the settings in the Code tab. For example, Lisa prefers two spaces instead of tabs for my code and likes to be able to see the whitespace characters. But these are all a matter of personal preference.\n\n\n\n\nRStudio Code settings"
   },
   {
     "objectID": "appendix-b-updating-packages.html#updating-rstudio",

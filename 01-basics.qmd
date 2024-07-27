@@ -10,15 +10,37 @@ By the end of this chapter you should be able to:
 
 ## [Individual Walkthrough]{style="color: #EBA347; text-transform: uppercase;"} {.unnumbered}
 
-## Creating a new project
+## R and R Studio
 
-### own computer
+Remember, R is a programming language that you will write code in and RStudio is an Integrated Development Environment (IDE) which makes working with R easier as it's more user friendly. You need both components for this course. 
 
-Part 1 is how to set it up on your computer (with R and R Studio installed)
+If this is not ringing any bells yet, have a quick browse through the [materials from year 1](https://psyteachr.github.io/data-skills-v2/sec-intro.html?q=RMark#sec-intro-r){target="_blank"}to refresh yopur memory.
 
-### Server
+### R server
 
-Part 2 is a link to book 1 if they are still working from the Server --\> https://psyteachr.github.io/data-skills-v2/sec-intro.html?q=RMark#new-project
+R and RStudio are already installed on the *R server*. We recommend using the server if your computer does not allow installation (e.g., a Chromebook), or if you have problems with installing R on your computer. Otherwise, you should consider installing R and RStudio on your own computer.
+
+You will find the link to the server on Moodle.
+
+### Installing R and RStudio on your computer
+
+@sec-installing-r has detailed instructions on how to install R and RStudio on your own computer. There are also some links to a series of walkthroughs for installing R on different types of computers/ operating systems.
+
+If you had R and RStudio installed on your own computer last year, we recommend updating to the latest versions. In fact, it might be good to do that at the start of each academic year. Detailed guidance can be found in @sec-updating-r.
+
+Once you have installed R and RStudio, come back to this chapter. 
+
+
+## Activity 1: Creating a new project
+
+It's important that we create projects every time we start a new project. It makes life easier in terms of folder locations and working directories, basically keeping all the data and the RMarkdown documents in one location.
+
+Last year, you learnt how to create projects on the server, so you already know the steps. If cannot quite recall how that was done, go back to the [Level 1 materials](https://psyteachr.github.io/data-skills-v2/sec-intro.html?q=RMark#new-project){target="_blank"}.
+
+
+Now we are moving on to setting up projects on the computer.
+
+
 
 ## R Markdown basics
 
@@ -94,6 +116,8 @@ pivot_wider and pivot_longer
 ### recode
 
 ### case_when
+
+Allison's drawing
 
 ## [Pair-coding in the lab]{style="color: #EBA347; text-transform: uppercase;"} {.unnumbered}
 
