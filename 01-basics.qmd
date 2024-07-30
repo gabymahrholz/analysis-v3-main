@@ -12,7 +12,7 @@ By the end of this chapter you should be able to:
 
 ## R and R Studio
 
-Remember, R is a programming language that you will write code in and RStudio is an Integrated Development Environment (IDE) which makes working with R easier as it's more user friendly. You need both components for this course. 
+Remember, R is a programming language that you will write code in and RStudio is an Integrated Development Environment (IDE) which makes working with R easier as it's more user friendly. You need both components for this course.
 
 If this is not ringing any bells yet, have a quick browse through the [materials from year 1](https://psyteachr.github.io/data-skills-v2/sec-intro.html?q=RMark#sec-intro-r){target="_blank"}to refresh yopur memory.
 
@@ -28,8 +28,52 @@ You will find the link to the server on Moodle.
 
 If you had R and RStudio installed on your own computer last year, we recommend updating to the latest versions. In fact, it might be good to do that at the start of each academic year. Detailed guidance can be found in @sec-updating-r.
 
-Once you have installed R and RStudio, come back to this chapter. 
+Once you have installed/updated R and RStudio, come back to this chapter.
 
+### Settings for Reproducibility
+
+You should be doing things reproducibly, so that others (and your future self) can understand and check your work. That also allows you to reuse your work more easily.
+
+You should always start with a clear workspace. Keeping anything in your Environment from a previous session means you can never be sure whether your current code is working or if your code is accessing a previously created object.
+
+Hence, there are a few settings you should fix immediately after installing/updating RStudio, in <if>Tools \> Global Options... General tab</if>
+
+-   uncheck the box that says <if>Restore .RData into workspace at startup</if> to make sure no data from a previous session is loaded into the environment
+-   set <if>Save workspace to .RData on exit</if> to <if>Never</if> so that your workspace is not saved when you exit RStudio.
+
+```{r img-reprod, echo=FALSE, fig.cap="Reproducibility settings"}
+
+knitr::include_graphics("images/rstudio_settings_reproducibility.png")
+
+```
+
+### RStudio panes
+
+RStudio has four main panes each in a quadrant of your screen:
+
+-   Source pane
+-   Environment pane
+-   Console pane
+-   Output pane
+
+**Do you remember what their purpose is?**
+
+**The Source pane...** `r longmcq(c(answer = "allows users to view and edit various code-related files, such as .Rmd files", "contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs", "includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function", "provides an area to interactively execute code"))`
+
+**The Environment pane...** `r longmcq(c("allows users to view and edit various code-related files, such as .Rmd files", "contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs", answer = "includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function", "provides an area to interactively execute code"))`
+
+**The Console pane...** `r longmcq(c("allows users to view and edit various code-related files, such as .Rmd files", "contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs", "includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function", answer = "provides an area to interactively execute code"))`
+
+**The Output pane...** `r longmcq(c("allows users to view and edit various code-related files, such as .Rmd files", answer = "contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs", "includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function", "provides an area to interactively execute code"))`
+
+**Where are these panes located by default?**
+
+-   The Source pane is located? `r mcq(sample(c(answer = "top left", "bottom left", "top right", "bottom right")))`
+-   The Environment pane is located? `r mcq(sample(c("top left", "bottom left", answer = "top right", "bottom right")))`
+-   The Console pane is located? `r mcq(sample(c("top left", answer = "bottom left", "top right", "bottom right")))`
+-   The Output pane is located? `r mcq(sample(c("top left", "bottom left", "top right", answer = "bottom right")))`
+
+If you were not quite sure about one/any of the panes, check out the [materials from Level 1](https://psyteachr.github.io/data-skills-v2/sec-intro.html?q=RMark#rstudio-panes){target="_blank"}. If you want to know more about them, there is the [RStudio guide on posit](https://docs.posit.co/ide/user/ide/guide/ui/ui-panes.html){target="_blank"}
 
 ## Activity 1: Creating a new project
 
@@ -37,10 +81,35 @@ It's important that we create projects every time we start a new project. It mak
 
 Last year, you learnt how to create projects on the server, so you already know the steps. If cannot quite recall how that was done, go back to the [Level 1 materials](https://psyteachr.github.io/data-skills-v2/sec-intro.html?q=RMark#new-project){target="_blank"}.
 
+On your own computer, open RStudio, and complete the following steps in this order:
 
-Now we are moving on to setting up projects on the computer.
+-   Click on <if>File \> New Project...</if>
+-   Then, click on "New Directory"
+-   Then, click on "New Project"
+-   Name the directory something useful (e.g., "2A_chapter1"), and save it in a location that makes sense, for example a dedicated folder you have for your level 2 Psychology labs - you can either select a folder you have already in place, or create a new one (e.g., I named my new folder "Level 2 labs")
+-   Click "Create Project". RStudio will restart itself and open with this new project directory as the working directory.
+-   You can also check in your folder structure that everything was created as intended
+
+```{r img-projectsetup, echo=FALSE, fig.cap="Creating a new project"}
+
+knitr::include_graphics("images/project_setup.gif")
+
+```
+
+::: {.callout-tip title="Why is the Colour scheme in the gif different?" collapse="true"}
+In case anyone is wondering why my colour scheme in the gif above looks different to yours, I've set mine to "Pastel On Dark" in <if>Tools \> Global Options... \> Appearances</if>.
+:::
+
+::: callout-important
+## Don't nest projects
+
+Don't ever save a new project **inside** another project directory. This can cause some hard-to-resolve problems.
+:::
 
 
+
+
+## Activity 2: Data for this chapter
 
 ## R Markdown basics
 
