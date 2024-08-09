@@ -1,0 +1,42 @@
+# Data viz
+
+re-structure
+
+data
+
+## data types
+
+### categorical
+
+### continuous
+
+let them check the data type of a 
+
+## Plots for...
+
+### ...1 catergorical variable
+
+Bargraphs - from raw data
+
+
+geom bar 
+
+use geom bar if something has already been summmarised for you
+
+
+
+
+
+
+
+### 2 categorical variables
+
+faceted bargraph
+
+
+## 1 continuous
+
+
+## 1 continuous and 1
+
+## 1 continuous

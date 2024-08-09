@@ -26,7 +26,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./appendix-a-installing-r.html" rel="next">
+<link href="./02-wrangling.html" rel="next">
 <link href="./index.html" rel="prev">
 <link href="./images/logos/logo_analysis.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
@@ -130,6 +130,72 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Projects, R Markdown, and Data Wrangling</span></span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-wrangling.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Advanced data wrangling</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-dataviz.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data viz</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-prob-binom-one-sample.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Revisiting probability and introduction to NHST</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-independent.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Independent t-test</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-paired.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Paired t-test</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-apes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">APES - Alpha, Power, Effect Sizes, Sample Size</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-correlation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Correlations</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-simple-regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Simple Regression</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-multiple-regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Multiple regression</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-one-way-anova.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">One-way ANOVA</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-factorial-anova.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Factorial ANOVA</span></span></a>
+  </div>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
@@ -218,23 +284,6 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="#brief-recap-of-the-wickham-6" id="toc-brief-recap-of-the-wickham-6" class="nav-link" data-scroll-target="#brief-recap-of-the-wickham-6"><span class="header-section-number">1.5.1</span> Brief recap of the Wickham 6</a></li>
   </ul>
 </li>
-  <li>
-<a href="#other-useful-functions" id="toc-other-useful-functions" class="nav-link" data-scroll-target="#other-useful-functions"><span class="header-section-number">1.6</span> Other useful functions</a>
-  <ul class="collapse">
-<li><a href="#count" id="toc-count" class="nav-link" data-scroll-target="#count"><span class="header-section-number">1.6.1</span> count</a></li>
-  <li><a href="#joining-things-together-from-separate-datasets" id="toc-joining-things-together-from-separate-datasets" class="nav-link" data-scroll-target="#joining-things-together-from-separate-datasets"><span class="header-section-number">1.6.2</span> joining things together from separate datasets</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data"><span class="header-section-number">1.7</span> Tidy data</a>
-  <ul class="collapse">
-<li><a href="#pivoting-data" id="toc-pivoting-data" class="nav-link" data-scroll-target="#pivoting-data"><span class="header-section-number">1.7.1</span> pivoting data</a></li>
-  <li><a href="#recode" id="toc-recode" class="nav-link" data-scroll-target="#recode"><span class="header-section-number">1.7.2</span> recode</a></li>
-  <li><a href="#case_when" id="toc-case_when" class="nav-link" data-scroll-target="#case_when"><span class="header-section-number">1.7.3</span> case_when</a></li>
-  </ul>
-</li>
-  <li><a href="#pair-coding-in-the-lab" id="toc-pair-coding-in-the-lab" class="nav-link" data-scroll-target="#pair-coding-in-the-lab"><span style="color: #EBA347; text-transform: uppercase;">Pair-coding in the lab</span></a></li>
-  <li><a href="#test-your-knowledge-and-challenge-yourself" id="toc-test-your-knowledge-and-challenge-yourself" class="nav-link" data-scroll-target="#test-your-knowledge-and-challenge-yourself"><span style="color: #EBA347; text-transform: uppercase;">Test your knowledge and challenge yourself</span></a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -276,6 +325,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Once you have installed/updated R and RStudio, come back to this chapter.</p>
 </section><section id="settings-for-reproducibility" class="level3" data-number="1.1.3"><h3 data-number="1.1.3" class="anchored" data-anchor-id="settings-for-reproducibility">
 <span class="header-section-number">1.1.3</span> Settings for Reproducibility</h3>
+<p><em>–&gt; mention the replication crisis, findings are not reproducible. Hence it’s super important that we do things in a reproducible way</em></p>
+<p><em>Wikipedia: The replication crisis[a] is an ongoing methodological crisis in which the results of many scientific studies are difficult or impossible to reproduce. Because the reproducibility of empirical results is an essential part of the scientific method,[2] such failures undermine the credibility of theories building on them and potentially call into question substantial parts of scientific knowledge.</em></p>
 <p>You should be doing things reproducibly, so that others (and your future self) can understand and check your work. That also allows you to reuse your work more easily.</p>
 <p>You should always start with a clear workspace. Keeping anything in your Environment from a previous session means you can never be sure whether your current code is working or if your code is accessing a previously created object.</p>
 <p>Hence, there are a few settings you should fix immediately after installing/updating RStudio, in <if>Tools &gt; Global Options… General tab</if></p>
@@ -302,52 +353,52 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><strong>Do you remember what their purpose is?</strong></p>
 <strong>The Source pane…</strong>
-<div id="radio_XIGDABDKJI" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_XIGDABDKJI" value="answer"><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_XIGDABDKJI" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_XIGDABDKJI" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_XIGDABDKJI" value=""><span>provides an area to interactively execute code</span></label>
+<div id="radio_NBGVUPXOEH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_NBGVUPXOEH" value="answer"><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_NBGVUPXOEH" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_NBGVUPXOEH" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_NBGVUPXOEH" value=""><span>provides an area to interactively execute code</span></label>
 </div>
 <strong>The Environment pane…</strong>
-<div id="radio_AGHCDVLSYE" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_AGHCDVLSYE" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_AGHCDVLSYE" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_AGHCDVLSYE" value="answer"><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_AGHCDVLSYE" value=""><span>provides an area to interactively execute code</span></label>
+<div id="radio_CSUJNFXEEH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_CSUJNFXEEH" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_CSUJNFXEEH" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_CSUJNFXEEH" value="answer"><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_CSUJNFXEEH" value=""><span>provides an area to interactively execute code</span></label>
 </div>
 <strong>The Console pane…</strong>
-<div id="radio_UIOYJIBKYL" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_UIOYJIBKYL" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_UIOYJIBKYL" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_UIOYJIBKYL" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_UIOYJIBKYL" value="answer"><span>provides an area to interactively execute code</span></label>
+<div id="radio_AWQHPDLSGD" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_AWQHPDLSGD" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_AWQHPDLSGD" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_AWQHPDLSGD" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_AWQHPDLSGD" value="answer"><span>provides an area to interactively execute code</span></label>
 </div>
 <strong>The Output pane…</strong>
-<div id="radio_DMDEVTIZFD" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_DMDEVTIZFD" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_DMDEVTIZFD" value="answer"><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_DMDEVTIZFD" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_DMDEVTIZFD" value=""><span>provides an area to interactively execute code</span></label>
+<div id="radio_ZXSXQKPURF" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ZXSXQKPURF" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_ZXSXQKPURF" value="answer"><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_ZXSXQKPURF" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_ZXSXQKPURF" value=""><span>provides an area to interactively execute code</span></label>
 </div>
 <p><strong>Where are these panes located by default?</strong></p>
 <ul>
 <li>The Source pane is located? <select class="webex-select"><option value="blank"></option>
-<option value="answer">top left</option>
-<option value="">bottom right</option>
 <option value="">top right</option>
-<option value="">bottom left</option></select>
+<option value="">bottom left</option>
+<option value="answer">top left</option>
+<option value="">bottom right</option></select>
 </li>
 <li>The Environment pane is located? <select class="webex-select"><option value="blank"></option>
 <option value="">bottom left</option>
+<option value="">top left</option>
 <option value="">bottom right</option>
-<option value="answer">top right</option>
-<option value="">top left</option></select>
+<option value="answer">top right</option></select>
 </li>
 <li>The Console pane is located? <select class="webex-select"><option value="blank"></option>
-<option value="">top left</option>
-<option value="">bottom right</option>
 <option value="">top right</option>
-<option value="answer">bottom left</option></select>
+<option value="">top left</option>
+<option value="answer">bottom left</option>
+<option value="">bottom right</option></select>
 </li>
 <li>The Output pane is located? <select class="webex-select"><option value="blank"></option>
+<option value="">top right</option>
 <option value="">top left</option>
 <option value="answer">bottom right</option>
-<option value="">top right</option>
 <option value="">bottom left</option></select>
 </li>
 </ul>
 <p>If you were not quite sure about one/any of the panes, check out the <a href="https://psyteachr.github.io/data-skills-v2/sec-intro.html?q=RMark#rstudio-panes" target="_blank">materials from Level 1</a>. If you want to know more about them, there is the <a href="https://docs.posit.co/ide/user/ide/guide/ui/ui-panes.html" target="_blank">RStudio guide on posit</a></p>
 </section></section><section id="activity-1-creating-a-new-project" class="level2" data-number="1.2"><h2 data-number="1.2" class="anchored" data-anchor-id="activity-1-creating-a-new-project">
 <span class="header-section-number">1.2</span> Activity 1: Creating a new project</h2>
-<p>It’s important that we create projects every time we start a new project. It makes life easier in terms of folder locations and working directories, basically keeping all the data and the RMarkdown documents in one location.</p>
+<p>It’s important that we create a new RStudio project every time we start a new project. It makes life easier to work in multiple contexts, for example when analysing different datasets at the same time. Every RStudio project has their folder location, workspace, and working directories, basically keeping all the data and the RMarkdown documents in one location.</p>
 <p>Last year, you learnt how to create projects on the server, so you already know the steps. If cannot quite recall how that was done, go back to the <a href="https://psyteachr.github.io/data-skills-v2/sec-intro.html?q=RMark#new-project" target="_blank">Level 1 materials</a>.</p>
 <p>On your own computer, open RStudio, and complete the following steps in this order:</p>
 <ul>
@@ -379,7 +430,7 @@ Why is the Colour scheme in the gif different?
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>In case anyone is wondering why my colour scheme in the gif above looks different to yours, I’ve set mine to “Pastel On Dark” in <if>Tools &gt; Global Options… &gt; Appearances</if>.</p>
+<p>In case anyone is wondering why my colour scheme in the gif above looks different to yours, I’ve set mine to “Pastel On Dark” in <if>Tools &gt; Global Options… &gt; Appearances</if>. And my computer lives in “dark mode”.</p>
 </div>
 </div>
 </div>
@@ -406,53 +457,55 @@ Don’t nest projects
 <p>and save it in the project. All of the data files you need, should go into the same project folder too</p>
 </section><section id="code-chunks-vs-text" class="level3" data-number="1.4.2"><h3 data-number="1.4.2" class="anchored" data-anchor-id="code-chunks-vs-text">
 <span class="header-section-number">1.4.2</span> Code Chunks vs Text</h3>
+<p>write yourself some notes</p>
+<p>add a code chunk –&gt;</p>
+<p>everything in the code chunks will be computed</p>
+<p>everything in the text will be ignored by r</p>
+<p>box for advancement</p>
+<p>if you want to see how you can incorporate</p>
 </section><section id="knitting" class="level3" data-number="1.4.3"><h3 data-number="1.4.3" class="anchored" data-anchor-id="knitting">
 <span class="header-section-number">1.4.3</span> Knitting</h3>
+<p>as a means to check if the file as a whole is running</p>
 </section></section><section id="data-wrangling" class="level2" data-number="1.5"><h2 data-number="1.5" class="anchored" data-anchor-id="data-wrangling">
 <span class="header-section-number">1.5</span> Data Wrangling</h2>
 <p>The basic ones are the <strong>Wickham 6</strong> that you’ve encountered already last year</p>
 <p>table of the Wickham 6 refer them back to the different chapters where they encountered it in level 1</p>
 <table class="table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 48%">
-<col style="width: 26%">
-</colgroup>
 <thead><tr class="header">
 <th style="text-align: left;">Function</th>
 <th style="text-align: left;">Description</th>
-<th style="text-align: left;">Chapter</th>
+<th style="text-align: left;">First introduced in Level 1 Chapter</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">select()</td>
 <td style="text-align: left;">Include or exclude certain variables (columns)</td>
-<td style="text-align: left;">add links to final L1 chapters</td>
+<td style="text-align: left;"><a href="https://psyteachr.github.io/data-skills-v2/corsi-blocks-2.html#activity-3-selecting-variables" target="_blank">Chapter 6.5</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">filter()</td>
 <td style="text-align: left;">Include or exclude certain observations/data (rows)</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="https://psyteachr.github.io/data-skills-v2/corsi-blocks-2.html#activity-4-filtering-observations" target="_blank">Chapter 6.6</a></td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">mutate()</td>
 <td style="text-align: left;">Creates new variables (columns)</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="https://psyteachr.github.io/data-skills-v2/belonging-2.html?q=mutate#activity-5-mutate-and-recode" target="_blank">Chapter 8.8</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">arrange()</td>
 <td style="text-align: left;">Changes the order of observations (rows)</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;">not yet introduced</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">group_by()</td>
 <td style="text-align: left;">Organises the observations (rows) into groups</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="https://psyteachr.github.io/data-skills-v2/stroop-2.html#summarising-by-groups" target="_blank">Chapter 3.5.3</a></td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">summarise()</td>
 <td style="text-align: left;">Create summary variables for groups of observations (rows)</td>
-<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="https://psyteachr.github.io/data-skills-v2/stroop-2.html#calculating-summary-statistics" target="_blank">Chapter 3.5.2</a></td>
 </tr>
 </tbody>
 </table>
@@ -475,32 +528,9 @@ Don’t nest projects
 <p>Allison’s drawing</p>
 </section><section id="group_by-summarise" class="level4" data-number="1.5.1.5"><h4 data-number="1.5.1.5" class="anchored" data-anchor-id="group_by-summarise">
 <span class="header-section-number">1.5.1.5</span> group_by &amp; summarise</h4>
-</section></section></section><section id="other-useful-functions" class="level2" data-number="1.6"><h2 data-number="1.6" class="anchored" data-anchor-id="other-useful-functions">
-<span class="header-section-number">1.6</span> Other useful functions</h2>
-<section id="count" class="level3" data-number="1.6.1"><h3 data-number="1.6.1" class="anchored" data-anchor-id="count">
-<span class="header-section-number">1.6.1</span> count</h3>
-</section><section id="joining-things-together-from-separate-datasets" class="level3" data-number="1.6.2"><h3 data-number="1.6.2" class="anchored" data-anchor-id="joining-things-together-from-separate-datasets">
-<span class="header-section-number">1.6.2</span> joining things together from separate datasets</h3>
-<p><strong>inner_join</strong></p>
-<p><strong>full_join</strong></p>
-<p>Use the 2 chopped up tables earlier and merge them. They have no values overlapping, so it’s difficult</p>
-</section></section><section id="tidy-data" class="level2" data-number="1.7"><h2 data-number="1.7" class="anchored" data-anchor-id="tidy-data">
-<span class="header-section-number">1.7</span> Tidy data</h2>
-<section id="pivoting-data" class="level3" data-number="1.7.1"><h3 data-number="1.7.1" class="anchored" data-anchor-id="pivoting-data">
-<span class="header-section-number">1.7.1</span> pivoting data</h3>
-<p>pivot_wider and pivot_longer</p>
-</section><section id="recode" class="level3" data-number="1.7.2"><h3 data-number="1.7.2" class="anchored" data-anchor-id="recode">
-<span class="header-section-number">1.7.2</span> recode</h3>
-</section><section id="case_when" class="level3" data-number="1.7.3"><h3 data-number="1.7.3" class="anchored" data-anchor-id="case_when">
-<span class="header-section-number">1.7.3</span> case_when</h3>
-<p>Allison’s drawing</p>
-</section></section><section id="pair-coding-in-the-lab" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="pair-coding-in-the-lab"><span style="color: #EBA347; text-transform: uppercase;">Pair-coding in the lab</span></h2>
-</section><section id="test-your-knowledge-and-challenge-yourself" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="test-your-knowledge-and-challenge-yourself"><span style="color: #EBA347; text-transform: uppercase;">Test your knowledge and challenge yourself</span></h2>
-<p>or for the Wickham 6 part, we could just go here is some data, lets apply them all.</p>
-<p>Activity 1: selecting specific columns First of all, we want to select the relevant columns</p>
 
 
-</section></main><!-- /main --><script>
+</section></section></section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -1085,8 +1115,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./appendix-a-installing-r.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Installing R</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./02-wrangling.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Advanced data wrangling</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

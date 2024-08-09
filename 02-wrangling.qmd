@@ -1,0 +1,34 @@
+# Advanced data wrangling
+
+
+## Other useful functions
+
+### count
+
+### joining things together from separate datasets
+
+**inner_join**
+
+**full_join**
+
+Use the 2 chopped up tables earlier and merge them. They have no values overlapping, so it's difficult
+
+## Tidy data
+
+### pivoting data
+
+pivot_wider and pivot_longer
+
+### recode
+
+### case_when
+
+Allison's drawing
+
+## [Pair-coding in the lab]{style="color: #EBA347; text-transform: uppercase;"} {.unnumbered}
+
+## [Test your knowledge and challenge yourself]{style="color: #EBA347; text-transform: uppercase;"} {.unnumbered}
+
+or for the Wickham 6 part, we could just go here is some data, lets apply them all.
+
+Activity 1: selecting specific columns First of all, we want to select the relevant columns

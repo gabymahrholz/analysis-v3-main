@@ -1,0 +1,19 @@
+# Revisiting probability and introduction to NHST 
+
+## recap of probability
+
+
+
+
+## Null-hypothesis testing
+
+
+
+## Binomial test
+
+is used when your variable is categorical
+
+## One-sample t-test
+
+is used with a continuous variable
+

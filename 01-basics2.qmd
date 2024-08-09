@@ -120,7 +120,19 @@ Don't ever save a new project **inside** another project directory. This can cau
 
 
 
-## Activity 2: Data for this chapter
+## Activity 2: The data for this chapter
+
+
+In this chapter, we are going to brush up on our data wrangling skills, and given we have been talking about reproducibility, we'll use an open dataset on gender beliefs and subject choices to do so. The paper was published earlier this year, and the original data can be found on OSF ([https://osf.io/4jac7/](https://osf.io/4jac7/){target="_blank"}). However, for the purpose of this chapter, I have modified the data slightly (for example, using a file format you can work with). 
+
+**citation**
+Pownall, M., & Heflick, N. (2024). Male psychologists and female mathematicians: Gender beliefs and undergraduate degree choices. *Journal of Community & Applied Social Psychology, 34*(2), e2784. [https://doi.org/10.1002/casp.2784](https://doi.org/10.1002/casp.2784){target="_blank"}
+
+
+**Abstract**
+Globally, men and women are numerically dominant in undergraduate degrees in math and psychology, respectively. A variety of theoretical perspectives predict that individuals who adhere more to gender stereotypes will be more represented in gender-dominant fields. Using a pre-registered methodology, we recruited men and women enrolled in psychology and math degree programmes in the United Kingdom and assessed a variety of gender beliefs and identities. Overall, femininity was (marginally) higher in psychology, and higher amongst women generally. Moderated regression analyses revealed that women who were low in masculinity and high in femininity (the stereotypical pattern) were most likely to be in psychology degrees, whilst women who were low in both were most likely to be enrolled onto math programmes. For men, no component of gender identity or beliefs predicted degree programmes. Overall, these results demonstrate how dimensions of gender identity may account for gender differences in undergraduate representation. Specifically, women in STEM fields tend to not describe themselves in stereotypical masculine or feminine traits. We discuss implications for efforts to increase uptake of gender stereotype incongruent career paths (e.g., women in STEM) with a particular focus on how femininity may be rejected in counter-stereotypical domains.
+
+
 
 ## R Markdown basics
 
@@ -130,26 +142,9 @@ delete everything after the knitting part from line 12
 
 and save it in the project. All of the data files you need, should go into the same project folder too
 
-
 ### Code Chunks vs Text
 
-write yourself some notes
-
-add a code chunk -->
-
-
-everything in the code chunks will be computed
-
-everything in the text will be ignored by r
-
-box for advancement
-
-if you want to see how you can incorporate 
-
 ### Knitting
-
-as a means to check if the file as a whole is running
-
 
 ## Data Wrangling
 
@@ -196,3 +191,34 @@ Allison's drawing
 
 #### group_by & summarise
 
+## Other useful functions
+
+### count
+
+### joining things together from separate datasets
+
+**inner_join**
+
+**full_join**
+
+Use the 2 chopped up tables earlier and merge them. They have no values overlapping, so it's difficult
+
+## Tidy data
+
+### pivoting data
+
+pivot_wider and pivot_longer
+
+### recode
+
+### case_when
+
+Allison's drawing
+
+## [Pair-coding in the lab]{style="color: #EBA347; text-transform: uppercase;"} {.unnumbered}
+
+## [Test your knowledge and challenge yourself]{style="color: #EBA347; text-transform: uppercase;"} {.unnumbered}
+
+or for the Wickham 6 part, we could just go here is some data, lets apply them all.
+
+Activity 1: selecting specific columns First of all, we want to select the relevant columns
