@@ -122,11 +122,13 @@ Don't ever save a new project **inside** another project directory. This can cau
 
 ## Activity 2: The data for this chapter
 
-[Download the data for today](data/test.csv "download"). You will 
+Download the data for today: [filename](data/test.csv "download"). You will 
+
+Download the data for today: [filename](https://psyteachr.github.io/ads-v2/data/review_data.csv "download"). You will 
 
 data test fixed path <a href="https://psyteachr.github.io/ads-v2/data/review_data.csv" download>review_data.csv</a>
 
-loating path <a href="data/test.csv" download>test.csv</a>
+floating path <a href="data/test.csv" download>test.csv</a>
 
 
 In this chapter, we are going to brush up on our data wrangling skills, and given we have been talking about reproducibility, we'll use an open dataset on gender beliefs and subject choices to do so. The paper was published earlier this year, and the original data can be found on OSF ([https://osf.io/4jac7/](https://osf.io/4jac7/){target="_blank"}). However, for the purpose of this chapter, I have modified the data slightly (for example, using a file format you can work with). 
