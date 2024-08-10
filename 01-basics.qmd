@@ -120,7 +120,23 @@ Don't ever save a new project **inside** another project directory. This can cau
 
 
 
-## Activity 2: Data for this chapter
+## Activity 2: The data for this chapter
+
+[Download the data for today](data/test.csv "download"). You will 
+
+data test fixed path <a href="https://psyteachr.github.io/ads-v2/data/review_data.csv" download>review_data.csv</a>
+
+loating path <a href="data/test.csv" download>test.csv</a>
+
+
+In this chapter, we are going to brush up on our data wrangling skills, and given we have been talking about reproducibility, we'll use an open dataset on gender beliefs and subject choices to do so. The paper was published earlier this year, and the original data can be found on OSF ([https://osf.io/4jac7/](https://osf.io/4jac7/){target="_blank"}). However, for the purpose of this chapter, I have modified the data slightly (for example, using a file format you can work with). 
+
+**citation**
+Pownall, M., & Heflick, N. (2024). Male psychologists and female mathematicians: Gender beliefs and undergraduate degree choices. *Journal of Community & Applied Social Psychology, 34*(2), e2784. [https://doi.org/10.1002/casp.2784](https://doi.org/10.1002/casp.2784){target="_blank"}
+
+
+**Abstract**
+Globally, men and women are numerically dominant in undergraduate degrees in math and psychology, respectively. A variety of theoretical perspectives predict that individuals who adhere more to gender stereotypes will be more represented in gender-dominant fields. Using a pre-registered methodology, we recruited men and women enrolled in psychology and math degree programmes in the United Kingdom and assessed a variety of gender beliefs and identities. Overall, femininity was (marginally) higher in psychology, and higher amongst women generally. Moderated regression analyses revealed that women who were low in masculinity and high in femininity (the stereotypical pattern) were most likely to be in psychology degrees, whilst women who were low in both were most likely to be enrolled onto math programmes. For men, no component of gender identity or beliefs predicted degree programmes. Overall, these results demonstrate how dimensions of gender identity may account for gender differences in undergraduate representation. Specifically, women in STEM fields tend to not describe themselves in stereotypical masculine or feminine traits. We discuss implications for efforts to increase uptake of gender stereotype incongruent career paths (e.g., women in STEM) with a particular focus on how femininity may be rejected in counter-stereotypical domains.
 
 ## R Markdown basics
 
@@ -144,7 +160,25 @@ everything in the text will be ignored by r
 
 box for advancement
 
-if you want to see how you can incorporate 
+
+
+
+
+
+## Data for this chapter
+
+
+In this chapter, we are going to brush up on our data wrangling skills, and given we have been talking about reproducibility, we'll use an open dataset on gender beliefs and subject choices to do so. The paper was published earlier this year, and the original data can be found on OSF ([https://osf.io/4jac7/](https://osf.io/4jac7/){target="_blank"}). However, for the purpose of this chapter, I have modified the data slightly (for example, using a file format you can work with). 
+
+**citation**
+Pownall, M., & Heflick, N. (2024). Male psychologists and female mathematicians: Gender beliefs and undergraduate degree choices. *Journal of Community & Applied Social Psychology, 34*(2), e2784. [https://doi.org/10.1002/casp.2784](https://doi.org/10.1002/casp.2784){target="_blank"}
+
+
+**Abstract**
+Globally, men and women are numerically dominant in undergraduate degrees in math and psychology, respectively. A variety of theoretical perspectives predict that individuals who adhere more to gender stereotypes will be more represented in gender-dominant fields. Using a pre-registered methodology, we recruited men and women enrolled in psychology and math degree programmes in the United Kingdom and assessed a variety of gender beliefs and identities. Overall, femininity was (marginally) higher in psychology, and higher amongst women generally. Moderated regression analyses revealed that women who were low in masculinity and high in femininity (the stereotypical pattern) were most likely to be in psychology degrees, whilst women who were low in both were most likely to be enrolled onto math programmes. For men, no component of gender identity or beliefs predicted degree programmes. Overall, these results demonstrate how dimensions of gender identity may account for gender differences in undergraduate representation. Specifically, women in STEM fields tend to not describe themselves in stereotypical masculine or feminine traits. We discuss implications for efforts to increase uptake of gender stereotype incongruent career paths (e.g., women in STEM) with a particular focus on how femininity may be rejected in counter-stereotypical domains.
+
+## Activity 3: Load the packages and read in the data
+
 
 ### Knitting
 
@@ -189,6 +223,8 @@ text - one condition vs more than one condition numbers - smaller/ larger
 #### arrange
 
 ascending, descending - NAs will always listed at the end regardless
+
+factors - sorting data in a preferred way
 
 #### mutate
 

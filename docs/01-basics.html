@@ -175,7 +175,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./09-simple-regression.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Simple Regression</span></span></a>
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Simple regression</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -269,19 +269,25 @@ ul.task-list li input[type="checkbox"] {
   </ul>
 </li>
   <li><a href="#activity-1-creating-a-new-project" id="toc-activity-1-creating-a-new-project" class="nav-link" data-scroll-target="#activity-1-creating-a-new-project"><span class="header-section-number">1.2</span> Activity 1: Creating a new project</a></li>
-  <li><a href="#activity-2-data-for-this-chapter" id="toc-activity-2-data-for-this-chapter" class="nav-link" data-scroll-target="#activity-2-data-for-this-chapter"><span class="header-section-number">1.3</span> Activity 2: Data for this chapter</a></li>
+  <li><a href="#activity-2-the-data-for-this-chapter" id="toc-activity-2-the-data-for-this-chapter" class="nav-link" data-scroll-target="#activity-2-the-data-for-this-chapter"><span class="header-section-number">1.3</span> Activity 2: The data for this chapter</a></li>
   <li>
 <a href="#r-markdown-basics" id="toc-r-markdown-basics" class="nav-link" data-scroll-target="#r-markdown-basics"><span class="header-section-number">1.4</span> R Markdown basics</a>
   <ul class="collapse">
 <li><a href="#creating-an-r-markdown-file" id="toc-creating-an-r-markdown-file" class="nav-link" data-scroll-target="#creating-an-r-markdown-file"><span class="header-section-number">1.4.1</span> Creating an R Markdown file</a></li>
   <li><a href="#code-chunks-vs-text" id="toc-code-chunks-vs-text" class="nav-link" data-scroll-target="#code-chunks-vs-text"><span class="header-section-number">1.4.2</span> Code Chunks vs Text</a></li>
-  <li><a href="#knitting" id="toc-knitting" class="nav-link" data-scroll-target="#knitting"><span class="header-section-number">1.4.3</span> Knitting</a></li>
+  </ul>
+</li>
+  <li><a href="#data-for-this-chapter" id="toc-data-for-this-chapter" class="nav-link" data-scroll-target="#data-for-this-chapter"><span class="header-section-number">1.5</span> Data for this chapter</a></li>
+  <li>
+<a href="#activity-3-load-the-packages-and-read-in-the-data" id="toc-activity-3-load-the-packages-and-read-in-the-data" class="nav-link" data-scroll-target="#activity-3-load-the-packages-and-read-in-the-data"><span class="header-section-number">1.6</span> Activity 3: Load the packages and read in the data</a>
+  <ul class="collapse">
+<li><a href="#knitting" id="toc-knitting" class="nav-link" data-scroll-target="#knitting"><span class="header-section-number">1.6.1</span> Knitting</a></li>
   </ul>
 </li>
   <li>
-<a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling"><span class="header-section-number">1.5</span> Data Wrangling</a>
+<a href="#data-wrangling" id="toc-data-wrangling" class="nav-link" data-scroll-target="#data-wrangling"><span class="header-section-number">1.7</span> Data Wrangling</a>
   <ul class="collapse">
-<li><a href="#brief-recap-of-the-wickham-6" id="toc-brief-recap-of-the-wickham-6" class="nav-link" data-scroll-target="#brief-recap-of-the-wickham-6"><span class="header-section-number">1.5.1</span> Brief recap of the Wickham 6</a></li>
+<li><a href="#brief-recap-of-the-wickham-6" id="toc-brief-recap-of-the-wickham-6" class="nav-link" data-scroll-target="#brief-recap-of-the-wickham-6"><span class="header-section-number">1.7.1</span> Brief recap of the Wickham 6</a></li>
   </ul>
 </li>
   </ul></nav>
@@ -353,46 +359,46 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p><strong>Do you remember what their purpose is?</strong></p>
 <strong>The Source pane…</strong>
-<div id="radio_NBGVUPXOEH" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_NBGVUPXOEH" value="answer"><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_NBGVUPXOEH" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_NBGVUPXOEH" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_NBGVUPXOEH" value=""><span>provides an area to interactively execute code</span></label>
+<div id="radio_BICJPFEXUQ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_BICJPFEXUQ" value="answer"><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_BICJPFEXUQ" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_BICJPFEXUQ" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_BICJPFEXUQ" value=""><span>provides an area to interactively execute code</span></label>
 </div>
 <strong>The Environment pane…</strong>
-<div id="radio_CSUJNFXEEH" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_CSUJNFXEEH" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_CSUJNFXEEH" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_CSUJNFXEEH" value="answer"><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_CSUJNFXEEH" value=""><span>provides an area to interactively execute code</span></label>
+<div id="radio_FBFZOPGAYB" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_FBFZOPGAYB" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_FBFZOPGAYB" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_FBFZOPGAYB" value="answer"><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_FBFZOPGAYB" value=""><span>provides an area to interactively execute code</span></label>
 </div>
 <strong>The Console pane…</strong>
-<div id="radio_AWQHPDLSGD" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_AWQHPDLSGD" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_AWQHPDLSGD" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_AWQHPDLSGD" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_AWQHPDLSGD" value="answer"><span>provides an area to interactively execute code</span></label>
+<div id="radio_ORZDHANNFR" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ORZDHANNFR" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_ORZDHANNFR" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_ORZDHANNFR" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_ORZDHANNFR" value="answer"><span>provides an area to interactively execute code</span></label>
 </div>
 <strong>The Output pane…</strong>
-<div id="radio_ZXSXQKPURF" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_ZXSXQKPURF" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_ZXSXQKPURF" value="answer"><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_ZXSXQKPURF" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_ZXSXQKPURF" value=""><span>provides an area to interactively execute code</span></label>
+<div id="radio_DOKDKVTBNT" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_DOKDKVTBNT" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_DOKDKVTBNT" value="answer"><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_DOKDKVTBNT" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_DOKDKVTBNT" value=""><span>provides an area to interactively execute code</span></label>
 </div>
 <p><strong>Where are these panes located by default?</strong></p>
 <ul>
 <li>The Source pane is located? <select class="webex-select"><option value="blank"></option>
-<option value="">top right</option>
 <option value="">bottom left</option>
-<option value="answer">top left</option>
-<option value="">bottom right</option></select>
+<option value="">bottom right</option>
+<option value="">top right</option>
+<option value="answer">top left</option></select>
 </li>
 <li>The Environment pane is located? <select class="webex-select"><option value="blank"></option>
+<option value="">bottom right</option>
 <option value="">bottom left</option>
 <option value="">top left</option>
-<option value="">bottom right</option>
 <option value="answer">top right</option></select>
 </li>
 <li>The Console pane is located? <select class="webex-select"><option value="blank"></option>
 <option value="">top right</option>
+<option value="">bottom right</option>
 <option value="">top left</option>
-<option value="answer">bottom left</option>
-<option value="">bottom right</option></select>
+<option value="answer">bottom left</option></select>
 </li>
 <li>The Output pane is located? <select class="webex-select"><option value="blank"></option>
-<option value="">top right</option>
 <option value="">top left</option>
-<option value="answer">bottom right</option>
-<option value="">bottom left</option></select>
+<option value="">bottom left</option>
+<option value="">top right</option>
+<option value="answer">bottom right</option></select>
 </li>
 </ul>
 <p>If you were not quite sure about one/any of the panes, check out the <a href="https://psyteachr.github.io/data-skills-v2/sec-intro.html?q=RMark#rstudio-panes" target="_blank">materials from Level 1</a>. If you want to know more about them, there is the <a href="https://docs.posit.co/ide/user/ide/guide/ui/ui-panes.html" target="_blank">RStudio guide on posit</a></p>
@@ -447,8 +453,14 @@ Don’t nest projects
 <p>Don’t ever save a new project <strong>inside</strong> another project directory. This can cause some hard-to-resolve problems.</p>
 </div>
 </div>
-</section><section id="activity-2-data-for-this-chapter" class="level2" data-number="1.3"><h2 data-number="1.3" class="anchored" data-anchor-id="activity-2-data-for-this-chapter">
-<span class="header-section-number">1.3</span> Activity 2: Data for this chapter</h2>
+</section><section id="activity-2-the-data-for-this-chapter" class="level2" data-number="1.3"><h2 data-number="1.3" class="anchored" data-anchor-id="activity-2-the-data-for-this-chapter">
+<span class="header-section-number">1.3</span> Activity 2: The data for this chapter</h2>
+<p><a href="data/test.csv" title="download">Download the data for today</a>. You will</p>
+<p>data test fixed path <a href="https://psyteachr.github.io/ads-v2/data/review_data.csv" download="">review_data.csv</a></p>
+<p>loating path <a href="data/test.csv" download="">test.csv</a></p>
+<p>In this chapter, we are going to brush up on our data wrangling skills, and given we have been talking about reproducibility, we’ll use an open dataset on gender beliefs and subject choices to do so. The paper was published earlier this year, and the original data can be found on OSF (<a href="https://osf.io/4jac7/" target="_blank">https://osf.io/4jac7/</a>). However, for the purpose of this chapter, I have modified the data slightly (for example, using a file format you can work with).</p>
+<p><strong>citation</strong> Pownall, M., &amp; Heflick, N. (2024). Male psychologists and female mathematicians: Gender beliefs and undergraduate degree choices. <em>Journal of Community &amp; Applied Social Psychology, 34</em>(2), e2784. <a href="https://doi.org/10.1002/casp.2784" target="_blank">https://doi.org/10.1002/casp.2784</a></p>
+<p><strong>Abstract</strong> Globally, men and women are numerically dominant in undergraduate degrees in math and psychology, respectively. A variety of theoretical perspectives predict that individuals who adhere more to gender stereotypes will be more represented in gender-dominant fields. Using a pre-registered methodology, we recruited men and women enrolled in psychology and math degree programmes in the United Kingdom and assessed a variety of gender beliefs and identities. Overall, femininity was (marginally) higher in psychology, and higher amongst women generally. Moderated regression analyses revealed that women who were low in masculinity and high in femininity (the stereotypical pattern) were most likely to be in psychology degrees, whilst women who were low in both were most likely to be enrolled onto math programmes. For men, no component of gender identity or beliefs predicted degree programmes. Overall, these results demonstrate how dimensions of gender identity may account for gender differences in undergraduate representation. Specifically, women in STEM fields tend to not describe themselves in stereotypical masculine or feminine traits. We discuss implications for efforts to increase uptake of gender stereotype incongruent career paths (e.g., women in STEM) with a particular focus on how femininity may be rejected in counter-stereotypical domains.</p>
 </section><section id="r-markdown-basics" class="level2" data-number="1.4"><h2 data-number="1.4" class="anchored" data-anchor-id="r-markdown-basics">
 <span class="header-section-number">1.4</span> R Markdown basics</h2>
 <section id="creating-an-r-markdown-file" class="level3" data-number="1.4.1"><h3 data-number="1.4.1" class="anchored" data-anchor-id="creating-an-r-markdown-file">
@@ -462,12 +474,18 @@ Don’t nest projects
 <p>everything in the code chunks will be computed</p>
 <p>everything in the text will be ignored by r</p>
 <p>box for advancement</p>
-<p>if you want to see how you can incorporate</p>
-</section><section id="knitting" class="level3" data-number="1.4.3"><h3 data-number="1.4.3" class="anchored" data-anchor-id="knitting">
-<span class="header-section-number">1.4.3</span> Knitting</h3>
+</section></section><section id="data-for-this-chapter" class="level2" data-number="1.5"><h2 data-number="1.5" class="anchored" data-anchor-id="data-for-this-chapter">
+<span class="header-section-number">1.5</span> Data for this chapter</h2>
+<p>In this chapter, we are going to brush up on our data wrangling skills, and given we have been talking about reproducibility, we’ll use an open dataset on gender beliefs and subject choices to do so. The paper was published earlier this year, and the original data can be found on OSF (<a href="https://osf.io/4jac7/" target="_blank">https://osf.io/4jac7/</a>). However, for the purpose of this chapter, I have modified the data slightly (for example, using a file format you can work with).</p>
+<p><strong>citation</strong> Pownall, M., &amp; Heflick, N. (2024). Male psychologists and female mathematicians: Gender beliefs and undergraduate degree choices. <em>Journal of Community &amp; Applied Social Psychology, 34</em>(2), e2784. <a href="https://doi.org/10.1002/casp.2784" target="_blank">https://doi.org/10.1002/casp.2784</a></p>
+<p><strong>Abstract</strong> Globally, men and women are numerically dominant in undergraduate degrees in math and psychology, respectively. A variety of theoretical perspectives predict that individuals who adhere more to gender stereotypes will be more represented in gender-dominant fields. Using a pre-registered methodology, we recruited men and women enrolled in psychology and math degree programmes in the United Kingdom and assessed a variety of gender beliefs and identities. Overall, femininity was (marginally) higher in psychology, and higher amongst women generally. Moderated regression analyses revealed that women who were low in masculinity and high in femininity (the stereotypical pattern) were most likely to be in psychology degrees, whilst women who were low in both were most likely to be enrolled onto math programmes. For men, no component of gender identity or beliefs predicted degree programmes. Overall, these results demonstrate how dimensions of gender identity may account for gender differences in undergraduate representation. Specifically, women in STEM fields tend to not describe themselves in stereotypical masculine or feminine traits. We discuss implications for efforts to increase uptake of gender stereotype incongruent career paths (e.g., women in STEM) with a particular focus on how femininity may be rejected in counter-stereotypical domains.</p>
+</section><section id="activity-3-load-the-packages-and-read-in-the-data" class="level2" data-number="1.6"><h2 data-number="1.6" class="anchored" data-anchor-id="activity-3-load-the-packages-and-read-in-the-data">
+<span class="header-section-number">1.6</span> Activity 3: Load the packages and read in the data</h2>
+<section id="knitting" class="level3" data-number="1.6.1"><h3 data-number="1.6.1" class="anchored" data-anchor-id="knitting">
+<span class="header-section-number">1.6.1</span> Knitting</h3>
 <p>as a means to check if the file as a whole is running</p>
-</section></section><section id="data-wrangling" class="level2" data-number="1.5"><h2 data-number="1.5" class="anchored" data-anchor-id="data-wrangling">
-<span class="header-section-number">1.5</span> Data Wrangling</h2>
+</section></section><section id="data-wrangling" class="level2" data-number="1.7"><h2 data-number="1.7" class="anchored" data-anchor-id="data-wrangling">
+<span class="header-section-number">1.7</span> Data Wrangling</h2>
 <p>The basic ones are the <strong>Wickham 6</strong> that you’ve encountered already last year</p>
 <p>table of the Wickham 6 refer them back to the different chapters where they encountered it in level 1</p>
 <table class="table">
@@ -509,25 +527,26 @@ Don’t nest projects
 </tr>
 </tbody>
 </table>
-<section id="brief-recap-of-the-wickham-6" class="level3" data-number="1.5.1"><h3 data-number="1.5.1" class="anchored" data-anchor-id="brief-recap-of-the-wickham-6">
-<span class="header-section-number">1.5.1</span> Brief recap of the Wickham 6</h3>
-<section id="select" class="level4" data-number="1.5.1.1"><h4 data-number="1.5.1.1" class="anchored" data-anchor-id="select">
-<span class="header-section-number">1.5.1.1</span> select</h4>
+<section id="brief-recap-of-the-wickham-6" class="level3" data-number="1.7.1"><h3 data-number="1.7.1" class="anchored" data-anchor-id="brief-recap-of-the-wickham-6">
+<span class="header-section-number">1.7.1</span> Brief recap of the Wickham 6</h3>
+<section id="select" class="level4" data-number="1.7.1.1"><h4 data-number="1.7.1.1" class="anchored" data-anchor-id="select">
+<span class="header-section-number">1.7.1.1</span> select</h4>
 <p>Massive dataframes use a lot of computing power - to reduce that, it would be worth focussing on the columns you need</p>
 <p>selecting variables - you can rename them too if you don’t like the column name as is</p>
 <p>if you wanna rename something at a later stage, use rename. Works in the same manner as select as in new name = old name. –&gt; This could be in an information box</p>
 <p>deselecting deselecting multiple variables</p>
-</section><section id="filter" class="level4" data-number="1.5.1.2"><h4 data-number="1.5.1.2" class="anchored" data-anchor-id="filter">
-<span class="header-section-number">1.5.1.2</span> filter</h4>
+</section><section id="filter" class="level4" data-number="1.7.1.2"><h4 data-number="1.7.1.2" class="anchored" data-anchor-id="filter">
+<span class="header-section-number">1.7.1.2</span> filter</h4>
 <p>text - one condition vs more than one condition numbers - smaller/ larger</p>
-</section><section id="arrange" class="level4" data-number="1.5.1.3"><h4 data-number="1.5.1.3" class="anchored" data-anchor-id="arrange">
-<span class="header-section-number">1.5.1.3</span> arrange</h4>
+</section><section id="arrange" class="level4" data-number="1.7.1.3"><h4 data-number="1.7.1.3" class="anchored" data-anchor-id="arrange">
+<span class="header-section-number">1.7.1.3</span> arrange</h4>
 <p>ascending, descending - NAs will always listed at the end regardless</p>
-</section><section id="mutate" class="level4" data-number="1.5.1.4"><h4 data-number="1.5.1.4" class="anchored" data-anchor-id="mutate">
-<span class="header-section-number">1.5.1.4</span> mutate</h4>
+<p>factors - sorting data in a preferred way</p>
+</section><section id="mutate" class="level4" data-number="1.7.1.4"><h4 data-number="1.7.1.4" class="anchored" data-anchor-id="mutate">
+<span class="header-section-number">1.7.1.4</span> mutate</h4>
 <p>Allison’s drawing</p>
-</section><section id="group_by-summarise" class="level4" data-number="1.5.1.5"><h4 data-number="1.5.1.5" class="anchored" data-anchor-id="group_by-summarise">
-<span class="header-section-number">1.5.1.5</span> group_by &amp; summarise</h4>
+</section><section id="group_by-summarise" class="level4" data-number="1.7.1.5"><h4 data-number="1.7.1.5" class="anchored" data-anchor-id="group_by-summarise">
+<span class="header-section-number">1.7.1.5</span> group_by &amp; summarise</h4>
 
 
 </section></section></section></main><!-- /main --><script>

@@ -32,3 +32,4 @@ Allison's drawing
 or for the Wickham 6 part, we could just go here is some data, lets apply them all.
 
 Activity 1: selecting specific columns First of all, we want to select the relevant columns
+
