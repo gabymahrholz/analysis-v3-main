@@ -257,7 +257,7 @@ Each variable has a **data type**, such as numeric (numbers), character (text), 
 
 **Numeric data** can be double (`dbl`) or integer (`int`). Doubles can have decimal places (e.g., 1.1). Integers are the whole numbers (e.g., 1, 2, -1) and are displayed with the suffix L (e.g., 1L). This is not overly important but might leave you less puzzled the next time you see an L after a number.
 
-**Characters** (also called “strings”) is anything written between quotation marks. This is usually text, but in special circumstances, a number can be a character if it comes with quotation marks. This can happen when you are recoding variables. It might not be too obvious at the time, but you won't be able to calculate anything if the number is a character
+**Characters** (also called “strings”) is anything written between quotation marks. This is usually text, but in special circumstances, a number can be a character if it placed within quotation marks. This can happen when you are recoding variables. It might not be too obvious at the time, but you won't be able to calculate anything if the number is a character
 
 
 ::: {.panel-tabset}
@@ -310,7 +310,7 @@ A **factor** is a specific type of integer or character that lets you assign the
 
 ### Variable types
 
-Variables can be classified as **continuous** (numbers) or **categorical** (labels). It's good to know the distinctions as it will help to decide the appropriate plot for your data (see @sec-appropriate-plot).
+You've already encountered them in [Level 1](https://psyteachr.github.io/data-skills-v2/intro-to-probability.html){target="_blank"}. Variables can be classified as **continuous** (numbers) or **categorical** (labels). It's good to know the distinctions as it will help to decide the appropriate plot for your data (see @sec-appropriate-plot).
 
 **Categorical** variables are properties you can count. They can be **nominal**, where the categories don't have an order (e.g., gender) or **ordinal** (e.g., Likert scales either with numeric values 1-7 or with character labels such as "agree", "neither agree nor disagree", "disagree"). Categorical data may also be **factors** rather than characters.
 
