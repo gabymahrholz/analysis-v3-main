@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.450">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
 <meta name="description" content="Level 2 UG Analysis book">
-
 <title>Analysis - 3&nbsp; Data viz</title>
 <style>
 code{white-space: pre-wrap;}
@@ -21,8 +18,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
-
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
@@ -43,8 +73,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<script id="quarto-search-options" type="application/json">{
+<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -63,22 +92,16 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+}</script><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 <link rel="stylesheet" href="include/booktem.css">
 <link rel="stylesheet" href="include/webex.css">
 <link rel="stylesheet" href="include/glossary.css">
 <link rel="stylesheet" href="include/style.css">
 </head>
-
 <body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
@@ -89,39 +112,35 @@ ul.task-list li input[type="checkbox"] {
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Analysis</a> 
         <div class="sidebar-tools-main">
     <div class="dropdown">
       <a href="" title="Share" id="quarto-navigation-tool-dropdown-0" class="quarto-navigation-tool dropdown-toggle px-1" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Share"><i class="bi bi-share"></i></a>
       <ul class="dropdown-menu" aria-labelledby="quarto-navigation-tool-dropdown-0">
-          <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=|url|">
+<li>
+            <a class="dropdown-item sidebar-tools-main-item" href="https://twitter.com/intent/tweet?url=%7Curl%7C">
               <i class="bi bi-bi-twitter pe-1"></i>
             Twitter
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=|url|">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.facebook.com/sharer/sharer.php?u=%7Curl%7C">
               <i class="bi bi-bi-facebook pe-1"></i>
             Facebook
             </a>
           </li>
           <li>
-            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=|url|">
+            <a class="dropdown-item sidebar-tools-main-item" href="https://www.linkedin.com/sharing/share-offsite/?url=%7Curl%7C">
               <i class="bi bi-bi-linkedin pe-1"></i>
             LinkedIn
             </a>
           </li>
       </ul>
-    </div>
+</div>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
     </div>
@@ -133,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
@@ -219,8 +238,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-a-installing-r.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Installing R</span></span></a>
@@ -263,39 +282,47 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#data-types" id="toc-data-types" class="nav-link active" data-scroll-target="#data-types"><span class="header-section-number">3.1</span> data types</a>
+<li><a href="#intended-learning-outcomes" id="toc-intended-learning-outcomes" class="nav-link active" data-scroll-target="#intended-learning-outcomes">Intended Learning Outcomes</a></li>
+  <li><a href="#activity-1-set-up" id="toc-activity-1-set-up" class="nav-link" data-scroll-target="#activity-1-set-up"><span class="header-section-number">3.1</span> Activity 1: Set-up</a></li>
+  <li><a href="#activity-2-load-in-the-libraries-and-read-in-the-data" id="toc-activity-2-load-in-the-libraries-and-read-in-the-data" class="nav-link" data-scroll-target="#activity-2-load-in-the-libraries-and-read-in-the-data"><span class="header-section-number">3.2</span> Activity 2: Load in the libraries and read in the data</a></li>
+  <li>
+<a href="#building-plots" id="toc-building-plots" class="nav-link" data-scroll-target="#building-plots"><span class="header-section-number">3.3</span> Building plots</a>
   <ul class="collapse">
-  <li><a href="#categorical" id="toc-categorical" class="nav-link" data-scroll-target="#categorical"><span class="header-section-number">3.1.1</span> categorical</a></li>
-  <li><a href="#continuous" id="toc-continuous" class="nav-link" data-scroll-target="#continuous"><span class="header-section-number">3.1.2</span> continuous</a></li>
-  </ul></li>
-  <li><a href="#plots-for" id="toc-plots-for" class="nav-link" data-scroll-target="#plots-for"><span class="header-section-number">3.2</span> Plots for…</a>
-  <ul class="collapse">
-  <li><a href="#catergorical-variable" id="toc-catergorical-variable" class="nav-link" data-scroll-target="#catergorical-variable"><span class="header-section-number">3.2.1</span> …1 catergorical variable</a></li>
-  <li><a href="#categorical-variables" id="toc-categorical-variables" class="nav-link" data-scroll-target="#categorical-variables"><span class="header-section-number">3.2.2</span> 2 categorical variables</a></li>
-  </ul></li>
-  <li><a href="#continuous-1" id="toc-continuous-1" class="nav-link" data-scroll-target="#continuous-1"><span class="header-section-number">3.3</span> 1 continuous</a></li>
-  <li><a href="#continuous-and-1" id="toc-continuous-and-1" class="nav-link" data-scroll-target="#continuous-and-1"><span class="header-section-number">3.4</span> 1 continuous and 1</a></li>
-  <li><a href="#continuous-2" id="toc-continuous-2" class="nav-link" data-scroll-target="#continuous-2"><span class="header-section-number">3.5</span> 1 continuous</a></li>
+<li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">3.3.1</span> </a></li>
   </ul>
-</nav>
+</li>
+  <li><a href="#activity-3-wrangling-the-data" id="toc-activity-3-wrangling-the-data" class="nav-link" data-scroll-target="#activity-3-wrangling-the-data"><span class="header-section-number">3.4</span> Activity 3: Wrangling the data?</a></li>
+  <li>
+<a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types"><span class="header-section-number">3.5</span> data types</a>
+  <ul class="collapse">
+<li><a href="#categorical" id="toc-categorical" class="nav-link" data-scroll-target="#categorical"><span class="header-section-number">3.5.1</span> categorical</a></li>
+  <li><a href="#continuous" id="toc-continuous" class="nav-link" data-scroll-target="#continuous"><span class="header-section-number">3.5.2</span> continuous</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#sec-appropriate-plot" id="toc-sec-appropriate-plot" class="nav-link" data-scroll-target="#sec-appropriate-plot"><span class="header-section-number">3.6</span> Which plot shall I build???</a>
+  <ul class="collapse">
+<li><a href="#one-catergorical-variable" id="toc-one-catergorical-variable" class="nav-link" data-scroll-target="#one-catergorical-variable"><span class="header-section-number">3.6.1</span> One catergorical variable</a></li>
+  <li><a href="#two-categorical-variables" id="toc-two-categorical-variables" class="nav-link" data-scroll-target="#two-categorical-variables"><span class="header-section-number">3.6.2</span> Two categorical variables</a></li>
+  <li><a href="#one-continuous-variable" id="toc-one-continuous-variable" class="nav-link" data-scroll-target="#one-continuous-variable"><span class="header-section-number">3.6.3</span> One continuous variable</a></li>
+  <li><a href="#one-continuous-and-one-categorical-grouping-variable" id="toc-one-continuous-and-one-categorical-grouping-variable" class="nav-link" data-scroll-target="#one-continuous-and-one-categorical-grouping-variable"><span class="header-section-number">3.6.4</span> One continuous and one categorical grouping variable</a></li>
+  <li><a href="#two-continuous" id="toc-two-continuous" class="nav-link" data-scroll-target="#two-continuous"><span class="header-section-number">3.6.5</span> Two continuous</a></li>
+  </ul>
+</li>
+  </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data viz</span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title"><span id="sec-dataviz" class="quarto-section-identifier"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data viz</span></span></h1>
 </div>
 
 
@@ -308,47 +335,531 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
-</header>
-
-<p>re-structure</p>
-<p>data</p>
-<section id="data-types" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="data-types"><span class="header-section-number">3.1</span> data types</h2>
-<section id="categorical" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="categorical"><span class="header-section-number">3.1.1</span> categorical</h3>
-</section>
-<section id="continuous" class="level3" data-number="3.1.2">
-<h3 data-number="3.1.2" class="anchored" data-anchor-id="continuous"><span class="header-section-number">3.1.2</span> continuous</h3>
+</header><section id="intended-learning-outcomes" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="intended-learning-outcomes">Intended Learning Outcomes</h2>
+<p>By the end of this chapter you should be able to:</p>
+<ul>
+<li>a</li>
+<li>b</li>
+<li>Be able to create an appropriate for your data</li>
+</ul></section><section id="activity-1-set-up" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="activity-1-set-up">
+<span class="header-section-number">3.1</span> Activity 1: Set-up</h2>
+<ul>
+<li>Create a new project and name it something meaningful (e.g., “2A_chapter3”, or “03_data_viz”)</li>
+<li>Create a new Rmd and save it to your project folder. Name it something meaningful (e.g., “chapter_03”, “03_data_viz.Rmd”)</li>
+<li>Delete everything below line 12 (keep the set-up code chunk)</li>
+<li>Download the data for today: <a href="data/data_ch3.zip" title="download">data_ch3</a>. There are 2 csv files contained in the zip-folder you just downloaded. One is the data file (<code>hp_data_modified.csv</code>) and the other is the <code>questionnaire_codebook</code> for the main 3 questionnaires used in the dataset.</li>
+<li>Unzip the zip folder so that all data files, the Rmd and the project are in the same folder (see image below)</li>
+</ul>
+<p>If you set it up correctly, your folder should look like this:</p>
+<div id="img-data-viz" class="quarto-layout-panel">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="images/data_viz_setup.PNG" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Folder on your computer (left)</figcaption></figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="images/files_plane_data_viz.PNG" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Files pane in RStudio (right)</figcaption></figure>
+</div>
+</div>
+</div>
+</div>
+<section id="info-about-the-data" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="info-about-the-data">Info about the data</h4>
+<p><strong>citation</strong></p>
+<p><strong>Abstract</strong></p>
+</section></section><section id="activity-2-load-in-the-libraries-and-read-in-the-data" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="activity-2-load-in-the-libraries-and-read-in-the-data">
+<span class="header-section-number">3.2</span> Activity 2: Load in the libraries and read in the data</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="do">## packages </span></span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="do">## data</span></span>
+<span id="cb1-5"><a href="#cb1-5"></a>hp_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"hp_data_modified.csv"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6"></a>codebook <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"questionnaire_codebook.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="familiarise-yourself-with-the-data-structure" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="familiarise-yourself-with-the-data-structure">Familiarise yourself with the data structure</h4>
+<p>Or as we said in <span class="citation" data-cites="sec">(<a href="references.html#ref-sec" role="doc-biblioref"><strong>sec?</strong></a>)</span>-, you could</p>
+<p>As we said in <strong>chapter 1</strong> (LINK TO THAT), it is always recommended to glimpse at the data to see how many variables and observations there are in the dataset and what kind of data type they are.</p>
+<p>For example, to show the codebook, we would use:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">glimpse</span>(codebook)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 134
+Columns: 5
+$ Questionnaire_Item               &lt;chr&gt; "IPIP_01", "IPIP_02", "IPIP_03", "IPI…
+$ Statement                        &lt;chr&gt; "Am the life of the party.", "Feel li…
+$ Dimension                        &lt;chr&gt; "Extraversion", "Agreeableness", "Con…
+$ `Forward- or Reverse-coded item` &lt;chr&gt; "Forward", "Reverse", "Forward", "Rev…
+$ Scoring                          &lt;chr&gt; "Forward:\n1 = Very inaccurate\n2 = M…</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Try the same for <code>hp_data</code>. Click to see the solution.
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">glimpse</span>(hp_data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 988
+Columns: 159
+$ PP_ID                &lt;dbl&gt; 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15…
+$ books                &lt;chr&gt; "Harry Potter and the Philosopher's Stone,Harry P…
+$ language_books       &lt;chr&gt; "English", "German and English", "Both English an…
+$ movies               &lt;chr&gt; "Harry Potter and the Philosopher's Stone,Harry P…
+$ language_movies      &lt;chr&gt; "English", "German and English", "Both English an…
+$ Sorting_completed_YN &lt;chr&gt; "Yes", "No", "Yes", "Yes", "Yes", "Yes", "No", "Y…
+$ Sorting_house        &lt;chr&gt; "Ravenclaw", "Gryffindor", "Gryffindor", "Slyther…
+$ Sorting_house_wish   &lt;chr&gt; "Ravenclaw", "Ravenclaw", "Ravenclaw", "Slytherin…
+$ age                  &lt;dbl&gt; 21, 22, 27, 21, 20, 27, 26, 29, 23, 24, 25, 33, 2…
+$ country              &lt;chr&gt; "Germany", "Germany", "France", "Norway", "Chile"…
+$ language             &lt;chr&gt; "german", "German", "French", "Norwegian", "Spani…
+$ occupation           &lt;chr&gt; "Student", "Student", "Employed", "Student", "Stu…
+$ gender               &lt;chr&gt; "Female", "Female", "Female", "Male", "Female", "…
+$ Bravery              &lt;chr&gt; "Gryffindor", "Gryffindor", "Gryffindor", "Gryffi…
+$ Hardwork             &lt;chr&gt; "Ravenclaw", "Ravenclaw", "Hufflepuff", "Hufflepu…
+$ Intelligence         &lt;chr&gt; "Ravenclaw", "Ravenclaw", "Ravenclaw", "Ravenclaw…
+$ Ambition             &lt;chr&gt; "Slytherin", "Slytherin", "Slytherin", "Slytherin…
+$ Daring               &lt;chr&gt; "Gryffindor", "Hufflepuff", "Gryffindor", "Gryffi…
+$ Dedication           &lt;chr&gt; "Ravenclaw", "Slytherin", "Hufflepuff", "Hufflepu…
+$ Knowledge            &lt;chr&gt; "Ravenclaw", "Ravenclaw", "Ravenclaw", "Ravenclaw…
+$ Cunning              &lt;chr&gt; "Slytherin", "Hufflepuff", "Slytherin", "Slytheri…
+$ Extraverted          &lt;chr&gt; "Hufflepuff", "Hufflepuff", "Hufflepuff", "Gryffi…
+$ Agreeable            &lt;chr&gt; "Hufflepuff", "Gryffindor", "Hufflepuff", "Huffle…
+$ Clever               &lt;chr&gt; "Ravenclaw", "Ravenclaw", "Ravenclaw", "Ravenclaw…
+$ Manipulative         &lt;chr&gt; "Slytherin", "Slytherin", "Slytherin", "Slytherin…
+$ IPIP_01              &lt;chr&gt; "moderately accurate", "neither accurate nor inac…
+$ IPIP_02              &lt;chr&gt; "very inaccurate", "moderately accurate", "very i…
+$ IPIP_03              &lt;chr&gt; "moderately inaccurate", "very accurate", "modera…
+$ IPIP_04              &lt;chr&gt; "moderately inaccurate", "neither accurate nor in…
+$ IPIP_05              &lt;chr&gt; "very accurate", "moderately accurate", "very acc…
+$ IPIP_06              &lt;chr&gt; "moderately inaccurate", "neither accurate nor in…
+$ IPIP_07              &lt;chr&gt; "very accurate", "moderately inaccurate", "very a…
+$ IPIP_08              &lt;chr&gt; "moderately accurate", "very inaccurate", "modera…
+$ IPIP_09              &lt;chr&gt; "moderately accurate", "neither accurate nor inac…
+$ IPIP_10              &lt;chr&gt; "very inaccurate", "very inaccurate", "very inacc…
+$ IPIP_11              &lt;chr&gt; "moderately accurate", "moderately inaccurate", "…
+$ IPIP_12              &lt;chr&gt; "very inaccurate", "moderately inaccurate", "very…
+$ IPIP_13              &lt;chr&gt; "neither accurate nor inaccurate", "very accurate…
+$ IPIP_14              &lt;chr&gt; "very inaccurate", "moderately accurate", "modera…
+$ IPIP_15              &lt;chr&gt; "moderately accurate", "neither accurate nor inac…
+$ IPIP_16              &lt;chr&gt; "neither accurate nor inaccurate", "moderately in…
+$ IPIP_17              &lt;chr&gt; "moderately accurate", "neither accurate nor inac…
+$ IPIP_18              &lt;chr&gt; "moderately inaccurate", "moderately inaccurate",…
+$ IPIP_19              &lt;chr&gt; "neither accurate nor inaccurate", "moderately in…
+$ IPIP_20              &lt;chr&gt; "moderately inaccurate", "very inaccurate", "very…
+$ IPIP_21              &lt;chr&gt; "very inaccurate", "moderately accurate", "modera…
+$ IPIP_22              &lt;chr&gt; "moderately inaccurate", "moderately inaccurate",…
+$ IPIP_23              &lt;chr&gt; "very inaccurate", "moderately inaccurate", "very…
+$ IPIP_24              &lt;chr&gt; "neither accurate nor inaccurate", "moderately in…
+$ IPIP_25              &lt;chr&gt; "moderately accurate", "very accurate", "moderate…
+$ IPIP_26              &lt;chr&gt; "very inaccurate", "moderately inaccurate", "mode…
+$ IPIP_27              &lt;chr&gt; "moderately inaccurate", "moderately accurate", "…
+$ IPIP_28              &lt;chr&gt; "moderately accurate", "moderately accurate", "ve…
+$ IPIP_29              &lt;chr&gt; "moderately inaccurate", "moderately accurate", "…
+$ IPIP_30              &lt;chr&gt; "very inaccurate", "moderately inaccurate", "very…
+$ IPIP_31              &lt;chr&gt; "very inaccurate", "moderately accurate", "modera…
+$ IPIP_32              &lt;chr&gt; "moderately inaccurate", "moderately inaccurate",…
+$ IPIP_33              &lt;chr&gt; "moderately inaccurate", "very accurate", "modera…
+$ IPIP_34              &lt;chr&gt; "moderately inaccurate", "moderately inaccurate",…
+$ IPIP_35              &lt;chr&gt; "moderately accurate", "moderately accurate", "mo…
+$ IPIP_36              &lt;chr&gt; "moderately accurate", "moderately inaccurate", "…
+$ IPIP_37              &lt;chr&gt; "moderately accurate", "moderately accurate", "mo…
+$ IPIP_38              &lt;chr&gt; "neither accurate nor inaccurate", "moderately in…
+$ IPIP_39              &lt;chr&gt; "very inaccurate", "moderately inaccurate", "neit…
+$ IPIP_40              &lt;chr&gt; "moderately accurate", "moderately accurate", "ve…
+$ IPIP_41              &lt;chr&gt; "moderately inaccurate", "moderately accurate", "…
+$ IPIP_42              &lt;chr&gt; "moderately accurate", "neither accurate nor inac…
+$ IPIP_43              &lt;chr&gt; "moderately inaccurate", "moderately inaccurate",…
+$ IPIP_44              &lt;chr&gt; "moderately inaccurate", "moderately inaccurate",…
+$ IPIP_45              &lt;chr&gt; "very accurate", "moderately accurate", "very acc…
+$ IPIP_46              &lt;chr&gt; "very accurate", "moderately inaccurate", "neithe…
+$ IPIP_47              &lt;chr&gt; "moderately inaccurate", "moderately accurate", "…
+$ IPIP_48              &lt;chr&gt; "moderately inaccurate", "moderately accurate", "…
+$ IPIP_49              &lt;chr&gt; "moderately inaccurate", "moderately inaccurate",…
+$ IPIP_50              &lt;chr&gt; "moderately accurate", "moderately accurate", "ve…
+$ SD_M1                &lt;dbl&gt; 3, 4, 3, 4, 2, 3, 3, 3, 4, 2, 4, 3, 4, 4, 3, 4, 4…
+$ SD_M2                &lt;dbl&gt; 2, 3, 2, 5, 1, 2, 1, 2, 1, 2, 2, 4, 4, 4, 4, 2, 4…
+$ SD_M3                &lt;dbl&gt; 2, 3, 1, 4, 2, 2, 2, 3, 3, 2, 4, 1, 3, 2, 3, 3, 2…
+$ SD_M4                &lt;dbl&gt; 2, 2, 3, 4, 3, 3, 2, 4, 2, 2, 3, 4, 4, 4, 3, 2, 2…
+$ SD_M5                &lt;dbl&gt; 2, 2, 1, 4, 2, 2, 1, 1, 1, 1, 2, 1, 4, 3, 2, 2, 3…
+$ SD_M6                &lt;dbl&gt; 1, 3, 1, 5, 3, 3, 3, 4, 1, 2, 3, 1, 5, 1, 4, 3, 3…
+$ SD_M7                &lt;dbl&gt; 3, 5, 4, 5, 2, 5, 4, 4, 5, 2, 3, 1, 5, 4, 4, 5, 5…
+$ SD_M8                &lt;dbl&gt; 1, 3, 2, 2, 3, 1, 1, 3, 1, 2, 3, 1, 2, 1, 3, 1, 2…
+$ SD_M9                &lt;dbl&gt; 4, 4, 2, 4, 1, 4, 2, 2, 1, 3, 3, 1, 4, 5, 4, 1, 3…
+$ SD_N1                &lt;dbl&gt; 1, 3, 4, 4, 2, 3, 2, 1, 3, 3, 1, 1, 2, 2, 4, 3, 1…
+$ SD_N2                &lt;dbl&gt; 4, 1, 3, 3, 2, 3, 4, 4, 5, 3, 5, 5, 4, 2, 2, 5, 4…
+$ SD_N3                &lt;dbl&gt; 3, 2, 2, 2, 2, 2, 1, 3, 1, 1, 2, 1, 3, 2, 2, 1, 5…
+$ SD_N4                &lt;dbl&gt; 2, 2, 2, 1, 2, 2, 2, 5, 2, 1, 3, 1, 3, 1, 4, 1, 2…
+$ SD_N5                &lt;dbl&gt; 1, 2, 2, 4, 3, 2, 1, 4, 1, 3, 2, 1, 4, 2, 2, 1, 4…
+$ SD_N6                &lt;dbl&gt; 4, 1, 2, 4, 4, 4, 2, 5, 5, 3, 3, 1, 4, 1, 3, 4, 2…
+$ SD_N7                &lt;dbl&gt; 1, 3, 2, 3, 1, 1, 1, 4, 1, 3, 2, 1, 2, 4, 4, 1, 3…
+$ SD_N8                &lt;dbl&gt; 4, 3, 3, 2, 4, 3, 3, 4, 3, 4, 4, 3, 2, 2, 2, 4, 1…
+$ SD_N9                &lt;dbl&gt; 1, 4, 2, 4, 3, 2, 3, 2, 1, 4, 4, 1, 5, 2, 3, 3, 4…
+$ SD_P1                &lt;dbl&gt; 1, 3, 2, 2, 1, 1, 1, 1, 1, 1, 3, 1, 3, 1, 4, 2, 2…
+$ SD_P2                &lt;dbl&gt; 2, 3, 1, 4, 3, 4, 4, 4, 2, 2, 3, 3, 2, 2, 1, 3, 2…
+$ SD_P3                &lt;dbl&gt; 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 4, 2, 1…
+$ SD_P4                &lt;dbl&gt; 1, 2, 3, 2, 1, 1, 1, 1, 1, 1, 2, 1, 2, 2, 3, 1, 1…
+$ SD_P5                &lt;dbl&gt; 3, 4, 1, 4, 1, 2, 3, 4, 1, 3, 2, 1, 4, 4, 3, 1, 1…
+$ SD_P6                &lt;dbl&gt; 3, 3, 1, 4, 1, 2, 2, 2, 1, 1, 2, 1, 3, 1, 3, 2, 1…
+$ SD_P7                &lt;dbl&gt; 5, 5, 4, 1, 5, 5, 5, 5, 5, 2, 5, 5, 2, 5, 2, 5, 2…
+$ SD_P8                &lt;dbl&gt; 1, 1, 3, 2, 3, 2, 1, 3, 1, 2, 1, 1, 1, 1, 3, 3, 3…
+$ SD_P9                &lt;dbl&gt; 1, 2, 1, 3, 1, 1, 1, 1, 1, 2, 2, 1, 1, 1, 2, 2, 4…
+$ PVQ_01               &lt;dbl&gt; 5, 5, 5, 5, 6, 6, 4, 6, 4, 4, 5, 5, 5, 6, 6, 4, 6…
+$ PVQ_02               &lt;dbl&gt; 2, 6, 2, 4, 5, 2, 4, 4, 2, 3, 4, 4, 6, 4, 4, 6, 6…
+$ PVQ_03               &lt;dbl&gt; 4, 6, 3, 5, 6, 4, 4, 5, 3, 4, 5, 4, 5, 3, 4, 4, 3…
+$ PVQ_04               &lt;dbl&gt; 2, 5, 4, 3, 3, 4, 5, 6, 5, 4, 5, 5, 4, 5, 4, 3, 2…
+$ PVQ_05               &lt;dbl&gt; 5, 5, 4, 3, 5, 5, 5, 6, 4, 5, 6, 6, 6, 5, 3, 5, 4…
+$ PVQ_06               &lt;dbl&gt; 1, 3, 2, 5, 3, 3, 2, 2, 1, 2, 2, 3, 3, 2, 3, 4, 4…
+$ PVQ_07               &lt;dbl&gt; 5, 5, 5, 3, 4, 5, 4, 5, 6, 4, 4, 4, 2, 5, 3, 5, 1…
+$ PVQ_08               &lt;dbl&gt; 3, 5, 4, 4, 6, 6, 3, 6, 2, 4, 6, 6, 3, 3, 2, 6, 3…
+$ PVQ_09               &lt;dbl&gt; 4, 4, 5, 2, 3, 4, 4, 3, 5, 3, 5, 2, 5, 3, 3, 6, 3…
+$ PVQ_10               &lt;dbl&gt; 4, 4, 6, 2, 5, 3, 4, 6, 4, 4, 5, 4, 4, 5, 6, 3, 5…
+$ PVQ_11               &lt;dbl&gt; 3, 6, 6, 6, 6, 6, 5, 5, 6, 5, 5, 6, 6, 6, 5, 4, 4…
+$ PVQ_12               &lt;dbl&gt; 1, 2, 1, 6, 2, 2, 2, 1, 1, 2, 3, 4, 3, 3, 1, 5, 3…
+$ PVQ_13               &lt;dbl&gt; 3, 5, 3, 5, 4, 4, 5, 5, 2, 3, 4, 4, 5, 5, 3, 6, 4…
+$ PVQ_14               &lt;dbl&gt; 5, 6, 5, 5, 6, 6, 6, 6, 4, 5, 6, 6, 6, 5, 6, 5, 4…
+$ PVQ_15               &lt;dbl&gt; 2, 3, 2, 2, 3, 4, 3, 5, 6, 4, 3, 2, 2, 2, 2, 2, 3…
+$ PVQ_16               &lt;dbl&gt; 4, 6, 5, 6, 6, 4, 5, 6, 5, 5, 5, 6, 6, 6, 6, 5, 5…
+$ PVQ_17               &lt;dbl&gt; 4, 6, 5, 6, 6, 4, 4, 6, 6, 5, 4, 5, 5, 6, 4, 4, 5…
+$ PVQ_18               &lt;dbl&gt; 1, 2, 2, 3, 2, 2, 2, 4, 1, 3, 2, 1, 1, 2, 2, 2, 4…
+$ PVQ_19               &lt;dbl&gt; 4, 4, 5, 4, 5, 6, 6, 5, 5, 3, 4, 5, 5, 6, 6, 3, 5…
+$ PVQ_20               &lt;dbl&gt; 1, 5, 1, 6, 2, 2, 2, 4, 1, 2, 3, 4, 5, 2, 2, 5, 4…
+$ PVQ_21               &lt;dbl&gt; 2, 3, 3, 0, 5, 4, 1, 0, 2, 4, 5, 0, 4, 1, 3, 6, 1…
+$ PVQ_22               &lt;dbl&gt; 5, 2, 3, 2, 2, 3, 3, 5, 6, 3, 4, 3, 4, 3, 2, 3, 1…
+$ PVQ_23               &lt;dbl&gt; 4, 5, 6, 5, 6, 5, 4, 5, 5, 5, 5, 6, 6, 6, 6, 4, 4…
+$ PVQ_24               &lt;dbl&gt; 2, 3, 2, 5, 2, 3, 4, 5, 4, 3, 3, 4, 5, 3, 3, 3, 4…
+$ PVQ_25               &lt;dbl&gt; 5, 5, 6, 6, 6, 6, 5, 5, 5, 5, 4, 6, 5, 5, 5, 5, 4…
+$ PVQ_26               &lt;dbl&gt; 3, 6, 3, 6, 4, 4, 5, 2, 1, 4, 5, 5, 6, 3, 5, 6, 4…
+$ PVQ_27               &lt;dbl&gt; 5, 6, 6, 6, 5, 5, 6, 5, 5, 5, 5, 5, 5, 6, 5, 5, 2…
+$ PVQ_28               &lt;dbl&gt; 3, 3, 6, 3, 5, 2, 2, 4, 4, 4, 5, 3, 4, 3, 6, 3, 2…
+$ PVQ_29               &lt;dbl&gt; 1, 4, 2, 5, 2, 2, 1, 1, 1, 2, 3, 3, 4, 4, 5, 4, 4…
+$ PVQ_30               &lt;dbl&gt; 3, 4, 5, 3, 5, 3, 4, 5, 4, 4, 5, 4, 5, 5, 4, 4, 5…
+$ PVQ_31               &lt;dbl&gt; 1, 3, 2, 3, 2, 4, 2, 4, 6, 2, 4, 1, 2, 2, 4, 5, 4…
+$ PVQ_32               &lt;dbl&gt; 4, 5, 3, 5, 5, 3, 3, 5, 5, 3, 4, 5, 5, 5, 5, 5, 5…
+$ PVQ_33               &lt;dbl&gt; 1, 2, 2, 3, 4, 3, 2, 2, 2, 2, 1, 2, 1, 3, 1, 1, 3…
+$ PVQ_34               &lt;dbl&gt; 4, 5, 6, 4, 6, 6, 5, 6, 5, 4, 5, 6, 6, 6, 5, 5, 5…
+$ PVQ_35               &lt;dbl&gt; 1, 5, 2, 3, 4, 2, 2, 2, 1, 4, 3, 4, 5, 3, 2, 6, 5…
+$ PVQ_36               &lt;dbl&gt; 5, 6, 4, 5, 6, 4, 5, 3, 3, 4, 4, 5, 5, 4, 5, 5, 5…
+$ PVQ_37               &lt;dbl&gt; 5, 5, 4, 3, 6, 5, 5, 6, 4, 5, 5, 6, 6, 6, 5, 6, 6…
+$ PVQ_38               &lt;dbl&gt; 5, 4, 5, 2, 5, 3, 6, 4, 6, 4, 5, 4, 4, 4, 3, 5, 4…
+$ PVQ_39               &lt;dbl&gt; 4, 5, 5, 3, 6, 5, 4, 6, 6, 4, 5, 6, 5, 6, 6, 4, 6…
+$ PVQ_40               &lt;dbl&gt; 1, 2, 2, 3, 3, 3, 2, 4, 1, 2, 2, 1, 2, 3, 1, 1, 4…
+$ PVQ_41               &lt;dbl&gt; 2, 2, 2, 4, 2, 3, 1, 2, 1, 2, 2, 3, 4, 4, 4, 3, 3…
+$ PVQ_42               &lt;dbl&gt; 1, 5, 2, 2, 2, 4, 4, 3, 6, 2, 2, 1, 2, 3, 2, 5, 2…
+$ PVQ_43               &lt;dbl&gt; 5, 5, 5, 4, 6, 5, 4, 4, 5, 4, 3, 5, 5, 5, 5, 5, 6…
+$ PVQ_44               &lt;dbl&gt; 1, 2, 1, 4, 2, 2, 1, 1, 1, 2, 1, 1, 3, 2, 1, 4, 1…
+$ PVQ_45               &lt;dbl&gt; 2, 3, 4, 2, 5, 6, 2, 5, 2, 4, 6, 6, 5, 3, 3, 6, 3…
+$ PVQ_46               &lt;dbl&gt; 4, 4, 3, 3, 6, 3, 3, 2, 3, 3, 4, 1, 4, 4, 5, 2, 3…
+$ PVQ_47               &lt;dbl&gt; 3, 4, 5, 4, 5, 5, 4, 4, 5, 5, 4, 5, 4, 4, 5, 1, 2…
+$ PVQ_48               &lt;dbl&gt; 4, 3, 5, 6, 4, 2, 2, 4, 6, 4, 4, 5, 6, 5, 5, 4, 4…
+$ PVQ_49               &lt;dbl&gt; 4, 5, 5, 5, 3, 3, 2, 4, 6, 4, 4, 3, 5, 5, 4, 6, 3…
+$ PVQ_50               &lt;dbl&gt; 3, 4, 2, 3, 4, 2, 2, 3, 1, 4, 4, 3, 3, 3, 1, 6, 3…
+$ PVQ_51               &lt;dbl&gt; 5, 2, 2, 2, 3, 3, 3, 3, 6, 3, 4, 4, 3, 4, 3, 3, 3…
+$ PVQ_52               &lt;dbl&gt; 4, 5, 4, 5, 6, 5, 5, 6, 4, 5, 5, 6, 5, 6, 3, 6, 4…
+$ PVQ_53               &lt;dbl&gt; 2, 3, 2, 4, 3, 3, 3, 2, 2, 3, 4, 3, 3, 2, 1, 4, 4…
+$ PVQ_54               &lt;dbl&gt; 3, 2, 3, 2, 3, 3, 4, 5, 4, 4, 4, 3, 3, 5, 5, 2, 3…
+$ PVQ_55               &lt;dbl&gt; 5, 5, 5, 5, 5, 6, 5, 4, 5, 5, 4, 4, 5, 5, 4, 4, 4…
+$ PVQ_56               &lt;dbl&gt; 4, 6, 5, 6, 6, 5, 5, 6, 5, 4, 5, 6, 5, 6, 6, 5, 4…
+$ PVQ_57               &lt;dbl&gt; 4, 6, 5, 5, 5, 4, 4, 6, 4, 4, 4, 5, 5, 4, 4, 5, 4…</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="try callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Test your understanding
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Here is a small data table.</p>
+<table class="table">
+<thead><tr class="header">
+<th style="text-align: left;">country</th>
+<th style="text-align: right;">population</th>
+<th style="text-align: left;">island</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Northern Ireland</td>
+<td style="text-align: right;">1,895,510</td>
+<td style="text-align: left;">Ireland</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Wales</td>
+<td style="text-align: right;">3,169,586</td>
+<td style="text-align: left;">Great Britain</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Republic of Ireland</td>
+<td style="text-align: right;">4,937,786</td>
+<td style="text-align: left;">Ireland</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Scotland</td>
+<td style="text-align: right;">5,466,000</td>
+<td style="text-align: left;">Great Britain</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">England</td>
+<td style="text-align: right;">56,550,138</td>
+<td style="text-align: left;">Great Britain</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>What geom would you use to plot the population for each of the 5 countries? <select class="webex-select"><option value="blank"></option>
+<option value="x">geom_bar</option>
+<option value="answer">geom_col</option></select>
+</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<ul>
+<li>What mapping would you use?
+<div id="radio_PNUSINGLCJ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_PNUSINGLCJ" value="answer"><span>aes(x = country, y = population)</span></label><label><input type="radio" autocomplete="off" name="radio_PNUSINGLCJ" value="x"><span>aes(x = population, y = country)</span></label><label><input type="radio" autocomplete="off" name="radio_PNUSINGLCJ" value="x"><span>aes(x = country)</span></label><label><input type="radio" autocomplete="off" name="radio_PNUSINGLCJ" value="x"><span>aes(x = island)</span></label><label><input type="radio" autocomplete="off" name="radio_PNUSINGLCJ" value="x"><span>aes(y = population)</span></label>
+</div>
+</li>
+</ul>
+</div>
+<ul>
+<li>What geom would you use to plot the number of countries on each island? <select class="webex-select"><option value="blank"></option>
+<option value="answer">geom_bar</option>
+<option value="x">geom_col</option></select>
+</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<ul>
+<li>What mapping would you use?
+<div id="radio_TXSTEMBWLU" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_TXSTEMBWLU" value="x"><span>aes(x = country, y = population)</span></label><label><input type="radio" autocomplete="off" name="radio_TXSTEMBWLU" value="x"><span>aes(x = population, y = country)</span></label><label><input type="radio" autocomplete="off" name="radio_TXSTEMBWLU" value="x"><span>aes(x = country)</span></label><label><input type="radio" autocomplete="off" name="radio_TXSTEMBWLU" value="answer"><span>aes(x = island)</span></label><label><input type="radio" autocomplete="off" name="radio_TXSTEMBWLU" value="x"><span>aes(y = population)</span></label>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section></section><section id="building-plots" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="building-plots">
+<span class="header-section-number">3.3</span> Building plots</h2>
+<section id="section" class="level3" data-number="3.3.1"><h3 data-number="3.3.1" class="anchored" data-anchor-id="section">
+<span class="header-section-number">3.3.1</span> </h3>
+<p>There are multiple approaches to data visualisation in R; in this course we will use the popular package <pkg>ggplot2</pkg>, which is part of the larger <code>tidyverse</code> collection of packages. A grammar of graphics (the “gg” in “ggplot”) is a standardised way to describe the components of a graphic. <pkg>ggplot2</pkg> uses a layered grammar of graphics, in which plots are built up in a series of layers. It may be helpful to think about any picture as having multiple elements that sit semi-transparently over each other. A good analogy is old Disney movies where artists would create a background and then add moveable elements on top of the background via transparencies.</p>
+<p><span class="quarto-unresolved-ref">?fig-layers</span> displays the evolution of a simple scatterplot using this layered approach. First, the plot space is built (layer 1); the variables are specified (layer 2); the type of visualisation (known as a <code>geom</code>) that is desired for these variables is specified (layer 3) - in this case <code>geom_point()</code> is called to visualise individual data points; a second geom is added to include a line of best fit (layer 4), the axis labels are edited for readability (layer 5), and finally, a theme is applied to change the overall appearance of the plot (layer 6).</p>
+<p>Importantly, each layer is independent and independently customisable. For example, the size, colour and position of each component can be adjusted, or one could, for example, remove the first geom (the data points) to only visualise the line of best fit, simply by removing the layer that draws the data points (<span class="quarto-unresolved-ref">?fig-remove-layer</span>). The use of layers makes it easy to build up complex plots step-by-step, and to adapt or extend plots from existing code.</p>
+</section></section><section id="activity-3-wrangling-the-data" class="level2" data-number="3.4"><h2 data-number="3.4" class="anchored" data-anchor-id="activity-3-wrangling-the-data">
+<span class="header-section-number">3.4</span> Activity 3: Wrangling the data?</h2>
+<p>Not sure that makes sense. Maybe just dive straight in with the plots</p>
+<p>Quick recap of continuous vs categorical data types</p>
+<p>Check in this weeks dataset</p>
+<p>Quick quiz</p>
+</section><section id="data-types" class="level2" data-number="3.5"><h2 data-number="3.5" class="anchored" data-anchor-id="data-types">
+<span class="header-section-number">3.5</span> data types</h2>
+<section id="categorical" class="level3" data-number="3.5.1"><h3 data-number="3.5.1" class="anchored" data-anchor-id="categorical">
+<span class="header-section-number">3.5.1</span> categorical</h3>
+</section><section id="continuous" class="level3" data-number="3.5.2"><h3 data-number="3.5.2" class="anchored" data-anchor-id="continuous">
+<span class="header-section-number">3.5.2</span> continuous</h3>
 <p>let them check the data type of a</p>
-</section>
-</section>
-<section id="plots-for" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="plots-for"><span class="header-section-number">3.2</span> Plots for…</h2>
-<section id="catergorical-variable" class="level3" data-number="3.2.1">
-<h3 data-number="3.2.1" class="anchored" data-anchor-id="catergorical-variable"><span class="header-section-number">3.2.1</span> …1 catergorical variable</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb6-2"><a href="#cb6-2"></a>pets <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://psyteachr.github.io/reprores/data/pets.csv"</span>, <span class="at">col_types =</span> <span class="st">"cffiid"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3"></a><span class="fu">glimpse</span>(pets)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 800
+Columns: 6
+$ id      &lt;chr&gt; "S001", "S002", "S003", "S004", "S005", "S006", "S007", "S008"…
+$ pet     &lt;fct&gt; dog, dog, dog, dog, dog, dog, dog, dog, dog, dog, dog, dog, do…
+$ country &lt;fct&gt; UK, UK, UK, UK, UK, UK, UK, UK, UK, UK, UK, UK, UK, UK, UK, UK…
+$ score   &lt;int&gt; 90, 107, 94, 120, 111, 110, 100, 107, 106, 109, 85, 110, 102, …
+$ age     &lt;int&gt; 6, 8, 2, 10, 4, 8, 9, 8, 6, 11, 5, 9, 1, 10, 7, 8, 1, 8, 5, 13…
+$ weight  &lt;dbl&gt; 19.78932, 20.01422, 19.14863, 19.56953, 21.39259, 21.31880, 19…</code></pre>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist">
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Layer 1</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Layer 2</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Layer 3</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Layer 4</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false">Layer 5</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-6" role="tab" aria-controls="tabset-1-6" aria-selected="false">Layer 6</a></li>
+</ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Let’s start with a totally empty plot layer created by the <code>ggplot()</code> function with no arguments.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">ggplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="03-dataviz_files/figure-html/ggplot-empty-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">A plot base created by ggplot()</figcaption></figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>The first argument to <code>ggplot()</code> is the <code>data</code> table you want to plot. Let’s use the <code>pets</code> data we loaded above. The second argument is the <code>mapping</code> for which columns in your data table correspond to which properties of the plot, such as the <code>x</code>-axis, the <code>y</code>-axis, line <code>colour</code> or <code>linetype</code>, point <code>shape</code>, or object <code>fill</code>. These mappings are specified by the <code>aes()</code> function. Just adding this to the <code>ggplot</code> function creates the labels and ranges for the <code>x</code> and <code>y</code> axes. They usually have sensible default values, given your data, but we’ll learn how to change them later.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> pets, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pet, <span class="at">y =</span> score, <span class="at">colour =</span> country, <span class="at">fill =</span> country))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="03-dataviz_files/figure-html/ggplot-aes-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Empty ggplot with x and y labels</figcaption></figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>People usually omit the argument names and just put the <code>aes()</code> function directly as the second argument to <code>ggplot</code>. They also usually omit <code>x</code> and <code>y</code> as argument names to <code>aes()</code> (but you have to name the other properties).</p>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>Next we can add “geoms”, or plot styles. You literally add them with the <code>+</code> symbol. You can customise the appearance of a geom with arguments like <code>alpha</code> (sets transparency).</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">ggplot</span>(pets, <span class="fu">aes</span>(pet, score, <span class="at">colour =</span> country, <span class="at">fill =</span> country)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="03-dataviz_files/figure-html/ggplot-geom-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Violin plot with country represented by colour.</figcaption></figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
+<p>The <code>scale_*</code> functions help you to customise the aesthetics.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">ggplot</span>(pets, <span class="fu">aes</span>(pet, score, <span class="at">colour =</span> country, <span class="at">fill =</span> country)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"orange"</span>, <span class="st">"orchid"</span>)) <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"orange"</span>, <span class="st">"orchid"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="03-dataviz_files/figure-html/ggplot-color-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Customised colours.</figcaption></figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
+<p>Further customise the image by setting the y-axis breaks and limits, and editing the labels.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">ggplot</span>(pets, <span class="fu">aes</span>(pet, score, <span class="at">colour =</span> country, <span class="at">fill =</span> country)) <span class="sc">+</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"orange"</span>, <span class="st">"orchid"</span>)) <span class="sc">+</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"orange"</span>, <span class="st">"orchid"</span>)) <span class="sc">+</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">150</span>)) <span class="sc">+</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">150</span>)) <span class="sc">+</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Pet type"</span>,</span>
+<span id="cb12-8"><a href="#cb12-8"></a>       <span class="at">y =</span> <span class="st">"Score on an Important Test"</span>,</span>
+<span id="cb12-9"><a href="#cb12-9"></a>       <span class="at">colour =</span> <span class="st">"Country of Origin"</span>,</span>
+<span id="cb12-10"><a href="#cb12-10"></a>       <span class="at">fill =</span> <span class="st">"Country of Origin"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="03-dataviz_files/figure-html/ggplot-labels-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Customised axis labels.</figcaption></figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-6-tab">
+<p>Finally, change the theme and base font size and customise the legend position.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">ggplot</span>(pets, <span class="fu">aes</span>(pet, score, <span class="at">colour =</span> country, <span class="at">fill =</span> country)) <span class="sc">+</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"orange"</span>, <span class="st">"orchid"</span>)) <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a>  <span class="fu">scale_colour_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"orange"</span>, <span class="st">"orchid"</span>)) <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">100</span>, <span class="dv">150</span>)) <span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">150</span>)) <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Pet type"</span>,</span>
+<span id="cb13-8"><a href="#cb13-8"></a>       <span class="at">y =</span> <span class="st">"Score on an Important Test"</span>,</span>
+<span id="cb13-9"><a href="#cb13-9"></a>       <span class="at">colour =</span> <span class="st">"Country of Origin"</span>,</span>
+<span id="cb13-10"><a href="#cb13-10"></a>       <span class="at">fill =</span> <span class="st">"Country of Origin"</span>) <span class="sc">+</span></span>
+<span id="cb13-11"><a href="#cb13-11"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">13</span>) <span class="sc">+</span></span>
+<span id="cb13-12"><a href="#cb13-12"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(.<span class="dv">83</span>, .<span class="dv">17</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: A numeric `legend.position` argument in `theme()` was deprecated in ggplot2
+3.5.0.
+ℹ Please use the `legend.position.inside` argument of `theme()` instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="03-dataviz_files/figure-html/ggplot-theme-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Customised theme and legend position.</figcaption></figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section></section><section id="sec-appropriate-plot" class="level2" data-number="3.6"><h2 data-number="3.6" class="anchored" data-anchor-id="sec-appropriate-plot">
+<span class="header-section-number">3.6</span> Which plot shall I build???</h2>
+<section id="one-catergorical-variable" class="level3" data-number="3.6.1"><h3 data-number="3.6.1" class="anchored" data-anchor-id="one-catergorical-variable">
+<span class="header-section-number">3.6.1</span> One catergorical variable</h3>
 <p>Bargraphs - from raw data</p>
 <p>geom bar</p>
-<p>use geom bar if something has already been summmarised for you</p>
-</section>
-<section id="categorical-variables" class="level3" data-number="3.2.2">
-<h3 data-number="3.2.2" class="anchored" data-anchor-id="categorical-variables"><span class="header-section-number">3.2.2</span> 2 categorical variables</h3>
+<p>use geom col if something has already been summmarised for you</p>
+<p>bring in layers/tabs of how to change colour etc</p>
+</section><section id="two-categorical-variables" class="level3" data-number="3.6.2"><h3 data-number="3.6.2" class="anchored" data-anchor-id="two-categorical-variables">
+<span class="header-section-number">3.6.2</span> Two categorical variables</h3>
 <p>faceted bargraph</p>
-</section>
-</section>
-<section id="continuous-1" class="level2" data-number="3.3">
-<h2 data-number="3.3" class="anchored" data-anchor-id="continuous-1"><span class="header-section-number">3.3</span> 1 continuous</h2>
-</section>
-<section id="continuous-and-1" class="level2" data-number="3.4">
-<h2 data-number="3.4" class="anchored" data-anchor-id="continuous-and-1"><span class="header-section-number">3.4</span> 1 continuous and 1</h2>
-</section>
-<section id="continuous-2" class="level2" data-number="3.5">
-<h2 data-number="3.5" class="anchored" data-anchor-id="continuous-2"><span class="header-section-number">3.5</span> 1 continuous</h2>
+</section><section id="one-continuous-variable" class="level3" data-number="3.6.3"><h3 data-number="3.6.3" class="anchored" data-anchor-id="one-continuous-variable">
+<span class="header-section-number">3.6.3</span> One continuous variable</h3>
+<p>histogram</p>
+</section><section id="one-continuous-and-one-categorical-grouping-variable" class="level3" data-number="3.6.4"><h3 data-number="3.6.4" class="anchored" data-anchor-id="one-continuous-and-one-categorical-grouping-variable">
+<span class="header-section-number">3.6.4</span> One continuous and one categorical grouping variable</h3>
+<p>Have one with char and one with numbers factors are important</p>
+<p>dodged histogram or better facet</p>
+<p>violin plot</p>
+<p>boxplot</p>
+<p>violin-boxplot</p>
+<p>For ordinal rating scale: overplotting with geom_point. Use geom_jitter instead - tab you can also change the size of the dot and the transparency</p>
+</section><section id="two-continuous" class="level3" data-number="3.6.5"><h3 data-number="3.6.5" class="anchored" data-anchor-id="two-continuous">
+<span class="header-section-number">3.6.5</span> Two continuous</h3>
+<p>scatterplot</p>
+<p>trendlines straight line vs loess</p>
+<p>show them next to each other like Lisa has</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>lm_plot <span class="ot">&lt;-</span> </span>
+<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">ggplot</span>(survey_data, <span class="fu">aes</span>(<span class="at">x =</span> wait_time, <span class="at">y =</span> call_time)) <span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm, <span class="at">formula =</span> y<span class="sc">~</span>x) <span class="sc">+</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a>  <span class="fu">ggtitle</span>(<span class="st">"method = lm"</span>)</span>
+<span id="cb15-6"><a href="#cb15-6"></a></span>
+<span id="cb15-7"><a href="#cb15-7"></a>loess_plot <span class="ot">&lt;-</span> </span>
+<span id="cb15-8"><a href="#cb15-8"></a>  <span class="fu">ggplot</span>(survey_data, <span class="fu">aes</span>(<span class="at">x =</span> wait_time, <span class="at">y =</span> call_time)) <span class="sc">+</span></span>
+<span id="cb15-9"><a href="#cb15-9"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb15-10"><a href="#cb15-10"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> loess, <span class="at">formula =</span> y<span class="sc">~</span>x) <span class="sc">+</span></span>
+<span id="cb15-11"><a href="#cb15-11"></a>  <span class="fu">ggtitle</span>(<span class="st">"method = loess"</span>)</span>
+<span id="cb15-12"><a href="#cb15-12"></a></span>
+<span id="cb15-13"><a href="#cb15-13"></a>lm_plot <span class="sc">+</span> loess_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
-</section>
-
-</main> <!-- /main -->
-<script>
+</section></section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
@@ -553,8 +1064,7 @@ window.onload = function() {
   update_total_correct();
 }
 
-</script>
-<script>
+</script><script>
 // open rdrr links externally ----
 
 var exlinks = document.querySelectorAll("a[href^='https://rdrr.io']");
@@ -581,8 +1091,7 @@ function move_sidebar() {
 }
 move_sidebar();
 window.onresize = move_sidebar;
-</script>
-<script id="quarto-html-after-body" type="application/javascript">
+</script><script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
     const mode = bsSheetEl.getAttribute("data-mode");
@@ -929,9 +1438,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
 });
-</script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
       <a href="./02-wrangling.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Advanced data wrangling</span></span>
       </a>          
@@ -943,8 +1450,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
       &nbsp;
     </div>   
@@ -954,7 +1460,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
-
 
 
 </body></html>

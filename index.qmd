@@ -32,3 +32,20 @@ This book requires a higher level of self-directed learning than the first book;
 When working through this book remember that this is not about learning a software. We do not teach R independent of statistical knowledge and content. Rather, we teach data and analytical skills and knowledge within R. The goal is to continuously improve your data analysis skills!
 
 You can do this!
+
+
+::: {.callout-tip}
+.callout-tip: Tips
+:::
+
+::: {.callout-warning}
+.callout-warning: Notes to warn you about something.
+:::
+
+::: {.callout-caution}
+.callout-caution: Notes about things that could cause serious errors.
+:::
+
+::: {.callout-important}
+.callout-important: Notes about things that are important.
+:::

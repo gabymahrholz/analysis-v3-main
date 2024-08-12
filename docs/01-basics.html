@@ -18,6 +18,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -269,19 +303,22 @@ ul.task-list li input[type="checkbox"] {
   </ul>
 </li>
   <li><a href="#activity-1-creating-a-new-project" id="toc-activity-1-creating-a-new-project" class="nav-link" data-scroll-target="#activity-1-creating-a-new-project"><span class="header-section-number">1.2</span> Activity 1: Creating a new project</a></li>
-  <li><a href="#activity-2-the-data-for-this-chapter" id="toc-activity-2-the-data-for-this-chapter" class="nav-link" data-scroll-target="#activity-2-the-data-for-this-chapter"><span class="header-section-number">1.3</span> Activity 2: The data for this chapter</a></li>
   <li>
-<a href="#r-markdown-basics" id="toc-r-markdown-basics" class="nav-link" data-scroll-target="#r-markdown-basics"><span class="header-section-number">1.4</span> R Markdown basics</a>
+<a href="#activity-2-create-a-new-r-markdown-file" id="toc-activity-2-create-a-new-r-markdown-file" class="nav-link" data-scroll-target="#activity-2-create-a-new-r-markdown-file"><span class="header-section-number">1.3</span> Activity 2: Create a new R Markdown file</a>
   <ul class="collapse">
-<li><a href="#creating-an-r-markdown-file" id="toc-creating-an-r-markdown-file" class="nav-link" data-scroll-target="#creating-an-r-markdown-file"><span class="header-section-number">1.4.1</span> Creating an R Markdown file</a></li>
-  <li><a href="#code-chunks-vs-text" id="toc-code-chunks-vs-text" class="nav-link" data-scroll-target="#code-chunks-vs-text"><span class="header-section-number">1.4.2</span> Code Chunks vs Text</a></li>
+<li><a href="#grey-bits-vs-white-bits-in-default-mode" id="toc-grey-bits-vs-white-bits-in-default-mode" class="nav-link" data-scroll-target="#grey-bits-vs-white-bits-in-default-mode"><span class="header-section-number">1.3.1</span> grey bits vs white bits (in default mode)</a></li>
+  <li><a href="#code-chunk" id="toc-code-chunk" class="nav-link" data-scroll-target="#code-chunk"><span class="header-section-number">1.3.2</span> Code Chunk</a></li>
+  <li><a href="#knitting" id="toc-knitting" class="nav-link" data-scroll-target="#knitting"><span class="header-section-number">1.3.3</span> knitting</a></li>
   </ul>
 </li>
-  <li><a href="#data-for-this-chapter" id="toc-data-for-this-chapter" class="nav-link" data-scroll-target="#data-for-this-chapter"><span class="header-section-number">1.5</span> Data for this chapter</a></li>
+  <li><a href="#activity-3-the-data-for-this-chapter" id="toc-activity-3-the-data-for-this-chapter" class="nav-link" data-scroll-target="#activity-3-the-data-for-this-chapter"><span class="header-section-number">1.4</span> Activity 3: The data for this chapter</a></li>
+  <li><a href="#activity-4-loading-packages-and-reading-in-data" id="toc-activity-4-loading-packages-and-reading-in-data" class="nav-link" data-scroll-target="#activity-4-loading-packages-and-reading-in-data"><span class="header-section-number">1.5</span> Activity 4: Loading packages and reading in data</a></li>
   <li>
-<a href="#activity-3-load-the-packages-and-read-in-the-data" id="toc-activity-3-load-the-packages-and-read-in-the-data" class="nav-link" data-scroll-target="#activity-3-load-the-packages-and-read-in-the-data"><span class="header-section-number">1.6</span> Activity 3: Load the packages and read in the data</a>
+<a href="#activity-5-familiarise-yourself-with-the-data" id="toc-activity-5-familiarise-yourself-with-the-data" class="nav-link" data-scroll-target="#activity-5-familiarise-yourself-with-the-data"><span class="header-section-number">1.6</span> Activity 5: Familiarise yourself with the data</a>
   <ul class="collapse">
-<li><a href="#knitting" id="toc-knitting" class="nav-link" data-scroll-target="#knitting"><span class="header-section-number">1.6.1</span> Knitting</a></li>
+<li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types"><span class="header-section-number">1.6.1</span> Data types</a></li>
+  <li><a href="#variable-types" id="toc-variable-types" class="nav-link" data-scroll-target="#variable-types"><span class="header-section-number">1.6.2</span> Variable types</a></li>
+  <li><a href="#why-is-this-important-you-may-ask" id="toc-why-is-this-important-you-may-ask" class="nav-link" data-scroll-target="#why-is-this-important-you-may-ask"><span class="header-section-number">1.6.3</span> Why is this important you may ask</a></li>
   </ul>
 </li>
   <li>
@@ -290,6 +327,15 @@ ul.task-list li input[type="checkbox"] {
 <li><a href="#brief-recap-of-the-wickham-6" id="toc-brief-recap-of-the-wickham-6" class="nav-link" data-scroll-target="#brief-recap-of-the-wickham-6"><span class="header-section-number">1.7.1</span> Brief recap of the Wickham 6</a></li>
   </ul>
 </li>
+  <li><a href="#tidy-data" id="toc-tidy-data" class="nav-link" data-scroll-target="#tidy-data"><span class="header-section-number">1.8</span> Tidy data</a></li>
+  <li>
+<a href="#data-types-and-what-are-observations-variables" id="toc-data-types-and-what-are-observations-variables" class="nav-link" data-scroll-target="#data-types-and-what-are-observations-variables"><span class="header-section-number">1.9</span> Data types and what are observations/ variables</a>
+  <ul class="collapse">
+<li><a href="#knitting-1" id="toc-knitting-1" class="nav-link" data-scroll-target="#knitting-1"><span class="header-section-number">1.9.1</span> Knitting</a></li>
+  </ul>
+</li>
+  <li><a href="#pair-coding-in-the-lab" id="toc-pair-coding-in-the-lab" class="nav-link" data-scroll-target="#pair-coding-in-the-lab"><span style="color: #EBA347; text-transform: uppercase;">Pair-coding in the lab</span></a></li>
+  <li><a href="#test-your-knowledge-and-challenge-yourself" id="toc-test-your-knowledge-and-challenge-yourself" class="nav-link" data-scroll-target="#test-your-knowledge-and-challenge-yourself"><span style="color: #EBA347; text-transform: uppercase;">Test your knowledge and challenge yourself</span></a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -319,10 +365,10 @@ ul.task-list li input[type="checkbox"] {
 </section><section id="r-and-r-studio" class="level2" data-number="1.1"><h2 data-number="1.1" class="anchored" data-anchor-id="r-and-r-studio">
 <span class="header-section-number">1.1</span> R and R Studio</h2>
 <p>Remember, R is a programming language that you will write code in and RStudio is an Integrated Development Environment (IDE) which makes working with R easier as it’s more user friendly. You need both components for this course.</p>
-<p>If this is not ringing any bells yet, have a quick browse through the <a href="https://psyteachr.github.io/data-skills-v2/sec-intro.html?q=RMark#sec-intro-r" target="_blank">materials from year 1</a>to refresh yopur memory.</p>
+<p>If this is not ringing any bells yet, have a quick browse through the <a href="https://psyteachr.github.io/data-skills-v2/sec-intro.html?q=RMark#sec-intro-r" target="_blank">materials from year 1</a> to refresh your memory.</p>
 <section id="r-server" class="level3" data-number="1.1.1"><h3 data-number="1.1.1" class="anchored" data-anchor-id="r-server">
 <span class="header-section-number">1.1.1</span> R server</h3>
-<p>R and RStudio are already installed on the <em>R server</em>. We recommend using the server if your computer does not allow installation (e.g., a Chromebook), or if you have problems with installing R on your computer. Otherwise, you should consider installing R and RStudio on your own computer.</p>
+<p>R and RStudio are already installed on the <em>R server</em>. We recommend using the server if your computer does not allow installation (e.g., a Chromebook), or if you have problems installing R on your computer. Otherwise, you should consider installing R and RStudio on your own computer.</p>
 <p>You will find the link to the server on Moodle.</p>
 </section><section id="installing-r-and-rstudio-on-your-computer" class="level3" data-number="1.1.2"><h3 data-number="1.1.2" class="anchored" data-anchor-id="installing-r-and-rstudio-on-your-computer">
 <span class="header-section-number">1.1.2</span> Installing R and RStudio on your computer</h3>
@@ -333,8 +379,8 @@ ul.task-list li input[type="checkbox"] {
 <span class="header-section-number">1.1.3</span> Settings for Reproducibility</h3>
 <p><em>–&gt; mention the replication crisis, findings are not reproducible. Hence it’s super important that we do things in a reproducible way</em></p>
 <p><em>Wikipedia: The replication crisis[a] is an ongoing methodological crisis in which the results of many scientific studies are difficult or impossible to reproduce. Because the reproducibility of empirical results is an essential part of the scientific method,[2] such failures undermine the credibility of theories building on them and potentially call into question substantial parts of scientific knowledge.</em></p>
-<p>You should be doing things reproducibly, so that others (and your future self) can understand and check your work. That also allows you to reuse your work more easily.</p>
-<p>You should always start with a clear workspace. Keeping anything in your Environment from a previous session means you can never be sure whether your current code is working or if your code is accessing a previously created object.</p>
+<p>You should be doing things reproducibly so that others (and your future self) can understand and check your work. That also allows you to reuse your work more easily.</p>
+<p>Always start with a clear workspace. Keeping anything in your <code>Global Environment</code> from a previous session means you can never be sure whether your current code is working or if your code is accessing previously created objects.</p>
 <p>Hence, there are a few settings you should fix immediately after installing/updating RStudio, in <if>Tools &gt; Global Options… General tab</if></p>
 <ul>
 <li>uncheck the box that says <if>Restore .RData into workspace at startup</if> to make sure no data from a previous session is loaded into the environment</li>
@@ -357,50 +403,66 @@ ul.task-list li input[type="checkbox"] {
 <li>Console pane</li>
 <li>Output pane</li>
 </ul>
-<p><strong>Do you remember what their purpose is?</strong></p>
+<p>Lets see what you remember about the RStudio panes from last year. Click on the <strong>Test your understanding</strong> section below and give it a go.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Test your understanding
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>What is their purpose?</strong></p>
 <strong>The Source pane…</strong>
-<div id="radio_QDRIUSANGY" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_QDRIUSANGY" value="answer"><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_QDRIUSANGY" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_QDRIUSANGY" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_QDRIUSANGY" value=""><span>provides an area to interactively execute code</span></label>
+<div id="radio_ILMZEBYARC" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ILMZEBYARC" value="answer"><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_ILMZEBYARC" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_ILMZEBYARC" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_ILMZEBYARC" value=""><span>provides an area to interactively execute code</span></label>
 </div>
 <strong>The Environment pane…</strong>
-<div id="radio_OTMGGPMMTW" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_OTMGGPMMTW" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_OTMGGPMMTW" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_OTMGGPMMTW" value="answer"><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_OTMGGPMMTW" value=""><span>provides an area to interactively execute code</span></label>
+<div id="radio_SSCYWUVZFA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SSCYWUVZFA" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_SSCYWUVZFA" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_SSCYWUVZFA" value="answer"><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_SSCYWUVZFA" value=""><span>provides an area to interactively execute code</span></label>
 </div>
 <strong>The Console pane…</strong>
-<div id="radio_XPPXLYTONN" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_XPPXLYTONN" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_XPPXLYTONN" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_XPPXLYTONN" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_XPPXLYTONN" value="answer"><span>provides an area to interactively execute code</span></label>
+<div id="radio_OTPMPGWJET" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_OTPMPGWJET" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_OTPMPGWJET" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_OTPMPGWJET" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_OTPMPGWJET" value="answer"><span>provides an area to interactively execute code</span></label>
 </div>
 <strong>The Output pane…</strong>
-<div id="radio_EAUEDZHJON" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_EAUEDZHJON" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_EAUEDZHJON" value="answer"><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_EAUEDZHJON" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_EAUEDZHJON" value=""><span>provides an area to interactively execute code</span></label>
+<div id="radio_XEYZEASNKK" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XEYZEASNKK" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_XEYZEASNKK" value="answer"><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_XEYZEASNKK" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_XEYZEASNKK" value=""><span>provides an area to interactively execute code</span></label>
 </div>
 <p><strong>Where are these panes located by default?</strong></p>
 <ul>
 <li>The Source pane is located? <select class="webex-select"><option value="blank"></option>
-<option value="answer">top left</option>
 <option value="">top right</option>
-<option value="">bottom right</option>
-<option value="">bottom left</option></select>
+<option value="">bottom left</option>
+<option value="answer">top left</option>
+<option value="">bottom right</option></select>
 </li>
 <li>The Environment pane is located? <select class="webex-select"><option value="blank"></option>
-<option value="">top left</option>
-<option value="answer">top right</option>
 <option value="">bottom right</option>
+<option value="answer">top right</option>
+<option value="">top left</option>
 <option value="">bottom left</option></select>
 </li>
 <li>The Console pane is located? <select class="webex-select"><option value="blank"></option>
 <option value="">bottom right</option>
-<option value="">top right</option>
 <option value="answer">bottom left</option>
+<option value="">top right</option>
 <option value="">top left</option></select>
 </li>
 <li>The Output pane is located? <select class="webex-select"><option value="blank"></option>
-<option value="">top right</option>
-<option value="answer">bottom right</option>
 <option value="">top left</option>
-<option value="">bottom left</option></select>
+<option value="">top right</option>
+<option value="">bottom left</option>
+<option value="answer">bottom right</option></select>
 </li>
 </ul>
+</div>
+</div>
+</div>
 <p>If you were not quite sure about one/any of the panes, check out the <a href="https://psyteachr.github.io/data-skills-v2/sec-intro.html?q=RMark#rstudio-panes" target="_blank">materials from Level 1</a>. If you want to know more about them, there is the <a href="https://docs.posit.co/ide/user/ide/guide/ui/ui-panes.html" target="_blank">RStudio guide on posit</a></p>
 </section></section><section id="activity-1-creating-a-new-project" class="level2" data-number="1.2"><h2 data-number="1.2" class="anchored" data-anchor-id="activity-1-creating-a-new-project">
 <span class="header-section-number">1.2</span> Activity 1: Creating a new project</h2>
@@ -412,20 +474,16 @@ ul.task-list li input[type="checkbox"] {
 </li>
 <li>Then, click on “New Directory”</li>
 <li>Then, click on “New Project”</li>
-<li>Name the directory something useful (e.g., “2A_chapter1”), and save it in a location that makes sense, for example a dedicated folder you have for your level 2 Psychology labs - you can either select a folder you have already in place, or create a new one (e.g., I named my new folder “Level 2 labs”)</li>
-<li>Click “Create Project”. RStudio will restart itself and open with this new project directory as the working directory.</li>
+<li>Name the directory something meaningful (e.g., “2A_chapter1”), and save it in a location that makes sense, for example, a dedicated folder you have for your level 2 Psychology labs - you can either select a folder you have already in place, or create a new one (e.g., I named my new folder “Level 2 labs”)</li>
+<li>Click “Create Project”. RStudio will restart itself and open with this new project directory as the working directory. If you accidentally close it, you can open it by double-clicking on the project icon in your folder</li>
 <li>You can also check in your folder structure that everything was created as intended</li>
 </ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/project_setup.gif" class="img-fluid figure-img" style="width:100.0%"></p>
+<figure class="figure"><p><img src="images/project_setup.gif" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Creating a new project</figcaption></figure>
 </div>
-</div>
-</div>
 <div class="callout callout-style-default callout-tip callout-titled" title="Why is the Colour scheme in the gif different?">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -434,7 +492,7 @@ Why is the Colour scheme in the gif different?
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>In case anyone is wondering why my colour scheme in the gif above looks different to yours, I’ve set mine to “Pastel On Dark” in <if>Tools &gt; Global Options… &gt; Appearances</if>. And my computer lives in “dark mode”.</p>
 </div>
@@ -453,38 +511,723 @@ Don’t nest projects
 <p>Don’t ever save a new project <strong>inside</strong> another project directory. This can cause some hard-to-resolve problems.</p>
 </div>
 </div>
-</section><section id="activity-2-the-data-for-this-chapter" class="level2" data-number="1.3"><h2 data-number="1.3" class="anchored" data-anchor-id="activity-2-the-data-for-this-chapter">
-<span class="header-section-number">1.3</span> Activity 2: The data for this chapter</h2>
-<p>Download the data for today: <a href="data/test.csv" title="download">filename</a>. You will</p>
-<p>Download the data for today: <a href="https://psyteachr.github.io/ads-v2/data/review_data.csv" title="download">filename</a>. You will</p>
-<p>data test fixed path <a href="https://psyteachr.github.io/ads-v2/data/review_data.csv" download="">review_data.csv</a></p>
-<p>floating path <a href="data/test.csv" download="">test.csv</a></p>
+</section><section id="activity-2-create-a-new-r-markdown-file" class="level2" data-number="1.3"><h2 data-number="1.3" class="anchored" data-anchor-id="activity-2-create-a-new-r-markdown-file">
+<span class="header-section-number">1.3</span> Activity 2: Create a new R Markdown file</h2>
+<ul>
+<li>Open a new R Markdown document: click <if>File &gt; New File &gt; R Markdown</if> or click on the little page icon with a green plus sign (top left).</li>
+<li>Give it a meaningful <code>Title</code> (e.g., Level 2 chapter 1) - you can also change the title later. Feel free to add your name or GUID in the <code>Author</code> field author name. Keep the <code>Default Output Format</code> as HTML.</li>
+<li>Once the Rmd opened, you need to save the file.</li>
+<li>To save it, click <if>File &gt; Save As…</if> or click on the little disc icon. Name it something meaningful (e.g., “chapter_01.Rmd”, “01_intro.Rmd”). Make sure there are no spaces in the name - R is not very fond of spaces… This file will automatically be saved in your project folder (i.e., your working directory) so you should now see this file appear in your file viewer pane.</li>
+<li>Delete everything below line 12 (keep the set-up code chunk)</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="images/Rmd_setup.gif" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Creating a new Rmd file</figcaption></figure>
+</div>
+<ul>
+<li>Type “## XXX” on line 12</li>
+<li>and include a code chunk</li>
+</ul>
+<section id="grey-bits-vs-white-bits-in-default-mode" class="level3" data-number="1.3.1"><h3 data-number="1.3.1" class="anchored" data-anchor-id="grey-bits-vs-white-bits-in-default-mode">
+<span class="header-section-number">1.3.1</span> grey bits vs white bits (in default mode)</h3>
+</section><section id="code-chunk" class="level3" data-number="1.3.2"><h3 data-number="1.3.2" class="anchored" data-anchor-id="code-chunk">
+<span class="header-section-number">1.3.2</span> Code Chunk</h3>
+<p>they start and finish with 3 backticks. Start a chunk with <code>```{r}</code> and ends with <code>```</code></p>
+<p>If you accidentally delete one, your code chunks won’t run and/or your text parts will be interpreted as part of the code chunks. But no need to fret - just add it back manually.</p>
+<p>explain what this is (everything will be computed). You may have noticed</p>
+<p>that the set-up code chunk looks different to the set-up one above</p>
+<p>mention to include elements like a name for it and attributed that can stop the code chunk from getting shown or the output suppressed etc.</p>
+</section><section id="knitting" class="level3" data-number="1.3.3"><h3 data-number="1.3.3" class="anchored" data-anchor-id="knitting">
+<span class="header-section-number">1.3.3</span> knitting</h3>
+<p>Turns your Rmd into a html document with nice formatting</p>
+<p>EXPLAIN a bit more</p>
+<p>Use knitr options to style the output of a chunk. Place options in brackets above the chunk.</p>
+<p>bring in the table here</p>
+<table class="table">
+<colgroup>
+<col style="width: 26%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 24%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Does Code Run</th>
+<th style="text-align: left;">Does Code Show</th>
+<th style="text-align: left;">Do Results Show</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">eval=FALSE</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">echo=TRUE</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">echo=FALSE</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">YES</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">results=“hide”</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">NO</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">include=FALSE</td>
+<td style="text-align: left;">YES</td>
+<td style="text-align: left;">NO</td>
+<td style="text-align: left;">NO</td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The table above will be incredibly important for the data skills homework II.</p>
+</div>
+</div>
+</section></section><section id="activity-3-the-data-for-this-chapter" class="level2" data-number="1.4"><h2 data-number="1.4" class="anchored" data-anchor-id="activity-3-the-data-for-this-chapter">
+<span class="header-section-number">1.4</span> Activity 3: The data for this chapter</h2>
+<p>Download the data for today: <a href="data/data_ch1.zip" title="download">filename</a>. There are 2 csv files contained in a zip-folder. One is the data file we are going to use today <code>hp_data_modified.csv</code> and the other is the <code>questionnaire_codebook</code> for the main 3 questionnaires used in the data.</p>
+<p>First step is to unzip that folder so that the files are placed within the same folder as your project.</p>
+<p><a href="">Include a screenshot here once we have data</a></p>
 <p>In this chapter, we are going to brush up on our data wrangling skills, and given we have been talking about reproducibility, we’ll use an open dataset on gender beliefs and subject choices to do so. The paper was published earlier this year, and the original data can be found on OSF (<a href="https://osf.io/4jac7/" target="_blank">https://osf.io/4jac7/</a>). However, for the purpose of this chapter, I have modified the data slightly (for example, using a file format you can work with).</p>
-<p><strong>citation</strong> Pownall, M., &amp; Heflick, N. (2024). Male psychologists and female mathematicians: Gender beliefs and undergraduate degree choices. <em>Journal of Community &amp; Applied Social Psychology, 34</em>(2), e2784. <a href="https://doi.org/10.1002/casp.2784" target="_blank">https://doi.org/10.1002/casp.2784</a></p>
-<p><strong>Abstract</strong> Globally, men and women are numerically dominant in undergraduate degrees in math and psychology, respectively. A variety of theoretical perspectives predict that individuals who adhere more to gender stereotypes will be more represented in gender-dominant fields. Using a pre-registered methodology, we recruited men and women enrolled in psychology and math degree programmes in the United Kingdom and assessed a variety of gender beliefs and identities. Overall, femininity was (marginally) higher in psychology, and higher amongst women generally. Moderated regression analyses revealed that women who were low in masculinity and high in femininity (the stereotypical pattern) were most likely to be in psychology degrees, whilst women who were low in both were most likely to be enrolled onto math programmes. For men, no component of gender identity or beliefs predicted degree programmes. Overall, these results demonstrate how dimensions of gender identity may account for gender differences in undergraduate representation. Specifically, women in STEM fields tend to not describe themselves in stereotypical masculine or feminine traits. We discuss implications for efforts to increase uptake of gender stereotype incongruent career paths (e.g., women in STEM) with a particular focus on how femininity may be rejected in counter-stereotypical domains.</p>
-</section><section id="r-markdown-basics" class="level2" data-number="1.4"><h2 data-number="1.4" class="anchored" data-anchor-id="r-markdown-basics">
-<span class="header-section-number">1.4</span> R Markdown basics</h2>
-<section id="creating-an-r-markdown-file" class="level3" data-number="1.4.1"><h3 data-number="1.4.1" class="anchored" data-anchor-id="creating-an-r-markdown-file">
-<span class="header-section-number">1.4.1</span> Creating an R Markdown file</h3>
-<p>delete everything after the knitting part from line 12</p>
-<p>and save it in the project. All of the data files you need, should go into the same project folder too</p>
-</section><section id="code-chunks-vs-text" class="level3" data-number="1.4.2"><h3 data-number="1.4.2" class="anchored" data-anchor-id="code-chunks-vs-text">
-<span class="header-section-number">1.4.2</span> Code Chunks vs Text</h3>
-<p>write yourself some notes</p>
-<p>add a code chunk –&gt;</p>
-<p>everything in the code chunks will be computed</p>
-<p>everything in the text will be ignored by r</p>
-<p>box for advancement</p>
-</section></section><section id="data-for-this-chapter" class="level2" data-number="1.5"><h2 data-number="1.5" class="anchored" data-anchor-id="data-for-this-chapter">
-<span class="header-section-number">1.5</span> Data for this chapter</h2>
-<p>In this chapter, we are going to brush up on our data wrangling skills, and given we have been talking about reproducibility, we’ll use an open dataset on gender beliefs and subject choices to do so. The paper was published earlier this year, and the original data can be found on OSF (<a href="https://osf.io/4jac7/" target="_blank">https://osf.io/4jac7/</a>). However, for the purpose of this chapter, I have modified the data slightly (for example, using a file format you can work with).</p>
-<p><strong>citation</strong> Pownall, M., &amp; Heflick, N. (2024). Male psychologists and female mathematicians: Gender beliefs and undergraduate degree choices. <em>Journal of Community &amp; Applied Social Psychology, 34</em>(2), e2784. <a href="https://doi.org/10.1002/casp.2784" target="_blank">https://doi.org/10.1002/casp.2784</a></p>
-<p><strong>Abstract</strong> Globally, men and women are numerically dominant in undergraduate degrees in math and psychology, respectively. A variety of theoretical perspectives predict that individuals who adhere more to gender stereotypes will be more represented in gender-dominant fields. Using a pre-registered methodology, we recruited men and women enrolled in psychology and math degree programmes in the United Kingdom and assessed a variety of gender beliefs and identities. Overall, femininity was (marginally) higher in psychology, and higher amongst women generally. Moderated regression analyses revealed that women who were low in masculinity and high in femininity (the stereotypical pattern) were most likely to be in psychology degrees, whilst women who were low in both were most likely to be enrolled onto math programmes. For men, no component of gender identity or beliefs predicted degree programmes. Overall, these results demonstrate how dimensions of gender identity may account for gender differences in undergraduate representation. Specifically, women in STEM fields tend to not describe themselves in stereotypical masculine or feminine traits. We discuss implications for efforts to increase uptake of gender stereotype incongruent career paths (e.g., women in STEM) with a particular focus on how femininity may be rejected in counter-stereotypical domains.</p>
-</section><section id="activity-3-load-the-packages-and-read-in-the-data" class="level2" data-number="1.6"><h2 data-number="1.6" class="anchored" data-anchor-id="activity-3-load-the-packages-and-read-in-the-data">
-<span class="header-section-number">1.6</span> Activity 3: Load the packages and read in the data</h2>
-<section id="knitting" class="level3" data-number="1.6.1"><h3 data-number="1.6.1" class="anchored" data-anchor-id="knitting">
-<span class="header-section-number">1.6.1</span> Knitting</h3>
-<p>as a means to check if the file as a whole is running</p>
+<p><strong>Citation</strong></p>
+<blockquote class="blockquote">
+<p>Pownall, M., &amp; Heflick, N. (2024). Male psychologists and female mathematicians: Gender beliefs and undergraduate degree choices. <em>Journal of Community &amp; Applied Social Psychology, 34</em>(2), e2784. <a href="https://doi.org/10.1002/casp.2784" target="_blank">https://doi.org/10.1002/casp.2784</a></p>
+</blockquote>
+<p><strong>Abstract</strong></p>
+<blockquote class="blockquote">
+<p>Globally, men and women are numerically dominant in undergraduate degrees in math and psychology, respectively. A variety of theoretical perspectives predict that individuals who adhere more to gender stereotypes will be more represented in gender-dominant fields. Using a pre-registered methodology, we recruited men and women enrolled in psychology and math degree programmes in the United Kingdom and assessed a variety of gender beliefs and identities. Overall, femininity was (marginally) higher in psychology, and higher amongst women generally. Moderated regression analyses revealed that women who were low in masculinity and high in femininity (the stereotypical pattern) were most likely to be in psychology degrees, whilst women who were low in both were most likely to be enrolled onto math programmes. For men, no component of gender identity or beliefs predicted degree programmes. Overall, these results demonstrate how dimensions of gender identity may account for gender differences in undergraduate representation. Specifically, women in STEM fields tend to not describe themselves in stereotypical masculine or feminine traits. We discuss implications for efforts to increase uptake of gender stereotype incongruent career paths (e.g., women in STEM) with a particular focus on how femininity may be rejected in counter-stereotypical domains.</p>
+</blockquote>
+</section><section id="activity-4-loading-packages-and-reading-in-data" class="level2" data-number="1.5"><h2 data-number="1.5" class="anchored" data-anchor-id="activity-4-loading-packages-and-reading-in-data">
+<span class="header-section-number">1.5</span> Activity 4: Loading packages and reading in data</h2>
+<p>The first step is to load in the packages that we need, and read in the data</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.1     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>data_os <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/anon_data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 214 Columns: 104
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr (15): id, gender, gender_text, ug_degree_subject, pg_degree_subject, phd...
+dbl (89): qt_progress, qt_duration_sec, age, degree_ug, degree_pg, degree_ot...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+</section><section id="activity-5-familiarise-yourself-with-the-data" class="level2" data-number="1.6"><h2 data-number="1.6" class="anchored" data-anchor-id="activity-5-familiarise-yourself-with-the-data">
+<span class="header-section-number">1.6</span> Activity 5: Familiarise yourself with the data</h2>
+<p>Step 1: check the codebook (not sure whether to have them look at the variables in the codebook or list some of them here).</p>
+<p>Before you dive into wrangling the data, you need to get an understanding of what kind of data you are dealing with and what the format of the dataframe looks like.</p>
+<p>As you may have noticed, <code>read_csv()</code> gives you a <strong>message</strong> what data types appear in your dataset and how many of the columns are in that format. It only lists a few examples of the, so it’s not super useful when you want some specific information. However, it does tell you how many rows and columns your dataframe has.</p>
+<p>But there are a few other ways you can get more detailed information about your data. Use whichever method you prefer but do it. Click on the individual tabs to look at the different options:</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist">
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">visual inspection</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">glimpse()</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">spec()</a></li>
+</ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>You can click on the blue arrow icon next to the object name in the <code>Global Environment</code>. This will expand and show information about your columns. The <code>$</code> indicates a column (from BaseR).</p>
+<p>[include a screenshot with a circle around the arrow]</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Use <code>glimpse()</code> if you want a more detailed overview you can see on your screen. The output will display rows and column numbers, and some examples of the first couple of observations for each variable.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">glimpse</span>(data_os)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 214
+Columns: 104
+$ qt_progress                  &lt;dbl&gt; 100, 100, 100, 100, 100, 100, 100, 100, 1…
+$ qt_duration_sec              &lt;dbl&gt; 434, 580, 1778, 1364, 1110, 2480, 1635, 1…
+$ id                           &lt;chr&gt; "44d95bfc", "b5480e1e", "a6c74319", "25fe…
+$ age                          &lt;dbl&gt; 25, 27, 27, 24, 27, 26, 27, 30, 22, 20, 2…
+$ gender                       &lt;chr&gt; "Female", "Female", "Female", "Female", "…
+$ gender_text                  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ degree_ug                    &lt;dbl&gt; 0, 0, 1, 0, 0, 1, 1, 0, 1, 0, 0, 1, 0, 1,…
+$ degree_pg                    &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 1,…
+$ degree_other                 &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,…
+$ degree_na                    &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ ug_degree_subject            &lt;chr&gt; NA, NA, "Psychology", NA, NA, "Psychology…
+$ pg_degree_subject            &lt;chr&gt; "Health Psychology", "Cognitive Neuroscie…
+$ ug_grad_year                 &lt;dbl&gt; NA, NA, 2015, NA, NA, 2016, 2015, NA, 201…
+$ pg_grad_year                 &lt;dbl&gt; 2017, 2016, 2019, 2019, 2017, 2018, 2016,…
+$ phd_year                     &lt;chr&gt; "Year 3", "Year 4", "Year 1", "Year 1", "…
+$ psych_subfield               &lt;chr&gt; "Health", "Cognitive", "Cognitive", "Cogn…
+$ qq_spectrum                  &lt;dbl&gt; 80, 100, 100, 60, 100, 75, 80, 100, 100, …
+$ stats_knowledge              &lt;dbl&gt; 75, 72, 50, 73, 62, 75, 85, 50, 65, 71, 5…
+$ os_knowledge                 &lt;chr&gt; NA, "I have heard of it and have a good u…
+$ os_practice_engage_methods   &lt;dbl&gt; 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 1, 1,…
+$ os_practice_engage_data      &lt;dbl&gt; 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1,…
+$ os_practice_engage_analysis  &lt;dbl&gt; 0, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1,…
+$ os_practice_engage_prereg    &lt;dbl&gt; 1, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 1,…
+$ os_practice_engage_rr        &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1,…
+$ os_practice_engage_preprint  &lt;dbl&gt; 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ os_practice_engage_oa        &lt;dbl&gt; 1, 1, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 1,…
+$ os_practice_engage_replicate &lt;dbl&gt; 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0, 0,…
+$ os_practice_engage_comp      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,…
+$ stats_practices_used_bayes   &lt;dbl&gt; 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 1,…
+$ stats_practices_used_es      &lt;dbl&gt; 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1,…
+$ stats_practices_used_ci      &lt;dbl&gt; 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0,…
+$ stats_practices_used_power   &lt;dbl&gt; 1, 1, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1,…
+$ stats_practices_used_sample  &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ os_first_learn               &lt;chr&gt; "Via peers", "Via social media", "Via soc…
+$ os_first_learn_text          &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ os_learn_sources_course_ug   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0,…
+$ os_learn_sources_course_ms   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1,…
+$ os_learn_sources_course_phd  &lt;dbl&gt; 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1,…
+$ os_learn_sources_sup_ug      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ os_learn_sources_sup_ms      &lt;dbl&gt; 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1,…
+$ os_learn_sources_sup_phd     &lt;dbl&gt; 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0,…
+$ os_learn_sources_external    &lt;dbl&gt; 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 1, 0,…
+$ os_learn_sources_soc_media   &lt;dbl&gt; 0, 1, 0, 1, 0, 1, 0, 1, 1, 0, 0, 1, 1, 0,…
+$ os_learn_sources_peers       &lt;dbl&gt; 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1,…
+$ os_learn_sources_other       &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ os_learn_sources_other_text  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ os_interest_learn_more       &lt;chr&gt; "Yes, but I'm happy to keep on finding ou…
+$ os_attitudes_supervisors     &lt;chr&gt; "My supervisor(s) is/are neutral", "My su…
+$ os_concepts_confident_01     &lt;dbl&gt; 1, 6, 7, 7, 6, 5, 6, 4, 5, 6, 4, 3, 7, NA…
+$ os_concepts_confident_02     &lt;dbl&gt; 2, 5, 7, 6, 6, 4, 6, 5, 4, 6, 5, 4, 5, 6,…
+$ os_concepts_confident_03     &lt;dbl&gt; 1, 6, 5, 7, 6, 5, 6, 5, 5, 5, 4, 5, 7, 2,…
+$ os_concepts_confident_04     &lt;dbl&gt; 3, 6, 6, 6, 6, 4, 5, 5, 6, 5, 3, 5, 7, 2,…
+$ os_concepts_confident_05     &lt;dbl&gt; 1, 6, 4, 7, 5, 4, 6, 1, 5, 5, 3, 6, 6, 3,…
+$ os_concepts_confident_06     &lt;dbl&gt; 2, 6, 5, 6, 4, 3, 6, 1, 5, 6, 5, 6, 4, 4,…
+$ os_concepts_confident_07     &lt;dbl&gt; 1, 6, 6, 7, 6, 1, 6, 5, 2, 6, 2, 3, 7, 4,…
+$ os_concepts_confident_08     &lt;dbl&gt; 4, 5, 5, 5, 4, 4, 6, 5, 6, 6, 6, 5, 4, 4,…
+$ os_concepts_confident_09     &lt;dbl&gt; 4, 6, 7, 7, 6, 5, 6, 5, 6, 5, 6, 7, 7, 4,…
+$ os_concepts_confident_10     &lt;dbl&gt; 3, 6, 7, 7, 6, 5, 6, 6, 5, 6, 6, 5, 7, 5,…
+$ os_concepts_confident_11     &lt;dbl&gt; 3, 5, 7, 6, 7, 5, 6, 5, 4, 6, 6, 4, 7, 6,…
+$ os_concepts_confident_12     &lt;dbl&gt; 1, 5, 4, 6, 6, 5, 6, 4, 4, 7, 6, 4, 6, 5,…
+$ os_statements_agree_01       &lt;dbl&gt; 1, 1, 1, 1, 2, 1, 1, 2, 1, 5, 3, 2, 1, 4,…
+$ os_statements_agree_02       &lt;dbl&gt; 1, 1, 1, 1, 1, 2, 1, 1, 1, 4, 1, 2, 1, 2,…
+$ os_statements_agree_03       &lt;dbl&gt; 1, 1, 1, 1, 1, 2, 1, 1, 1, 4, 1, 2, 1, 2,…
+$ os_statements_agree_04       &lt;dbl&gt; 1, 5, 4, 3, 4, 3, 1, 1, 1, 4, 1, 4, 2, 4,…
+$ os_statements_agree_05       &lt;dbl&gt; 1, 5, 3, 2, 2, 4, 1, 1, 1, 4, 1, 2, 4, 3,…
+$ os_statements_agree_06       &lt;dbl&gt; 1, 5, 3, 1, 4, 2, 2, 1, 2, 3, 1, 2, 5, 3,…
+$ os_perceive_actions_01       &lt;dbl&gt; 3, 3, 5, 5, 3, 5, 4, 4, 3, 4, 5, 3, 5, 2,…
+$ os_perceive_actions_02       &lt;dbl&gt; 5, 5, 5, 5, 4, 5, 5, 4, 3, 5, 5, 5, 5, 4,…
+$ os_perceive_actions_03       &lt;dbl&gt; 4, 4, 5, 5, 5, 5, 5, 5, 5, 4, 2, 3, 3, 4,…
+$ os_perceive_actions_04       &lt;dbl&gt; 4, 4, 5, 5, 5, 4, 5, 5, 5, 4, 4, 4, 4, 4,…
+$ os_perceive_actions_05       &lt;dbl&gt; 3, 3, 4, 5, 5, 3, 5, 3, 3, 5, 3, 4, 2, 2,…
+$ os_perceive_actions_06       &lt;dbl&gt; 3, 5, 4, 5, 4, 3, 5, 5, 4, 5, 4, 3, 3, 3,…
+$ os_perceive_actions_07       &lt;dbl&gt; 4, 3, 5, 2, 4, 4, 5, 3, 5, 5, 5, 4, 5, 3,…
+$ os_perceive_actions_08       &lt;dbl&gt; 3, 4, 4, 5, 3, 4, 5, 4, 3, 5, 1, 4, 5, 3,…
+$ os_perceive_actions_09       &lt;dbl&gt; 4, 5, 5, 5, 3, 4, 5, 5, 4, 5, 4, 3, 4, 4,…
+$ os_perceive_actions_10       &lt;dbl&gt; 3, 5, 5, 5, 5, 5, 5, 5, 5, 4, 5, 5, 5, 5,…
+$ os_perceive_actions_11       &lt;dbl&gt; 4, 3, 4, 4, 3, 5, 5, 4, 3, 5, 4, 4, 4, 4,…
+$ os_perceive_actions_12       &lt;dbl&gt; 1, 1, 2, NA, NA, 2, 1, 1, 1, 4, 1, NA, NA…
+$ os_perceive_actions_13       &lt;dbl&gt; 1, NA, NA, NA, 2, 1, 1, 1, 1, 4, 1, NA, N…
+$ os_perceive_actions_14       &lt;dbl&gt; 3, NA, NA, 2, 3, 2, 1, 1, 1, 3, 1, 2, 1, …
+$ os_perceive_actions_15       &lt;dbl&gt; 1, NA, NA, 2, 2, 2, 1, NA, 1, 3, 2, 3, NA…
+$ confidence_explaining        &lt;dbl&gt; 2.166667, 5.666667, 5.833333, 6.416667, 5…
+$ null_beliefs                 &lt;dbl&gt; 1.000000, 3.000000, 2.166667, 1.500000, 2…
+$ qrp_overall                  &lt;dbl&gt; 3.066667, 3.750000, 4.416667, 4.230769, 3…
+$ qrp_data_collection          &lt;dbl&gt; 4.0, 4.0, 5.0, 5.0, 3.5, 5.0, 4.5, 4.0, 3…
+$ qrp_reporting                &lt;dbl&gt; 3.555556, 4.000000, 4.555556, 4.555556, 4…
+$ qrp_new_stats                &lt;dbl&gt; 1.500000, 1.000000, 2.000000, 2.000000, 2…
+$ qq_spectrum_cat              &lt;chr&gt; "quant", "quant", "quant", "quant", "quan…
+$ stats_knowledge_cat          &lt;chr&gt; "high", "high", "low", "high", "high", "h…
+$ os_perceive_actions_01_prob  &lt;dbl&gt; 3, 3, 5, 5, 3, 5, 4, 4, 3, 4, 5, 3, 5, 2,…
+$ os_perceive_actions_02_prob  &lt;dbl&gt; 5, 5, 5, 5, 4, 5, 5, 4, 3, 5, 5, 5, 5, 4,…
+$ os_perceive_actions_03_prob  &lt;dbl&gt; 4, 4, 5, 5, 5, 5, 5, 5, 5, 4, 2, 3, 3, 4,…
+$ os_perceive_actions_04_prob  &lt;dbl&gt; 4, 4, 5, 5, 5, 4, 5, 5, 5, 4, 4, 4, 4, 4,…
+$ os_perceive_actions_05_prob  &lt;dbl&gt; 3, 3, 4, 5, 5, 3, 5, 3, 3, 5, 3, 4, 2, 2,…
+$ os_perceive_actions_06_prob  &lt;dbl&gt; 3, 5, 4, 5, 4, 3, 5, 5, 4, 5, 4, 3, 3, 3,…
+$ os_perceive_actions_07_prob  &lt;dbl&gt; 4, 3, 5, 2, 4, 4, 5, 3, 5, 5, 5, 4, 5, 3,…
+$ os_perceive_actions_08_prob  &lt;dbl&gt; 3, 4, 4, 5, 3, 4, 5, 4, 3, 5, 1, 4, 5, 3,…
+$ os_perceive_actions_09_prob  &lt;dbl&gt; 4, 5, 5, 5, 3, 4, 5, 5, 4, 5, 4, 3, 4, 4,…
+$ os_perceive_actions_10_prob  &lt;dbl&gt; 3, 5, 5, 5, 5, 5, 5, 5, 5, 4, 5, 5, 5, 5,…
+$ os_perceive_actions_11_prob  &lt;dbl&gt; 4, 3, 4, 4, 3, 5, 5, 4, 3, 5, 4, 4, 4, 4,…
+$ os_perceive_actions_12_prob  &lt;dbl&gt; 1, 1, 2, NA, NA, 2, 1, 1, 1, 4, 1, NA, NA…
+$ os_perceive_actions_13_prob  &lt;dbl&gt; 1, NA, NA, NA, 2, 1, 1, 1, 1, 4, 1, NA, N…
+$ os_perceive_actions_14_prob  &lt;dbl&gt; 3, NA, NA, 2, 3, 2, 1, 1, 1, 3, 1, 2, 1, …
+$ os_perceive_actions_15_prob  &lt;dbl&gt; 1, NA, NA, 2, 2, 2, 1, NA, 1, 3, 2, 3, NA…</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>you can also use <code>spec()</code> as suggested in the message above and then it shows you a list of the data type in every single column. But it doesn’t show you the number of rows and columns.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">spec</span>(data_os)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>cols(
+  qt_progress = col_double(),
+  qt_duration_sec = col_double(),
+  id = col_character(),
+  age = col_double(),
+  gender = col_character(),
+  gender_text = col_character(),
+  degree_ug = col_double(),
+  degree_pg = col_double(),
+  degree_other = col_double(),
+  degree_na = col_double(),
+  ug_degree_subject = col_character(),
+  pg_degree_subject = col_character(),
+  ug_grad_year = col_double(),
+  pg_grad_year = col_double(),
+  phd_year = col_character(),
+  psych_subfield = col_character(),
+  qq_spectrum = col_double(),
+  stats_knowledge = col_double(),
+  os_knowledge = col_character(),
+  os_practice_engage_methods = col_double(),
+  os_practice_engage_data = col_double(),
+  os_practice_engage_analysis = col_double(),
+  os_practice_engage_prereg = col_double(),
+  os_practice_engage_rr = col_double(),
+  os_practice_engage_preprint = col_double(),
+  os_practice_engage_oa = col_double(),
+  os_practice_engage_replicate = col_double(),
+  os_practice_engage_comp = col_double(),
+  stats_practices_used_bayes = col_double(),
+  stats_practices_used_es = col_double(),
+  stats_practices_used_ci = col_double(),
+  stats_practices_used_power = col_double(),
+  stats_practices_used_sample = col_double(),
+  os_first_learn = col_character(),
+  os_first_learn_text = col_character(),
+  os_learn_sources_course_ug = col_double(),
+  os_learn_sources_course_ms = col_double(),
+  os_learn_sources_course_phd = col_double(),
+  os_learn_sources_sup_ug = col_double(),
+  os_learn_sources_sup_ms = col_double(),
+  os_learn_sources_sup_phd = col_double(),
+  os_learn_sources_external = col_double(),
+  os_learn_sources_soc_media = col_double(),
+  os_learn_sources_peers = col_double(),
+  os_learn_sources_other = col_double(),
+  os_learn_sources_other_text = col_character(),
+  os_interest_learn_more = col_character(),
+  os_attitudes_supervisors = col_character(),
+  os_concepts_confident_01 = col_double(),
+  os_concepts_confident_02 = col_double(),
+  os_concepts_confident_03 = col_double(),
+  os_concepts_confident_04 = col_double(),
+  os_concepts_confident_05 = col_double(),
+  os_concepts_confident_06 = col_double(),
+  os_concepts_confident_07 = col_double(),
+  os_concepts_confident_08 = col_double(),
+  os_concepts_confident_09 = col_double(),
+  os_concepts_confident_10 = col_double(),
+  os_concepts_confident_11 = col_double(),
+  os_concepts_confident_12 = col_double(),
+  os_statements_agree_01 = col_double(),
+  os_statements_agree_02 = col_double(),
+  os_statements_agree_03 = col_double(),
+  os_statements_agree_04 = col_double(),
+  os_statements_agree_05 = col_double(),
+  os_statements_agree_06 = col_double(),
+  os_perceive_actions_01 = col_double(),
+  os_perceive_actions_02 = col_double(),
+  os_perceive_actions_03 = col_double(),
+  os_perceive_actions_04 = col_double(),
+  os_perceive_actions_05 = col_double(),
+  os_perceive_actions_06 = col_double(),
+  os_perceive_actions_07 = col_double(),
+  os_perceive_actions_08 = col_double(),
+  os_perceive_actions_09 = col_double(),
+  os_perceive_actions_10 = col_double(),
+  os_perceive_actions_11 = col_double(),
+  os_perceive_actions_12 = col_double(),
+  os_perceive_actions_13 = col_double(),
+  os_perceive_actions_14 = col_double(),
+  os_perceive_actions_15 = col_double(),
+  confidence_explaining = col_double(),
+  null_beliefs = col_double(),
+  qrp_overall = col_double(),
+  qrp_data_collection = col_double(),
+  qrp_reporting = col_double(),
+  qrp_new_stats = col_double(),
+  qq_spectrum_cat = col_character(),
+  stats_knowledge_cat = col_character(),
+  os_perceive_actions_01_prob = col_double(),
+  os_perceive_actions_02_prob = col_double(),
+  os_perceive_actions_03_prob = col_double(),
+  os_perceive_actions_04_prob = col_double(),
+  os_perceive_actions_05_prob = col_double(),
+  os_perceive_actions_06_prob = col_double(),
+  os_perceive_actions_07_prob = col_double(),
+  os_perceive_actions_08_prob = col_double(),
+  os_perceive_actions_09_prob = col_double(),
+  os_perceive_actions_10_prob = col_double(),
+  os_perceive_actions_11_prob = col_double(),
+  os_perceive_actions_12_prob = col_double(),
+  os_perceive_actions_13_prob = col_double(),
+  os_perceive_actions_14_prob = col_double(),
+  os_perceive_actions_15_prob = col_double()
+)</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="data-types" class="level3" data-number="1.6.1"><h3 data-number="1.6.1" class="anchored" data-anchor-id="data-types">
+<span class="header-section-number">1.6.1</span> Data types</h3>
+<p>Each variable has a <strong>data type</strong>, such as numeric (numbers), character (text), and logical (TRUE/FALSE values), or a special class of factor.</p>
+<p><strong>Numeric data</strong> can be double (<code>dbl</code>) or integer (<code>int</code>). Doubles can have decimal places (e.g., 1.1). Integers are the whole numbers (e.g., 1, 2, -1) and are displayed with the suffix L (e.g., 1L). This is not overly important but might leave you less puzzled the next time you see an L after a number.</p>
+<p><strong>Characters</strong> (also called “strings”) is anything written between quotation marks. This is usually text, but in special circumstances, a number can be a character if it comes with quotation marks. This can happen when you are recoding variables. It might not be too obvious at the time, but you won’t be able to calculate anything if the number is a character</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist">
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Example data types</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">numeric computation</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">character computation</a></li>
+</ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">typeof</span>(<span class="dv">1</span>)</span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">typeof</span>(1L)</span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="fu">typeof</span>(<span class="st">"1"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="fu">typeof</span>(<span class="st">"text"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "double"
+[1] "integer"
+[1] "character"
+[1] "character"</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>No problems here…</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="dv">1</span><span class="sc">+</span><span class="dv">1</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p>When the data type is incorrect, you won’t be able to compute anything, despite your numbers being shown as numeric values in the dataframe. The error message tells you exactly what’s wrong with it, i.e., that you have <code>non-numeric arguments</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="st">"1"</span><span class="sc">+</span><span class="st">"1"</span> <span class="co"># ERROR</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in "1" + "1": non-numeric argument to binary operator</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Logical</strong> data (also sometimes called “Boolean” values) are one of two values: TRUE or FALSE (written in uppercase). They become really important when we use <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> (see <span class="quarto-unresolved-ref">?sec-filter</span>) or <code>mutate()</code> with conditional statements such as <code>case_when()</code> (see <span class="quarto-unresolved-ref">?sec-conditional</span>).</p>
+<p>Some commonly used logical operators:</p>
+<table class="table">
+<thead><tr class="header">
+<th style="text-align: left;">operator</th>
+<th style="text-align: left;">description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">&gt;</td>
+<td style="text-align: left;">greater than</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">&gt;=</td>
+<td style="text-align: left;">greater than or equal to</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">&lt;</td>
+<td style="text-align: left;">less than</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">&lt;=</td>
+<td style="text-align: left;">less than or equal to</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">==</td>
+<td style="text-align: left;">equal to</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">!=</td>
+<td style="text-align: left;">not equal to</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">%in%</td>
+<td style="text-align: left;">TRUE if any element is in the following vector</td>
+</tr>
+</tbody>
+</table>
+<p>A <strong>factor</strong> is a specific type of integer or character that lets you assign the order of the categories. This becomes useful when you want to display certain categories in “the correct order” either in a dataframe (see <em>arrange</em>) or when plotting (see <a href="03-dataviz.html"><span>Chapter&nbsp;3</span></a>).</p>
+</section><section id="variable-types" class="level3" data-number="1.6.2"><h3 data-number="1.6.2" class="anchored" data-anchor-id="variable-types">
+<span class="header-section-number">1.6.2</span> Variable types</h3>
+<p>Variables can be classified as <strong>continuous</strong> (numbers) or <strong>categorical</strong> (labels). It’s good to know the distinctions as it will help to decide the appropriate plot for your data (see <a href="03-dataviz.html#sec-appropriate-plot"><span>Section&nbsp;3.6</span></a>).</p>
+<p><strong>Categorical</strong> variables are properties you can count. They can be <strong>nominal</strong>, where the categories don’t have an order (e.g., gender) or <strong>ordinal</strong> (e.g., Likert scales either with numeric values 1-7 or with character labels such as “agree”, “neither agree nor disagree”, “disagree”). Categorical data may also be <strong>factors</strong> rather than characters.</p>
+<p><strong>Continuous variables</strong> are properties you can measure and calculate sums/ means/ etc. They may be rounded to the nearest whole number, but it should make sense to have a value between them. Continuous variables always have a <strong>numeric</strong> data type (i.e.&nbsp;<code>integer</code> or <code>double</code>).</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Test your understanding
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Let’s have a closer look at our data <code>data_os</code>. For this quiz, I’ve selected a few columns, renamed some of them, and modified some of the data types. This is the first few rows of the new object <code>data_quiz</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">head</span>(data_quiz, <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 4%">
+<col style="width: 8%">
+<col style="width: 10%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 14%">
+<col style="width: 20%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">id</th>
+<th style="text-align: right;">age</th>
+<th style="text-align: left;">gender</th>
+<th style="text-align: left;">phd_year</th>
+<th style="text-align: right;">qq_01</th>
+<th style="text-align: left;">qq_02</th>
+<th style="text-align: right;">qrp_01</th>
+<th style="text-align: right;">qrp_02</th>
+<th style="text-align: right;">qrp_average</th>
+<th style="text-align: left;">qrp_01 == qrp_02</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">44d95bfc</td>
+<td style="text-align: right;">25</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Year 3</td>
+<td style="text-align: right;">80</td>
+<td style="text-align: left;">quant</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">b5480e1e</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Year 4</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">quant</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4.0</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">a6c74319</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Year 1</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">quant</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5.0</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">25fef7ed</td>
+<td style="text-align: right;">24</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Year 1</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: left;">quant</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5.0</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7620c405</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Year 3</td>
+<td style="text-align: right;">100</td>
+<td style="text-align: left;">quant</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3.5</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">glimpse</span>(data_quiz)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 214
+Columns: 10
+$ id                 &lt;chr&gt; "44d95bfc", "b5480e1e", "a6c74319", "25fef7ed", "76…
+$ age                &lt;dbl&gt; 25, 27, 27, 24, 27, 26, 27, 30, 22, 20, 25, 26, 31,…
+$ gender             &lt;fct&gt; 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 2, …
+$ phd_year           &lt;fct&gt; Year 3, Year 4, Year 1, Year 1, Year 3, Year 2, Yea…
+$ qq_01              &lt;dbl&gt; 80, 100, 100, 60, 100, 75, 80, 100, 100, 76, 65, 90…
+$ qq_02              &lt;chr&gt; "quant", "quant", "quant", "quant", "quant", "quant…
+$ qrp_01             &lt;dbl&gt; 3, 3, 5, 5, 3, 5, 4, 4, 3, 4, 5, 3, 5, 2, 5, 4, 2, …
+$ qrp_02             &lt;dbl&gt; 5, 5, 5, 5, 4, 5, 5, 4, 3, 5, 5, 5, 5, 4, 5, 5, 4, …
+$ qrp_average        &lt;dbl&gt; 4.0, 4.0, 5.0, 5.0, 3.5, 5.0, 4.5, 4.0, 3.0, 4.5, 5…
+$ `qrp_01 == qrp_02` &lt;lgl&gt; FALSE, FALSE, TRUE, TRUE, FALSE, TRUE, FALSE, TRUE,…</code></pre>
+</div>
+</div>
+<p>Select from the dropdown menu the variable type and their data types for each of the columns.</p>
+<table class="table">
+<colgroup>
+<col style="width: 43%">
+<col style="width: 28%">
+<col style="width: 28%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">Column</th>
+<th style="text-align: left;">Variable type</th>
+<th style="text-align: left;">Data type</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>age</code></td>
+<td style="text-align: left;"><select class="webex-select"><option value="blank"></option>
+<option value="answer">continuous</option>
+<option value="x">nominal</option>
+<option value="x">ordinal</option></select></td>
+<td style="text-align: left;"><select class="webex-select"><option value="blank"></option>
+<option value="answer">numeric</option>
+<option value="x">character</option>
+<option value="x">logical</option>
+<option value="x">factor</option></select></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>gender</code></td>
+<td style="text-align: left;"><select class="webex-select"><option value="blank"></option>
+<option value="x">continuous</option>
+<option value="answer">nominal</option>
+<option value="x">ordinal</option></select></td>
+<td style="text-align: left;"><select class="webex-select"><option value="blank"></option>
+<option value="x">numeric</option>
+<option value="x">character</option>
+<option value="x">logical</option>
+<option value="answer">factor</option></select></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>phd_year</code></td>
+<td style="text-align: left;"><select class="webex-select"><option value="blank"></option>
+<option value="x">continuous</option>
+<option value="x">nominal</option>
+<option value="answer">ordinal</option></select></td>
+<td style="text-align: left;"><select class="webex-select"><option value="blank"></option>
+<option value="x">numeric</option>
+<option value="x">character</option>
+<option value="x">logical</option>
+<option value="answer">factor</option></select></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>qq_01</code></td>
+<td style="text-align: left;"><select class="webex-select"><option value="blank"></option>
+<option value="answer">continuous</option>
+<option value="x">nominal</option>
+<option value="x">ordinal</option></select></td>
+<td style="text-align: left;"><select class="webex-select"><option value="blank"></option>
+<option value="answer">numeric</option>
+<option value="x">character</option>
+<option value="x">logical</option>
+<option value="x">factor</option></select></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>qq_02</code></td>
+<td style="text-align: left;"><select class="webex-select"><option value="blank"></option>
+<option value="x">continuous</option>
+<option value="answer">nominal</option>
+<option value="x">ordinal</option></select></td>
+<td style="text-align: left;"><select class="webex-select"><option value="blank"></option>
+<option value="x">numeric</option>
+<option value="answer">character</option>
+<option value="x">logical</option>
+<option value="x">factor</option></select></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">
+<code>qrp_01</code> and <code>qrp_02</code>
+</td>
+<td style="text-align: left;"><select class="webex-select"><option value="blank"></option>
+<option value="x">continuous</option>
+<option value="x">nominal</option>
+<option value="answer">ordinal</option></select></td>
+<td style="text-align: left;"><select class="webex-select"><option value="blank"></option>
+<option value="answer">numeric</option>
+<option value="x">character</option>
+<option value="x">logical</option>
+<option value="x">factor</option></select></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>qrp_average</code></td>
+<td style="text-align: left;"><select class="webex-select"><option value="blank"></option>
+<option value="answer">continuous</option>
+<option value="x">nominal</option>
+<option value="x">ordinal</option></select></td>
+<td style="text-align: left;"><select class="webex-select"><option value="blank"></option>
+<option value="answer">numeric</option>
+<option value="x">character</option>
+<option value="x">logical</option>
+<option value="x">factor</option></select></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>qrp_01 == qrp_02</code></td>
+<td style="text-align: left;"><select class="webex-select"><option value="blank"></option>
+<option value="x">continuous</option>
+<option value="answer">nominal</option>
+<option value="x">ordinal</option></select></td>
+<td style="text-align: left;"><select class="webex-select"><option value="blank"></option>
+<option value="x">numeric</option>
+<option value="x">character</option>
+<option value="answer">logical</option>
+<option value="x">factor</option></select></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section><section id="why-is-this-important-you-may-ask" class="level3" data-number="1.6.3"><h3 data-number="1.6.3" class="anchored" data-anchor-id="why-is-this-important-you-may-ask">
+<span class="header-section-number">1.6.3</span> Why is this important you may ask</h3>
+<p>Data is messy, especially in a raw format (i.e., when you download it straight from your testing software). R prefers the data to be tidy, which means each row is an <strong>observation</strong>, each column is a <strong>variable</strong>, and the information in each cell is a single <strong>value</strong>.</p>
+<p>I’ve modified the data for today slightly, to build in some challenges that you would experience when dealing with raw data, but tbh, the data we are looking at today is pretty tidy.</p>
+<p>Getting an understanding of what your data currently looks like and being aware of what your data structure needs to be (e.g., for calculating descriptives, running inferential stats or plotting) is the first step of thinking about the processing steps of how to get your data from A to B.</p>
 </section></section><section id="data-wrangling" class="level2" data-number="1.7"><h2 data-number="1.7" class="anchored" data-anchor-id="data-wrangling">
 <span class="header-section-number">1.7</span> Data Wrangling</h2>
 <p>The basic ones are the <strong>Wickham 6</strong> that you’ve encountered already last year</p>
@@ -548,9 +1291,58 @@ Don’t nest projects
 <p>Allison’s drawing</p>
 </section><section id="group_by-summarise" class="level4" data-number="1.7.1.5"><h4 data-number="1.7.1.5" class="anchored" data-anchor-id="group_by-summarise">
 <span class="header-section-number">1.7.1.5</span> group_by &amp; summarise</h4>
+</section></section></section><section id="tidy-data" class="level2" data-number="1.8"><h2 data-number="1.8" class="anchored" data-anchor-id="tidy-data">
+<span class="header-section-number">1.8</span> Tidy data</h2>
+<p>copied from Lisa</p>
+</section><section id="data-types-and-what-are-observations-variables" class="level2" data-number="1.9"><h2 data-number="1.9" class="anchored" data-anchor-id="data-types-and-what-are-observations-variables">
+<span class="header-section-number">1.9</span> Data types and what are observations/ variables</h2>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Do not factor numbers
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you factor numeric data, it gets converted to the integers 1 to the number of unique values, no matter what the values are. Additionally, you can no longer use the values as numbers, such as calculating the mean.</p>
+<div class="cell" data-layout-align="center">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>Example</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">0</span>, .<span class="dv">5</span>)  <span class="co"># numeric vector</span></span>
+<span id="cb18-2"><a href="#cb18-2"></a>f <span class="ot">&lt;-</span> <span class="fu">factor</span>(x)     <span class="co"># convert to factor</span></span>
+<span id="cb18-3"><a href="#cb18-3"></a>x <span class="sc">==</span> <span class="fu">as.numeric</span>(f) <span class="co"># does not convert back to numeric </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE FALSE FALSE</code></pre>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="code-with-filename">
+<div class="code-with-filename-file">
+<pre><strong>You cannot average a factor</strong></pre>
+</div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>m <span class="ot">&lt;-</span> <span class="fu">mean</span>(f)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in mean.default(f): argument is not numeric or logical: returning NA</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p>Sometimes people represent categorical variables with numbers that correspond to names, like 0 = “no” and 1 = “yes”, but values in between don’t have a clear interpretation. If you have control over how the data are recorded, it’s better to use the character names for clarity. You’ll learn how to recode columns in <span class="quarto-unresolved-ref">?sec-wrangle</span>.</p>
+<section id="knitting-1" class="level3" data-number="1.9.1"><h3 data-number="1.9.1" class="anchored" data-anchor-id="knitting-1">
+<span class="header-section-number">1.9.1</span> Knitting</h3>
+<p>as a means to check if the file as a whole is running</p>
+</section></section><section id="pair-coding-in-the-lab" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="pair-coding-in-the-lab"><span style="color: #EBA347; text-transform: uppercase;">Pair-coding in the lab</span></h2>
+</section><section id="test-your-knowledge-and-challenge-yourself" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="test-your-knowledge-and-challenge-yourself"><span style="color: #EBA347; text-transform: uppercase;">Test your knowledge and challenge yourself</span></h2>
+<p>mCQ questions about the different data types</p>
 
 
-</section></section></section></main><!-- /main --><script>
+</section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {

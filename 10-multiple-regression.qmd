@@ -1,1 +1,3 @@
 # Multiple regression
+
+Note to self: leave beta as b

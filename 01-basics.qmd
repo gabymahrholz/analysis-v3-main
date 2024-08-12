@@ -14,11 +14,11 @@ By the end of this chapter you should be able to:
 
 Remember, R is a programming language that you will write code in and RStudio is an Integrated Development Environment (IDE) which makes working with R easier as it's more user friendly. You need both components for this course.
 
-If this is not ringing any bells yet, have a quick browse through the [materials from year 1](https://psyteachr.github.io/data-skills-v2/sec-intro.html?q=RMark#sec-intro-r){target="_blank"}to refresh yopur memory.
+If this is not ringing any bells yet, have a quick browse through the [materials from year 1](https://psyteachr.github.io/data-skills-v2/sec-intro.html?q=RMark#sec-intro-r){target="_blank"} to refresh your memory.
 
 ### R server
 
-R and RStudio are already installed on the *R server*. We recommend using the server if your computer does not allow installation (e.g., a Chromebook), or if you have problems with installing R on your computer. Otherwise, you should consider installing R and RStudio on your own computer.
+R and RStudio are already installed on the *R server*. We recommend using the server if your computer does not allow installation (e.g., a Chromebook), or if you have problems installing R on your computer. Otherwise, you should consider installing R and RStudio on your own computer.
 
 You will find the link to the server on Moodle.
 
@@ -37,9 +37,9 @@ Once you have installed/updated R and RStudio, come back to this chapter.
 *Wikipedia: The replication crisis[a] is an ongoing methodological crisis in which the results of many scientific studies are difficult or impossible to reproduce. Because the reproducibility of empirical results is an essential part of the scientific method,[2] such failures undermine the credibility of theories building on them and potentially call into question substantial parts of scientific knowledge.*
 
 
-You should be doing things reproducibly, so that others (and your future self) can understand and check your work. That also allows you to reuse your work more easily.
+You should be doing things reproducibly so that others (and your future self) can understand and check your work. That also allows you to reuse your work more easily.
 
-You should always start with a clear workspace. Keeping anything in your Environment from a previous session means you can never be sure whether your current code is working or if your code is accessing a previously created object.
+Always start with a clear workspace. Keeping anything in your `Global Environment` from a previous session means you can never be sure whether your current code is working or if your code is accessing previously created objects.
 
 Hence, there are a few settings you should fix immediately after installing/updating RStudio, in <if>Tools \> Global Options... General tab</if>
 
@@ -61,7 +61,12 @@ RStudio has four main panes each in a quadrant of your screen:
 -   Console pane
 -   Output pane
 
-**Do you remember what their purpose is?**
+Lets see what you remember about the RStudio panes from last year. Click on the **Test your understanding** section below and give it a go.
+
+::: {.callout-note collapse="true"}
+## Test your understanding
+
+**What is their purpose?**
 
 **The Source pane...** `r longmcq(c(answer = "allows users to view and edit various code-related files, such as .Rmd files", "contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs", "includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function", "provides an area to interactively execute code"))`
 
@@ -71,6 +76,7 @@ RStudio has four main panes each in a quadrant of your screen:
 
 **The Output pane...** `r longmcq(c("allows users to view and edit various code-related files, such as .Rmd files", answer = "contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs", "includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function", "provides an area to interactively execute code"))`
 
+
 **Where are these panes located by default?**
 
 -   The Source pane is located? `r mcq(sample(c(answer = "top left", "bottom left", "top right", "bottom right")))`
@@ -78,11 +84,12 @@ RStudio has four main panes each in a quadrant of your screen:
 -   The Console pane is located? `r mcq(sample(c("top left", answer = "bottom left", "top right", "bottom right")))`
 -   The Output pane is located? `r mcq(sample(c("top left", "bottom left", "top right", answer = "bottom right")))`
 
+:::
+
+
+
+
 If you were not quite sure about one/any of the panes, check out the [materials from Level 1](https://psyteachr.github.io/data-skills-v2/sec-intro.html?q=RMark#rstudio-panes){target="_blank"}. If you want to know more about them, there is the [RStudio guide on posit](https://docs.posit.co/ide/user/ide/guide/ui/ui-panes.html){target="_blank"}
-
-
-
-
 
 
 
@@ -97,15 +104,13 @@ On your own computer, open RStudio, and complete the following steps in this ord
 -   Click on <if>File \> New Project...</if>
 -   Then, click on "New Directory"
 -   Then, click on "New Project"
--   Name the directory something useful (e.g., "2A_chapter1"), and save it in a location that makes sense, for example a dedicated folder you have for your level 2 Psychology labs - you can either select a folder you have already in place, or create a new one (e.g., I named my new folder "Level 2 labs")
--   Click "Create Project". RStudio will restart itself and open with this new project directory as the working directory.
+-   Name the directory something meaningful (e.g., "2A_chapter1"), and save it in a location that makes sense, for example, a dedicated folder you have for your level 2 Psychology labs - you can either select a folder you have already in place, or create a new one (e.g., I named my new folder "Level 2 labs")
+-   Click "Create Project". RStudio will restart itself and open with this new project directory as the working directory. If you accidentally close it, you can open it by double-clicking on the project icon in your folder
 -   You can also check in your folder structure that everything was created as intended
 
-```{r img-projectsetup, echo=FALSE, fig.cap="Creating a new project"}
 
-knitr::include_graphics("images/project_setup.gif")
+![Creating a new project](images/project_setup.gif)
 
-```
 
 ::: {.callout-tip title="Why is the Colour scheme in the gif different?" collapse="true"}
 In case anyone is wondering why my colour scheme in the gif above looks different to yours, I've set mine to "Pastel On Dark" in <if>Tools \> Global Options... \> Appearances</if>. And my computer lives in "dark mode".
@@ -119,73 +124,268 @@ Don't ever save a new project **inside** another project directory. This can cau
 
 
 
+## Activity 2: Create a new R Markdown file
 
-## Activity 2: The data for this chapter
 
-Download the data for today: [filename](data/test.csv "download"). You will 
+-   Open a new R Markdown document: click <if>File > New File > R Markdown</if> or click on the little page icon with a green plus sign (top left). 
+-   Give it a meaningful `Title` (e.g., Level 2 chapter 1) - you can also change the title later. Feel free to add your name or GUID in the `Author` field author name. Keep the `Default Output Format` as HTML.
+-   Once the Rmd opened, you need to save the file. 
+-   To save it, click <if>File > Save As...</if> or click on the little disc icon. Name it something meaningful (e.g., "chapter_01.Rmd", "01_intro.Rmd"). Make sure there are no spaces in the name - R is not very fond of spaces... This file will automatically be saved in your project folder (i.e., your working directory) so you should now see this file appear in your file viewer pane.
+-   Delete everything below line 12 (keep the set-up code chunk)
 
-Download the data for today: [filename](https://psyteachr.github.io/ads-v2/data/review_data.csv "download"). You will 
+![Creating a new Rmd file](images/Rmd_setup.gif)
 
-data test fixed path <a href="https://psyteachr.github.io/ads-v2/data/review_data.csv" download>review_data.csv</a>
 
-floating path <a href="data/test.csv" download>test.csv</a>
+-   Type "## XXX" on line 12 
+-   and include a code chunk 
+
+### grey bits vs white bits (in default mode) 
+
+### Code Chunk
+
+they start and finish with 3 backticks. Start a chunk with ` ```{r} ` and ends with ` ``` `
+
+If you accidentally delete one, your code chunks won't run and/or your text parts will be interpreted as part of the code chunks. But no need to fret - just add it back manually.
+
+explain what this is (everything will be computed). You may have noticed 
+
+that the set-up code chunk looks different to the set-up one above
+
+mention to include elements like a name for it and attributed that can stop the code chunk from getting shown or the output suppressed etc.
+
+### knitting
+
+Turns your Rmd into a html document with nice formatting
+
+EXPLAIN a bit more
+
+Use knitr options to style the output of a chunk.  Place options in brackets above the chunk.
+
+bring in the table here
+
+
+| Code             | Does Code Run   | Does Code Show  | Do Results Show                        |
+|:-----------------|:----------------|:----------------|:----------------|
+| eval=FALSE       | NO              | YES             | NO              |
+| echo=TRUE        | YES             | YES             | YES             |
+| echo=FALSE       | YES             | NO              | YES             |
+| results="hide"   | YES             | YES             | NO              |
+|include=FALSE     | YES             | NO              | NO              |
+
+
+::: {.callout-important}
+The table above will be incredibly important for the data skills homework II. 
+:::
+
+
+## Activity 3: The data for this chapter
+
+Download the data for today: [filename](data/data_ch1.zip "download"). There are 2 csv files contained in a zip-folder. One is the data file we are going to use today `hp_data_modified.csv` and the other is the `questionnaire_codebook` for the main 3 questionnaires used in the data.
+
+First step is to unzip that folder so that the files are placed within the same folder as your project.
+
+[Include a screenshot here once we have data]() 
 
 
 In this chapter, we are going to brush up on our data wrangling skills, and given we have been talking about reproducibility, we'll use an open dataset on gender beliefs and subject choices to do so. The paper was published earlier this year, and the original data can be found on OSF ([https://osf.io/4jac7/](https://osf.io/4jac7/){target="_blank"}). However, for the purpose of this chapter, I have modified the data slightly (for example, using a file format you can work with). 
 
-**citation**
-Pownall, M., & Heflick, N. (2024). Male psychologists and female mathematicians: Gender beliefs and undergraduate degree choices. *Journal of Community & Applied Social Psychology, 34*(2), e2784. [https://doi.org/10.1002/casp.2784](https://doi.org/10.1002/casp.2784){target="_blank"}
+**Citation**
+
+> Pownall, M., & Heflick, N. (2024). Male psychologists and female mathematicians: Gender beliefs and undergraduate degree choices. *Journal of Community & Applied Social Psychology, 34*(2), e2784. [https://doi.org/10.1002/casp.2784](https://doi.org/10.1002/casp.2784){target="_blank"}
 
 
 **Abstract**
-Globally, men and women are numerically dominant in undergraduate degrees in math and psychology, respectively. A variety of theoretical perspectives predict that individuals who adhere more to gender stereotypes will be more represented in gender-dominant fields. Using a pre-registered methodology, we recruited men and women enrolled in psychology and math degree programmes in the United Kingdom and assessed a variety of gender beliefs and identities. Overall, femininity was (marginally) higher in psychology, and higher amongst women generally. Moderated regression analyses revealed that women who were low in masculinity and high in femininity (the stereotypical pattern) were most likely to be in psychology degrees, whilst women who were low in both were most likely to be enrolled onto math programmes. For men, no component of gender identity or beliefs predicted degree programmes. Overall, these results demonstrate how dimensions of gender identity may account for gender differences in undergraduate representation. Specifically, women in STEM fields tend to not describe themselves in stereotypical masculine or feminine traits. We discuss implications for efforts to increase uptake of gender stereotype incongruent career paths (e.g., women in STEM) with a particular focus on how femininity may be rejected in counter-stereotypical domains.
 
-## R Markdown basics
-
-### Creating an R Markdown file
-
-delete everything after the knitting part from line 12
-
-and save it in the project. All of the data files you need, should go into the same project folder too
-
-
-### Code Chunks vs Text
-
-write yourself some notes
-
-add a code chunk -->
-
-
-everything in the code chunks will be computed
-
-everything in the text will be ignored by r
-
-box for advancement
+> Globally, men and women are numerically dominant in undergraduate degrees in math and psychology, respectively. A variety of theoretical perspectives predict that individuals who adhere more to gender stereotypes will be more represented in gender-dominant fields. Using a pre-registered methodology, we recruited men and women enrolled in psychology and math degree programmes in the United Kingdom and assessed a variety of gender beliefs and identities. Overall, femininity was (marginally) higher in psychology, and higher amongst women generally. Moderated regression analyses revealed that women who were low in masculinity and high in femininity (the stereotypical pattern) were most likely to be in psychology degrees, whilst women who were low in both were most likely to be enrolled onto math programmes. For men, no component of gender identity or beliefs predicted degree programmes. Overall, these results demonstrate how dimensions of gender identity may account for gender differences in undergraduate representation. Specifically, women in STEM fields tend to not describe themselves in stereotypical masculine or feminine traits. We discuss implications for efforts to increase uptake of gender stereotype incongruent career paths (e.g., women in STEM) with a particular focus on how femininity may be rejected in counter-stereotypical domains.
 
 
 
 
+## Activity 4: Loading packages and reading in data
+
+The first step is to load in the packages that we need, and read in the data
+
+```{r}
+library(tidyverse)
+data_os <- read_csv("data/anon_data.csv")
+```
+
+## Activity 5: Familiarise yourself with the data
+
+Step 1: check the codebook (not sure whether to have them look at the variables in the codebook or list some of them here).
+
+Before you dive into wrangling the data, you need to get an understanding of what kind of data you are dealing with and what the format of the dataframe looks like.
+
+As you may have noticed, `read_csv()` gives you a **message** what data types appear in your dataset and how many of the columns are in that format. It only lists a few examples of the, so it's not super useful when you want some specific information. However, it does tell you how many rows and columns your dataframe has.
+
+But there are a few other ways you can get more detailed information about your data. Use whichever method you prefer but do it. Click on the individual tabs to look at the different options:
+
+::: {.panel-tabset}
+
+## visual inspection
+
+You can click on the blue arrow icon next to the object name in the `Global Environment`. This will expand and show information about your columns. The `$` indicates a column (from BaseR).
+
+![include a screenshot with a circle around the arrow] 
 
 
-## Data for this chapter
+
+## glimpse()
+
+Use `glimpse()` if you want a more detailed overview you can see on your screen. The output will display rows and column numbers, and some examples of the first couple of observations for each variable.
+
+```{r}
+glimpse(data_os)
+```
+
+## spec()
+
+you can also use `spec()` as suggested in the message above and then it shows you a list of the data type in every single column. But it doesn't show you the number of rows and columns.
+
+```{r}
+spec(data_os)
+```
+
+:::
 
 
-In this chapter, we are going to brush up on our data wrangling skills, and given we have been talking about reproducibility, we'll use an open dataset on gender beliefs and subject choices to do so. The paper was published earlier this year, and the original data can be found on OSF ([https://osf.io/4jac7/](https://osf.io/4jac7/){target="_blank"}). However, for the purpose of this chapter, I have modified the data slightly (for example, using a file format you can work with). 
 
-**citation**
-Pownall, M., & Heflick, N. (2024). Male psychologists and female mathematicians: Gender beliefs and undergraduate degree choices. *Journal of Community & Applied Social Psychology, 34*(2), e2784. [https://doi.org/10.1002/casp.2784](https://doi.org/10.1002/casp.2784){target="_blank"}
+### Data types
 
 
-**Abstract**
-Globally, men and women are numerically dominant in undergraduate degrees in math and psychology, respectively. A variety of theoretical perspectives predict that individuals who adhere more to gender stereotypes will be more represented in gender-dominant fields. Using a pre-registered methodology, we recruited men and women enrolled in psychology and math degree programmes in the United Kingdom and assessed a variety of gender beliefs and identities. Overall, femininity was (marginally) higher in psychology, and higher amongst women generally. Moderated regression analyses revealed that women who were low in masculinity and high in femininity (the stereotypical pattern) were most likely to be in psychology degrees, whilst women who were low in both were most likely to be enrolled onto math programmes. For men, no component of gender identity or beliefs predicted degree programmes. Overall, these results demonstrate how dimensions of gender identity may account for gender differences in undergraduate representation. Specifically, women in STEM fields tend to not describe themselves in stereotypical masculine or feminine traits. We discuss implications for efforts to increase uptake of gender stereotype incongruent career paths (e.g., women in STEM) with a particular focus on how femininity may be rejected in counter-stereotypical domains.
+Each variable has a **data type**, such as numeric (numbers), character (text), and logical (TRUE/FALSE values), or a special class of factor.
 
-## Activity 3: Load the packages and read in the data
+**Numeric data** can be double (`dbl`) or integer (`int`). Doubles can have decimal places (e.g., 1.1). Integers are the whole numbers (e.g., 1, 2, -1) and are displayed with the suffix L (e.g., 1L). This is not overly important but might leave you less puzzled the next time you see an L after a number.
+
+**Characters** (also called “strings”) is anything written between quotation marks. This is usually text, but in special circumstances, a number can be a character if it comes with quotation marks. This can happen when you are recoding variables. It might not be too obvious at the time, but you won't be able to calculate anything if the number is a character
 
 
-### Knitting
+::: {.panel-tabset}
 
-as a means to check if the file as a whole is running
+## Example data types
 
+```{r}
+typeof(1)
+typeof(1L)
+typeof("1")
+typeof("text")
+```
+
+## numeric computation
+
+No problems here...
+
+```{r}
+1+1
+```
+
+## character computation
+
+When the data type is incorrect, you won't be able to compute anything, despite your numbers being shown as numeric values in the dataframe. The error message tells you exactly what's wrong with it, i.e., that you have `non-numeric arguments`.
+
+```{r, error = TRUE}
+"1"+"1" # ERROR
+```
+
+:::
+
+
+**Logical** data (also sometimes called “Boolean” values) are one of two values: TRUE or FALSE (written in uppercase).  They become really important when we use `filter()` (see @sec-filter) or `mutate()` with conditional statements such as `case_when()` (see @sec-conditional).
+
+Some commonly used logical operators:
+
+| operator | description                                       | 
+|:---------|:--------------------------------------------------|
+| >        | greater than                                      | 
+| >=       | greater than or equal to                          |
+| <        | less than                                         | 
+| <=       | less than or equal to                             |
+| ==       | equal to                                          |
+| !=       | not equal to                                      |
+| %in%     | TRUE if any element is in the following vector    |
+
+
+A **factor** is a specific type of integer or character that lets you assign the order of the categories. This becomes useful when you want to display certain categories in "the correct order" either in a dataframe (see *arrange*) or when plotting (see @sec-dataviz).
+
+
+### Variable types
+
+Variables can be classified as **continuous** (numbers) or **categorical** (labels). It's good to know the distinctions as it will help to decide the appropriate plot for your data (see @sec-appropriate-plot).
+
+**Categorical** variables are properties you can count. They can be **nominal**, where the categories don't have an order (e.g., gender) or **ordinal** (e.g., Likert scales either with numeric values 1-7 or with character labels such as "agree", "neither agree nor disagree", "disagree"). Categorical data may also be **factors** rather than characters.
+
+**Continuous variables** are properties you can measure and calculate sums/ means/ etc. They may be rounded to the nearest whole number, but it should make sense to have a value between them. Continuous variables always have a **numeric** data type (i.e. `integer` or `double`). 
+
+
+
+::: {.callout-note collapse="true"}
+## Test your understanding
+
+Let’s have a closer look at our data `data_os`. For this quiz, I've selected a few columns, renamed some of them, and modified some of the data types. This is the first few rows of the new object `data_quiz`.
+
+```{r echo=FALSE}
+data_quiz <- data_os %>% 
+  select(id:gender, phd_year, qq_01 = qq_spectrum, qq_02 = qq_spectrum_cat, qrp_01 = os_perceive_actions_01, qrp_02 = os_perceive_actions_02, qrp_average = qrp_data_collection) %>% 
+  mutate(phd_year = factor(phd_year,
+                           levels = c("Year 1", "Year 2", "Year 3", "Year 4", "Other"),
+                           labels = c("Year 1", "Year 2", "Year 3", "Year 4", "Other")),
+         gender = factor(gender,
+                         levels = c("Female", "Male", "Non-binary", "Prefer not to say"),
+                         labels = c(1,2,3,4)),
+         `qrp_01 == qrp_02` = ifelse(qrp_01 == qrp_02, TRUE, FALSE))
+```
+
+
+```{r}
+head(data_quiz, n = 5)
+```
+
+
+```{r}
+glimpse(data_quiz)
+```
+
+Select from the dropdown menu the variable type and their data types for each of the columns.
+
+```{r, include = FALSE}
+# variable type
+con <- c(answer = "continuous", x = "nominal", x = "ordinal")
+nom <- c(x = "continuous", answer = "nominal", x = "ordinal")
+ord <- c(x = "continuous", x = "nominal", answer = "ordinal")
+
+# data type
+num <- c(answer = "numeric", x = "character", x = "logical", x = "factor")
+chr <- c(x = "numeric", answer = "character", x = "logical", x = "factor")
+log <- c(x = "numeric", x = "character", answer = "logical", x = "factor")
+fctr <- c(x = "numeric", x = "character", x = "logical", answer = "factor")
+
+```
+
+| Column                | Variable type | Data type     |
+|:----------------------|:--------------|:--------------|
+| `age`                 | `r mcq(con)`  | `r mcq(num)`  |
+| `gender`              | `r mcq(nom)`  | `r mcq(fctr)` |
+| `phd_year`            | `r mcq(ord)`  | `r mcq(fctr)` |
+| `qq_01`               | `r mcq(con)`  | `r mcq(num)`  |
+| `qq_02`               | `r mcq(nom)`  | `r mcq(chr)`  |
+| `qrp_01` and `qrp_02` | `r mcq(ord)`  | `r mcq(num)`  |
+| `qrp_average`         | `r mcq(con)`  | `r mcq(num)`  |
+| `qrp_01 == qrp_02`    | `r mcq(nom)`  | `r mcq(log)`  |
+
+:::
+
+
+
+
+
+
+### Why is this important you may ask
+
+Data is messy, especially in a raw format (i.e., when you download it straight from your testing software). R prefers the data to be tidy, which means each row is an **observation**, each column is a **variable**, and the information in each cell is a single **value**. 
+
+I've modified the data for today slightly, to build in some challenges that you would experience when dealing with raw data, but tbh, the data we are looking at today is pretty tidy.
+
+Getting an understanding of what your data currently looks like and being aware of what your data structure needs to be (e.g., for calculating descriptives, running inferential stats or plotting) is the first step of thinking about the processing steps of how to get your data from A to B.
 
 ## Data Wrangling
 
@@ -234,3 +434,51 @@ Allison's drawing
 
 #### group_by & summarise
 
+
+
+## Tidy data
+
+copied from Lisa
+
+## Data types and what are observations/ variables
+
+
+
+
+::: {.callout-caution}
+## Do not factor numbers
+
+If you factor numeric data, it gets converted to the integers 1 to the number of unique values, no matter what the values are. Additionally, you can no longer use the values as numbers, such as calculating the mean.
+
+```{r, warning=TRUE, filename="Example"}
+x <- c(-3, 0, .5)  # numeric vector
+f <- factor(x)     # convert to factor
+x == as.numeric(f) # does not convert back to numeric 
+```
+
+```{r, warning=TRUE, filename="You cannot average a factor"}
+m <- mean(f)
+```
+
+:::
+
+Sometimes people represent categorical variables with numbers that correspond to names, like 0 = "no" and 1 = "yes", but values in between don't have a clear interpretation. If you have control over how the data are recorded, it's better to use the character names for clarity. You'll learn how to recode columns in @sec-wrangle.
+
+
+
+
+
+
+
+
+
+### Knitting
+
+as a means to check if the file as a whole is running
+
+
+## [Pair-coding in the lab]{style="color: #EBA347; text-transform: uppercase;"} {.unnumbered}
+
+## [Test your knowledge and challenge yourself]{style="color: #EBA347; text-transform: uppercase;"} {.unnumbered}
+
+mCQ questions about the different data types

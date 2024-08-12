@@ -1,8 +1,152 @@
-# Data viz
+# Data viz {#sec-dataviz}
 
-re-structure
+## Intended Learning Outcomes {.unnumbered}
 
-data
+By the end of this chapter you should be able to:
+
+-   a
+-   b
+-   Be able to create an appropriate for your data
+
+
+## Activity 1: Set-up
+
+-   Create a new project and name it something meaningful (e.g., "2A_chapter3", or "03_data_viz")
+-   Create a new Rmd and save it to your project folder. Name it something meaningful (e.g., "chapter_03", "03_data_viz.Rmd")
+-   Delete everything below line 12 (keep the set-up code chunk)
+-   Download the data for today: [data_ch3](data/data_ch3.zip "download"). There are 2 csv files contained in the zip-folder you just downloaded. One is the data file (`hp_data_modified.csv`) and the other is the `questionnaire_codebook` for the main 3 questionnaires used in the dataset.
+-   Unzip the zip folder so that all data files, the Rmd and the project are in the same folder (see image below)
+
+If you set it up correctly, your folder should look like this:
+
+::: {#img-data-viz layout-ncol=2}
+
+![Folder on your computer (left)](images/data_viz_setup.PNG) 
+
+![Files pane in RStudio (right)](images/files_plane_data_viz.PNG)
+
+:::
+
+#### Info about the data {.unnumbered}
+
+
+**citation**
+
+
+**Abstract**
+
+
+## Activity 2: Load in the libraries and read in the data
+
+
+```{r eval=FALSE}
+## packages 
+library(tidyverse)
+
+## data
+hp_data <- read_csv("hp_data_modified.csv")
+codebook <- read_csv("questionnaire_codebook.csv")
+```
+
+```{r include=FALSE}
+## I basically have to have 2 code chunks since I tell them to put the data files next to the project, and mine are in a separate folder called data - unless I'll turn this into a fixed path
+
+library(tidyverse)
+hp_data <- read_csv("data/hp_data_modified.csv")
+codebook <- read_csv("data/questionnaire_codebook.csv")
+```
+
+
+#### Familiarise yourself with the data structure {.unnumbered}
+
+Or as we said in @sec-, you could 
+
+As we said in **chapter 1** (LINK TO THAT), it is always recommended to glimpse at the data to see how many variables and observations there are in the dataset and what kind of data type they are.
+
+For example, to show the codebook, we would use:
+
+```{r}
+glimpse(codebook)
+```
+
+
+::: {.callout-note collapse="true"}
+## Try the same for `hp_data`. Click to see the solution.
+
+```{r}
+glimpse(hp_data)
+```
+
+:::
+
+
+::: {.callout-note .try}
+## Test your understanding
+
+```{r, include = FALSE}
+bar <- c(answer = "geom_bar", x = "geom_col")
+col <- c(x = "geom_bar", answer = "geom_col")
+```
+
+
+Here is a small data table.
+
+country             | population      | island
+:-------------------|----------------:|:--------------
+Northern Ireland    | 1,895,510       | Ireland
+Wales               | 3,169,586       | Great Britain
+Republic of Ireland | 4,937,786       | Ireland
+Scotland            | 5,466,000       | Great Britain
+England             | 56,550,138      | Great Britain
+
+
+* What geom would you use to plot the population for each of the 5 countries? `r mcq(col)`
+```{r test-counting-categories, echo = FALSE, results='asis'}
+opt <- c(answer = "aes(x = country, y = population)",
+         x = "aes(x = population, y = country)",
+         x = "aes(x = country)",
+         x = "aes(x = island)",
+         x = "aes(y = population)")
+cat("* What mapping would you use? ", longmcq(opt))
+```
+* What geom would you use to plot the number of countries on each island? `r mcq(bar)`
+```{r, echo = FALSE, results='asis'}
+opt <- c(x = "aes(x = country, y = population)",
+         x = "aes(x = population, y = country)",
+         x = "aes(x = country)",
+         answer = "aes(x = island)",
+         x = "aes(y = population)")
+cat("* What mapping would you use? ", longmcq(opt))
+```
+:::
+
+
+
+
+## Building plots
+
+### 
+
+
+There are multiple approaches to data visualisation in R; in this course we will use the popular package <pkg>ggplot2</pkg>, which is part of the larger `tidyverse` collection of packages. A grammar of graphics (the "gg" in "ggplot") is a standardised way to describe the components of a graphic. <pkg>ggplot2</pkg> uses a layered grammar of graphics, in which plots are built up in a series of layers. It may be helpful to think about any picture as having multiple elements that sit semi-transparently over each other. A good analogy is old Disney movies where artists would create a background and then add moveable elements on top of the background via transparencies.
+
+@fig-layers displays the evolution of a simple scatterplot using this layered approach. First, the plot space is built (layer 1); the variables are specified (layer 2); the type of visualisation (known as a `geom`) that is desired for these variables is specified (layer 3) - in this case `geom_point()` is called to visualise individual data points; a second geom is added to include a line of best fit (layer 4), the axis labels are edited for readability (layer 5), and finally, a theme is applied to change the overall appearance of the plot (layer 6).
+
+Importantly, each layer is independent and independently customisable. For example, the size, colour and position of each component can be adjusted, or one could, for example, remove the first geom (the data points) to only visualise the line of best fit, simply by removing the layer that draws the data points (@fig-remove-layer). The use of layers makes it easy to build up complex plots step-by-step, and to adapt or extend plots from existing code.
+
+
+
+## Activity 3: Wrangling the data? 
+
+Not sure that makes sense. Maybe just dive straight in with the plots
+
+Quick recap of continuous vs categorical data types 
+
+Check in this weeks dataset
+
+Quick quiz
+
+
 
 ## data types
 
@@ -12,31 +156,163 @@ data
 
 let them check the data type of a 
 
-## Plots for...
+```{r}
+library(tidyverse)
+pets <- read_csv("https://psyteachr.github.io/reprores/data/pets.csv", col_types = "cffiid")
+glimpse(pets)
+```
 
-### ...1 catergorical variable
+
+
+::: {.panel-tabset}
+
+## Layer 1
+
+Let's start with a totally empty plot layer created by the `ggplot()` function with no arguments.
+
+```{r ggplot-empty, fig.cap="A plot base created by ggplot()"}
+ggplot()
+```
+
+## Layer 2
+
+The first argument to `ggplot()` is the `data` table you want to plot. Let's use the `pets` data we loaded above. The second argument is the `mapping` for which columns in your data table correspond to which properties of the plot, such as the `x`-axis, the `y`-axis, line `colour` or `linetype`, point `shape`, or object `fill`. These mappings are specified by the `aes()` function. Just adding this to the `ggplot` function creates the labels and ranges for the `x` and `y` axes. They usually have sensible default values, given your data, but we'll learn how to change them later.
+
+```{r ggplot-aes, fig.cap="Empty ggplot with x and y labels"}
+ggplot(data = pets, mapping = aes(x = pet, y = score, colour = country, fill = country))
+```
+
+
+::: callout-tip
+People usually omit the argument names and just put the `aes()` function directly as the second argument to `ggplot`. They also usually omit `x` and `y` as argument names to `aes()` (but you have to name the other properties). 
+:::
+
+## Layer 3
+
+Next we can add "geoms", or plot styles. You literally add them with the `+` symbol. You can customise the appearance of a geom with arguments like `alpha` (sets transparency).
+
+```{r ggplot-geom, fig.cap="Violin plot with country represented by colour."}
+ggplot(pets, aes(pet, score, colour = country, fill = country)) +
+  geom_violin(alpha = 0.5)
+```
+
+## Layer 4
+
+The `scale_*` functions help you to customise the aesthetics.
+
+```{r ggplot-color, fig.cap="Customised colours."}
+ggplot(pets, aes(pet, score, colour = country, fill = country)) +
+  geom_violin(alpha = 0.5) +
+  scale_fill_manual(values = c("orange", "orchid")) +
+  scale_colour_manual(values = c("orange", "orchid"))
+```
+
+## Layer 5
+
+Further customise the image by setting the y-axis breaks and limits, and editing the labels.
+
+```{r ggplot-labels, fig.cap="Customised axis labels."}
+ggplot(pets, aes(pet, score, colour = country, fill = country)) +
+  geom_violin(alpha = 0.5) +
+  scale_fill_manual(values = c("orange", "orchid")) +
+  scale_colour_manual(values = c("orange", "orchid")) +
+  scale_y_continuous(breaks = c(50, 100, 150)) +
+  coord_cartesian(ylim = c(50, 150)) +
+  labs(x = "Pet type",
+       y = "Score on an Important Test",
+       colour = "Country of Origin",
+       fill = "Country of Origin")
+```
+
+## Layer 6
+
+Finally, change the theme and base font size and customise the legend position.
+
+```{r ggplot-theme, fig.cap="Customised theme and legend position."}
+ggplot(pets, aes(pet, score, colour = country, fill = country)) +
+  geom_violin(alpha = 0.5) +
+  scale_fill_manual(values = c("orange", "orchid")) +
+  scale_colour_manual(values = c("orange", "orchid")) +
+  scale_y_continuous(breaks = c(50, 100, 150)) +
+  coord_cartesian(ylim = c(50, 150)) +
+  labs(x = "Pet type",
+       y = "Score on an Important Test",
+       colour = "Country of Origin",
+       fill = "Country of Origin") +
+  theme_minimal(base_size = 13) +
+  theme(legend.position = c(.83, .17))
+```
+
+
+:::
+
+
+
+
+
+## Which plot shall I build??? {#sec-appropriate-plot}
+
+### One catergorical variable
 
 Bargraphs - from raw data
 
 
 geom bar 
 
-use geom bar if something has already been summmarised for you
+use geom col if something has already been summmarised for you
+
+
+bring in layers/tabs of how to change colour etc
 
 
 
 
 
-
-
-### 2 categorical variables
+### Two categorical variables
 
 faceted bargraph
 
 
-## 1 continuous
+### One continuous variable
 
+histogram
 
-## 1 continuous and 1
+### One continuous and one categorical grouping variable
 
-## 1 continuous
+Have one with char and one with numbers
+factors are important
+
+dodged histogram or better facet
+
+violin plot
+
+boxplot
+
+violin-boxplot
+
+For ordinal rating scale: overplotting with geom_point. Use geom_jitter instead - tab you can also change the size of the dot and the transparency
+
+### Two continuous
+
+scatterplot
+
+trendlines straight line vs loess
+
+show them next to each other like Lisa has
+
+```{r eval=FALSE}
+lm_plot <- 
+  ggplot(survey_data, aes(x = wait_time, y = call_time)) +
+  geom_point(alpha = 0.2) +
+  geom_smooth(method = lm, formula = y~x) +
+  ggtitle("method = lm")
+
+loess_plot <- 
+  ggplot(survey_data, aes(x = wait_time, y = call_time)) +
+  geom_point(alpha = 0.2) +
+  geom_smooth(method = loess, formula = y~x) +
+  ggtitle("method = loess")
+
+lm_plot + loess_plot
+```
+
