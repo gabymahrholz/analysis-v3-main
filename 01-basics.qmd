@@ -41,11 +41,9 @@ Hence, there are a few settings you should fix immediately after installing/upda
 -   uncheck the box that says <if>Restore .RData into workspace at startup</if> to make sure no data from a previous session is loaded into the environment
 -   set <if>Save workspace to .RData on exit</if> to <if>Never</if> so that your workspace is not saved when you exit RStudio.
 
-```{r img-reprod, echo=FALSE, fig.cap="Reproducibility settings"}
+![Reproducibility settings](images/rstudio_settings_reproducibility.png)
 
-knitr::include_graphics("images/rstudio_settings_reproducibility.png")
 
-```
 
 ### RStudio panes
 
@@ -122,7 +120,7 @@ Don't ever save a new project **inside** another project directory. This can cau
 Remember, an R Markdown document or Rmd has "white space" (i.e., the markdown for formatted text) and "grey parts" (i.e., code chunks) in the default colour scheme (see @fig-rmd), and is a great way to create dynamic documents. The key advantage of R Markdown is that it allows you to write code into a document, along with regular text, and then **knit** it using the package `knitr()` to create your document as either a webpage (HTML), a PDF, or Word document (.docx). We'll only knit to html documents in this course.
 
 
-```{r fig-rmd, echo=FALSE, fig.cap="Default Rmd with highlighting - names in pink and XXX in purple"}
+```{r fig-rmd, echo=FALSE, fig.cap="Default Rmd with highlighting - names in pink and knitr display options in purple"}
 knitr::include_graphics("images/default_highlighted.png")
 ``` 
 
@@ -150,6 +148,15 @@ And it will be displayed in your knitted html file as
 
 ::: {.small_right}
 ![](images/heading_levels.PNG)
+:::
+
+::: {.callout-important}
+## My heading levels don't work when knitting
+
+You need a space between the # and first letter. If the space is missing, the heading will be displayed in the html as ...
+
+#Heading 1
+
 :::
 
 You can also include **bullet points** using either `*`, `-` or `+` and they will turn into:
