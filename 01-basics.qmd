@@ -32,12 +32,7 @@ Once you have installed/updated R and RStudio, come back to this chapter.
 
 ### Settings for Reproducibility
 
-*--> mention the replication crisis, findings are not reproducible. Hence it's super important that we do things in a reproducible way*
-
-*Wikipedia: The replication crisis[a] is an ongoing methodological crisis in which the results of many scientific studies are difficult or impossible to reproduce. Because the reproducibility of empirical results is an essential part of the scientific method,[2] such failures undermine the credibility of theories building on them and potentially call into question substantial parts of scientific knowledge.*
-
-
-You should be doing things reproducibly so that others (and your future self) can understand and check your work. That also allows you to reuse your work more easily.
+By now you should be aware that the Psychology department at the University of Glasgow is pretty big on reproducibility, open science, and raising awareness about questionable research practices (QRPs). Therefore, you should be doing things reproducibly so that others (and your future self) can understand and check your work. That also allows you to reuse your work more easily.
 
 Always start with a clear workspace. Keeping anything in your `Global Environment` from a previous session means you can never be sure whether your current code is working or if your code is accessing previously created objects.
 
@@ -61,7 +56,7 @@ RStudio has four main panes each in a quadrant of your screen:
 -   Console pane
 -   Output pane
 
-Lets see what you remember about the RStudio panes from last year. Click on the **Test your understanding** section below and give it a go.
+Let's see what you remember about the RStudio panes from last year. Click on the **Test your understanding** section below and give it a go.
 
 ::: {.callout-note collapse="true"}
 ## Test your understanding
@@ -76,22 +71,15 @@ Lets see what you remember about the RStudio panes from last year. Click on the 
 
 **The Output pane...** `r longmcq(c("allows users to view and edit various code-related files, such as .Rmd files", answer = "contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs", "includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function", "provides an area to interactively execute code"))`
 
-
 **Where are these panes located by default?**
 
 -   The Source pane is located? `r mcq(sample(c(answer = "top left", "bottom left", "top right", "bottom right")))`
 -   The Environment pane is located? `r mcq(sample(c("top left", "bottom left", answer = "top right", "bottom right")))`
 -   The Console pane is located? `r mcq(sample(c("top left", answer = "bottom left", "top right", "bottom right")))`
 -   The Output pane is located? `r mcq(sample(c("top left", "bottom left", "top right", answer = "bottom right")))`
-
 :::
 
-
-
-
 If you were not quite sure about one/any of the panes, check out the [materials from Level 1](https://psyteachr.github.io/data-skills-v2/sec-intro.html?q=RMark#rstudio-panes){target="_blank"}. If you want to know more about them, there is the [RStudio guide on posit](https://docs.posit.co/ide/user/ide/guide/ui/ui-panes.html){target="_blank"}
-
-
 
 ## Activity 1: Creating a new project
 
@@ -108,9 +96,7 @@ On your own computer, open RStudio, and complete the following steps in this ord
 -   Click "Create Project". RStudio will restart itself and open with this new project directory as the working directory. If you accidentally close it, you can open it by double-clicking on the project icon in your folder
 -   You can also check in your folder structure that everything was created as intended
 
-
 ![Creating a new project](images/project_setup.gif)
-
 
 ::: {.callout-tip title="Why is the Colour scheme in the gif different?" collapse="true"}
 In case anyone is wondering why my colour scheme in the gif above looks different to yours, I've set mine to "Pastel On Dark" in <if>Tools \> Global Options... \> Appearances</if>. And my computer lives in "dark mode".
@@ -122,84 +108,146 @@ In case anyone is wondering why my colour scheme in the gif above looks differen
 Don't ever save a new project **inside** another project directory. This can cause some hard-to-resolve problems.
 :::
 
-
-
 ## Activity 2: Create a new R Markdown file
 
-
--   Open a new R Markdown document: click <if>File > New File > R Markdown</if> or click on the little page icon with a green plus sign (top left). 
+-   Open a new R Markdown document: click <if>File \> New File \> R Markdown</if> or click on the little page icon with a green plus sign (top left).
 -   Give it a meaningful `Title` (e.g., Level 2 chapter 1) - you can also change the title later. Feel free to add your name or GUID in the `Author` field author name. Keep the `Default Output Format` as HTML.
--   Once the Rmd opened, you need to save the file. 
--   To save it, click <if>File > Save As...</if> or click on the little disc icon. Name it something meaningful (e.g., "chapter_01.Rmd", "01_intro.Rmd"). Make sure there are no spaces in the name - R is not very fond of spaces... This file will automatically be saved in your project folder (i.e., your working directory) so you should now see this file appear in your file viewer pane.
--   Delete everything below line 12 (keep the set-up code chunk)
+-   Once the Rmd opened, you need to save the file.
+-   To save it, click <if>File \> Save As...</if> or click on the little disc icon. Name it something meaningful (e.g., "chapter_01.Rmd", "01_intro.Rmd"). Make sure there are no spaces in the name - R is not very fond of spaces... This file will automatically be saved in your project folder (i.e., your working directory) so you should now see this file appear in your file viewer pane.
+
+
 
 ![Creating a new Rmd file](images/Rmd_setup.gif)
 
-
--   Type "## XXX" on line 12 
--   and include a code chunk 
-
-### grey bits vs white bits (in default mode) 
-
-### Code Chunk
-
-they start and finish with 3 backticks. Start a chunk with ` ```{r} ` and ends with ` ``` `
-
-If you accidentally delete one, your code chunks won't run and/or your text parts will be interpreted as part of the code chunks. But no need to fret - just add it back manually.
-
-explain what this is (everything will be computed). You may have noticed 
-
-that the set-up code chunk looks different to the set-up one above
-
-mention to include elements like a name for it and attributed that can stop the code chunk from getting shown or the output suppressed etc.
-
-### knitting
-
-Turns your Rmd into a html document with nice formatting
-
-EXPLAIN a bit more
-
-Use knitr options to style the output of a chunk.  Place options in brackets above the chunk.
-
-bring in the table here
+Remember, an R Markdown document or Rmd has "white space" (i.e., the markdown for formatted text) and "grey parts" (i.e., code chunks) in the default colour scheme (see @fig-rmd), and is a great way to create dynamic documents. The key advantage of R Markdown is that it allows you to write code into a document, along with regular text, and then **knit** it using the package `knitr()` to create your document as either a webpage (HTML), a PDF, or Word document (.docx). We'll only knit to html documents in this course.
 
 
-| Code             | Does Code Run   | Does Code Show  | Do Results Show                        |
-|:-----------------|:----------------|:----------------|:----------------|
-| eval=FALSE       | NO              | YES             | NO              |
-| echo=TRUE        | YES             | YES             | YES             |
-| echo=FALSE       | YES             | NO              | YES             |
-| results="hide"   | YES             | YES             | NO              |
-|include=FALSE     | YES             | NO              | NO              |
+```{r fig-rmd, echo=FALSE, fig.cap="Default Rmd with highlighting - names in pink and XXX in purple"}
+knitr::include_graphics("images/default_highlighted.png")
+``` 
 
+
+### Markdown
+
+The markdown space is for formatted text. You can and should write notes for yourself and others on what your code is doing (earlier on) or what decisions you are making. This can be really useful later on, for example, when making decision about inclusion/exclusion criteria or whatever you conclude from your assumption tests.
+
+There is a variety of **heading levels** to make use of, using the # symbol. You would incorporate this into your text as:
+
+\# Heading level 1
+
+\## Heading level 2
+
+\### Heading level 3
+
+\#### Heading level 4
+
+\##### Heading level 5
+
+\###### Heading level 6
+
+
+And it will be displayed in your knitted html file as 
+
+::: {.small_right}
+![](images/heading_levels.PNG)
+:::
+
+You can also include **bullet points** using either `*`, `-` or `+` and they will turn into:
+
+* bullet point created with `*`
+- bullet point created with `-`
++ bullet point created with `+`
+
+
+or use bullet points of different levels using 2 spaces (for sub-item 1) or 4 spaces for (sub-item 2):
+
+* bullet point item
+  * sub-item 1
+    * sub-item 2
 
 ::: {.callout-important}
-The table above will be incredibly important for the data skills homework II. 
+## My bullet points don't work when knitting
+
+You need an empty row before your bullet points start. If I delete the empty row before the bullet points, they will be displayed in the html as ...
+
+Text without the empty row:
+* bullet point created with `*`
+- bullet point created with `-`
++ bullet point created with `+`
+
 :::
+
+Include **emphasis** to display text in **bold** or *italics* etc.
+
+|R markdown syntax  | Displayed in the knitted html file |
+|:----------------- |:-----------------------------------|
+| \**bold text**    | **bold text**                      |
+| \*italic text*    | *italic text*                      |
+
+
+Other examples can be found in the [R Markdown Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf){target="_blank"}
+
+
+### Code chunks
+
+Everything you write into the **code chunks** will be interpreted as code and computed by R. Code chunks start with ` ``` ` followed by an `{r}` which specifies the coding language, some space for code, and ends with ` ``` `. If you accidentally delete one of those backticks, your code won't run and/or your text parts will be interpreted as part of the code chunks or vice versa. This should be evident from the colour change - more white than expected if it's one of the starting backticks, and too much grey/not enough white when it's the backticks at the end. But no need to fret - just add the missing backticks manually.
+
+You can **insert a new code chunk** either by
+
+* clicking the `Insert a new code chunk` button in the RStudio Toolbar (green icon at the top right corner of the `Source pane`)
+* clicking on the menu <if>Code \> Insert Chunk</if>
+* using the shortcut `Ctrl + Alt + I` for Windows and `Cmd + Option + I` on MacOSX or
+* typing ` ```{r}` and ` ``` ` manually
+
+
+Within the curly brackets, you can **specify a name** for your code chunk (see pink highlighting in @fig-rmd). The chunk name is not necessarily required, however, it is good practice to give each chunk a unique name to support more advanced knitting approaches.
+
+Within the the curly brackets, you can also place rules and arguments (see purple highlighting in @fig-rmd) to give you control over how your code is interpreted and what exactly is shown in your html output. The most common **knitr display options** are:
+
+
+| Code                | Does code run | Does code show | Do results show |
+|:--------------------|:--------------|:---------------|:----------------|
+| eval=FALSE          | NO            | YES            | NO              |
+| echo=TRUE (default) | YES           | YES            | YES             |
+| echo=FALSE          | YES           | NO             | YES             |
+| results="hide"      | YES           | YES            | NO              |
+| include=FALSE       | YES           | NO             | NO              |
+
+
+
+There are also the options of manipulating messages and warnings in the knitted document:
+
+-   `message=FALSE` will not display any messages generated by the code, and
+-   `warning=FALSE` will not display any warning messages generated by the code
+
+::: callout-important
+The table above will be incredibly important for the data skills homework II.
+:::
+
+
+-   In your newly created Rmd file, delete everything below line 12 (keep the set-up code chunk) and save your Rmd by clicking on the disc symbol.
+
+![Delete everything below line 12](images/delete_12.gif)
+
 
 
 ## Activity 3: The data for this chapter
 
-Download the data for today: [filename](data/data_ch1.zip "download"). There are 2 csv files contained in a zip-folder. One is the data file we are going to use today `hp_data_modified.csv` and the other is the `questionnaire_codebook` for the main 3 questionnaires used in the data.
+The data . Download it here: [filename](data/data_ch1.zip "download"). There are 2 csv files contained in a zip-folder. One is the data file we are going to use today `hp_data_modified.csv` and the other is the `questionnaire_codebook` for the main 3 questionnaires used in the data.
 
 First step is to unzip that folder so that the files are placed within the same folder as your project.
 
-[Include a screenshot here once we have data]() 
+[Include a screenshot here once we have data]()
 
-
-In this chapter, we are going to brush up on our data wrangling skills, and given we have been talking about reproducibility, we'll use an open dataset on gender beliefs and subject choices to do so. The paper was published earlier this year, and the original data can be found on OSF ([https://osf.io/4jac7/](https://osf.io/4jac7/){target="_blank"}). However, for the purpose of this chapter, I have modified the data slightly (for example, using a file format you can work with). 
+The paper was published in 2023, and the original data can be found on OSF ([https://osf.io/5qshg/](https://osf.io/5qshg/){target="_blank"}). However, for the purpose of this chapter, we have modified the data slightly (e.g., recoding some variables etc.).
 
 **Citation**
 
-> Pownall, M., & Heflick, N. (2024). Male psychologists and female mathematicians: Gender beliefs and undergraduate degree choices. *Journal of Community & Applied Social Psychology, 34*(2), e2784. [https://doi.org/10.1002/casp.2784](https://doi.org/10.1002/casp.2784){target="_blank"}
-
+> Pownall, M., Pennington, C. R., Norris, E., Juanchich, M., Smailes, D., Russell, S., Gooch, D., Evans, T. R., Persson, S., Mak, M. H. C., Tzavella, L., Monk, R., Gough, T., Benwell, C. S. Y., Elsherif, M., Farran, E., Gallagher-Mitchell, T., Kendrick, L. T., Bahnmueller, J., . . . Clark, K. (2023). Evaluating the Pedagogical Effectiveness of Study Preregistration in the Undergraduate Dissertation. *Advances in Methods and Practices in Psychological Science, 6*(4). [https://doi.org/10.1177/25152459231202724](https://doi.org/10.1177/25152459231202724){target="_blank"}
 
 **Abstract**
 
-> Globally, men and women are numerically dominant in undergraduate degrees in math and psychology, respectively. A variety of theoretical perspectives predict that individuals who adhere more to gender stereotypes will be more represented in gender-dominant fields. Using a pre-registered methodology, we recruited men and women enrolled in psychology and math degree programmes in the United Kingdom and assessed a variety of gender beliefs and identities. Overall, femininity was (marginally) higher in psychology, and higher amongst women generally. Moderated regression analyses revealed that women who were low in masculinity and high in femininity (the stereotypical pattern) were most likely to be in psychology degrees, whilst women who were low in both were most likely to be enrolled onto math programmes. For men, no component of gender identity or beliefs predicted degree programmes. Overall, these results demonstrate how dimensions of gender identity may account for gender differences in undergraduate representation. Specifically, women in STEM fields tend to not describe themselves in stereotypical masculine or feminine traits. We discuss implications for efforts to increase uptake of gender stereotype incongruent career paths (e.g., women in STEM) with a particular focus on how femininity may be rejected in counter-stereotypical domains.
-
-
-
+> Research shows that questionable research practices (QRPs) are present in undergraduate final-year dissertation projects. One entry-level Open Science practice proposed to mitigate QRPs is “study preregistration,” through which researchers outline their research questions, design, method, and analysis plans before data collection and/or analysis. In this study, we aimed to empirically test the effectiveness of preregistration as a pedagogic tool in undergraduate dissertations using a quasi-experimental design. A total of 89 UK psychology students were recruited, including students who preregistered their empirical quantitative dissertation (*n* = 52; experimental group) and students who did not (*n* = 37; control group). Attitudes toward statistics, acceptance of QRPs, and perceived understanding of Open Science were measured both before and after dissertation completion. Exploratory measures included capability, opportunity, and motivation to engage with preregistration, measured at Time 1 only. This study was conducted as a Registered Report; Stage 1 protocol: https://osf.io/9hjbw (date of in-principle acceptance: September 21, 2021). Study preregistration did not significantly affect attitudes toward statistics or acceptance of QRPs. However, students who preregistered reported greater perceived understanding of Open Science concepts from Time 1 to Time 2 compared with students who did not preregister. Exploratory analyses indicated that students who preregistered reported significantly greater capability, opportunity, and motivation to preregister. Qualitative responses revealed that preregistration was perceived to improve clarity and organization of the dissertation, prevent QRPs, and promote rigor. Disadvantages and barriers included time, perceived rigidity, and need for training. These results contribute to discussions surrounding embedding Open Science principles into research training.
 
 ## Activity 4: Loading packages and reading in data
 
@@ -220,15 +268,12 @@ As you may have noticed, `read_csv()` gives you a **message** what data types ap
 
 But there are a few other ways you can get more detailed information about your data. Use whichever method you prefer but do it. Click on the individual tabs to look at the different options:
 
-::: {.panel-tabset}
-
+::: panel-tabset
 ## visual inspection
 
 You can click on the blue arrow icon next to the object name in the `Global Environment`. This will expand and show information about your columns. The `$` indicates a column (from BaseR).
 
-![include a screenshot with a circle around the arrow] 
-
-
+\[include a screenshot with a circle around the arrow\]
 
 ## glimpse()
 
@@ -245,13 +290,9 @@ you can also use `spec()` as suggested in the message above and then it shows yo
 ```{r}
 spec(data_os)
 ```
-
 :::
 
-
-
 ### Data types
-
 
 Each variable has a **data type**, such as numeric (numbers), character (text), and logical (TRUE/FALSE values), or a special class of factor.
 
@@ -259,9 +300,7 @@ Each variable has a **data type**, such as numeric (numbers), character (text), 
 
 **Characters** (also called “strings”) is anything written between quotation marks. This is usually text, but in special circumstances, a number can be a character if it placed within quotation marks. This can happen when you are recoding variables. It might not be too obvious at the time, but you won't be able to calculate anything if the number is a character
 
-
-::: {.panel-tabset}
-
+::: panel-tabset
 ## Example data types
 
 ```{r}
@@ -286,27 +325,23 @@ When the data type is incorrect, you won't be able to compute anything, despite 
 ```{r, error = TRUE}
 "1"+"1" # ERROR
 ```
-
 :::
 
-
-**Logical** data (also sometimes called “Boolean” values) are one of two values: TRUE or FALSE (written in uppercase).  They become really important when we use `filter()` (see @sec-filter) or `mutate()` with conditional statements such as `case_when()` (see @sec-conditional).
+**Logical** data (also sometimes called “Boolean” values) are one of two values: TRUE or FALSE (written in uppercase). They become really important when we use `filter()` (see @sec-filter) or `mutate()` with conditional statements such as `case_when()` (see @sec-conditional).
 
 Some commonly used logical operators:
 
-| operator | description                                       | 
-|:---------|:--------------------------------------------------|
-| >        | greater than                                      | 
-| >=       | greater than or equal to                          |
-| <        | less than                                         | 
-| <=       | less than or equal to                             |
-| ==       | equal to                                          |
-| !=       | not equal to                                      |
-| %in%     | TRUE if any element is in the following vector    |
-
+| operator | description                                    |
+|:---------|:-----------------------------------------------|
+| \>       | greater than                                   |
+| \>=      | greater than or equal to                       |
+| \<       | less than                                      |
+| \<=      | less than or equal to                          |
+| ==       | equal to                                       |
+| !=       | not equal to                                   |
+| %in%     | TRUE if any element is in the following vector |
 
 A **factor** is a specific type of integer or character that lets you assign the order of the categories. This becomes useful when you want to display certain categories in "the correct order" either in a dataframe (see *arrange*) or when plotting (see @sec-dataviz).
-
 
 ### Variable types
 
@@ -314,9 +349,7 @@ You've already encountered them in [Level 1](https://psyteachr.github.io/data-sk
 
 **Categorical** variables are properties you can count. They can be **nominal**, where the categories don't have an order (e.g., gender) or **ordinal** (e.g., Likert scales either with numeric values 1-7 or with character labels such as "agree", "neither agree nor disagree", "disagree"). Categorical data may also be **factors** rather than characters.
 
-**Continuous variables** are properties you can measure and calculate sums/ means/ etc. They may be rounded to the nearest whole number, but it should make sense to have a value between them. Continuous variables always have a **numeric** data type (i.e. `integer` or `double`). 
-
-
+**Continuous variables** are properties you can measure and calculate sums/ means/ etc. They may be rounded to the nearest whole number, but it should make sense to have a value between them. Continuous variables always have a **numeric** data type (i.e. `integer` or `double`).
 
 ::: {.callout-note collapse="true"}
 ## Test your understanding
@@ -335,11 +368,9 @@ data_quiz <- data_os %>%
          `qrp_01 == qrp_02` = ifelse(qrp_01 == qrp_02, TRUE, FALSE))
 ```
 
-
 ```{r}
 head(data_quiz, n = 5)
 ```
-
 
 ```{r}
 glimpse(data_quiz)
@@ -371,17 +402,11 @@ fctr <- c(x = "numeric", x = "character", x = "logical", answer = "factor")
 | `qrp_01` and `qrp_02` | `r mcq(ord)`  | `r mcq(num)`  |
 | `qrp_average`         | `r mcq(con)`  | `r mcq(num)`  |
 | `qrp_01 == qrp_02`    | `r mcq(nom)`  | `r mcq(log)`  |
-
 :::
-
-
-
-
-
 
 ### Why is this important you may ask
 
-Data is messy, especially in a raw format (i.e., when you download it straight from your testing software). R prefers the data to be tidy, which means each row is an **observation**, each column is a **variable**, and the information in each cell is a single **value**. 
+Data is messy, especially in a raw format (i.e., when you download it straight from your testing software). R prefers the data to be tidy, which means each row is an **observation**, each column is a **variable**, and the information in each cell is a single **value**.
 
 I've modified the data for today slightly, to build in some challenges that you would experience when dealing with raw data, but tbh, the data we are looking at today is pretty tidy.
 
@@ -393,18 +418,14 @@ The basic ones are the **Wickham 6** that you've encountered already last year
 
 table of the Wickham 6 refer them back to the different chapters where they encountered it in level 1
 
-| Function    | Description                            | First introduced in Level 1 Chapter                        |
+| Function    | Description                                                | First introduced in Level 1 Chapter                                                                                               |
 |:-----------------|:----------------------------------|:------------------|
-| select()    | Include or exclude certain variables (columns)             | [Chapter 6.5](https://psyteachr.github.io/data-skills-v2/corsi-blocks-2.html#activity-3-selecting-variables){target="_blank"} |
-| filter()    | Include or exclude certain observations/data (rows)        | [Chapter 6.6](https://psyteachr.github.io/data-skills-v2/corsi-blocks-2.html#activity-4-filtering-observations){target="_blank"} |
+| select()    | Include or exclude certain variables (columns)             | [Chapter 6.5](https://psyteachr.github.io/data-skills-v2/corsi-blocks-2.html#activity-3-selecting-variables){target="_blank"}     |
+| filter()    | Include or exclude certain observations/data (rows)        | [Chapter 6.6](https://psyteachr.github.io/data-skills-v2/corsi-blocks-2.html#activity-4-filtering-observations){target="_blank"}  |
 | mutate()    | Creates new variables (columns)                            | [Chapter 8.8](https://psyteachr.github.io/data-skills-v2/belonging-2.html?q=mutate#activity-5-mutate-and-recode){target="_blank"} |
-| arrange()   | Changes the order of observations (rows)                   | not yet introduced |
-| group_by()  | Organises the observations (rows) into groups              | [Chapter 3.5.3](https://psyteachr.github.io/data-skills-v2/stroop-2.html#summarising-by-groups){target="_blank"} |
-| summarise() | Create summary variables for groups of observations (rows) | [Chapter 3.5.2](https://psyteachr.github.io/data-skills-v2/stroop-2.html#calculating-summary-statistics){target="_blank"} |
-
-
-
-
+| arrange()   | Changes the order of observations (rows)                   | not yet introduced                                                                                                                |
+| group_by()  | Organises the observations (rows) into groups              | [Chapter 3.5.3](https://psyteachr.github.io/data-skills-v2/stroop-2.html#summarising-by-groups){target="_blank"}                  |
+| summarise() | Create summary variables for groups of observations (rows) | [Chapter 3.5.2](https://psyteachr.github.io/data-skills-v2/stroop-2.html#calculating-summary-statistics){target="_blank"}         |
 
 ### Brief recap of the Wickham 6
 
@@ -434,18 +455,13 @@ Allison's drawing
 
 #### group_by & summarise
 
-
-
 ## Tidy data
 
 copied from Lisa
 
 ## Data types and what are observations/ variables
 
-
-
-
-::: {.callout-caution}
+::: callout-caution
 ## Do not factor numbers
 
 If you factor numeric data, it gets converted to the integers 1 to the number of unique values, no matter what the values are. Additionally, you can no longer use the values as numbers, such as calculating the mean.
@@ -459,23 +475,13 @@ x == as.numeric(f) # does not convert back to numeric
 ```{r, warning=TRUE, filename="You cannot average a factor"}
 m <- mean(f)
 ```
-
 :::
 
 Sometimes people represent categorical variables with numbers that correspond to names, like 0 = "no" and 1 = "yes", but values in between don't have a clear interpretation. If you have control over how the data are recorded, it's better to use the character names for clarity. You'll learn how to recode columns in @sec-wrangle.
 
-
-
-
-
-
-
-
-
 ### Knitting
 
 as a means to check if the file as a whole is running
-
 
 ## [Pair-coding in the lab]{style="color: #EBA347; text-transform: uppercase;"} {.unnumbered}
 

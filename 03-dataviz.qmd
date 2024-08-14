@@ -163,6 +163,11 @@ glimpse(pets)
 ```
 
 
+Layers
+https://intro2r.com/the-start-of-the-end.html
+
+Picture of the layers
+https://rpubs.com/deisdataservices/ggplot2
 
 ::: {.panel-tabset}
 
@@ -315,4 +320,6 @@ loess_plot <-
 
 lm_plot + loess_plot
 ```
+
+## Activity X: Saving the figure
 

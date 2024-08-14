@@ -33,3 +33,9 @@ or for the Wickham 6 part, we could just go here is some data, lets apply them a
 
 Activity 1: selecting specific columns First of all, we want to select the relevant columns
 
+
+## separate
+
+## calculating percentages from the included pre-reg
+
+already calculated for Time 2 - put the average scores back in
