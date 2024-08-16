@@ -1,1 +1,8 @@
 #  APES - Alpha, Power, Effect Sizes, Sample Size
+
+## Intended Learning Outcomes {.unnumbered}
+
+By the end of this chapter you should be able to:
+
+
+???

@@ -9,11 +9,17 @@ By the end of this chapter you should be able to:
 -   Be able to create an appropriate for your data
 
 
+## [Individual Walkthrough]{style="color: #EBA347; text-transform: uppercase;"} {.unnumbered}
+
 ## Activity 1: Set-up
 
 -   Create a new project and name it something meaningful (e.g., "2A_chapter3", or "03_data_viz")
 -   Create a new Rmd and save it to your project folder. Name it something meaningful (e.g., "chapter_03", "03_data_viz.Rmd")
 -   Delete everything below line 12 (keep the set-up code chunk)
+
+
+## Activity 2: Download the data
+
 -   Download the data for today: [data_ch3](data/data_ch3.zip "download"). There are 2 csv files contained in the zip-folder you just downloaded. One is the data file (`hp_data_modified.csv`) and the other is the `questionnaire_codebook` for the main 3 questionnaires used in the dataset.
 -   Unzip the zip folder so that all data files, the Rmd and the project are in the same folder (see image below)
 
@@ -36,7 +42,7 @@ If you set it up correctly, your folder should look like this:
 **Abstract**
 
 
-## Activity 2: Load in the libraries and read in the data
+## Activity 3: Load in the libraries and read in the data
 
 
 ```{r eval=FALSE}
@@ -45,7 +51,7 @@ library(tidyverse)
 
 ## data
 hp_data <- read_csv("hp_data_modified.csv")
-codebook <- read_csv("questionnaire_codebook.csv")
+codebook <- read_csv("hp_questionnaire_codebook.csv")
 ```
 
 ```{r include=FALSE}
@@ -53,7 +59,7 @@ codebook <- read_csv("questionnaire_codebook.csv")
 
 library(tidyverse)
 hp_data <- read_csv("data/hp_data_modified.csv")
-codebook <- read_csv("data/questionnaire_codebook.csv")
+codebook <- read_csv("data/hp_questionnaire_codebook.csv")
 ```
 
 
@@ -169,7 +175,7 @@ https://intro2r.com/the-start-of-the-end.html
 Picture of the layers
 https://rpubs.com/deisdataservices/ggplot2
 
-::: {.panel-tabset}
+::: {.panel-tabset group="layers"}
 
 ## Layer 1
 

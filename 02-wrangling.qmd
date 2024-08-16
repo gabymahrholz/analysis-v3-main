@@ -1,5 +1,86 @@
 # Advanced data wrangling
 
+https://allisonhorst.com/r-packages-functions
+
+## Data Wrangling
+
+The basic ones are the **Wickham 6** that you've encountered already last year
+
+table of the Wickham 6 refer them back to the different chapters where they encountered it in level 1
+
+| Function    | Description                                                | First introduced in Level 1 Chapter                                                                                               |
+|:-----------------|:----------------------------------|:------------------|
+| select()    | Include or exclude certain variables (columns)             | [Chapter 6.5](https://psyteachr.github.io/data-skills-v2/corsi-blocks-2.html#activity-3-selecting-variables){target="_blank"}     |
+| filter()    | Include or exclude certain observations/data (rows)        | [Chapter 6.6](https://psyteachr.github.io/data-skills-v2/corsi-blocks-2.html#activity-4-filtering-observations){target="_blank"}  |
+| mutate()    | Creates new variables (columns)                            | [Chapter 8.8](https://psyteachr.github.io/data-skills-v2/belonging-2.html?q=mutate#activity-5-mutate-and-recode){target="_blank"} |
+| arrange()   | Changes the order of observations (rows)                   | not yet introduced                                                                                                                |
+| group_by()  | Organises the observations (rows) into groups              | [Chapter 3.5.3](https://psyteachr.github.io/data-skills-v2/stroop-2.html#summarising-by-groups){target="_blank"}                  |
+| summarise() | Create summary variables for groups of observations (rows) | [Chapter 3.5.2](https://psyteachr.github.io/data-skills-v2/stroop-2.html#calculating-summary-statistics){target="_blank"}         |
+
+### Brief recap of the Wickham 6
+
+#### select
+
+Massive dataframes use a lot of computing power - to reduce that, it would be worth focussing on the columns you need
+
+selecting variables - you can rename them too if you don't like the column name as is
+
+if you wanna rename something at a later stage, use rename. Works in the same manner as select as in new name = old name. --\> This could be in an information box
+
+deselecting deselecting multiple variables
+
+#### filter
+
+text - one condition vs more than one condition numbers - smaller/ larger
+
+#### arrange
+
+ascending, descending - NAs will always listed at the end regardless
+
+factors - sorting data in a preferred way
+
+#### mutate
+
+Allison's drawing
+
+#### group_by & summarise
+
+## Tidy data
+
+copied from Lisa
+
+## Data types and what are observations/ variables
+
+::: callout-caution
+## Do not factor numbers
+
+If you factor numeric data, it gets converted to the integers 1 to the number of unique values, no matter what the values are. Additionally, you can no longer use the values as numbers, such as calculating the mean.
+
+```{r, warning=TRUE, filename="Example"}
+x <- c(-3, 0, .5)  # numeric vector
+f <- factor(x)     # convert to factor
+x == as.numeric(f) # does not convert back to numeric 
+```
+
+```{r, warning=TRUE, filename="You cannot average a factor"}
+m <- mean(f)
+```
+:::
+
+Sometimes people represent categorical variables with numbers that correspond to names, like 0 = "no" and 1 = "yes", but values in between don't have a clear interpretation. If you have control over how the data are recorded, it's better to use the character names for clarity. You'll learn how to recode columns in @sec-wrangle.
+
+### Knitting
+
+as a means to check if the file as a whole is running
+
+
+
+
+
+
+
+
+
 
 ## Other useful functions
 
