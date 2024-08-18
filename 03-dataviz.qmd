@@ -1,5 +1,14 @@
 # Data viz {#sec-dataviz}
 
+```{r include=FALSE}
+library(tidyverse)
+library(palmerpenguins)
+library(patchwork)
+
+# Layers
+# https://intro2r.com/the-start-of-the-end.html
+```
+
 ## Intended Learning Outcomes {.unnumbered}
 
 By the end of this chapter you should be able to:
@@ -11,10 +20,184 @@ By the end of this chapter you should be able to:
 
 ## [Individual Walkthrough]{style="color: #EBA347; text-transform: uppercase;"} {.unnumbered}
 
-## Activity 1: Set-up
 
--   Create a new project and name it something meaningful (e.g., "2A_chapter3", or "03_data_viz")
--   Create a new Rmd and save it to your project folder. Name it something meaningful (e.g., "chapter_03", "03_data_viz.Rmd")
+
+## Building pots
+
+We are using the package `ggplot2` to create data visualisations. It's part of the tidyverse package. Actually, most people call th package `ggplot` but it's official name is `ggplot2`. 
+
+::: {.grid}
+
+::: {.g-col-5}
+
+**ggplot2** uses a layered grammar of graphics, in which plots are built up in a series of layers. You would start with a base layer (opening ggplot), adding **data** and **aesthetics**, and selecting the **geometries** for plot. 
+
+These first 3 layers will give you the most simple version of a complete plot, but you could add other layers to make the plots pretty by using **scales**, **facets**, **coordinates**, **labels** and **themes**. 
+
+:::
+
+::: {.g-col-7}
+
+![gg layers [(Presentation by Ryan Safner)](https://metricsf20.classes.ryansafner.com/slides/1.3-slides#20){target="_blank"}](images/gglayers.png){width=70%}
+
+:::
+
+:::
+
+
+To give you a brief overview of the layering system, let's use the package `palmerpenguins` ([https://allisonhorst.github.io/palmerpenguins/](https://allisonhorst.github.io/palmerpenguins/){target="_blank"}). It contains data about bill length and depth, flipper length, and body mass, etc.
+
+```{r}
+head(penguins)
+```
+
+
+
+Let's build a basic scatterplot to show the relationship between flipper_length and body_mass. We will customise plots further later on in the individual plots. This is just a quick overview of the different layers.
+
+* Layer 1 creates a plot base to built up upon. 
+* Layer 2 adds the `data` and some `aesthetics`
+  * data is first argument
+  * aesthetics are added via the mapping argument. There you define your variables to be added (such as x, or x and y) and allows you specify overall properties like the colour of grouping variables etc.
+* Layer 3 adds the geometries or `geom_?` for short. This tells ggplot in which style we want to plot the data points. Remember to add these layers with a `+` rather than a pipe `%>%`. You can add multiple geoms if you wish, e.g., building a violin-boxplot
+* Layer 4 adds the `scale_?` functions which can help you customise the aesthetics, such as changing colour. You can do much more with scales, but we'll get to that later.
+* Layer 5 introduces `facets`, such as `facet_wrap()` which allows you to add another dimension to the data output by showing the relationship you are interested in for each level of a categorical variable.
+* Layer 6 - coordinates: `coord_cartesian()` controls the limits for the x- and y-axes (arguments `xlim` and `ylim`). Changing those allows you to zoom in or out of your plot.
+* Layer 7 helps you to modify axes labels.
+* Layer 8 controls the general style of a ggplot (e.g., background colour, size of text, borders, etc.). R comes with a few pre-defined ones (like `theme_classic`, `theme_bw`, `theme_minimal`, `theme_light`).
+
+::: {.panel-tabset group="layers"}
+
+## Layer 1
+
+```{r}
+ggplot()
+```
+We don't see much here. It's basically an empty plot layer.
+
+## Layer 2
+
+```{r}
+ggplot(data = penguins, mapping = aes(x=body_mass_g, y=flipper_length_mm))
+```
+
+You won't see any data points yet, because we haven't specified how we want to display the data points. But we mapped in the aesthetics, that we want to plot variable body mass on the x-axis and flipper length on the y-axis. This also adds the axes titles and the values and break points of the axes.
+
+
+::: {.callout-tip}
+You won't need to add `data = ` or `mapping = ` if you keep those arguments in exactly that order. Likewise, the first column name you enter within the `aes()` function will always be interpreted as x, and the second as y, so you could omit them if you wish.
+
+```{r eval = FALSE}
+ggplot(penguins, aes(body_mass_g, flipper_length_mm))
+```
+
+will give you the same output as the code above.
+
+:::
+
+## Layer 3
+
+```{r}
+ggplot(data = penguins, mapping = aes(x=body_mass_g, y=flipper_length_mm, colour=sex)) +
+  geom_point()
+```
+
+Here we are telling ggplot that we want a scatterplot added. There is a warning displayed 
+
+The argument `colour` adds colour to the points according to a grouping variable (in this case sex). If you want all of the points to be black (i.e. only represent 2 rather than 3 dimensions of the data), leave the `colour` argument out. 
+
+## Layer 4
+
+```{r}
+ggplot(data = penguins, mapping = aes(x=body_mass_g, y=flipper_length_mm, colour=sex)) +
+  geom_point() +
+  # changes colour palette
+  scale_colour_brewer(palette = "Dark2") + 
+  # add breaks from 2500 to 6500 in increasing steps of 500
+  scale_x_continuous(breaks = seq(from = 2500, to = 6500, by = 500)) 
+  
+```
+The `scale_?` functions allow us to change the colour palette of the plot or the axes breaks etc. You could change the name of the axis in `scale_x_continuous()` as well or leave it for Layer 7.
+
+
+
+## Layer 5
+
+```{r}
+ggplot(data = penguins, mapping = aes(x=body_mass_g, y=flipper_length_mm, colour=sex)) +
+  geom_point() +
+  scale_colour_brewer(palette = "Dark2") + 
+  # split main plot up into different subplots by species 
+  facet_wrap(~ species) 
+
+```
+Here we are faceting this plot out for the individual species.
+
+
+## Layer 6
+
+```{r}
+ggplot(data = penguins, mapping = aes(x=body_mass_g, y=flipper_length_mm, colour=sex)) +
+  geom_point() +
+  scale_colour_brewer(palette = "Dark2") + 
+  facet_wrap(~ species) +
+  # limits the range of the y axis
+  coord_cartesian(ylim = c(0, 250)) 
+```
+
+Changing the limits of the y axis to zoom in or out of the plot. If you wanted to the same for the x axis, you would add an argument `xlim` to the `coord_cartesian()` function.
+
+
+## Layer 7
+
+```{r}
+ggplot(data = penguins, mapping = aes(x=body_mass_g, y=flipper_length_mm, colour=sex)) +
+  geom_point() +
+  scale_colour_brewer(palette = "Dark2") + 
+  facet_wrap(~ species) +
+  labs(x = "Body Mass (in g)", # labels the x axis
+       y = "Flipper length (in mm)", # labels the y axis
+       colour = "Sex") # labels the grouping variable in the legend
+```
+
+You can change the axes labels via the `labs()` function or include that step when modifying the scales (i.e. in the `scale_x_continuous()` function).
+
+## Layer 8
+
+
+```{r}
+ggplot(data = penguins, mapping = aes(x=body_mass_g, y=flipper_length_mm, colour=sex)) +
+  geom_point() +
+  scale_colour_brewer(palette = "Dark2") + 
+  facet_wrap(~ species) +
+  labs(x = "Body Mass (in g)", 
+       y = "Flipper length (in mm)",
+       colour = "Sex") +
+  # add a theme
+  theme_classic()
+
+```
+`theme_classic()` is applied to change the overall appearance of the plot.
+
+:::
+
+
+::: {.callout-important}
+
+You need to stick to the first 3 layers to get your base plot. Everything else is optional meaning you don't have to use all 8 layers in a plot. And layers 4-8 can be added in a random order whereas layers 1-3 are fixed.
+
+:::
+
+
+
+
+
+## Activity 1: Set-up 
+
+Ok, let's move on to our data for today. But first, we need to set up a new project and create an Rmd:
+
+-   Create a new project and name it something meaningful (e.g., "2A_chapter3", or "03_data_viz"). See @sec-project if you need some guidance.
+-   Create a new Rmd and save it to your project folder. Name it something meaningful (e.g., "chapter_03", "03_data_viz.Rmd"). See @sec-rmd if you need some guidance.
 -   Delete everything below line 12 (keep the set-up code chunk)
 
 
@@ -38,12 +221,26 @@ If you set it up correctly, your folder should look like this:
 
 **citation**
 
+> Jakob, L., Garcia-Garzon, E., Jarke, H., & Dablander, F. (2019). The Science Behind the Magic? The Relation of the Harry Potter “Sorting Hat Quiz” to Personality and Human Values. *Collabra: Psychology, 5*(1), 31. [https://doi.org/10.1525/collabra.240](https://doi.org/10.1525/collabra.240){target="_blank"}
+
+‌
 
 **Abstract**
+
+> The Harry Potter series describes the adventures of a boy and his peers in a fictional world at the “Hogwarts School of Witchcraft and Wizardry”. In the series, pupils get appointed to one of four groups (Houses) at the beginning of their education based on their personality traits. The author of the books has constructed an online questionnaire that allows fans to find out their House affiliation. Crysel, Cook, Schember, and Webster (2015) argued that being sorted into a particular Hogwarts House through the Sorting Hat Quiz is related to empirically established personality traits. We replicated their study while improving on sample size, methods, and analysis. Although our results are similar, effect sizes are small overall, which attenuates the claims by Crysel et al. The effect vanishes when restricting the analysis to participants who desired, but were not sorted into a particular House. On a theoretical level, we extend previous research by also analysing the relation of the Hogwarts Houses to Schwartz’s Basic Human Values but find only moderate or no relations.
+
+
+**Changes made to the dataset**
+
+* The dataset is a reduced version of the original dataset.
+* The values in the IPIP 50 were turned into character responses
+* All reverse-coded items were already corrected in the original dataset, so we reversed that process.
+* The PVQ-RR has been revised repeatedly over the years (and is somewhat confusing tbh). To keep it simple, we opted to code the 57 items into a 12-value category structure as proposed by Giménez and Tamajón (2019; [https://doi.org/10.1016/j.heliyon.2019.e01797](https://doi.org/10.1016/j.heliyon.2019.e01797){target="_blank"}). This is not in line with Jakob et al. (2019), who used a 10-value categorisation approach.
 
 
 ## Activity 3: Load in the libraries and read in the data
 
+Given the codebook is also in a csv format, you might want to read in the codebook as well. It might help us speed up data wrangling process.
 
 ```{r eval=FALSE}
 ## packages 
@@ -65,19 +262,11 @@ codebook <- read_csv("data/hp_questionnaire_codebook.csv")
 
 #### Familiarise yourself with the data structure {.unnumbered}
 
-Or as we said in @sec-, you could 
-
-As we said in **chapter 1** (LINK TO THAT), it is always recommended to glimpse at the data to see how many variables and observations there are in the dataset and what kind of data type they are.
-
-For example, to show the codebook, we would use:
-
-```{r}
-glimpse(codebook)
-```
+As we said in @sec-familiarise, it is always recommended to glimpse at the data to see how many variables and observations there are in the dataset and what kind of data type they are.
 
 
 ::: {.callout-note collapse="true"}
-## Try the same for `hp_data`. Click to see the solution.
+## Using glimpse to view the data (the output is pretty long, therefore it's hidden. Click to see the output.)
 
 ```{r}
 glimpse(hp_data)
@@ -86,209 +275,511 @@ glimpse(hp_data)
 :::
 
 
-::: {.callout-note .try}
-## Test your understanding
+## Activity 4: Data wrangling
 
-```{r, include = FALSE}
-bar <- c(answer = "geom_bar", x = "geom_col")
-col <- c(x = "geom_bar", answer = "geom_col")
-```
+Before we can plot anything, we need to get the data into the right shape. 
 
+The data for the questionnaires looks fairly complex. It's best to split it up into separate data objects to wrangle the questionnaire data. The next sections will wrangle the data separately for the
 
-Here is a small data table.
+* IPIP 50 - International Personality Item Pool (Goldberg et al., 2006)
+* SD 3 - Short Dark Triad (Jones & Paulhus, 2013)
+* PVQ-RR - Portrait Values Questionnaire (Schwartz et al., 2012).
 
-country             | population      | island
-:-------------------|----------------:|:--------------
-Northern Ireland    | 1,895,510       | Ireland
-Wales               | 3,169,586       | Great Britain
-Republic of Ireland | 4,937,786       | Ireland
-Scotland            | 5,466,000       | Great Britain
-England             | 56,550,138      | Great Britain
+### IPIP 50 
 
+**Overall goal** is to compute a score for each of the personality dimension (Agreeableness, Conscientiousness, Emotional Stability, Extraversion, Intellect) for each participant. So how do we do this?
 
-* What geom would you use to plot the population for each of the 5 countries? `r mcq(col)`
-```{r test-counting-categories, echo = FALSE, results='asis'}
-opt <- c(answer = "aes(x = country, y = population)",
-         x = "aes(x = population, y = country)",
-         x = "aes(x = country)",
-         x = "aes(x = island)",
-         x = "aes(y = population)")
-cat("* What mapping would you use? ", longmcq(opt))
-```
-* What geom would you use to plot the number of countries on each island? `r mcq(bar)`
-```{r, echo = FALSE, results='asis'}
-opt <- c(x = "aes(x = country, y = population)",
-         x = "aes(x = population, y = country)",
-         x = "aes(x = country)",
-         answer = "aes(x = island)",
-         x = "aes(y = population)")
-cat("* What mapping would you use? ", longmcq(opt))
-```
-:::
+**First, check the data (data object and codebook). What is going on here?** IPIP items are in data type `r mcq(c(x = "numeric", answer = "character", x = "logical", x = "factor"))` and there is `r mcq(c(x = "no", answer = "some"))` reverse-scoring for the IPIP items.
 
+#### Step 1 {.unnumbered}
 
-
-
-## Building plots
-
-### 
-
-
-There are multiple approaches to data visualisation in R; in this course we will use the popular package <pkg>ggplot2</pkg>, which is part of the larger `tidyverse` collection of packages. A grammar of graphics (the "gg" in "ggplot") is a standardised way to describe the components of a graphic. <pkg>ggplot2</pkg> uses a layered grammar of graphics, in which plots are built up in a series of layers. It may be helpful to think about any picture as having multiple elements that sit semi-transparently over each other. A good analogy is old Disney movies where artists would create a background and then add moveable elements on top of the background via transparencies.
-
-@fig-layers displays the evolution of a simple scatterplot using this layered approach. First, the plot space is built (layer 1); the variables are specified (layer 2); the type of visualisation (known as a `geom`) that is desired for these variables is specified (layer 3) - in this case `geom_point()` is called to visualise individual data points; a second geom is added to include a line of best fit (layer 4), the axis labels are edited for readability (layer 5), and finally, a theme is applied to change the overall appearance of the plot (layer 6).
-
-Importantly, each layer is independent and independently customisable. For example, the size, colour and position of each component can be adjusted, or one could, for example, remove the first geom (the data points) to only visualise the line of best fit, simply by removing the layer that draws the data points (@fig-remove-layer). The use of layers makes it easy to build up complex plots step-by-step, and to adapt or extend plots from existing code.
-
-
-
-## Activity 3: Wrangling the data? 
-
-Not sure that makes sense. Maybe just dive straight in with the plots
-
-Quick recap of continuous vs categorical data types 
-
-Check in this weeks dataset
-
-Quick quiz
-
-
-
-## data types
-
-### categorical
-
-### continuous
-
-let them check the data type of a 
+Select the Participant id and the items of the IPIP.
 
 ```{r}
-library(tidyverse)
-pets <- read_csv("https://psyteachr.github.io/reprores/data/pets.csv", col_types = "cffiid")
-glimpse(pets)
+hp_ipip <- hp_data %>% 
+  select(PP_ID, IPIP_01:IPIP_50)
+```
+
+#### Step 2 {.unnumbered}
+
+Next, items are in wide format which is not helpful. We need them in long format.
+
+```{r}
+hp_ipip <- hp_ipip %>% 
+  pivot_longer(cols = -PP_ID, # all coloumns apart from PP_ID
+               names_to = "IPIP_items",
+               values_to = "IPIP_response") 
 ```
 
 
-Layers
-https://intro2r.com/the-start-of-the-end.html
+#### Step 3 {.unnumbered}
 
-Picture of the layers
-https://rpubs.com/deisdataservices/ggplot2
+Now, we need information which items are reverse-coded and modify how they are scored. We could code this ourselves like we did in **[LINK TO DATA SECTION IN CHAPTER 2]**, or we could take a shortcut since the information is already stored in the codebook. 
 
-::: {.panel-tabset group="layers"}
+We won't need all the info from codebook, so we need to select the relevant columns (`Questionnaire_Item`, `Forward- or Reverse-coded item`, `Dimension`) first before joining our `hp_ipip` with `codebook_reduced`. Retaining the Dimension will help later on with calculating scores for each subscale. 
 
-## Layer 1
 
-Let's start with a totally empty plot layer created by the `ggplot()` function with no arguments.
+Notice how there are spaces in the variable name `Forward- or Reverse-coded item` which R has to wrap in single backticks to be able to process. Maybe better to change that variable name to `FW_RV` during selection so that it won't give us a headache later on.
 
-```{r ggplot-empty, fig.cap="A plot base created by ggplot()"}
-ggplot()
+```{r}
+codebook_reduced <- codebook %>% 
+  select(Questionnaire_Item, FW_RV = `Forward- or Reverse-coded item`, Dimension)
 ```
 
-## Layer 2
+Now we can join those 2 dataframes together using `left_join()` or an `inner_join()`, which means only information for the IPIP items will be considered.
 
-The first argument to `ggplot()` is the `data` table you want to plot. Let's use the `pets` data we loaded above. The second argument is the `mapping` for which columns in your data table correspond to which properties of the plot, such as the `x`-axis, the `y`-axis, line `colour` or `linetype`, point `shape`, or object `fill`. These mappings are specified by the `aes()` function. Just adding this to the `ggplot` function creates the labels and ranges for the `x` and `y` axes. They usually have sensible default values, given your data, but we'll learn how to change them later.
-
-```{r ggplot-aes, fig.cap="Empty ggplot with x and y labels"}
-ggplot(data = pets, mapping = aes(x = pet, y = score, colour = country, fill = country))
+```{r error=TRUE}
+hp_ipip_codebook <- left_join(hp_ipip, codebook_reduced)
 ```
 
 
-::: callout-tip
-People usually omit the argument names and just put the `aes()` function directly as the second argument to `ggplot`. They also usually omit `x` and `y` as argument names to `aes()` (but you have to name the other properties). 
-:::
 
-## Layer 3
+Oh, an error message. Meh. It says `x and y have no common variables`. Ohhh, because when we pivoted `hp_ipip`,  we named the column with the IPIP items `IPIP_items` whereas information in `codebook_reduced` is stored in a column called `Questionnaire_Item`. To fix that, we could either
 
-Next we can add "geoms", or plot styles. You literally add them with the `+` symbol. You can customise the appearance of a geom with arguments like `alpha` (sets transparency).
+* change the column name in `hp_ipip` during pivoting, i.e., setting `names_to = "Questionnaire_Item"`
+* change the column name in `codebook_reduced` during selection of the variables, i.e., `select(IPIP_items = Questionnaire_Item, etc.)` but that would only help us for IPIP items, not for the SD or the PVQ later on (so not really an option)
+* use a workaround and define the different column names in the "by" argument
 
-```{r ggplot-geom, fig.cap="Violin plot with country represented by colour."}
-ggplot(pets, aes(pet, score, colour = country, fill = country)) +
-  geom_violin(alpha = 0.5)
+```{r}
+hp_ipip_codebook <- left_join(hp_ipip, codebook_reduced, by = join_by(IPIP_items == Questionnaire_Item))
+
+glimpse(hp_ipip_codebook)
+```
+#### Step 4 {.unnumbered}
+
+Now it's getting tricky. Reverse-coding.
+
+What we need to do is:
+
+* turn the character values into numbers and
+* make sure that we the correct those numbers for the reverse-coded items
+
+
+```{r}
+hp_ipip_final <- hp_ipip_codebook %>% 
+  # regardless of FW_RV item, we'll recode very inaccurate as 1, moderately inaccurate as 2, etc
+  mutate(IPIP_values = case_when(
+    IPIP_response == "very inaccurate" ~ 1,
+    IPIP_response == "moderately inaccurate" ~ 2,
+    IPIP_response == "neither accurate nor inaccurate" ~ 3,
+    IPIP_response == "moderately accurate" ~ 4,
+    IPIP_response == "very accurate" ~ 5,
+    .default = NA
+  )) %>% 
+  # now we are reverse-scoring items. If it's a reverse coded item, we want the corrected score be 6 minus the IPIP_value
+  mutate(IPIP_values_corrected = case_when(
+    FW_RV == "Reverse" ~ 6-IPIP_values,
+    .default = IPIP_values
+  ))
 ```
 
-## Layer 4
 
-The `scale_*` functions help you to customise the aesthetics.
+::: {.callout-note collapse="true"}
+## Check it worked
 
-```{r ggplot-color, fig.cap="Customised colours."}
-ggplot(pets, aes(pet, score, colour = country, fill = country)) +
-  geom_violin(alpha = 0.5) +
-  scale_fill_manual(values = c("orange", "orchid")) +
-  scale_colour_manual(values = c("orange", "orchid"))
+Always good to double check to see if it worked. Either look at it, or create an output with distinct values.
+
+```{r}
+distinct_values <- hp_ipip_final %>% 
+  distinct(IPIP_response, FW_RV, IPIP_values_corrected) %>% 
+  arrange(FW_RV, desc(IPIP_values_corrected))
 ```
-
-## Layer 5
-
-Further customise the image by setting the y-axis breaks and limits, and editing the labels.
-
-```{r ggplot-labels, fig.cap="Customised axis labels."}
-ggplot(pets, aes(pet, score, colour = country, fill = country)) +
-  geom_violin(alpha = 0.5) +
-  scale_fill_manual(values = c("orange", "orchid")) +
-  scale_colour_manual(values = c("orange", "orchid")) +
-  scale_y_continuous(breaks = c(50, 100, 150)) +
-  coord_cartesian(ylim = c(50, 150)) +
-  labs(x = "Pet type",
-       y = "Score on an Important Test",
-       colour = "Country of Origin",
-       fill = "Country of Origin")
-```
-
-## Layer 6
-
-Finally, change the theme and base font size and customise the legend position.
-
-```{r ggplot-theme, fig.cap="Customised theme and legend position."}
-ggplot(pets, aes(pet, score, colour = country, fill = country)) +
-  geom_violin(alpha = 0.5) +
-  scale_fill_manual(values = c("orange", "orchid")) +
-  scale_colour_manual(values = c("orange", "orchid")) +
-  scale_y_continuous(breaks = c(50, 100, 150)) +
-  coord_cartesian(ylim = c(50, 150)) +
-  labs(x = "Pet type",
-       y = "Score on an Important Test",
-       colour = "Country of Origin",
-       fill = "Country of Origin") +
-  theme_minimal(base_size = 13) +
-  theme(legend.position = c(.83, .17))
-```
-
 
 :::
 
+::: {.callout-tip collapse="true"}
+
+## Alternative solution
+
+We took 2 steps above to turn character into numeric values and recode those according to whether they were reverse -scored. However, we could have done this in one step:
+
+```{r}
+hp_ipip_final_v2 <- hp_ipip_codebook %>% 
+  mutate(IPIP_values_corrected = case_when(
+    IPIP_response == "very inaccurate" & FW_RV == "Forward" ~ 1,
+    IPIP_response == "moderately inaccurate" & FW_RV == "Forward" ~ 2,
+    IPIP_response == "moderately accurate" & FW_RV == "Forward" ~ 4,
+    IPIP_response == "very accurate" & FW_RV == "Forward" ~ 5,
+    IPIP_response == "neither accurate nor inaccurate" ~ 3, ## doesn't need to be recoded because 3 is 3 for both FW and RV items
+    IPIP_response == "very inaccurate" & FW_RV == "Reverse" ~ 5,
+    IPIP_response == "moderately inaccurate" & FW_RV == "Reverse" ~ 4,
+    IPIP_response == "moderately accurate" & FW_RV == "Reverse" ~ 2,
+    IPIP_response == "very accurate" & FW_RV == "Reverse" ~ 1,
+    .default = NA
+  ))
+
+distinct_values_v2 <- hp_ipip_final_v2 %>% 
+  distinct(IPIP_response, FW_RV, IPIP_values_corrected) %>% 
+  arrange(FW_RV, desc(IPIP_values_corrected))
+```
+
+:::
+
+#### Step 5 {.unnumbered}
+
+According to the paper, the IPIP scores are getting summed up for each of the dimensions. And we need to do this per participant.
+
+```{r}
+summary_IPIP <- hp_ipip_final %>% 
+  group_by(PP_ID, Dimension) %>% 
+  summarise(IPIP_score = sum(IPIP_values_corrected)) %>% 
+  ungroup()
+```
+
+### SD3
+
+**Overall goal** for the SD3 questionnaire: We need to calculate an overall Score for the Dark Triad dimensions **Psychopathy** (lack of emotional warmth for others or empathy paired with sensation seeking, risk-taking behaviour, and lack of guilt), **Machiavellianism** (tendency to manipulate others for own gain), and **Narcissism** (exaggerated sense of grandiosity, importance, entitlement, and need to be admired) per participant.
+
+**First, check the data (data object and codebook). What is going on here?** SD items are in data type `r mcq(c(answer = "numeric", x = "character", x = "logical", x = "factor"))` and there is `r mcq(c(x = "no", answer = "some"))` reverse-scoring for the SD items.
+
+**So how do we achieve that? ** Actually the steps are fairly similar to what we computed for the IPIP, apart from having to recode the values as numbers before being able to reverse-code them:
+
+* Step 1: select PP_ID and all the questions related to the SD_questionnaires
+* Step 2: pivot into long format
+* Step 3: join with `codebook_reduced`
+* Step 4: reverse_code the scores
+* Step 5: calculate sums for each dimension
+
+Keep to the separate steps if this is more organised for you easier to keep track, but we are attempting this in a single pipe. Keep the solution hidden if you want to challenge yourself.
+
+::: {.callout-note collapse="true"}
+
+## Data Wrangling code for SD3
+
+```{r}
+summary_SD <- hp_data %>% 
+  select(PP_ID, starts_with("SD")) %>% # starts_with selects all column names that start with "SD"
+  pivot_longer(cols = -PP_ID, # all columns apart from PP_ID
+               names_to = "Questionnaire_Item", # smarter approach
+               values_to = "SD_response") %>% 
+  left_join(codebook_reduced) %>% # now that the column names match across questionnaires, we don't need the by argument
+  mutate(SD_corrected = case_when(
+    FW_RV == "Reverse" ~ 6-SD_response,
+    .default = SD_response
+    )) %>% 
+  group_by(PP_ID, Dimension) %>% 
+  summarise(SD_score = sum(SD_corrected)) %>% 
+  ungroup()
+```
+
+:::
 
 
+### PVQ-RR
+
+**Overall goal** for the PVQ-RR questionnaire: We need to calculate an overall score for each of the 12 dimensions per participant.
+
+**First, check the data (data object and codebook). What is going on here?** PVQ items are in data type `r mcq(c(answer = "numeric", x = "character", x = "logical", x = "factor"))` and there is `r mcq(c(answer = "no", x = "some"))` reverse-scoring for the SD items.
+
+**So how do we achieve that? ** Actually this is more straightforward than data wrangling for the IPIP and the SD. We basically have to:
+
+* Step 1: select PP_ID and all the questions related to the PVQ_questionnaires
+* Step 2: pivot into long format
+* Step 3: join with `codebook_reduced`
+* Step 4: calculate sums for each dimension
+
+
+Similar to SD, we attempt this in a single pipe. Feel free to try first before looking at the solution below.
+
+::: {.callout-note collapse="true"}
+
+## Data Wrangling code for PVQ-RR
+
+```{r}
+summary_PVQ <- hp_data %>% 
+  select(PP_ID, starts_with("PVQ")) %>% # starts_with selects all column names that start with "PVQ"
+  pivot_longer(cols = -PP_ID, # all columns apart from PP_ID
+               names_to = "Questionnaire_Item", # smarter approach
+               values_to = "PVQ_response") %>% 
+  left_join(codebook_reduced) %>% # now that the column names match across questionnaires, we don't need the by argument
+  group_by(PP_ID, Dimension) %>% 
+  summarise(PVQ_score = mean(PVQ_response)) %>% 
+  ungroup()
+```
+:::
+
+One thing though: The Dimension column has the name of the PVQ category but also the abbreviation in brackets. We might want to tidy that up now before we start plotting. We can use the `separate()` function for that.
+
+```{r}
+summary_PVQ <- summary_PVQ %>% 
+  separate(Dimension, into = c("Dimension", NA), sep = " ") # split column at the space character and keep Dimension and drop the second one (which would have been the abbreviation in brackets (XX))
+```
 
 
 ## Which plot shall I build??? {#sec-appropriate-plot}
 
-### One catergorical variable
+Alright, let's get started with data visualisation, now that we have the data in a tidy format. Question is now, which one is the right plot for your data?
 
-Bargraphs - from raw data
-
-
-geom bar 
-
-use geom col if something has already been summmarised for you
+Different types of data require different types of plots, so this comes back to how many variables are you aiming to plot and what kind of data type are they.
 
 
-bring in layers/tabs of how to change colour etc
+### One categorical variable
 
+#### Barplot (`geom_bar()`)
+
+Let's say we want to count some demographics. To keep it simple, we want to show gender counts. We would use a **barplot** for it. This is done with `geom_bar()` in your third layer, and because the counting is done in the background, the `aes` only requires an x value (i.e. the name of your variable).
+
+```{r fig-bc-base, fig.cap="Base version of a barchart"}
+ggplot(hp_data, aes(x = gender)) +
+  geom_bar() 
+```
+
+This is the base plot done. You can customise it again by adding different layers. Some examples are in the tabs below. 
+
+
+::: {.panel-tabset group="layers"}
+
+## Colour
+
+We can change the colour by adding a fill argument in the `aes()`. If we want to modify these colours further, we would add a `scale_fill_?` argument. If you have specific colours in mind, you would use `scale_fill_manual()` or if you want to stick with pre-dined ones, like viridis, use `scale_fill_viridis_d()`
+
+```{r}
+ggplot(hp_data, aes(x = gender, fill = gender)) +
+  geom_bar() +
+  # customise colour
+  scale_fill_viridis_d()
+```
+
+## Axes labels & margins
+
+Nothing too "off" in this case, but given Female and Male are capitalised, we may want to tidy the axes labels a bit. There is also this gap between bottom of the chart and the bars which seems a bit weird. We can remove that with an `expansion()` function.
+
+```{r}
+ggplot(hp_data, aes(x = gender, fill = gender)) +
+  geom_bar() +
+  scale_fill_viridis_d() +
+  # changing labels v1 (with labs function, can add x and y)
+  labs(x = "Gender") + 
+  scale_y_continuous(
+    # changing labels v2 (within the scale function, only deals with either x or y depending if it's scale_x or scale_y)
+    name = "Count",
+    # remove the space below the bars, but keep a tiny bit (5%) above
+    expand = expansion(mult = c(0, 0.05))
+  )
+  
+```
+
+## Legend
+
+The legend does not add any information because the labels are already provided on the x axis. We can remove the legend by adding the argument `guide = "none"` into the `scale_fill` function.
+
+```{r}
+ggplot(hp_data, aes(x = gender, fill = gender)) +
+  geom_bar() +
+  scale_fill_viridis_d(
+    # remove the legend
+    guide = "none") +
+  labs(x = "Gender") + 
+  scale_y_continuous(
+    name = "Count",
+    expand = expansion(mult = c(0, 0.05))
+  )
+  
+```
+
+
+
+## Themes
+
+Let's experiment with the themes. For this plot we have chosen `theme_minimal()`
+  
+
+```{r}
+ggplot(hp_data, aes(x = gender, fill = gender)) +
+  geom_bar() +
+  scale_fill_viridis_d(
+    guide = "none") +
+  labs(x = "Gender") + 
+  scale_y_continuous(
+    name = "Count",
+    expand = expansion(mult = c(0, 0.05))
+  ) +
+  # pick a theme
+  theme_minimal()
+  
+```
+
+:::
+
+
+#### Column plot (`geom_col()`)
+
+If someone had already summarised those counts for you, you would not be able to use `geom_bar()`. In that case, you would switch to `geom_col()`. 
+
+```{r}
+gender_count <- hp_data %>% 
+  count(gender)
+
+gender_count
+```
+
+The mapping for `geom_col()` requires both an **x** and a **y** aesthetics. In our example, x would be our categorical variable (e.g., `gender`), and y would be the column name that stored the values (`n`). Note how the base version has now n as an axis title (instead of count). 
+
+
+```{r}
+ggplot(gender_count, aes(x = gender, y = n, fill = gender)) +
+  geom_col()
+```
+
+
+The other layers to change the colour scheme, axes labels and margins, removing the legend and altering the theme are exactly the same. Test yourself to see if you could...
+
+* [ ] change the colour scheme (e.g., viridis or [any other colour palettes](https://www.datanovia.com/en/blog/the-a-z-of-rcolorbrewer-palette/){target="_blank"})
+* [ ] remove the legend
+* [ ] change the title of the x and y axes
+* [ ] make the bars start directly on the x axis
+* [ ] add a theme of your linking
+
+::: {.callout-tip collapse="true"}
+
+## Code for the column plot with all other changes
+
+```{r}
+ggplot(gender_count, aes(x = gender, y = n, fill = gender)) +
+  geom_col() +
+  # replaced vidiris with the brewer palette
+  scale_fill_brewer(
+    palette = "Set1",
+    guide = "none") +
+  labs(x = "Gender") + 
+  scale_y_continuous(
+    name = "Count",
+    expand = expansion(mult = c(0, 0.05))
+  ) +
+  # different theme
+  theme_light()
+```
+
+:::
 
 
 
 
 ### Two categorical variables
 
-faceted bargraph
+This time we want to know whether participants have already been sorted into their houses and what the gender splits are. To show that, we would need to produce a barchart that somehow includes multiple groups.
 
+
+#### Stacked barchart
+
+If we are keeping to the base level plot and do not add any fancy arguments, we would create a **Stacked barchart**. As the name suggests, the subgroups are displayed on top of each other.
+
+```{r fig-sbc-base, fig.cap="Base version of a stacked barchart"}
+ggplot(hp_data, aes(x = gender, fill = Sorting_completed_YN)) +
+  geom_bar() # position = "stack" is the default. Adding or removing this argument would produce the same plot
+```
+
+Now, the number of males in this sample are quite a bit lower than the number of females, which might make it tough to compare. Once way to get around this is to display a **Percent stacked barchart**. 
+
+#### Percent stacked barchart
+
+We will have to add the argument `position = "fill"` to the `geom_bar()`. By default, the position argument is set to "stack" so if we leave it out, we get the stacked barchart we produced above.
+
+```{r fig-psbc-base, fig.cap="Base version of a percent stacked barchart"}
+ggplot(hp_data, aes(x = gender, fill = Sorting_completed_YN)) +
+  geom_bar(position = "fill")
+```
+
+Now we would be able to draw conclusions that a higher proportion of females in this sample have already completed the sorting compared to males.
+
+#### Grouped barchart
+
+One more option would be to display the the bars next to each other rather than stacked in a **Grouped barchart**. We would achieve that by changing the position argument to **"dogde"**.
+
+We could also move the legend to a different place by including the line `theme(legend.position = "bottom")` if you want it placed at the bottom of the plot (left, right (default), top, and bottom are possible).
+
+```{r fig-gbc-base, fig.cap="Simple grouped barchart with legend position altered"}
+ggplot(hp_data, aes(x = gender, fill = Sorting_completed_YN)) +
+  geom_bar(position = "dodge") +
+  # legend moved below the plot
+  theme(legend.position = "bottom")
+```
+
+
+Again, all other layers to change the colour of the bars, axes labels and margins, and altering the theme are exactly the same as we used in the barchart with one categorical variable. However, here the legend is meaningful, so we need to keep it. 
+
+The response labels "Yes" and "No" for variable "Sorting Completed" are pretty clear here, but if we wanted to change them, we can do that via the `scale_fill_` function.
+
+```{r fig-gbc-adv, fig.cap="Grouped barchart with a few more layers added"}
+ggplot(hp_data, aes(x = gender, fill = Sorting_completed_YN)) +
+  geom_bar(position = "dodge") +
+  # changing colour scheme to viridis
+  scale_fill_viridis_d(
+    # changing fill variable responses
+    labels = c("Not Yet Sorted", "Sorted")
+  ) +
+  # changing labels for x, y, and fill
+  labs(x = "Gender", y = "Count", fill = "Sorting Completed") + 
+  scale_y_continuous(
+    # remove the space below the bars, but keep a tiny bit (5%) above
+    expand = expansion(mult = c(0, 0.05))
+  ) +
+  # pick a theme
+  theme_minimal()
+  
+```
 
 ### One continuous variable
 
-histogram
+#### Histogram `geom_histogram()`
+
+If you wanted to show the distribution of a continuous variable, you can use a histogram. As with every plot, you need at least 3 layers to create a base version of the plot. Similar to `geom_bar()`, `geom_histogram()` only requires an `x` variable.
+
+A histogram splits the data into “bins” (i.e., groupings displayed in a single bar). These values are plotted along the x-axis and shows the count of how many observations are in each bin along the y-axis. It's basically a bar chart for continuous variables.
+
+Let's have a look at the age distribution in our dataset.
+
+```{r}
+ggplot(hp_data, aes(x = age)) +
+  geom_histogram(binwidth = 1) 
+```
+
+::: {.callout-important}
+
+## warning message
+
+The warning message tell us that 2 rows were removed because they contained non-finite values outside the scale range. If you have a closer look at the data, you can spot those 2 rows as missing values.
+
+:::
+
+The default bin number is 30. Changing the number of bins (argument `bins`) can help to show more or less fine tuning in the data. Bigger numbers of bins means more finetuning. Perhaps it's more intuitive to modify the width of each bin instead via the argument (`binwidth`). The plots below show both.
+
+
+
+
+
+
+
+```{r eval = FALSE}
+#less finetuning
+ggplot(hp_data, aes(x = age)) +
+  geom_histogram(bins = 10) 
+
+# more fineturning
+ggplot(hp_data, aes(x = age)) +
+  geom_histogram(binwidth = 1) 
+```
+
+
+```{r fig-bins, fig.cap="Bins vs binwidth arguments", message = FALSE, echo = FALSE}
+bins_manipulation <- 
+  ggplot(hp_data, aes(x = age)) +
+  geom_histogram(bins = 10)
+
+
+binwidth_manipulation <-
+  ggplot(hp_data, aes(x = age)) +
+  geom_histogram(binwidth = 1) 
+
+# add plots together in 1 row
+bins_manipulation + binwidth_manipulation + plot_layout(nrow = 1)
+```
+
+**add some colour and a few layers**
 
 ### One continuous and one categorical grouping variable
+
+####
 
 Have one with char and one with numbers
 factors are important
@@ -328,4 +819,3 @@ lm_plot + loess_plot
 ```
 
 ## Activity X: Saving the figure
-

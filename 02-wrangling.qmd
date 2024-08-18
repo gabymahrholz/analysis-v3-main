@@ -1,4 +1,4 @@
-# Advanced data wrangling
+# Data wrangling {#sec-wrangling}
 
 https://allisonhorst.com/r-packages-functions
 

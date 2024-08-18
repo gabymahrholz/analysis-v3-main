@@ -167,7 +167,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-wrangling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Advanced data wrangling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data wrangling</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -302,9 +302,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#rstudio-panes" id="toc-rstudio-panes" class="nav-link" data-scroll-target="#rstudio-panes"><span class="header-section-number">1.1.4</span> RStudio panes</a></li>
   </ul>
 </li>
-  <li><a href="#activity-1-creating-a-new-project" id="toc-activity-1-creating-a-new-project" class="nav-link" data-scroll-target="#activity-1-creating-a-new-project"><span class="header-section-number">1.2</span> Activity 1: Creating a new project</a></li>
+  <li><a href="#sec-project" id="toc-sec-project" class="nav-link" data-scroll-target="#sec-project"><span class="header-section-number">1.2</span> Activity 1: Creating a new project</a></li>
   <li>
-<a href="#activity-2-create-a-new-r-markdown-file" id="toc-activity-2-create-a-new-r-markdown-file" class="nav-link" data-scroll-target="#activity-2-create-a-new-r-markdown-file"><span class="header-section-number">1.3</span> Activity 2: Create a new R Markdown file</a>
+<a href="#sec-rmd" id="toc-sec-rmd" class="nav-link" data-scroll-target="#sec-rmd"><span class="header-section-number">1.3</span> Activity 2: Create a new R Markdown file</a>
   <ul class="collapse">
 <li><a href="#markdown" id="toc-markdown" class="nav-link" data-scroll-target="#markdown"><span class="header-section-number">1.3.1</span> Markdown</a></li>
   <li><a href="#code-chunks" id="toc-code-chunks" class="nav-link" data-scroll-target="#code-chunks"><span class="header-section-number">1.3.2</span> Code chunks</a></li>
@@ -313,16 +313,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#activity-3-download-the-data" id="toc-activity-3-download-the-data" class="nav-link" data-scroll-target="#activity-3-download-the-data"><span class="header-section-number">1.4</span> Activity 3: Download the data</a></li>
   <li><a href="#activity-4-loading-packages-and-reading-in-data" id="toc-activity-4-loading-packages-and-reading-in-data" class="nav-link" data-scroll-target="#activity-4-loading-packages-and-reading-in-data"><span class="header-section-number">1.5</span> Activity 4: Loading packages and reading in data</a></li>
   <li>
-<a href="#activity-5-familiarise-yourself-with-the-data" id="toc-activity-5-familiarise-yourself-with-the-data" class="nav-link" data-scroll-target="#activity-5-familiarise-yourself-with-the-data"><span class="header-section-number">1.6</span> Activity 5: Familiarise yourself with the data</a>
+<a href="#sec-familiarise" id="toc-sec-familiarise" class="nav-link" data-scroll-target="#sec-familiarise"><span class="header-section-number">1.6</span> Activity 5: Familiarise yourself with the data</a>
   <ul class="collapse">
 <li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types"><span class="header-section-number">1.6.1</span> Data types</a></li>
   <li><a href="#variable-types" id="toc-variable-types" class="nav-link" data-scroll-target="#variable-types"><span class="header-section-number">1.6.2</span> Variable types</a></li>
-  <li><a href="#why-is-this-important-you-may-ask" id="toc-why-is-this-important-you-may-ask" class="nav-link" data-scroll-target="#why-is-this-important-you-may-ask"><span class="header-section-number">1.6.3</span> Why is this important you may ask</a></li>
   </ul>
 </li>
+  <li><a href="#activity-6" id="toc-activity-6" class="nav-link" data-scroll-target="#activity-6"><span class="header-section-number">1.7</span> Activity 6:</a></li>
   <li><a href="#pair-coding-in-the-lab" id="toc-pair-coding-in-the-lab" class="nav-link" data-scroll-target="#pair-coding-in-the-lab"><span style="color: #EBA347; text-transform: uppercase;">Pair-coding in the lab</span></a></li>
   <li><a href="#test-your-knowledge-and-challenge-yourself" id="toc-test-your-knowledge-and-challenge-yourself" class="nav-link" data-scroll-target="#test-your-knowledge-and-challenge-yourself"><span style="color: #EBA347; text-transform: uppercase;">Test your knowledge and challenge yourself</span></a></li>
-  <li><a href="#revealing-the-mystery-code-that-created-data_quiz" id="toc-revealing-the-mystery-code-that-created-data_quiz" class="nav-link" data-scroll-target="#revealing-the-mystery-code-that-created-data_quiz"><span class="header-section-number">1.7</span> Revealing the mystery code that created data_quiz</a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -399,20 +398,20 @@ Test your understanding
 <div class="callout-body-container callout-body">
 <p><strong>What is their purpose?</strong></p>
 <strong>The Source pane…</strong>
-<div id="radio_QRTGRTRUWI" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_QRTGRTRUWI" value="answer"><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_QRTGRTRUWI" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_QRTGRTRUWI" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_QRTGRTRUWI" value=""><span>provides an area to interactively execute code</span></label>
+<div id="radio_EMCFEASKJY" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_EMCFEASKJY" value="answer"><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_EMCFEASKJY" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_EMCFEASKJY" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_EMCFEASKJY" value=""><span>provides an area to interactively execute code</span></label>
 </div>
 <strong>The Environment pane…</strong>
-<div id="radio_NNSXJBDTZQ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_NNSXJBDTZQ" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_NNSXJBDTZQ" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_NNSXJBDTZQ" value="answer"><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_NNSXJBDTZQ" value=""><span>provides an area to interactively execute code</span></label>
+<div id="radio_ECVHSYWWTN" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ECVHSYWWTN" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_ECVHSYWWTN" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_ECVHSYWWTN" value="answer"><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_ECVHSYWWTN" value=""><span>provides an area to interactively execute code</span></label>
 </div>
 <strong>The Console pane…</strong>
-<div id="radio_IKXNHJQHPQ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_IKXNHJQHPQ" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_IKXNHJQHPQ" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_IKXNHJQHPQ" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_IKXNHJQHPQ" value="answer"><span>provides an area to interactively execute code</span></label>
+<div id="radio_XSLWZGSTXL" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XSLWZGSTXL" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_XSLWZGSTXL" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_XSLWZGSTXL" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_XSLWZGSTXL" value="answer"><span>provides an area to interactively execute code</span></label>
 </div>
 <strong>The Output pane…</strong>
-<div id="radio_VXIIJIVCFY" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_VXIIJIVCFY" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_VXIIJIVCFY" value="answer"><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_VXIIJIVCFY" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_VXIIJIVCFY" value=""><span>provides an area to interactively execute code</span></label>
+<div id="radio_UIKFOSSQSF" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_UIKFOSSQSF" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_UIKFOSSQSF" value="answer"><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_UIKFOSSQSF" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_UIKFOSSQSF" value=""><span>provides an area to interactively execute code</span></label>
 </div>
 <p><strong>Where are these panes located by default?</strong></p>
 <ul>
@@ -424,28 +423,28 @@ Test your understanding
 </li>
 <li>The Environment pane is located? <select class="webex-select"><option value="blank"></option>
 <option value="">top left</option>
-<option value="answer">top right</option>
 <option value="">bottom left</option>
+<option value="answer">top right</option>
 <option value="">bottom right</option></select>
 </li>
 <li>The Console pane is located? <select class="webex-select"><option value="blank"></option>
 <option value="">top left</option>
+<option value="answer">bottom left</option>
 <option value="">bottom right</option>
-<option value="">top right</option>
-<option value="answer">bottom left</option></select>
+<option value="">top right</option></select>
 </li>
 <li>The Output pane is located? <select class="webex-select"><option value="blank"></option>
+<option value="">bottom left</option>
 <option value="">top right</option>
-<option value="">top left</option>
 <option value="answer">bottom right</option>
-<option value="">bottom left</option></select>
+<option value="">top left</option></select>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <p>If you were not quite sure about one/any of the panes, check out the <a href="https://psyteachr.github.io/data-skills-v2/sec-intro.html?q=RMark#rstudio-panes" target="_blank">materials from Level 1</a>. If you want to know more about them, there is the <a href="https://docs.posit.co/ide/user/ide/guide/ui/ui-panes.html" target="_blank">RStudio guide on posit</a></p>
-</section></section><section id="activity-1-creating-a-new-project" class="level2" data-number="1.2"><h2 data-number="1.2" class="anchored" data-anchor-id="activity-1-creating-a-new-project">
+</section></section><section id="sec-project" class="level2" data-number="1.2"><h2 data-number="1.2" class="anchored" data-anchor-id="sec-project">
 <span class="header-section-number">1.2</span> Activity 1: Creating a new project</h2>
 <p>It’s important that we create a new RStudio project every time we start a new project. It makes life easier to work in multiple contexts, for example when analysing different datasets at the same time. Every RStudio project has their folder location, workspace, and working directories, basically keeping all the data and the RMarkdown documents in one location.</p>
 <p>Last year, you learnt how to create projects on the server, so you already know the steps. If cannot quite recall how that was done, go back to the <a href="https://psyteachr.github.io/data-skills-v2/sec-intro.html?q=RMark#new-project" target="_blank">Level 1 materials</a>.</p>
@@ -492,7 +491,7 @@ Don’t nest projects
 <p>Don’t ever save a new project <strong>inside</strong> another project directory. This can cause some hard-to-resolve problems.</p>
 </div>
 </div>
-</section><section id="activity-2-create-a-new-r-markdown-file" class="level2" data-number="1.3"><h2 data-number="1.3" class="anchored" data-anchor-id="activity-2-create-a-new-r-markdown-file">
+</section><section id="sec-rmd" class="level2" data-number="1.3"><h2 data-number="1.3" class="anchored" data-anchor-id="sec-rmd">
 <span class="header-section-number">1.3</span> Activity 2: Create a new R Markdown file</h2>
 <ul>
 <li>Open a new R Markdown document: click <if>File &gt; New File &gt; R Markdown</if> or click on the little page icon with a green plus sign (top left).</li>
@@ -512,16 +511,22 @@ Don’t nest projects
 <section id="markdown" class="level3" data-number="1.3.1"><h3 data-number="1.3.1" class="anchored" data-anchor-id="markdown">
 <span class="header-section-number">1.3.1</span> Markdown</h3>
 <p>The markdown space is for formatted text. You can and should write notes for yourself and others on what your code is doing (earlier on) or what decisions you are making. This can be really useful later on, for example, when making decision about inclusion/exclusion criteria or whatever you conclude from your assumption tests.</p>
-<p>There is a variety of <strong>heading levels</strong> to make use of, using the # symbol. You would incorporate this into your text as:</p>
+<p>There is a variety of <strong>heading levels</strong> to make use of, using the # symbol.</p>
+<div class="columns">
+<div class="column">
+<section id="you-would-incorporate-this-into-your-text-as" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="you-would-incorporate-this-into-your-text-as">You would incorporate this into your text as:</h4>
 <p># Heading level 1</p>
 <p>## Heading level 2</p>
 <p>### Heading level 3</p>
 <p>#### Heading level 4</p>
 <p>##### Heading level 5</p>
 <p>###### Heading level 6</p>
-<p>And it will be displayed in your knitted html file as</p>
-<div class="small_right">
+</section>
+</div><div class="column">
+<section id="and-it-will-be-displayed-in-your-knitted-html-file-as" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="and-it-will-be-displayed-in-your-knitted-html-file-as">And it will be displayed in your knitted html file as:</h4>
 <p><img src="images/heading_levels.PNG" class="img-fluid"></p>
+</section>
+</div>
 </div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
@@ -727,50 +732,43 @@ The labels of the sub-items are not what I thought they would be. You said they 
 </colgroup>
 <thead><tr class="header">
 <th style="text-align: left;">Code</th>
-<th style="text-align: left;">Does code run</th>
-<th style="text-align: left;">Does code show</th>
-<th style="text-align: left;">Do results show</th>
+<th style="text-align: center;">Does code run</th>
+<th style="text-align: center;">Does code show</th>
+<th style="text-align: center;">Do results show</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">eval=FALSE</td>
-<td style="text-align: left;">NO</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;">NO</td>
+<td style="text-align: center;">NO</td>
+<td style="text-align: center;">YES</td>
+<td style="text-align: center;">NO</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">echo=TRUE (default)</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;">YES</td>
+<td style="text-align: center;">YES</td>
+<td style="text-align: center;">YES</td>
+<td style="text-align: center;">YES</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">echo=FALSE</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;">NO</td>
-<td style="text-align: left;">YES</td>
+<td style="text-align: center;">YES</td>
+<td style="text-align: center;">NO</td>
+<td style="text-align: center;">YES</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">results=“hide”</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;">NO</td>
+<td style="text-align: center;">YES</td>
+<td style="text-align: center;">YES</td>
+<td style="text-align: center;">NO</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">include=FALSE</td>
-<td style="text-align: left;">YES</td>
-<td style="text-align: left;">NO</td>
-<td style="text-align: left;">NO</td>
+<td style="text-align: center;">YES</td>
+<td style="text-align: center;">NO</td>
+<td style="text-align: center;">NO</td>
 </tr>
 </tbody>
 </table>
-<p>There are also the options of manipulating messages and warnings in the knitted document:</p>
-<ul>
-<li>
-<code>message=FALSE</code> will not display any messages generated by the code, and</li>
-<li>
-<code>warning=FALSE</code> will not display any warning messages generated by the code</li>
-</ul>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -865,7 +863,7 @@ For screenshots click here
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2"></a>data_prp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"prp_data_reduced_ch1.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section><section id="activity-5-familiarise-yourself-with-the-data" class="level2" data-number="1.6"><h2 data-number="1.6" class="anchored" data-anchor-id="activity-5-familiarise-yourself-with-the-data">
+</section><section id="sec-familiarise" class="level2" data-number="1.6"><h2 data-number="1.6" class="anchored" data-anchor-id="sec-familiarise">
 <span class="header-section-number">1.6</span> Activity 5: Familiarise yourself with the data</h2>
 <ul>
 <li>Look at the <strong>Codebook</strong> to get a feel of the variables in the dataset and how they have been measured.</li>
@@ -1323,22 +1321,34 @@ $ Supervisor_15_R                       &lt;dbl&gt; 1, 1, 1, 4, 1, 7, 1, 2, 1, 2
 <p>A <strong>factor</strong> is a specific type of integer or character that lets you assign the order of the categories. This becomes useful when you want to display certain categories in “the correct order” either in a dataframe (see <em>arrange</em>) or when plotting (see <a href="03-dataviz.html"><span>Chapter&nbsp;3</span></a>).</p>
 </section><section id="variable-types" class="level3" data-number="1.6.2"><h3 data-number="1.6.2" class="anchored" data-anchor-id="variable-types">
 <span class="header-section-number">1.6.2</span> Variable types</h3>
-<p>You’ve already encountered them in <a href="https://psyteachr.github.io/data-skills-v2/intro-to-probability.html" target="_blank">Level 1</a>. Variables can be classified as <strong>continuous</strong> (numbers) or <strong>categorical</strong> (labels). It’s good to know the distinctions as it will help to decide the appropriate plot for your data (see <a href="03-dataviz.html#sec-appropriate-plot"><span>Section&nbsp;3.7</span></a>).</p>
+<p>You’ve already encountered them in <a href="https://psyteachr.github.io/data-skills-v2/intro-to-probability.html" target="_blank">Level 1</a> but let’s refresh. Variables can be classified as <strong>continuous</strong> (numbers) or <strong>categorical</strong> (labels).</p>
 <p><strong>Categorical</strong> variables are properties you can count. They can be <strong>nominal</strong>, where the categories don’t have an order (e.g., gender) or <strong>ordinal</strong> (e.g., Likert scales either with numeric values 1-7 or with character labels such as “agree”, “neither agree nor disagree”, “disagree”). Categorical data may also be <strong>factors</strong> rather than characters.</p>
 <p><strong>Continuous variables</strong> are properties you can measure and calculate sums/ means/ etc. They may be rounded to the nearest whole number, but it should make sense to have a value between them. Continuous variables always have a <strong>numeric</strong> data type (i.e.&nbsp;<code>integer</code> or <code>double</code>).</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Why is this important you may ask?</strong> Knowing your variable and data types will help later on when deciding on an appropriate plot (<a href="03-dataviz.html"><span>Chapter&nbsp;3</span></a>) or which inferential test to run.</p>
+<p>It’s good to know the distinctions as it will help to decide the appropriate plot for your data (see <a href="03-dataviz.html#sec-appropriate-plot"><span>Section&nbsp;3.6</span></a>).</p>
+</div>
+</div>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Test your understanding
 </div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Let’s have a closer look at our data <code>data_prp</code>. For this little quiz, we’ve selected a few columns, shortened some of the column names, and modified some of the data types. This is the first few rows of the new object <code>data_quiz</code>. <em>You can find the code at the end of this chapter.</em></p>
+<p>Let’s have a closer look at our data <code>data_prp</code>. For this little quiz, we’ve selected a few columns, shortened some of the column names, and modified some of the data types. This is the first few rows of the new object <code>data_quiz</code>. <em>You can find the code with explanations at the end of this chapter (<span class="quarto-unresolved-ref">?sec-data-quiz</span>).</em></p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a><span class="fu">head</span>(data_quiz, <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -1374,7 +1384,7 @@ Test your understanding
 <td style="text-align: left;">2</td>
 <td style="text-align: left;">White European</td>
 <td style="text-align: left;">60-69% (2:1 grade)</td>
-<td style="text-align: right;">7</td>
+<td style="text-align: right;">5</td>
 <td style="text-align: right;">5.909091</td>
 <td style="text-align: left;">FALSE</td>
 </tr>
@@ -1385,7 +1395,7 @@ Test your understanding
 <td style="text-align: left;">2</td>
 <td style="text-align: left;">White British</td>
 <td style="text-align: left;">50-59% (2:2 grade)</td>
-<td style="text-align: right;">7</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">6.090909</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
@@ -1396,7 +1406,7 @@ Test your understanding
 <td style="text-align: left;">2</td>
 <td style="text-align: left;">White British</td>
 <td style="text-align: left;">≥ 70% (1st class grade)</td>
-<td style="text-align: right;">7</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: right;">6.545454</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
@@ -1407,7 +1417,7 @@ Test your understanding
 <td style="text-align: left;">2</td>
 <td style="text-align: left;">White British</td>
 <td style="text-align: left;">60-69% (2:1 grade)</td>
-<td style="text-align: right;">7</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">5.272727</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
@@ -1418,7 +1428,7 @@ Test your understanding
 <td style="text-align: left;">2</td>
 <td style="text-align: left;">White British</td>
 <td style="text-align: left;">60-69% (2:1 grade)</td>
-<td style="text-align: right;">7</td>
+<td style="text-align: right;">6</td>
 <td style="text-align: right;">6.272727</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
@@ -1438,7 +1448,7 @@ $ Age                  &lt;chr&gt; "22", "20", "22", "26", "22", "20", "21", "21
 $ Gender               &lt;fct&gt; 2, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 2, 2, 2, 2, 2…
 $ Ethnicity            &lt;chr&gt; "White European", "White British", "White British…
 $ Secondyeargrade      &lt;fct&gt; 60-69% (2:1 grade), 50-59% (2:2 grade), ≥ 70% (1s…
-$ QRP_item             &lt;dbl&gt; 7, 7, 7, 7, 7, 7, 6, 2, 7, 6, 7, 6, 6, 7, 7, 6, 7…
+$ QRP_item             &lt;dbl&gt; 5, 2, 6, 2, 6, 4, 6, 3, 7, 3, 3, 4, 4, 4, 4, 6, 3…
 $ QRPs_mean            &lt;dbl&gt; 5.909091, 6.090909, 6.545455, 5.272727, 6.272727,…
 $ `Code == Time2_Code` &lt;lgl&gt; FALSE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, …</code></pre>
 </div>
@@ -1544,38 +1554,53 @@ $ `Code == Time2_Code` &lt;lgl&gt; FALSE, TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, TR
 </table>
 </div>
 </div>
-</div>
-</section><section id="why-is-this-important-you-may-ask" class="level3" data-number="1.6.3"><h3 data-number="1.6.3" class="anchored" data-anchor-id="why-is-this-important-you-may-ask">
-<span class="header-section-number">1.6.3</span> Why is this important you may ask</h3>
-<p>Data is messy, especially in a raw format (i.e., when you download it straight from your testing software). R prefers the data to be tidy, which means each row is an <strong>observation</strong>, each column is a <strong>variable</strong>, and the information in each cell is a single <strong>value</strong>.</p>
-<p>I’ve modified the data for today slightly, to build in some challenges that you would experience when dealing with raw data, but tbh, the data we are looking at today is pretty tidy.</p>
-<p>Getting an understanding of what your data currently looks like and being aware of what your data structure needs to be (e.g., for calculating descriptives, running inferential stats or plotting) is the first step of thinking about the processing steps of how to get your data from A to B.</p>
-</section></section><section id="pair-coding-in-the-lab" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="pair-coding-in-the-lab"><span style="color: #EBA347; text-transform: uppercase;">Pair-coding in the lab</span></h2>
+</section></section><section id="activity-6" class="level2" data-number="1.7"><h2 data-number="1.7" class="anchored" data-anchor-id="activity-6">
+<span class="header-section-number">1.7</span> Activity 6:</h2>
+</section><section id="pair-coding-in-the-lab" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="pair-coding-in-the-lab"><span style="color: #EBA347; text-transform: uppercase;">Pair-coding in the lab</span></h2>
 </section><section id="test-your-knowledge-and-challenge-yourself" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="test-your-knowledge-and-challenge-yourself"><span style="color: #EBA347; text-transform: uppercase;">Test your knowledge and challenge yourself</span></h2>
 <p>mCQ questions about the different data types</p>
-</section><section id="revealing-the-mystery-code-that-created-data_quiz" class="level2" data-number="1.7"><h2 data-number="1.7" class="anchored" data-anchor-id="revealing-the-mystery-code-that-created-data_quiz">
-<span class="header-section-number">1.7</span> Revealing the mystery code that created data_quiz</h2>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Note
+Revealing the mystery code that created data_quiz
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>data_quiz <span class="ot">&lt;-</span> data_prp <span class="sc">%&gt;%</span> </span>
-<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">select</span>(Code, Time2_Code, Age, Gender, Ethnicity, Secondyeargrade, <span class="at">QRP_item =</span> QRPs_1_Time1, <span class="at">QRPs_mean =</span> QRPs_Acceptance_Time1_mean) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">mutate</span>(<span class="at">Gender =</span> <span class="fu">as.factor</span>(Gender),</span>
+<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">select</span>(Code, Time2_Code, Age, Gender, Ethnicity, Secondyeargrade, <span class="at">QRP_item =</span> QRPs_3_Time1, <span class="at">QRPs_mean =</span> QRPs_Acceptance_Time1_mean) <span class="sc">%&gt;%</span> </span>
+<span id="cb15-3"><a href="#cb15-3"></a>  <span class="fu">mutate</span>(<span class="at">Gender =</span> <span class="fu">factor</span>(Gender),</span>
 <span id="cb15-4"><a href="#cb15-4"></a>         <span class="at">Secondyeargrade =</span> <span class="fu">factor</span>(Secondyeargrade,</span>
 <span id="cb15-5"><a href="#cb15-5"></a>                                  <span class="at">levels =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>),</span>
 <span id="cb15-6"><a href="#cb15-6"></a>                                  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"≥ 70% (1st class grade)"</span>, <span class="st">"60-69% (2:1 grade)"</span>, <span class="st">"50-59% (2:2 grade)"</span>, <span class="st">"40-49% (3rd class)"</span>, <span class="st">"&lt; 40%"</span>)),</span>
 <span id="cb15-7"><a href="#cb15-7"></a>         <span class="st">`</span><span class="at">Code == Time2_Code</span><span class="st">`</span> <span class="ot">=</span> <span class="fu">ifelse</span>(Code <span class="sc">==</span> Time2_Code, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Lets go through this line by line:</p>
+<ul>
+<li>line 1: creates a new object called <code>data_quiz</code> and it is based on the already existing data object <code>data_prp</code>
+</li>
+<li>line 2: we are selecting a few variables of interest, such as Code, Time2_Code, Age etc. Some of those variables were renamed in the process according to the structure <code>new_name = old_name</code>, for example QRP item 3 at time point 1 got renamed as <code>QRP_item</code>
+</li>
+<li>line 3: the function <code>mutate()</code> is used to create a new column called <code>Gender</code> that turns the existing column <code>Gender</code> into a factor. Now that we named the new column <code>Gender</code>, R simply overwrites the existing column of the same name. If we had named the new column <code>Gender_factor</code>, we would have been able to retain the original <code>Gender</code> column and <code>Gender_factor</code> would have been added to the end</li>
+<li>line 4: There are a few things going on in line 4 (or 4-6 really)
+<ul>
+<li>Note how line 3 had 2 opening brackets and only one of them was closing before the comma? This means we are still in the <code>mutate()</code> function.</li>
+<li>Now we are turning our variable <code>Secondyeargrade</code> into a factor. Spot the difference between this attempt and the one we used for <code>Gender</code>? Here we are using a lot more arguments in that factor function, namely levels and labels. <strong>Levels</strong> describes the unique values we have for that column, and in <strong>labels</strong> we want to define how these levels will be shown in the data object. If you don’t add the levels and labels argument, the labels will be the labels (as you can see in the <code>Gender</code> column in which we kept the numbers)</li>
+<li>And similar to <code>Gender</code>, we are replacing the “old” numeric <code>Secondyeargrade</code> with the new <code>Secondyeargrade</code> column that is now a factor</li>
+</ul>
+</li>
+<li>line 7: Doesn’t seem to start with a function, which means we are <em>still</em> within the <code>mutate()</code> function - count the opening and closing brackets to confirm.
+<ul>
+<li>Here, we are creating a new column called <code>Code == Time2_Code</code>. Notice the two backticks we have to use to make this weird column name work? This is because it has spaces (and we did mention that R doesn’t like spaces). So the backticks help R to group it as a unit/ a single name</li>
+<li>Next we have an <code><a href="https://rdrr.io/r/base/ifelse.html">ifelse()</a></code> function which is a conditional statement. We are using it to check whether a conditional statement is TRUE or FALSE. Our conditional statement asks whether the Participant IDs that were collected at time point 1 (column <code>Code</code>) are <strong>exactly</strong> the same as in time point 2 (column <code>Time2_Code</code>). Notice how “Tr10” and “tr10” are not considered the same. We will come back to conditional statements in <a href="02-wrangling.html"><span>Chapter&nbsp;2</span></a>. But long story short, this Boolean expression created the logical data type in the dataset.</li>
+</ul>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -2167,7 +2192,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./02-wrangling.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Advanced data wrangling</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data wrangling</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

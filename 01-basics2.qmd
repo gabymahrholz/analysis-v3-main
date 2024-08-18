@@ -222,3 +222,12 @@ Allison's drawing
 or for the Wickham 6 part, we could just go here is some data, lets apply them all.
 
 Activity 1: selecting specific columns First of all, we want to select the relevant columns
+
+
+### Tidy data
+
+Data is messy, especially in a raw format (i.e., when you download it straight from your testing software). R prefers the data to be tidy, which means each row is an **observation**, each column is a **variable**, and the information in each cell is a single **value**.
+
+I've modified the data for today slightly, to build in some challenges that you would experience when dealing with raw data, but tbh, the data we are looking at today is pretty tidy.
+
+Getting an understanding of what your data currently looks like and being aware of what your data structure needs to be (e.g., for calculating descriptives, running inferential stats or plotting) is the first step of thinking about the processing steps of how to get your data from A to B.
