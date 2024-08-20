@@ -857,7 +857,7 @@ Let's see if we can actually re-create this plot.
 
 #### Step 1: create a default boxplot {.unnumbered}
 
-`Personality Traits` is on the x axis and some sort of `average Score` is in the y axis. But hang on, They combined the Big 5 personality traits and the ones from the Dark Triads questionnaire. Hmmm. Our data doesn't look like that yet. Our values are scattered across 3 different dataframes. The personality data we need are in `summary_IPIP` the Dark Triad data are in `summary_SD`, and the information about the which house the participants got sorted into is in `hp_data`.
+`Personality Traits` is on the x axis and some sort of `average Score` is in the y axis. But hang on, They combined the Big 5 personality traits and the ones from the Dark Triads questionnaire. Hmmm. Our data doesn't look like that yet. Our values are scattered across 3 different dataframes. The personality data we need are in `summary_IPIP` the Dark Triad data are in `summary_SD`, and the information about which house the participants got sorted into is in `hp_data`.
 
 ##### Pre-Steps {.unnumbered}
 
