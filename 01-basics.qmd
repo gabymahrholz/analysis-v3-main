@@ -492,7 +492,7 @@ It's good to know the distinctions as it will help to decide the appropriate plo
 
 ## Test your understanding
 
-Let’s have a closer look at our data `data_prp`. For this little quiz, we've selected a few columns, shortened some of the column names, and modified some of the data types. This is the first few rows of the new object `data_quiz`. *You can find the code with explanations at the end of this chapter (@sec-data-quiz).*
+Let’s have a closer look at our data `data_prp`. For this little quiz, we've selected a few columns, shortened some of the column names, and modified some of the data types. This is the first few rows of the new object `data_quiz`. *You can find the code with explanations at the end of this section*
 
 ```{r echo=FALSE}
 data_quiz <- data_prp %>% 
@@ -540,21 +540,9 @@ fctr <- c(x = "numeric", x = "character", x = "logical", answer = "factor")
 
 :::
 
-## Activity 6: 
+::: {.callout-caution collapse="true"} 
 
-
-## [Pair-coding in the lab]{style="color: #EBA347; text-transform: uppercase;"} {.unnumbered}
-
-## [Test your knowledge and challenge yourself]{style="color: #EBA347; text-transform: uppercase;"} {.unnumbered}
-
-mCQ questions about the different data types
-
-
-
-
-::: {.callout-note collapse="true"}
-
-## Revealing the mystery code that created data_quiz {#sec-data-quiz}
+## Revealing the mystery code that created `data_quiz` {.unnumbered}
 
 ```{r eval=FALSE}
 data_quiz <- data_prp %>% 
@@ -565,6 +553,7 @@ data_quiz <- data_prp %>%
                                   labels = c("≥ 70% (1st class grade)", "60-69% (2:1 grade)", "50-59% (2:2 grade)", "40-49% (3rd class)", "< 40%")),
          `Code == Time2_Code` = ifelse(Code == Time2_Code, TRUE, FALSE))
 ```
+
 
 Lets go through this line by line:
 
@@ -580,3 +569,129 @@ Lets go through this line by line:
   * Next we have an `ifelse()` function which is a conditional statement. We are using it to check whether a conditional statement is TRUE or FALSE. Our conditional statement asks whether the Participant IDs that were collected at time point 1 (column `Code`) are **exactly** the same as in time point 2 (column `Time2_Code`). Notice how "Tr10" and "tr10" are not considered the same. We will come back to conditional statements in @sec-wrangling. But long story short, this Boolean expression created the logical data type in the dataset.
 
 :::
+
+
+
+
+## Activity 6: 
+
+easy data wrangling steps - counts?
+
+
+## [Pair-coding in the lab]{style="color: #EBA347; text-transform: uppercase;"} {.unnumbered}
+
+I want to produce a short knitted document that the students have to recreate including some headings, emphasis in the text, bullet points and the first steps of calculation we can do with the loneliness data with no proper data wrangling skills
+
+
+
+## [Test your knowledge]{style="color: #EBA347; text-transform: uppercase;"} {.unnumbered}
+
+
+Are you ready for some knowledge check questions to test your understanding of the chapter? We also have some faulty codes. See if you can spot what's wrong with them.
+
+
+### Knowledge check {.unnumbered}
+
+#### Question 1 {.unnumbered}
+
+One of the key first steps when we open RStudio is to: `r longmcq(c(x = "put on some music as we will be here a while", answer = "open an existing project or create a new one", x = "make a coffee", x = "check out the news"))`
+
+::: {.callout-caution collapse="true"} 
+
+## Explain this answer
+
+Opening an existing project (e.g., when coming back to the same dataset) or creating a new project (e.g., for a new task or new dataset) ensures that subsequent Rmds, any output, figures, etc are saved within the same folder on your computer (i.e., the working directory). If Rmds or data is not in the same folder as "the project icon", things can get messy and code might not run.
+
+:::
+  
+#### Question 2 {.unnumbered}
+
+When using the default environment color settings for RStudio, what color would the background of a code chunk be in R Markdown? `r mcq(c(x = "white", x = "red", x = "green", answer = "grey"))`
+
+**Question 3**. When using the default environment color settings for RStudio, what color would the background of normal text be in R Markdown? `r mcq(c(answer = "white", x = "red", x = "green", x = "grey"))`
+
+::: {.callout-caution collapse="true"} 
+
+## Explain this answer
+
+Assuming you have not changed any of the settings in RStudio, code chunks will tend to have a grey background and normal text will tend to have a white background. This is a good way to check that you have closed and opened code chunks correctly.
+
+:::
+
+#### Question 3 {.unnumbered}
+
+Code chunks start and end with: `r longmcq(c(x = "three single quotes", answer = "three backticks", x = "three double quotes", x = "three single asterisks"))`
+
+::: {.callout-caution collapse="true"} 
+
+## Explain this answer
+
+Code chunks always take the same general format of three backticks followed by curly parentheses and a lower case r inside the parentheses (`{r}`). People often mistake these backticks for single quotes but that will not work. If you have set your code chunk correctly using backticks, the background color should change to grey from white.
+
+:::
+
+
+### Error mode {.unnumbered}
+
+Some of these codes have mistakes in them, other code chunks are not quite producing what was aimed for. Your task is to spot anything faulty, explain why the things happened, and perhaps try to fix them. 
+
+
+#### Question 4 {.unnumbered}
+
+You want to read in data with the `read_csv()` function. You have just stated R, created a new Rmd, and typed the following code into your code chunk.
+
+```{r eval=FALSE}
+data <- read_csv("data.csv")
+```
+
+However, R gives you an error message: `could not find function "read_csv"`. What could be the reason?
+
+::: {.callout-caution collapse="true"} 
+
+## Explain the solution
+
+"Could not find function" is an indication that you have forgotten to load in tidyverse. Because `read_csv()` is a function in the tidyverse collection, R cannot find it.
+
+FIX: Add `library(tidyverse)` prior to reading in the data and run the code chunk again.
+
+:::
+
+
+#### Question 5 {.unnumbered}
+
+You want to read in data with the `read_csv()` function. This time, you are certain you have loaded in tidyverse first. The code is as follows:
+
+```{r eval=FALSE}
+library(tidyverse)
+data <- read_csv("data.csv")
+```
+
+The error message shows `'data.csv' does not exist in current working directory`. You check your folder and it looks like this:
+
+![](images/error_ch1_01.PNG)
+
+Why is there an error message?
+
+::: {.callout-caution collapse="true"} 
+
+## Explain the solution
+
+R is looking for a csv file that is called data which is currently not in the working directory. We may assume it's in the data folder. Perhaps that happened when unzipping the zip file. So instead of placing the csv file on the same level as the project icon, it was unzipped into a folder named data.
+
+FIX - option 1: Take the `data.csv` out of the data folder and place it next to the project icon and the Rmd file.
+
+FIX - option 2: Modify your R code to tell R that the data is in a separate folder called data, e.g., ...
+
+```{r eval=FALSE}
+library(tidyverse)
+data <- read_csv("data/data.csv")
+```
+
+
+:::
+
+
+
+
+
+

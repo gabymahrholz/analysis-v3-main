@@ -7,6 +7,20 @@ By the end of this chapter you should be able to:
 
 ## [Individual Walkthrough]{style="color: #EBA347; text-transform: uppercase;"} {.unnumbered}
 
+
+## Overview
+
+Which test to use depends on what type of variable you have and what your research question is about.
+
+
+* 2 categorical: Chi^2 test
+* 1 continuous: one-sample t-test
+* 1 continuous and 1 categorical: independent or paired t-test (depending if within or between)
+* 2 continuous: correlation or regression
+
+Maybe in a flow chart
+
+
 ## Activity 1: Setup
 
 * create a new project

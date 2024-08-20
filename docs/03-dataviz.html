@@ -306,16 +306,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 </li>
   <li>
-<a href="#sec-appropriate-plot" id="toc-sec-appropriate-plot" class="nav-link" data-scroll-target="#sec-appropriate-plot"><span class="header-section-number">3.6</span> Which plot shall I build???</a>
+<a href="#sec-appropriate-plot" id="toc-sec-appropriate-plot" class="nav-link" data-scroll-target="#sec-appropriate-plot"><span class="header-section-number">3.6</span> Which plot is the appropriate plot???</a>
   <ul class="collapse">
 <li><a href="#one-categorical-variable" id="toc-one-categorical-variable" class="nav-link" data-scroll-target="#one-categorical-variable"><span class="header-section-number">3.6.1</span> One categorical variable</a></li>
+  <li><a href="#activity-5-make-the-column-plot-pretty" id="toc-activity-5-make-the-column-plot-pretty" class="nav-link" data-scroll-target="#activity-5-make-the-column-plot-pretty">Activity 5: Make the column plot pretty</a></li>
   <li><a href="#two-categorical-variables" id="toc-two-categorical-variables" class="nav-link" data-scroll-target="#two-categorical-variables"><span class="header-section-number">3.6.2</span> Two categorical variables</a></li>
   <li><a href="#one-continuous-variable" id="toc-one-continuous-variable" class="nav-link" data-scroll-target="#one-continuous-variable"><span class="header-section-number">3.6.3</span> One continuous variable</a></li>
   <li><a href="#one-continuous-and-one-categorical-grouping-variable" id="toc-one-continuous-and-one-categorical-grouping-variable" class="nav-link" data-scroll-target="#one-continuous-and-one-categorical-grouping-variable"><span class="header-section-number">3.6.4</span> One continuous and one categorical grouping variable</a></li>
+  <li><a href="#activity-6-recreating-a-boxplot-from-jakob-et-al.-2019" id="toc-activity-6-recreating-a-boxplot-from-jakob-et-al.-2019" class="nav-link" data-scroll-target="#activity-6-recreating-a-boxplot-from-jakob-et-al.-2019">Activity 6: Recreating a boxplot from Jakob et al.&nbsp;(2019)</a></li>
   <li><a href="#two-continuous" id="toc-two-continuous" class="nav-link" data-scroll-target="#two-continuous"><span class="header-section-number">3.6.5</span> Two continuous</a></li>
   </ul>
 </li>
-  <li><a href="#activity-x-saving-the-figure" id="toc-activity-x-saving-the-figure" class="nav-link" data-scroll-target="#activity-x-saving-the-figure"><span class="header-section-number">3.7</span> Activity X: Saving the figure</a></li>
+  <li><a href="#save-your-plots" id="toc-save-your-plots" class="nav-link" data-scroll-target="#save-your-plots"><span class="header-section-number">3.7</span> Save your plots</a></li>
+  <li><a href="#pair-coding-in-the-lab" id="toc-pair-coding-in-the-lab" class="nav-link" data-scroll-target="#pair-coding-in-the-lab"><span style="color: #EBA347; text-transform: uppercase;">Pair-coding in the lab</span></a></li>
+  <li><a href="#test-your-knowledge" id="toc-test-your-knowledge" class="nav-link" data-scroll-target="#test-your-knowledge"><span style="color: #EBA347; text-transform: uppercase;">Test your knowledge</span></a></li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -447,7 +451,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>Let’s build a basic scatterplot to show the relationship between flipper_length and body_mass. We will customise plots further later on in the individual plots. This is just a quick overview of the different layers.</p>
+<p>Let’s build a basic scatterplot to show the relationship between <code>flipper_length</code> and <code>body_mass</code>. We will customise plots further later on in the individual plots. This is just a quick overview of the different layers.</p>
 <ul>
 <li>Layer 1 creates a plot base to built up upon.</li>
 <li>Layer 2 adds the <code>data</code> and some <code>aesthetics</code>
@@ -463,6 +467,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Layer 7 helps you to modify axes labels.</li>
 <li>Layer 8 controls the general style of a ggplot (e.g., background colour, size of text, borders, etc.). R comes with a few pre-defined ones (like <code>theme_classic</code>, <code>theme_bw</code>, <code>theme_minimal</code>, <code>theme_light</code>).</li>
 </ul>
+<p>Click on the tabs below to see how each layer contributes to refining the plot.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset" data-group="layers">
 <ul class="nav nav-tabs" role="tablist">
 <li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Layer 1</a></li>
@@ -531,7 +536,7 @@ Tip
 </div>
 </div>
 </div>
-<p>Here we are telling ggplot that we want a scatterplot added. There is a warning displayed</p>
+<p>Here we are telling ggplot that we want a scatterplot added. There is a warning displayed showing that rows were removed because of missing values.</p>
 <p>The argument <code>colour</code> adds colour to the points according to a grouping variable (in this case sex). If you want all of the points to be black (i.e.&nbsp;only represent 2 rather than 3 dimensions of the data), leave the <code>colour</code> argument out.</p>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
@@ -687,12 +692,11 @@ Important
 </div>
 </div>
 </div>
-<section id="info-about-the-data" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="info-about-the-data">Info about the data</h4>
-<p><strong>citation</strong></p>
+<section id="info-about-the-data" class="level5 unnumbered"><h5 class="unnumbered anchored" data-anchor-id="info-about-the-data">Info about the data</h5>
+<p><strong>Citation</strong></p>
 <blockquote class="blockquote">
 <p>Jakob, L., Garcia-Garzon, E., Jarke, H., &amp; Dablander, F. (2019). The Science Behind the Magic? The Relation of the Harry Potter “Sorting Hat Quiz” to Personality and Human Values. <em>Collabra: Psychology, 5</em>(1), 31. <a href="https://doi.org/10.1525/collabra.240" target="_blank">https://doi.org/10.1525/collabra.240</a></p>
 </blockquote>
-<p>‌</p>
 <p><strong>Abstract</strong></p>
 <blockquote class="blockquote">
 <p>The Harry Potter series describes the adventures of a boy and his peers in a fictional world at the “Hogwarts School of Witchcraft and Wizardry”. In the series, pupils get appointed to one of four groups (Houses) at the beginning of their education based on their personality traits. The author of the books has constructed an online questionnaire that allows fans to find out their House affiliation. Crysel, Cook, Schember, and Webster (2015) argued that being sorted into a particular Hogwarts House through the Sorting Hat Quiz is related to empirically established personality traits. We replicated their study while improving on sample size, methods, and analysis. Although our results are similar, effect sizes are small overall, which attenuates the claims by Crysel et al.&nbsp;The effect vanishes when restricting the analysis to participants who desired, but were not sorted into a particular House. On a theoretical level, we extend previous research by also analysing the relation of the Hogwarts Houses to Schwartz’s Basic Human Values but find only moderate or no relations.</p>
@@ -722,7 +726,7 @@ Important
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Using glimpse to view the data (the output is pretty long, therefore it’s hidden. Click to see the output.)
+Using glimpse to view the data. The output is pretty long, therefore it’s hidden. Click to see the output.
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1070,7 +1074,7 @@ Alternative solution
 <option value="x">factor</option></select> and there is <select class="webex-select"><option value="blank"></option>
 <option value="x">no</option>
 <option value="answer">some</option></select> reverse-scoring for the SD items.</p>
-<p><strong>So how do we achieve that? </strong> Actually the steps are fairly similar to what we computed for the IPIP, apart from having to recode the values as numbers before being able to reverse-code them:</p>
+<p><strong>So how do we achieve that?</strong> Actually the steps are fairly similar to what we computed for the IPIP, apart from having to recode the values as numbers before being able to reverse-code them:</p>
 <ul>
 <li>Step 1: select PP_ID and all the questions related to the SD_questionnaires</li>
 <li>Step 2: pivot into long format</li>
@@ -1125,7 +1129,7 @@ Data Wrangling code for SD3
 <option value="x">factor</option></select> and there is <select class="webex-select"><option value="blank"></option>
 <option value="answer">no</option>
 <option value="x">some</option></select> reverse-scoring for the SD items.</p>
-<p><strong>So how do we achieve that? </strong> Actually this is more straightforward than data wrangling for the IPIP and the SD. We basically have to:</p>
+<p><strong>So how do we achieve that?</strong> Actually this is more straightforward than data wrangling for the IPIP and the SD. We basically have to:</p>
 <ul>
 <li>Step 1: select PP_ID and all the questions related to the PVQ_questionnaires</li>
 <li>Step 2: pivot into long format</li>
@@ -1171,13 +1175,13 @@ Data Wrangling code for PVQ-RR
 <span id="cb36-2"><a href="#cb36-2"></a>  <span class="fu">separate</span>(Dimension, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"Dimension"</span>, <span class="cn">NA</span>), <span class="at">sep =</span> <span class="st">" "</span>) <span class="co"># split column at the space character and keep Dimension and drop the second one (which would have been the abbreviation in brackets (XX))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section></section><section id="sec-appropriate-plot" class="level2" data-number="3.6"><h2 data-number="3.6" class="anchored" data-anchor-id="sec-appropriate-plot">
-<span class="header-section-number">3.6</span> Which plot shall I build???</h2>
+<span class="header-section-number">3.6</span> Which plot is the appropriate plot???</h2>
 <p>Alright, let’s get started with data visualisation, now that we have the data in a tidy format. Question is now, which one is the right plot for your data?</p>
 <p>Different types of data require different types of plots, so this comes back to how many variables are you aiming to plot and what kind of data type are they.</p>
 <section id="one-categorical-variable" class="level3" data-number="3.6.1"><h3 data-number="3.6.1" class="anchored" data-anchor-id="one-categorical-variable">
 <span class="header-section-number">3.6.1</span> One categorical variable</h3>
-<section id="barplot-geom_bar" class="level4" data-number="3.6.1.1"><h4 data-number="3.6.1.1" class="anchored" data-anchor-id="barplot-geom_bar">
-<span class="header-section-number">3.6.1.1</span> Barplot (<code>geom_bar()</code>)</h4>
+<section id="barchart-geom_bar" class="level4" data-number="3.6.1.1"><h4 data-number="3.6.1.1" class="anchored" data-anchor-id="barchart-geom_bar">
+<span class="header-section-number">3.6.1.1</span> Barchart (<code>geom_bar()</code>)</h4>
 <p>Let’s say we want to count some demographics. To keep it simple, we want to show gender counts. We would use a <strong>barplot</strong> for it. This is done with <code>geom_bar()</code> in your third layer, and because the counting is done in the background, the <code>aes</code> only requires an x value (i.e.&nbsp;the name of your variable).</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">ggplot</span>(hp_data, <span class="fu">aes</span>(<span class="at">x =</span> gender)) <span class="sc">+</span></span>
@@ -1185,7 +1189,7 @@ Data Wrangling code for PVQ-RR
 <div class="cell-output-display">
 <div id="fig-bc-base" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="03-dataviz_files/figure-html/fig-bc-base-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.1: Base version of a barchart</figcaption></figure>
+<figcaption class="figure-caption">Figure&nbsp;3.1: Default barchart</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1224,7 +1228,7 @@ Data Wrangling code for PVQ-RR
 <span id="cb39-6"><a href="#cb39-6"></a>  <span class="fu">scale_y_continuous</span>(</span>
 <span id="cb39-7"><a href="#cb39-7"></a>    <span class="co"># changing labels v2 (within the scale function, only deals with either x or y depending if it's scale_x or scale_y)</span></span>
 <span id="cb39-8"><a href="#cb39-8"></a>    <span class="at">name =</span> <span class="st">"Count"</span>,</span>
-<span id="cb39-9"><a href="#cb39-9"></a>    <span class="co"># remove the space below the bars, but keep a tiny bit (5%) above</span></span>
+<span id="cb39-9"><a href="#cb39-9"></a>    <span class="co"># remove the space below the bars (first number), but keep a tiny bit (5%) above (second number)</span></span>
 <span id="cb39-10"><a href="#cb39-10"></a>    <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.05</span>))</span>
 <span id="cb39-11"><a href="#cb39-11"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -1314,13 +1318,14 @@ Data Wrangling code for PVQ-RR
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">ggplot</span>(gender_count, <span class="fu">aes</span>(<span class="at">x =</span> gender, <span class="at">y =</span> n, <span class="at">fill =</span> gender)) <span class="sc">+</span></span>
 <span id="cb43-2"><a href="#cb43-2"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-dataviz_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-</figure>
+<div id="fig-col" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="03-dataviz_files/figure-html/fig-col-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.2: Column plot with different coloured bars</figcaption></figure>
 </div>
 </div>
 </div>
-<p>The other layers to change the colour scheme, axes labels and margins, removing the legend and altering the theme are exactly the same. Test yourself to see if you could…</p>
+</section></section><section id="activity-5-make-the-column-plot-pretty" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="activity-5-make-the-column-plot-pretty">Activity 5: Make the column plot pretty</h3>
+<p>The other layers to change the colour scheme, axes labels and margins, removing the legend and altering the theme require exactly the same functions as with the boxplot above. Test yourself to see if you could…</p>
 <ul class="task-list">
 <li>
 <input type="checkbox">change the colour scheme (e.g., viridis or <a href="https://www.datanovia.com/en/blog/the-a-z-of-rcolorbrewer-palette/" target="_blank">any other colour palettes</a>)</li>
@@ -1339,7 +1344,7 @@ Data Wrangling code for PVQ-RR
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Code for the column plot with all other changes
+Possible solution code for the column plot (with a different colour palette and a different theme)
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
@@ -1350,18 +1355,19 @@ Code for the column plot with all other changes
 <span id="cb44-2"><a href="#cb44-2"></a>  <span class="fu">geom_col</span>() <span class="sc">+</span></span>
 <span id="cb44-3"><a href="#cb44-3"></a>  <span class="co"># replaced vidiris with the brewer palette</span></span>
 <span id="cb44-4"><a href="#cb44-4"></a>  <span class="fu">scale_fill_brewer</span>(</span>
-<span id="cb44-5"><a href="#cb44-5"></a>    <span class="at">palette =</span> <span class="st">"Set1"</span>,</span>
-<span id="cb44-6"><a href="#cb44-6"></a>    <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb44-7"><a href="#cb44-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Gender"</span>) <span class="sc">+</span> </span>
-<span id="cb44-8"><a href="#cb44-8"></a>  <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb44-9"><a href="#cb44-9"></a>    <span class="at">name =</span> <span class="st">"Count"</span>,</span>
-<span id="cb44-10"><a href="#cb44-10"></a>    <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.05</span>))</span>
-<span id="cb44-11"><a href="#cb44-11"></a>  ) <span class="sc">+</span></span>
-<span id="cb44-12"><a href="#cb44-12"></a>  <span class="co"># different theme</span></span>
-<span id="cb44-13"><a href="#cb44-13"></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb44-5"><a href="#cb44-5"></a>    <span class="at">palette =</span> <span class="st">"Set1"</span>, <span class="co"># try "Set2" or "Dark2" for some variety</span></span>
+<span id="cb44-6"><a href="#cb44-6"></a>    <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span> <span class="co"># legend removed</span></span>
+<span id="cb44-7"><a href="#cb44-7"></a>  <span class="co"># changing both x and y in labs</span></span>
+<span id="cb44-8"><a href="#cb44-8"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Gender"</span>, <span class="at">y =</span> <span class="st">"Count"</span>) <span class="sc">+</span> </span>
+<span id="cb44-9"><a href="#cb44-9"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb44-10"><a href="#cb44-10"></a>    <span class="co"># starts bars on x axis without any gaps but leaves some space at the top (this time 10%)</span></span>
+<span id="cb44-11"><a href="#cb44-11"></a>    <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.1</span>)) </span>
+<span id="cb44-12"><a href="#cb44-12"></a>  ) <span class="sc">+</span></span>
+<span id="cb44-13"><a href="#cb44-13"></a>  <span class="co"># different theme</span></span>
+<span id="cb44-14"><a href="#cb44-14"></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-dataviz_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figure class="figure"><p><img src="03-dataviz_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
@@ -1369,79 +1375,158 @@ Code for the column plot with all other changes
 </div>
 </div>
 </div>
-</section></section><section id="two-categorical-variables" class="level3" data-number="3.6.2"><h3 data-number="3.6.2" class="anchored" data-anchor-id="two-categorical-variables">
+</section><section id="two-categorical-variables" class="level3" data-number="3.6.2"><h3 data-number="3.6.2" class="anchored" data-anchor-id="two-categorical-variables">
 <span class="header-section-number">3.6.2</span> Two categorical variables</h3>
-<p>This time we want to know whether participants have already been sorted into their houses and what the gender splits are. To show that, we would need to produce a barchart that somehow includes multiple groups.</p>
-<section id="stacked-barchart" class="level4" data-number="3.6.2.1"><h4 data-number="3.6.2.1" class="anchored" data-anchor-id="stacked-barchart">
-<span class="header-section-number">3.6.2.1</span> Stacked barchart</h4>
-<p>If we are keeping to the base level plot and do not add any fancy arguments, we would create a <strong>Stacked barchart</strong>. As the name suggests, the subgroups are displayed on top of each other.</p>
+<p>Lets have a look at the relationship between the houses participants being sorted into vs the house they wished they had been allocated to.</p>
+<p>Pre-step: First, we’d need to wrangle the data a bit before we start building plots. When we look at the data, we see that a few people are actually managed to be sorted into more than one house. How is this even possible??? We only want those participants who only selected one house. Fortunately, all participants responded with one “wish” category, so nothing to fix there.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">ggplot</span>(hp_data, <span class="fu">aes</span>(<span class="at">x =</span> gender, <span class="at">fill =</span> Sorting_completed_YN)) <span class="sc">+</span></span>
-<span id="cb45-2"><a href="#cb45-2"></a>  <span class="fu">geom_bar</span>() <span class="co"># position = "stack" is the default. Adding or removing this argument would produce the same plot</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>hp_houses <span class="ot">&lt;-</span> hp_data <span class="sc">%&gt;%</span> </span>
+<span id="cb45-2"><a href="#cb45-2"></a>  <span class="fu">select</span>(PP_ID, Sorting_house, Sorting_house_wish) <span class="sc">%&gt;%</span> </span>
+<span id="cb45-3"><a href="#cb45-3"></a>  <span class="fu">filter</span>(Sorting_house <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Gryffindor"</span>, <span class="st">"Hufflepuff"</span>, <span class="st">"Ravenclaw"</span>, <span class="st">"Slytherin"</span>))</span>
+<span id="cb45-4"><a href="#cb45-4"></a></span>
+<span id="cb45-5"><a href="#cb45-5"></a><span class="fu">head</span>(hp_houses)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-sbc-base" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-dataviz_files/figure-html/fig-sbc-base-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.2: Base version of a stacked barchart</figcaption></figure>
+<div class="kable-table">
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: right;">PP_ID</th>
+<th style="text-align: left;">Sorting_house</th>
+<th style="text-align: left;">Sorting_house_wish</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Ravenclaw</td>
+<td style="text-align: left;">Ravenclaw</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Gryffindor</td>
+<td style="text-align: left;">Ravenclaw</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Gryffindor</td>
+<td style="text-align: left;">Ravenclaw</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">Slytherin</td>
+<td style="text-align: left;">Slytherin</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">Slytherin</td>
+<td style="text-align: left;">Hufflepuff</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Ravenclaw</td>
+<td style="text-align: left;">Ravenclaw</td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
-<p>Now, the number of males in this sample are quite a bit lower than the number of females, which might make it tough to compare. Once way to get around this is to display a <strong>Percent stacked barchart</strong>.</p>
-</section><section id="percent-stacked-barchart" class="level4" data-number="3.6.2.2"><h4 data-number="3.6.2.2" class="anchored" data-anchor-id="percent-stacked-barchart">
-<span class="header-section-number">3.6.2.2</span> Percent stacked barchart</h4>
-<p>We will have to add the argument <code>position = "fill"</code> to the <code>geom_bar()</code>. By default, the position argument is set to “stack” so if we leave it out, we get the stacked barchart we produced above.</p>
+<p>One way to display that data is by creating a <strong>Stacked barchart</strong> (default option) or a <strong>Percent stacked barchart</strong>. For both options, the subgroups are displayed on top of each other. To show the two plots next to each other for better comparison, we moved the legend to the bottom of the chart and displayed the content across 2 rows.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="fu">ggplot</span>(hp_data, <span class="fu">aes</span>(<span class="at">x =</span> gender, <span class="at">fill =</span> Sorting_completed_YN)) <span class="sc">+</span></span>
-<span id="cb46-2"><a href="#cb46-2"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div id="fig-psbc-base" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-dataviz_files/figure-html/fig-psbc-base-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.3: Base version of a percent stacked barchart</figcaption></figure>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="do">## Stacked barchart</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a><span class="fu">ggplot</span>(hp_houses, <span class="fu">aes</span>(<span class="at">x =</span> Sorting_house, <span class="at">fill =</span> Sorting_house_wish)) <span class="sc">+</span></span>
+<span id="cb46-3"><a href="#cb46-3"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="co"># no position argument added</span></span>
+<span id="cb46-4"><a href="#cb46-4"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span> <span class="co"># move legend to the bottom</span></span>
+<span id="cb46-5"><a href="#cb46-5"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">nrow =</span> <span class="dv">2</span>)) <span class="co"># display across 2 rows</span></span>
+<span id="cb46-6"><a href="#cb46-6"></a></span>
+<span id="cb46-7"><a href="#cb46-7"></a><span class="do">## Percent stacked barchart</span></span>
+<span id="cb46-8"><a href="#cb46-8"></a><span class="fu">ggplot</span>(hp_houses, <span class="fu">aes</span>(<span class="at">x =</span> Sorting_house, <span class="at">fill =</span> Sorting_house_wish)) <span class="sc">+</span></span>
+<span id="cb46-9"><a href="#cb46-9"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span> <span class="co"># add position argument here</span></span>
+<span id="cb46-10"><a href="#cb46-10"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span> <span class="co"># move legend to the bottom</span></span>
+<span id="cb46-11"><a href="#cb46-11"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">nrow =</span> <span class="dv">2</span>)) <span class="co"># display across 2 rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</div>
-<p>Now we would be able to draw conclusions that a higher proportion of females in this sample have already completed the sorting compared to males.</p>
-</section><section id="grouped-barchart" class="level4" data-number="3.6.2.3"><h4 data-number="3.6.2.3" class="anchored" data-anchor-id="grouped-barchart">
-<span class="header-section-number">3.6.2.3</span> Grouped barchart</h4>
-<p>One more option would be to display the the bars next to each other rather than stacked in a <strong>Grouped barchart</strong>. We would achieve that by changing the position argument to <strong>“dogde”</strong>.</p>
-<p>We could also move the legend to a different place by including the line <code>theme(legend.position = "bottom")</code> if you want it placed at the bottom of the plot (left, right (default), top, and bottom are possible).</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="fu">ggplot</span>(hp_data, <span class="fu">aes</span>(<span class="at">x =</span> gender, <span class="at">fill =</span> Sorting_completed_YN)) <span class="sc">+</span></span>
-<span id="cb47-2"><a href="#cb47-2"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb47-3"><a href="#cb47-3"></a>  <span class="co"># legend moved below the plot</span></span>
-<span id="cb47-4"><a href="#cb47-4"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="fig-gbc-base" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-dataviz_files/figure-html/fig-gbc-base-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.4: Simple grouped barchart with legend position altered</figcaption></figure>
+<div id="fig-barcharts_stacked" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="03-dataviz_files/figure-html/fig-barcharts_stacked-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.3: Stacked barchart (left), and Percent stacked barchart (right)</figcaption></figure>
 </div>
 </div>
 </div>
-<p>Again, all other layers to change the colour of the bars, axes labels and margins, and altering the theme are exactly the same as we used in the barchart with one categorical variable. However, here the legend is meaningful, so we need to keep it.</p>
-<p>The response labels “Yes” and “No” for variable “Sorting Completed” are pretty clear here, but if we wanted to change them, we can do that via the <code>scale_fill_</code> function.</p>
+<p>In the <strong>stacked barchart</strong> (<a href="#fig-barcharts_stacked">Figure&nbsp;<span>3.3</span></a>, left plot), you are able to plot participant numbers. Here we can see that <code>hp_houses</code> has a lot more participants who were sorted into Ravenclaw but also who wanted to be in Ravenclaw. We can also see that most participants were sorted into the houses they wished to be in, and that the lowest number of participants were sorted into Slytherin. However, we are having a tough time to see whether the ratio is the same across all 4 houses.</p>
+<p>If we wanted to show that, a <strong>Percent stacked barchart</strong> (<a href="#fig-barcharts_stacked">Figure&nbsp;<span>3.3</span></a>, right plot) would make a lot more sense. Now we would be able to observe that a higher proportion of Ravenclaw-hopefuls actually ended up in Ravenclaw compared to Gryffindor-hopefuls, Hufflepuff-hopefuls, and Slytherin-hopefuls getting sorted into Gryffindor, Hufflepuff, and Slytherin respectively. BUT! We would lose the information about the raw values in the sample.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The position argument <code>position = "stack"</code> is the default. Adding this argument to the code for the left plot in <a href="#fig-barcharts_stacked">Figure&nbsp;<span>3.3</span></a> would produce the same plot a leaving the argument out.</p>
+</div>
+</div>
+<p>A second option is a <strong>Grouped barchart</strong> which displays the bars next to each other. We would achieve that by changing the position argument to <strong>“dogde”</strong>. You can see the default version of the plot in the <a href="#fig-barchart_grouped">Figure&nbsp;<span>3.4</span></a> on the left, and one with more layers on the right.</p>
+<p>Jakob et al.&nbsp;(2019) used the following HEX colours for their plots:</p>
+<ul>
+<li>Gryffindor #7F0909</li>
+<li>Hufflepuff #f0c75e</li>
+<li>Ravenclaw #08245e</li>
+<li>Slytherin #2a623d</li>
+</ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="fu">ggplot</span>(hp_data, <span class="fu">aes</span>(<span class="at">x =</span> gender, <span class="at">fill =</span> Sorting_completed_YN)) <span class="sc">+</span></span>
-<span id="cb48-2"><a href="#cb48-2"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb48-3"><a href="#cb48-3"></a>  <span class="co"># changing colour scheme to viridis</span></span>
-<span id="cb48-4"><a href="#cb48-4"></a>  <span class="fu">scale_fill_viridis_d</span>(</span>
-<span id="cb48-5"><a href="#cb48-5"></a>    <span class="co"># changing fill variable responses</span></span>
-<span id="cb48-6"><a href="#cb48-6"></a>    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Not Yet Sorted"</span>, <span class="st">"Sorted"</span>)</span>
-<span id="cb48-7"><a href="#cb48-7"></a>  ) <span class="sc">+</span></span>
-<span id="cb48-8"><a href="#cb48-8"></a>  <span class="co"># changing labels for x, y, and fill</span></span>
-<span id="cb48-9"><a href="#cb48-9"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Gender"</span>, <span class="at">y =</span> <span class="st">"Count"</span>, <span class="at">fill =</span> <span class="st">"Sorting Completed"</span>) <span class="sc">+</span> </span>
-<span id="cb48-10"><a href="#cb48-10"></a>  <span class="fu">scale_y_continuous</span>(</span>
-<span id="cb48-11"><a href="#cb48-11"></a>    <span class="co"># remove the space below the bars, but keep a tiny bit (5%) above</span></span>
-<span id="cb48-12"><a href="#cb48-12"></a>    <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.05</span>))</span>
-<span id="cb48-13"><a href="#cb48-13"></a>  ) <span class="sc">+</span></span>
-<span id="cb48-14"><a href="#cb48-14"></a>  <span class="co"># pick a theme</span></span>
-<span id="cb48-15"><a href="#cb48-15"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="do">## Default grouped barchart</span></span>
+<span id="cb47-2"><a href="#cb47-2"></a><span class="fu">ggplot</span>(hp_houses, <span class="fu">aes</span>(<span class="at">x =</span> Sorting_house, <span class="at">fill =</span> Sorting_house_wish)) <span class="sc">+</span></span>
+<span id="cb47-3"><a href="#cb47-3"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span> <span class="co"># add position argument here</span></span>
+<span id="cb47-4"><a href="#cb47-4"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span> <span class="co"># move legend to the bottom</span></span>
+<span id="cb47-5"><a href="#cb47-5"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">nrow =</span> <span class="dv">2</span>)) <span class="co"># display across 2 rows</span></span>
+<span id="cb47-6"><a href="#cb47-6"></a></span>
+<span id="cb47-7"><a href="#cb47-7"></a><span class="do">## Prettier grouped barchart</span></span>
+<span id="cb47-8"><a href="#cb47-8"></a><span class="fu">ggplot</span>(hp_houses, <span class="fu">aes</span>(<span class="at">x =</span> Sorting_house, <span class="at">fill =</span> Sorting_house_wish)) <span class="sc">+</span></span>
+<span id="cb47-9"><a href="#cb47-9"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span> <span class="co"># add position argument here</span></span>
+<span id="cb47-10"><a href="#cb47-10"></a>  <span class="co"># changing colours to Harry Potter House colours</span></span>
+<span id="cb47-11"><a href="#cb47-11"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">'#7F0909'</span>, <span class="st">'#f0c75e'</span>, <span class="st">'#08245e'</span>, <span class="st">'#2a623d'</span>)) <span class="sc">+</span></span>
+<span id="cb47-12"><a href="#cb47-12"></a>  <span class="co"># changing labels for x, y, and fill</span></span>
+<span id="cb47-13"><a href="#cb47-13"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"House sorted into"</span>, <span class="at">y =</span> <span class="st">"Count"</span>, <span class="at">fill =</span> <span class="st">"House wished for"</span>) <span class="sc">+</span> </span>
+<span id="cb47-14"><a href="#cb47-14"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb47-15"><a href="#cb47-15"></a>    <span class="co"># remove the space below the bars, but keep a tiny bit (5%) above</span></span>
+<span id="cb47-16"><a href="#cb47-16"></a>    <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.05</span>))</span>
+<span id="cb47-17"><a href="#cb47-17"></a>  ) <span class="sc">+</span></span>
+<span id="cb47-18"><a href="#cb47-18"></a>  <span class="co"># pick a theme</span></span>
+<span id="cb47-19"><a href="#cb47-19"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> </span>
+<span id="cb47-20"><a href="#cb47-20"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span> <span class="co"># need to move this part to the end otherwise the `theme_*` overrides it</span></span>
+<span id="cb47-21"><a href="#cb47-21"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">nrow =</span> <span class="dv">2</span>)) <span class="co"># display across 2 rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div id="fig-gbc-adv" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure"><p><img src="03-dataviz_files/figure-html/fig-gbc-adv-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;3.5: Grouped barchart with a few more layers added</figcaption></figure>
+<div id="fig-barchart_grouped" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="03-dataviz_files/figure-html/fig-barchart_grouped-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.4: Default grouped barchart (left) and one with a few more layers added (right)</figcaption></figure>
 </div>
 </div>
 </div>
-</section></section><section id="one-continuous-variable" class="level3" data-number="3.6.3"><h3 data-number="3.6.3" class="anchored" data-anchor-id="one-continuous-variable">
+<p>One more thing we could have done is using <code>facet_wrap()</code> to split the different houses into their own subplots. Now we can compare better in which house participants were sorted into according to wish-houses categories. For example, people who have hoped for Gryffindor, were most likely sorted into Gryffindor, followed by Hufflepuff, Ravenclaw, and Slytherin. Slytherin-hopefuls were most likely to end up in Slytherin, followed by Ravenclaw, Gryffindor, and Hufflepuff.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="fu">ggplot</span>(hp_houses, <span class="fu">aes</span>(<span class="at">x =</span> Sorting_house, <span class="at">fill =</span> Sorting_house_wish)) <span class="sc">+</span></span>
+<span id="cb48-2"><a href="#cb48-2"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span> </span>
+<span id="cb48-3"><a href="#cb48-3"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">'#7F0909'</span>, <span class="st">'#f0c75e'</span>, <span class="st">'#08245e'</span>, <span class="st">'#2a623d'</span>)) <span class="sc">+</span></span>
+<span id="cb48-4"><a href="#cb48-4"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"House sorted into"</span>, <span class="at">y =</span> <span class="st">"Count"</span>, <span class="at">fill =</span> <span class="st">"House wished for"</span>) <span class="sc">+</span> </span>
+<span id="cb48-5"><a href="#cb48-5"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb48-6"><a href="#cb48-6"></a>    <span class="co"># remove the space below the bars, but keep a tiny bit (5%) above</span></span>
+<span id="cb48-7"><a href="#cb48-7"></a>    <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.05</span>))</span>
+<span id="cb48-8"><a href="#cb48-8"></a>  ) <span class="sc">+</span></span>
+<span id="cb48-9"><a href="#cb48-9"></a>  <span class="co"># pick a theme</span></span>
+<span id="cb48-10"><a href="#cb48-10"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> </span>
+<span id="cb48-11"><a href="#cb48-11"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span> <span class="co"># need to move this part to the end otherwise the `theme_*` overrides it</span></span>
+<span id="cb48-12"><a href="#cb48-12"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Sorting_house_wish)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="03-dataviz_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="one-continuous-variable" class="level3" data-number="3.6.3"><h3 data-number="3.6.3" class="anchored" data-anchor-id="one-continuous-variable">
 <span class="header-section-number">3.6.3</span> One continuous variable</h3>
 <section id="histogram-geom_histogram" class="level4" data-number="3.6.3.1"><h4 data-number="3.6.3.1" class="anchored" data-anchor-id="histogram-geom_histogram">
 <span class="header-section-number">3.6.3.1</span> Histogram <code>geom_histogram()</code>
@@ -1450,16 +1535,17 @@ Code for the column plot with all other changes
 <p>A histogram splits the data into “bins” (i.e., groupings displayed in a single bar). These values are plotted along the x-axis and shows the count of how many observations are in each bin along the y-axis. It’s basically a bar chart for continuous variables.</p>
 <p>Let’s have a look at the age distribution in our dataset.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="fu">ggplot</span>(hp_data, <span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
-<span id="cb49-2"><a href="#cb49-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
+</div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 2 rows containing non-finite outside the scale range
 (`stat_bin()`).</code></pre>
 </div>
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="03-dataviz_files/figure-html/unnamed-chunk-34-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-</figure>
+<div id="fig-hist" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="03-dataviz_files/figure-html/fig-hist-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.5: Default histogram</figcaption></figure>
 </div>
 </div>
 </div>
@@ -1476,7 +1562,8 @@ warning message
 <p>The warning message tell us that 2 rows were removed because they contained non-finite values outside the scale range. If you have a closer look at the data, you can spot those 2 rows as missing values.</p>
 </div>
 </div>
-<p>The default bin number is 30. Changing the number of bins (argument <code>bins</code>) can help to show more or less fine tuning in the data. Bigger numbers of bins means more finetuning. Perhaps it’s more intuitive to modify the width of each bin instead via the argument (<code>binwidth</code>). The plots below show both.</p>
+<p>The default <strong>bin number</strong> is 30 (as displayed in <a href="#fig-hist">Figure&nbsp;<span>3.5</span></a> above). Changing the number of bins (argument <code>bins</code>) can help to show more or less fine tuning in the data. Bigger numbers of bins means more finetuning.</p>
+<p>Perhaps it’s more intuitive to modify the <strong>width of each bin</strong> instead via the argument (<code>binwidth</code>). So for example <code>binwidth = 1</code> for category age would mean 1 year of age per “age group”; <code>binwidth = 5</code> would mean 5 years of age span per “age group”, etc. The plots below show modifications for both <code>bin</code> and <code>binwidth</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="co">#less finetuning</span></span>
 <span id="cb51-2"><a href="#cb51-2"></a><span class="fu">ggplot</span>(hp_data, <span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
@@ -1498,39 +1585,382 @@ Removed 2 rows containing non-finite outside the scale range (`stat_bin()`).</co
 </div>
 </div>
 </div>
-<p><strong>add some colour and a few layers</strong></p>
+<p>The <strong>warning message</strong> telling us 2 row of data were removed due to containing <code>non-finite values outside the scale range</code>. Have a look at the age column in <code>hp_data</code> to see if you can decipher the warning message.</p>
+<p>They were removed because <select class="webex-select"><option value="blank"></option>
+<option value="x">they fall outside of the plot range</option>
+<option value="answer">they contain missing values</option></select>.</p>
+<p>Colours are getting manipulated slightly differently to the barchart. Click through each tab to see how you can alter colour, axes labels, margins and breaks, and add a different theme.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="layers">
+<ul class="nav nav-tabs" role="tablist">
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Colour</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Axes labels, margins, and breaks</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Themes</a></li>
+</ul>
+<div class="tab-content" data-group="layers">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>We can change the plot colours by adding a <strong>fill argument</strong> and a <strong>colour argument</strong>. The <code>fill</code> argument manipulates the colour of the bars, and the <code>colour</code> argument changes the outline of the bars. Pay attention that they are <strong>added directly to the <code>geom_histogram</code> arguments</strong>, not the overall <code>aes()</code> like we did with the boxplot.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="fu">ggplot</span>(hp_data, <span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
+<span id="cb53-2"><a href="#cb53-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="st">"#586cfd"</span>, <span class="at">colour =</span> <span class="st">"#FC58BE"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="03-dataviz_files/figure-html/unnamed-chunk-38-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You could use hex codes for fill and color, like we used here, <code>geom_histogram(binwidth = 1, fill = "#586cfd", colour = "#FC58BE")</code>. If you want create your own colours, check out <a href="https://www.hexcolortool.com/" target="_blank">this website</a>.</p>
+<p>or</p>
+<p>You could use a pre-defined colour name <code>geom_histogram(binwidth = 1, fill = "purple", colour = "green")</code>. See a full list <a href="https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/" target="_blank">here</a></p>
+</div>
+</div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>Here we <strong>removed the label</strong> for the y axes (to show you some variety) and <strong>modified the breaks</strong>. The y axis is now displayed in increasing steps of 10 (rather than 30), and the x axis has 5-year increments rather than 10. The <code>expansion()</code> function works the same to the version we already encountered removing the gap between x axis and bars.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="fu">ggplot</span>(hp_data, <span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
+<span id="cb54-2"><a href="#cb54-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="st">"#586cfd"</span>, <span class="at">colour =</span> <span class="st">"#FC58BE"</span>) <span class="sc">+</span></span>
+<span id="cb54-3"><a href="#cb54-3"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Age (in years)"</span>, <span class="co"># renaming x axis label</span></span>
+<span id="cb54-4"><a href="#cb54-4"></a>       <span class="at">y =</span> <span class="st">""</span>) <span class="sc">+</span> <span class="co"># removing the y axis label</span></span>
+<span id="cb54-5"><a href="#cb54-5"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb54-6"><a href="#cb54-6"></a>    <span class="co"># remove the space below the bars (first number), but keep a tiny bit (5%) above (second number)</span></span>
+<span id="cb54-7"><a href="#cb54-7"></a>    <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.05</span>)),</span>
+<span id="cb54-8"><a href="#cb54-8"></a>    <span class="co"># changing break points on y axis</span></span>
+<span id="cb54-9"><a href="#cb54-9"></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">120</span>, <span class="at">by =</span> <span class="dv">10</span>),</span>
+<span id="cb54-10"><a href="#cb54-10"></a>  ) <span class="sc">+</span></span>
+<span id="cb54-11"><a href="#cb54-11"></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb54-12"><a href="#cb54-12"></a>    <span class="co"># changing break points on x axis</span></span>
+<span id="cb54-13"><a href="#cb54-13"></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">10</span>, <span class="at">to =</span> <span class="dv">70</span>, <span class="at">by =</span> <span class="dv">5</span>),</span>
+<span id="cb54-14"><a href="#cb54-14"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="03-dataviz_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<p>Let’s experiment with the themes. For this plot we have chosen <code>theme_bw()</code></p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1"></a><span class="fu">ggplot</span>(hp_data, <span class="fu">aes</span>(<span class="at">x =</span> age)) <span class="sc">+</span></span>
+<span id="cb55-2"><a href="#cb55-2"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="st">"#586cfd"</span>, <span class="at">colour =</span> <span class="st">"#FC58BE"</span>) <span class="sc">+</span></span>
+<span id="cb55-3"><a href="#cb55-3"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Age (in years)"</span>,</span>
+<span id="cb55-4"><a href="#cb55-4"></a>       <span class="at">y =</span> <span class="st">""</span>) <span class="sc">+</span></span>
+<span id="cb55-5"><a href="#cb55-5"></a>  <span class="fu">scale_y_continuous</span>(</span>
+<span id="cb55-6"><a href="#cb55-6"></a>    <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.05</span>)),</span>
+<span id="cb55-7"><a href="#cb55-7"></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">120</span>, <span class="at">by =</span> <span class="dv">10</span>),</span>
+<span id="cb55-8"><a href="#cb55-8"></a>  ) <span class="sc">+</span></span>
+<span id="cb55-9"><a href="#cb55-9"></a>  <span class="fu">scale_x_continuous</span>(</span>
+<span id="cb55-10"><a href="#cb55-10"></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">10</span>, <span class="at">to =</span> <span class="dv">70</span>, <span class="at">by =</span> <span class="dv">5</span>),</span>
+<span id="cb55-11"><a href="#cb55-11"></a>  ) <span class="sc">+</span></span>
+<span id="cb55-12"><a href="#cb55-12"></a>  <span class="co"># pick a theme</span></span>
+<span id="cb55-13"><a href="#cb55-13"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="03-dataviz_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section></section><section id="one-continuous-and-one-categorical-grouping-variable" class="level3" data-number="3.6.4"><h3 data-number="3.6.4" class="anchored" data-anchor-id="one-continuous-and-one-categorical-grouping-variable">
 <span class="header-section-number">3.6.4</span> One continuous and one categorical grouping variable</h3>
-<section id="section" class="level4" data-number="3.6.4.1"><h4 data-number="3.6.4.1" class="anchored" data-anchor-id="section">
-<span class="header-section-number">3.6.4.1</span> </h4>
-<p>Have one with char and one with numbers factors are important</p>
-<p>dodged histogram or better facet</p>
-<p>violin plot</p>
-<p>boxplot</p>
-<p>violin-boxplot</p>
-<p>For ordinal rating scale: overplotting with geom_point. Use geom_jitter instead - tab you can also change the size of the dot and the transparency</p>
+<section id="boxplot" class="level4" data-number="3.6.4.1"><h4 data-number="3.6.4.1" class="anchored" data-anchor-id="boxplot">
+<span class="header-section-number">3.6.4.1</span> Boxplot</h4>
+</section></section><section id="activity-6-recreating-a-boxplot-from-jakob-et-al.-2019" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="activity-6-recreating-a-boxplot-from-jakob-et-al.-2019">Activity 6: Recreating a boxplot from Jakob et al.&nbsp;(2019)</h3>
+<p>Let’s try something different for the boxplot. Figure 1 in the paper shows a boxplot for the Personality traits across Houses. See below:</p>
+<p><img src="images/Jakob_boxplot.PNG" class="img-fluid"></p>
+<p>Let’s see if we can actually re-create this plot.</p>
+<section id="step-1-create-a-default-boxplot" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="step-1-create-a-default-boxplot">Step 1: create a default boxplot</h4>
+<p><code>Personality Traits</code> is on the x axis and some sort of <code>average Score</code> is in the y axis. But hang on, They combined the Big 5 personality traits and the ones from the Dark Triads questionnaire. Hmmm. Our data doesn’t look like that yet. Our values are scattered across 3 different dataframes. The personality data we need are in <code>summary_IPIP</code> the Dark Triad data are in <code>summary_SD</code>, and the information about the which house the participants got sorted into is in <code>hp_data</code>.</p>
+<section id="pre-steps" class="level5 unnumbered"><h5 class="unnumbered anchored" data-anchor-id="pre-steps">Pre-Steps</h5>
+<p>Try to wrangle the data according to the steps below before looking at the solution.</p>
+<ol type="1">
+<li>We need information of the participant and which house they were sorted into. Think about where we would find the information and how to isolate it. Tidy that data up. Remember, there were participants who were sorted into more than one house, and we need to filter them out again.</li>
+<li>combine the data from <code>summary_IPIP</code> and <code>summary_SD</code>. Think about what join to use to keep information from both dataframes. After this step, we should have 3 columns and 8 scores per participant. (hint: pay attention to the Score column names in both dataframes - this can be addressed in a variety of ways)</li>
+<li>We need to merge the output from 2. with the demographics we extracted in step 1.</li>
+<li>We also need to change one of the column names to “Score” if you have not addressed this in a previous step</li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution to the data wrangling steps
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Are you sure you want to reveal the solution?
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="co"># 1. select PP_ID and selected_house from hp_data</span></span>
+<span id="cb56-2"><a href="#cb56-2"></a>demog <span class="ot">&lt;-</span> hp_data <span class="sc">%&gt;%</span> </span>
+<span id="cb56-3"><a href="#cb56-3"></a>  <span class="fu">select</span>(PP_ID, Sorting_house) <span class="sc">%&gt;%</span> </span>
+<span id="cb56-4"><a href="#cb56-4"></a>  <span class="co"># use filter to focus on the people who selected 1 house only</span></span>
+<span id="cb56-5"><a href="#cb56-5"></a>  <span class="fu">filter</span>(Sorting_house <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Gryffindor"</span>, <span class="st">"Hufflepuff"</span>, <span class="st">"Ravenclaw"</span>, <span class="st">"Slytherin"</span>))</span>
+<span id="cb56-6"><a href="#cb56-6"></a></span>
+<span id="cb56-7"><a href="#cb56-7"></a><span class="co"># 2. combine the data from summary_IPIP and summary_SD</span></span>
+<span id="cb56-8"><a href="#cb56-8"></a>personality <span class="ot">&lt;-</span> <span class="fu">full_join</span>(summary_IPIP, summary_SD, <span class="at">by =</span> <span class="fu">join_by</span>(PP_ID, Dimension, IPIP_score <span class="sc">==</span> SD_score)) <span class="sc">%&gt;%</span> </span>
+<span id="cb56-9"><a href="#cb56-9"></a>  </span>
+<span id="cb56-10"><a href="#cb56-10"></a><span class="co"># 3. merge personality with demog</span></span>
+<span id="cb56-11"><a href="#cb56-11"></a>  <span class="fu">full_join</span>(demog) <span class="sc">%&gt;%</span> </span>
+<span id="cb56-12"><a href="#cb56-12"></a></span>
+<span id="cb56-13"><a href="#cb56-13"></a><span class="co"># 4. change column name to Score</span></span>
+<span id="cb56-14"><a href="#cb56-14"></a>  <span class="fu">rename</span>(<span class="at">Score =</span> IPIP_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(PP_ID)`</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Now we can start out default boxplot</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> personality, <span class="fu">aes</span>(<span class="at">x =</span> Dimension, <span class="at">y =</span> Score, <span class="at">fill =</span> Sorting_house)) <span class="sc">+</span></span>
+<span id="cb58-2"><a href="#cb58-2"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="03-dataviz_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section></section><section id="step-2-change-the-colours" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="step-2-change-the-colours">Step 2: change the colours</h4>
+<p>We are still using the Hex colours defined by the Jakob et al.&nbsp;(2019).</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> personality, <span class="fu">aes</span>(<span class="at">x =</span> Dimension, <span class="at">y =</span> Score, <span class="at">fill =</span> Sorting_house)) <span class="sc">+</span></span>
+<span id="cb59-2"><a href="#cb59-2"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span> </span>
+<span id="cb59-3"><a href="#cb59-3"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">'#7F0909'</span>, <span class="st">'#f0c75e'</span>, <span class="st">'#08245e'</span>, <span class="st">'#2a623d'</span>)) <span class="co"># change colours</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="03-dataviz_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="step-3-the-colours-look-too-strong-and-legend-is-in-the-wrong-position-and-does-not-want-a-category-label" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="step-3-the-colours-look-too-strong-and-legend-is-in-the-wrong-position-and-does-not-want-a-category-label">Step 3: the colours look too strong, and legend is in the wrong position and does not want a category label</h4>
+<ul>
+<li>To mute the colours slightly, we can define alpha within the <code>geom_boxplot()</code> making the plot colours more transparent. This took a bit of trial and error, but I think we are good with an alpha value of around .75 (or at least one my screen).</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> personality, <span class="fu">aes</span>(<span class="at">x =</span> Dimension, <span class="at">y =</span> Score, <span class="at">fill =</span> Sorting_house)) <span class="sc">+</span></span>
+<span id="cb60-2"><a href="#cb60-2"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.75</span>) <span class="sc">+</span> <span class="co"># add alpha here</span></span>
+<span id="cb60-3"><a href="#cb60-3"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">'#7F0909'</span>, <span class="st">'#f0c75e'</span>, <span class="st">'#08245e'</span>, <span class="st">'#2a623d'</span>),</span>
+<span id="cb60-4"><a href="#cb60-4"></a>                    <span class="at">name =</span> <span class="st">""</span>) <span class="sc">+</span> <span class="co"># delete the fill variable's title</span></span>
+<span id="cb60-5"><a href="#cb60-5"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="03-dataviz_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section><section id="step-4-remove-grey-background-the-x-axis-needs-attention-and-they-have-a-plot-title-included" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="step-4-remove-grey-background-the-x-axis-needs-attention-and-they-have-a-plot-title-included">Step 4: Remove grey background, the x axis needs attention and they have a plot title included</h4>
+<p>Looks like <code>theme_classic()</code> to me. Remember we have to add <code>theme_classic()</code> before moving the <code>legend.position</code>, otherwise the legend will be back on the right.</p>
+<p>The x axis has the wrong label and we need to replace some of the names as they are too long and the original authors abbreviated them. Relabelling the x axis title should be straightforward by now.</p>
+<p>But what about the labels of the categories? Here, we can just add an argument to <code>scale_x_discrete()</code> that relabels the categories. This is all working because they are ordered alphabetically. For orders that you want to have displayed non-alphabetically, you might need to change the character variable into a factor in the data frame and re-order the labels there before plotting <strong><em>[add cross-ref for chapter 2]</em></strong>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> personality, <span class="fu">aes</span>(<span class="at">x =</span> Dimension, <span class="at">y =</span> Score, <span class="at">fill =</span> Sorting_house)) <span class="sc">+</span></span>
+<span id="cb61-2"><a href="#cb61-2"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span> <span class="co"># add alpha here</span></span>
+<span id="cb61-3"><a href="#cb61-3"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">'#7F0909'</span>, <span class="st">'#f0c75e'</span>, <span class="st">'#08245e'</span>, <span class="st">'#2a623d'</span>),</span>
+<span id="cb61-4"><a href="#cb61-4"></a>                    <span class="at">name =</span> <span class="st">""</span>) <span class="sc">+</span> <span class="co"># delete the fill variable's title</span></span>
+<span id="cb61-5"><a href="#cb61-5"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Personality Traits"</span>,</span>
+<span id="cb61-6"><a href="#cb61-6"></a>                   <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Agreeabl."</span>, <span class="st">"Conscient."</span>, <span class="st">"EmStability"</span>, <span class="st">"Extraversion"</span>, <span class="st">"Intellect"</span>, <span class="st">"Machiav."</span>, <span class="st">"Narcissism"</span>, <span class="st">"Psychopathy"</span>)) <span class="sc">+</span></span>
+<span id="cb61-7"><a href="#cb61-7"></a>  <span class="fu">ggtitle</span>(<span class="st">"Personality Traits across Houses"</span>) <span class="sc">+</span></span>
+<span id="cb61-8"><a href="#cb61-8"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="co"># remove grey background</span></span>
+<span id="cb61-9"><a href="#cb61-9"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>,</span>
+<span id="cb61-10"><a href="#cb61-10"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="co"># centers the title (took quite a bit of digging how to do that)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-recreated" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="03-dataviz_files/figure-html/fig-recreated-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.7: Recreated boxplot</figcaption></figure>
+</div>
+</div>
+</div>
+<p>Looks about right.Maybe the outlier points are a bit bigger in the original plot, but I think we can let that slide.</p>
+</section><section id="violin-boxplots" class="level4" data-number="3.6.4.2"><h4 data-number="3.6.4.2" class="anchored" data-anchor-id="violin-boxplots">
+<span class="header-section-number">3.6.4.2</span> Violin-boxplots</h4>
+<p>rewrite: PVQ data by categories and for faceting, merge with demog so we get the information about the houses participants were sorted into. We already created demog in one of the steps above, so we can reuse it straight away to join house information onto summary_PVQ</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a>summary_PVQ <span class="ot">&lt;-</span> <span class="fu">left_join</span>(summary_PVQ, demog) <span class="sc">%&gt;%</span> </span>
+<span id="cb62-2"><a href="#cb62-2"></a>  <span class="fu">drop_na</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Joining with `by = join_by(PP_ID)`</code></pre>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> summary_PVQ, <span class="fu">aes</span>(<span class="at">x =</span> Dimension, <span class="at">y =</span> PVQ_score)) <span class="sc">+</span></span>
+<span id="cb64-2"><a href="#cb64-2"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb64-3"><a href="#cb64-3"></a>  <span class="fu">geom_boxplot</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-vb" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="03-dataviz_files/figure-html/fig-vb-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.8: default Violin boxplot</figcaption></figure>
+</div>
+</div>
+</div>
+<p>Let’s see if we can make this plot pretty. We could</p>
+<ul>
+<li>change the colour</li>
+<li>change the width of the boxes. at the moment they are covering the violins</li>
+<li>change the axes labels</li>
+<li>change the breaks on the y axis</li>
+<li>set the limits on the y axis from 0 to 6</li>
+<li>dodge the axis labels on the x axis so they so they don’t overlap</li>
+<li>change the theme to classic</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> summary_PVQ, <span class="fu">aes</span>(<span class="at">x =</span> Dimension, <span class="at">y =</span> PVQ_score, <span class="at">fill =</span> Dimension)) <span class="sc">+</span></span>
+<span id="cb65-2"><a href="#cb65-2"></a>  <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> <span class="co"># alpha changes transparency</span></span>
+<span id="cb65-3"><a href="#cb65-3"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.25</span>) <span class="sc">+</span> <span class="co"># change the width of the boxes</span></span>
+<span id="cb65-4"><a href="#cb65-4"></a>  <span class="fu">scale_fill_viridis_d</span>(<span class="at">guide =</span> <span class="st">"none"</span>, <span class="co"># remove the legend</span></span>
+<span id="cb65-5"><a href="#cb65-5"></a>                       <span class="at">option =</span> <span class="st">"plasma"</span>) <span class="sc">+</span> <span class="co"># changes colour scheme to viridis option plasma</span></span>
+<span id="cb65-6"><a href="#cb65-6"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"PVQ Score"</span>, <span class="co"># change y axis label</span></span>
+<span id="cb65-7"><a href="#cb65-7"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">6</span>, <span class="at">by =</span> <span class="dv">1</span>), <span class="co"># change the breaks ticks on the y axis</span></span>
+<span id="cb65-8"><a href="#cb65-8"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6</span>)) <span class="sc">+</span> <span class="co"># min = 0, max = 6</span></span>
+<span id="cb65-9"><a href="#cb65-9"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Human Values"</span>,</span>
+<span id="cb65-10"><a href="#cb65-10"></a>                   <span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge =</span> <span class="dv">2</span>)) <span class="sc">+</span> <span class="co"># want display labels in 2 rows</span></span>
+<span id="cb65-11"><a href="#cb65-11"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-vb_pretty" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="03-dataviz_files/figure-html/fig-vb_pretty-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.9: Pretty violin boxplot</figcaption></figure>
+</div>
+</div>
+</div>
+<p>If we wanted to <strong>add another grouping variable</strong> to the mix, for example, Sorting_house, we can use <code>facet_wrap()</code> to create a separate plot for each level of variable we are separating by (in this case Dimension). For clarity, we should …</p>
+<ul>
+<li>re-define <code>x = Sorting_house</code>
+</li>
+<li>change the fill variable - it makes more sense to have Sorting_house there</li>
+<li>adjust the x axis label</li>
+</ul>
+<p>… so our plot shows a better comparison how the 4 houses compare for each human value dimension.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> summary_PVQ, <span class="fu">aes</span>(<span class="at">x =</span> Sorting_house, <span class="at">y =</span> PVQ_score, <span class="at">fill =</span> Sorting_house)) <span class="sc">+</span></span>
+<span id="cb66-2"><a href="#cb66-2"></a>  <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> <span class="co"># alpha changes transparency</span></span>
+<span id="cb66-3"><a href="#cb66-3"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.25</span>) <span class="sc">+</span> <span class="co"># change the width of the boxes</span></span>
+<span id="cb66-4"><a href="#cb66-4"></a>  <span class="fu">scale_fill_viridis_d</span>(<span class="at">guide =</span> <span class="st">"none"</span>, <span class="co"># remove the legend</span></span>
+<span id="cb66-5"><a href="#cb66-5"></a>                       <span class="at">option =</span> <span class="st">"plasma"</span>) <span class="sc">+</span> <span class="co"># changes colour scheme to viridis option plasma</span></span>
+<span id="cb66-6"><a href="#cb66-6"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"PVQ Score"</span>, <span class="co"># change y axis label</span></span>
+<span id="cb66-7"><a href="#cb66-7"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">0</span>, <span class="at">to =</span> <span class="dv">6</span>, <span class="at">by =</span> <span class="dv">1</span>), <span class="co"># change the breaks ticks on the y axis</span></span>
+<span id="cb66-8"><a href="#cb66-8"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">6</span>)) <span class="sc">+</span> <span class="co"># min = 0, max = 6</span></span>
+<span id="cb66-9"><a href="#cb66-9"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Houses sorted into"</span>,</span>
+<span id="cb66-10"><a href="#cb66-10"></a>                   <span class="at">guide =</span> <span class="fu">guide_axis</span>(<span class="at">n.dodge =</span> <span class="dv">2</span>)) <span class="sc">+</span> <span class="co"># want display labels in 2 rows</span></span>
+<span id="cb66-11"><a href="#cb66-11"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb66-12"><a href="#cb66-12"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> Dimension) <span class="sc">+</span> <span class="co"># I want them in all on an individual rows otherwise their labels overlap again</span></span>
+<span id="cb66-13"><a href="#cb66-13"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="co"># move legend to the bottom</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="fig-vb_pretty_facet" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="03-dataviz_files/figure-html/fig-vb_pretty_facet-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Figure&nbsp;3.10: Pretty violin boxplot with facet_wrap</figcaption></figure>
+</div>
+</div>
+</div>
 </section></section><section id="two-continuous" class="level3" data-number="3.6.5"><h3 data-number="3.6.5" class="anchored" data-anchor-id="two-continuous">
 <span class="header-section-number">3.6.5</span> Two continuous</h3>
 <p>scatterplot</p>
 <p>trendlines straight line vs loess</p>
-<p>show them next to each other like Lisa has</p>
+</section></section><section id="save-your-plots" class="level2" data-number="3.7"><h2 data-number="3.7" class="anchored" data-anchor-id="save-your-plots">
+<span class="header-section-number">3.7</span> Save your plots</h2>
+<p>You can save your figures with the function <code>ggsave()</code>. It will save to your project folder</p>
+<p>There are two ways you can use <code>ggsave()</code>. If you don’t tell <code>ggsave()</code> which plot you want to save, by <strong>default</strong> it will <strong>save the last plot you created</strong>. If you have followed the steps above, your last plot would be the scatterplot from <span class="quarto-unresolved-ref">?fig-scatter</span></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a>lm_plot <span class="ot">&lt;-</span> </span>
-<span id="cb53-2"><a href="#cb53-2"></a>  <span class="fu">ggplot</span>(survey_data, <span class="fu">aes</span>(<span class="at">x =</span> wait_time, <span class="at">y =</span> call_time)) <span class="sc">+</span></span>
-<span id="cb53-3"><a href="#cb53-3"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb53-4"><a href="#cb53-4"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm, <span class="at">formula =</span> y<span class="sc">~</span>x) <span class="sc">+</span></span>
-<span id="cb53-5"><a href="#cb53-5"></a>  <span class="fu">ggtitle</span>(<span class="st">"method = lm"</span>)</span>
-<span id="cb53-6"><a href="#cb53-6"></a></span>
-<span id="cb53-7"><a href="#cb53-7"></a>loess_plot <span class="ot">&lt;-</span> </span>
-<span id="cb53-8"><a href="#cb53-8"></a>  <span class="fu">ggplot</span>(survey_data, <span class="fu">aes</span>(<span class="at">x =</span> wait_time, <span class="at">y =</span> call_time)) <span class="sc">+</span></span>
-<span id="cb53-9"><a href="#cb53-9"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb53-10"><a href="#cb53-10"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> loess, <span class="at">formula =</span> y<span class="sc">~</span>x) <span class="sc">+</span></span>
-<span id="cb53-11"><a href="#cb53-11"></a>  <span class="fu">ggtitle</span>(<span class="st">"method = loess"</span>)</span>
-<span id="cb53-12"><a href="#cb53-12"></a></span>
-<span id="cb53-13"><a href="#cb53-13"></a>lm_plot <span class="sc">+</span> loess_plot</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">"scatterplot.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section><section id="activity-x-saving-the-figure" class="level2" data-number="3.7"><h2 data-number="3.7" class="anchored" data-anchor-id="activity-x-saving-the-figure">
-<span class="header-section-number">3.7</span> Activity X: Saving the figure</h2>
+<p>The second option is to save a plot as an object. As an example, let’s save the boxplot we recreated from Jakob et al.&nbsp;(2019) above (<a href="#fig-recreated">Figure&nbsp;<span>3.7</span></a>) as an object called <code>recreated_boxplot</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1"></a>recreated_boxplot <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(<span class="at">data =</span> personality, <span class="fu">aes</span>(<span class="at">x =</span> Dimension, <span class="at">y =</span> Score, <span class="at">fill =</span> Sorting_house)) <span class="sc">+</span></span>
+<span id="cb68-2"><a href="#cb68-2"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span> <span class="co"># add alpha here</span></span>
+<span id="cb68-3"><a href="#cb68-3"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">'#7F0909'</span>, <span class="st">'#f0c75e'</span>, <span class="st">'#08245e'</span>, <span class="st">'#2a623d'</span>),</span>
+<span id="cb68-4"><a href="#cb68-4"></a>                    <span class="at">name =</span> <span class="st">""</span>) <span class="sc">+</span> <span class="co"># delete the fill variable's title</span></span>
+<span id="cb68-5"><a href="#cb68-5"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Personality Traits"</span>,</span>
+<span id="cb68-6"><a href="#cb68-6"></a>                   <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Agreeabl."</span>, <span class="st">"Conscient."</span>, <span class="st">"EmStability"</span>, <span class="st">"Extraversion"</span>, <span class="st">"Intellect"</span>, <span class="st">"Machiav."</span>, <span class="st">"Narcissism"</span>, <span class="st">"Psychopathy"</span>)) <span class="sc">+</span></span>
+<span id="cb68-7"><a href="#cb68-7"></a>  <span class="fu">ggtitle</span>(<span class="st">"Personality Traits across Houses"</span>) <span class="sc">+</span></span>
+<span id="cb68-8"><a href="#cb68-8"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> <span class="co"># remove grey background</span></span>
+<span id="cb68-9"><a href="#cb68-9"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"top"</span>,</span>
+<span id="cb68-10"><a href="#cb68-10"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>)) <span class="co"># centers the title (took quite a bit of digging how to do that)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Then you run the line</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">"recreated_boxplot.png"</span>, </span>
+<span id="cb69-2"><a href="#cb69-2"></a>       <span class="at">plot =</span> recreated_boxplot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Saving 7 x 5 in image</code></pre>
+</div>
+</div>
+<p>Filename is the name you want your png to be called, plot refers to the object name.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Our saved <code>recreated_boxplot.png</code> would look like this:
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><img src="recreated_boxplot.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<p>That is with default settings. If you like it, keep it, but if you think it looks a bit “stretched”, you can specify the width, the height, and the units (e.g., “cm”, “mm”, “in”, “px” are possible). You might need to play about with the dimension before it feels right.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">"recreated_boxplot2.png"</span>, </span>
+<span id="cb71-2"><a href="#cb71-2"></a>       <span class="at">plot =</span> recreated_boxplot, </span>
+<span id="cb71-3"><a href="#cb71-3"></a>       <span class="at">width =</span> <span class="dv">16</span>, <span class="at">height =</span> <span class="dv">8</span>, <span class="at">units =</span> <span class="st">"cm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+png with different dimensions
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><img src="recreated_boxplot2.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</section><section id="pair-coding-in-the-lab" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="pair-coding-in-the-lab"><span style="color: #EBA347; text-transform: uppercase;">Pair-coding in the lab</span></h2>
+<p>Provide a barchart, a violin-boxplot, and a scatterplot from the loneliness data and the students have to try and recreate one of those in the lab. If they are overly fast, they can do the other 2.</p>
+</section><section id="test-your-knowledge" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="test-your-knowledge"><span style="color: #EBA347; text-transform: uppercase;">Test your knowledge</span></h2>
+<p>Which plot would you choose for</p>
 
 
 </section></main><!-- /main --><script>
