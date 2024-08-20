@@ -1693,6 +1693,7 @@ Tip
 <li>combine the data from <code>summary_IPIP</code> and <code>summary_SD</code>. Think about what join to use to keep information from both dataframes. After this step, we should have 3 columns and 8 scores per participant. (hint: pay attention to the Score column names in both dataframes - this can be addressed in a variety of ways)</li>
 <li>We need to merge the output from 2. with the demographics we extracted in step 1.</li>
 <li>We also need to change one of the column names to “Score” if you have not addressed this in a previous step</li>
+<li>Drop missing values</li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
@@ -1732,7 +1733,10 @@ Are you sure you want to reveal the solution?
 <span id="cb56-11"><a href="#cb56-11"></a>  <span class="fu">full_join</span>(demog) <span class="sc">%&gt;%</span> </span>
 <span id="cb56-12"><a href="#cb56-12"></a></span>
 <span id="cb56-13"><a href="#cb56-13"></a><span class="co"># 4. change column name to Score</span></span>
-<span id="cb56-14"><a href="#cb56-14"></a>  <span class="fu">rename</span>(<span class="at">Score =</span> IPIP_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb56-14"><a href="#cb56-14"></a>  <span class="fu">rename</span>(<span class="at">Score =</span> IPIP_score) <span class="sc">%&gt;%</span> </span>
+<span id="cb56-15"><a href="#cb56-15"></a></span>
+<span id="cb56-16"><a href="#cb56-16"></a><span class="co"># 5. drop NA</span></span>
+<span id="cb56-17"><a href="#cb56-17"></a>  <span class="fu">drop_na</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Joining with `by = join_by(PP_ID)`</code></pre>
 </div>

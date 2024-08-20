@@ -867,7 +867,7 @@ Try to wrangle the data according to the steps below before looking at the solut
 2.  combine the data from `summary_IPIP` and `summary_SD`. Think about what join to use to keep information from both dataframes. After this step, we should have 3 columns and 8 scores per participant. (hint: pay attention to the Score column names in both dataframes - this can be addressed in a variety of ways)
 3.  We need to merge the output from 2. with the demographics we extracted in step 1.
 4.  We also need to change one of the column names to "Score" if you have not addressed this in a previous step
-  
+5.  Drop missing values
 
 ::: {.callout-note collapse="true"}
 ## Solution to the data wrangling steps
@@ -889,7 +889,10 @@ personality <- full_join(summary_IPIP, summary_SD, by = join_by(PP_ID, Dimension
   full_join(demog) %>% 
 
 # 4. change column name to Score
-  rename(Score = IPIP_score)
+  rename(Score = IPIP_score) %>% 
+
+# 5. drop NA
+  drop_na()
   
 ```
 :::
