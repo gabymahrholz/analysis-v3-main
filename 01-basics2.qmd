@@ -231,3 +231,78 @@ Data is messy, especially in a raw format (i.e., when you download it straight f
 I've modified the data for today slightly, to build in some challenges that you would experience when dealing with raw data, but tbh, the data we are looking at today is pretty tidy.
 
 Getting an understanding of what your data currently looks like and being aware of what your data structure needs to be (e.g., for calculating descriptives, running inferential stats or plotting) is the first step of thinking about the processing steps of how to get your data from A to B.
+
+
+
+
+:::{.quiz}
+
+::::{.quiz-header}
+:::::{.quiz-icon}
+:::::
+This is my test solution
+::::
+
+::::{.quiz-body}
+And some content inside of it
+::::
+
+:::
+
+
+
+:::{.goals collapse="true"}
+::::{.goals-header}
+:::::{.goals-icon}
+:::::
+Learning Goals
+::::
+::::{.goals-container}
+* Know how to make your own callouts.
+* Be able to mess with some SCSS/CSS styling.
+::::
+:::
+
+
+
+:::{.quiz}
+
+::::{.quiz-header}
+:::::{.quiz-icon}
+:::::
+Quiz
+::::
+
+::::{.quiz-body}
+* Know how to make your own callouts.
+* Be able to mess with some SCSS/CSS styling.
+::::
+
+:::
+
+
+::: {.callout-note icon=false appearance="simple" collapse="true"}
+## heading simple
+
+text
+
+:::
+
+
+::: {.callout-note icon=false appearance="minimal" collapse="true"}
+## heading minimal
+
+text
+
+:::
+
+::: {.callout-note icon="false" collapse="true"}
+## heading default
+
+text
+
+:::
+
+
+
+str_detect(Items, "_R") ~ 8-Scores,

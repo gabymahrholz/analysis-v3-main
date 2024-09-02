@@ -1,11 +1,11 @@
-# Correlations
+# Correlations {#sec-cor}
 
 ## Intended Learning Outcomes {.unnumbered}
 
 By the end of this chapter you should be able to:
 
 
-## [Individual Walkthrough]{style="color: #EBA347; text-transform: uppercase;"} {.unnumbered}
+## [Individual Walkthrough]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
 
 ## Activity 1: Setup
 
@@ -23,9 +23,13 @@ By the end of this chapter you should be able to:
 * Look at the codebook and the variables
 
 
-## Activity 3
+## Activity 3: Load in the library, read in the data and familiarise yourself with the data
 
 
 ## Assumption tests
 
 https://cran.r-project.org/web/packages/ggExtra/vignettes/ggExtra.html
+
+
+Spearman’s Rank correlation: This is equivalent to Pearson’s correlation—it tests for an association between two variables.
+https://tuos-bio-data-skills.github.io/intro-stats-book/non-parametric-tests.html

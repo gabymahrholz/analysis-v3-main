@@ -1,11 +1,11 @@
-# Factorial ANOVA
+# Factorial ANOVA {#sec-factorial}
 
 ## Intended Learning Outcomes {.unnumbered}
 
 By the end of this chapter you should be able to:
 
 
-## [Individual Walkthrough]{style="color: #EBA347; text-transform: uppercase;"} {.unnumbered}
+## [Individual Walkthrough]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
 
 ## Activity 1: Setup
 

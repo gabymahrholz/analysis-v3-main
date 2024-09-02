@@ -1,75 +1,893 @@
 # Data wrangling {#sec-wrangling}
 
-https://allisonhorst.com/r-packages-functions
+## Intended Learning Outcomes {.unnumbered}
 
-## Data Wrangling
+In this chapter, we are building upon the skills from level 1, bringing together all of the functions you already encountered (and probably forgotten over the summer break) with perhaps introducing 2 or 3 new functions. It's as much a revision chapter as well as providing an opportunity to apply the functions to a novel dataset.
 
-The basic ones are the **Wickham 6** that you've encountered already last year
+By the end of this chapter you should be able to:
 
-table of the Wickham 6 refer them back to the different chapters where they encountered it in level 1
+-   apply familiar data wrangling functions to novel datasets
+-   read and interpret error messages
+-   realise there are several ways of getting to the results 
 
-| Function    | Description                                                | First introduced in Level 1 Chapter                                                                                               |
-|:-----------------|:----------------------------------|:------------------|
-| select()    | Include or exclude certain variables (columns)             | [Chapter 6.5](https://psyteachr.github.io/data-skills-v2/corsi-blocks-2.html#activity-3-selecting-variables){target="_blank"}     |
-| filter()    | Include or exclude certain observations/data (rows)        | [Chapter 6.6](https://psyteachr.github.io/data-skills-v2/corsi-blocks-2.html#activity-4-filtering-observations){target="_blank"}  |
-| mutate()    | Creates new variables (columns)                            | [Chapter 8.8](https://psyteachr.github.io/data-skills-v2/belonging-2.html?q=mutate#activity-5-mutate-and-recode){target="_blank"} |
-| arrange()   | Changes the order of observations (rows)                   | not yet introduced                                                                                                                |
-| group_by()  | Organises the observations (rows) into groups              | [Chapter 3.5.3](https://psyteachr.github.io/data-skills-v2/stroop-2.html#summarising-by-groups){target="_blank"}                  |
-| summarise() | Create summary variables for groups of observations (rows) | [Chapter 3.5.2](https://psyteachr.github.io/data-skills-v2/stroop-2.html#calculating-summary-statistics){target="_blank"}         |
+## [Individual Walkthrough]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
 
-### Brief recap of the Wickham 6
+The main purpose of this chapter is to wrangle your data into shape for data visualisation (@sec-dataviz and @sec-dataviz2). Here, we will: 
 
-#### select
+1. calculate demographics
+2. tidy 3 different questionnaires with varying degree of complexity
+3. solve an error mode problem
+4. join all data objects together
 
-Massive dataframes use a lot of computing power - to reduce that, it would be worth focussing on the columns you need
 
-selecting variables - you can rename them too if you don't like the column name as is
+But first, we need to set up some things.
 
-if you wanna rename something at a later stage, use rename. Works in the same manner as select as in new name = old name. --\> This could be in an information box
+## Activity 1: Setup
 
-deselecting deselecting multiple variables
+* We will be working on the **dataset by Pownall et al. (2023)** again, which means we can still use the project we created last week. The data files will already be there, so no need to download them again.
+* To **open the project** in RStudio, go to the folder in which you stored the project and the data last time, and double click on the project icon.
+* **Create a new Rmd** for chapter 2 and save it to your project folder. Name it something meaningful (e.g., “chapter_02”, “02_data_wrangling.Rmd”). See @sec-rmd if you need some guidance.
+* In your newly created Rmd file, delete everything below line 12 (after the set-up code chunk).
 
-#### filter
 
-text - one condition vs more than one condition numbers - smaller/ larger
+## Activity 2: Load in the libraries and read in the data
 
-#### arrange
+We will use `tidyverse` today, and we want to create a data object `data_prp` that stores the data from the file `prp_data_reduced.csv`.
 
-ascending, descending - NAs will always listed at the end regardless
+::: {.callout-note collapse="true" icon="false"}
 
-factors - sorting data in a preferred way
+## Hint
 
-#### mutate
-
-Allison's drawing
-
-#### group_by & summarise
-
-## Tidy data
-
-copied from Lisa
-
-## Data types and what are observations/ variables
-
-::: callout-caution
-## Do not factor numbers
-
-If you factor numeric data, it gets converted to the integers 1 to the number of unique values, no matter what the values are. Additionally, you can no longer use the values as numbers, such as calculating the mean.
-
-```{r, warning=TRUE, filename="Example"}
-x <- c(-3, 0, .5)  # numeric vector
-f <- factor(x)     # convert to factor
-x == as.numeric(f) # does not convert back to numeric 
+```{r eval=FALSE}
+library(???)
+data_prp <- read_csv("???")
 ```
 
-```{r, warning=TRUE, filename="You cannot average a factor"}
-m <- mean(f)
+```{r include=FALSE, message=TRUE}
+## I basically have to have 2 code chunks since I tell them to put the data files next to the project, and mine are in a separate folder called data - unless I'll turn this into a fixed path
+library(tidyverse)
+data_prp <- read_csv("data/prp_data_reduced.csv")
+```
+
+:::
+
+
+::: {.callout-caution collapse="true" icon="false"} 
+
+## Solution 
+
+```{r eval=FALSE}
+library(tidyverse)
+data_prp <- read_csv("prp_data_reduced.csv")
+```
+
+:::
+
+If you need a quick reminder what the dataset was about, have a look at the abstract in @sec-download_data_ch1. We also addressed the changes we made to the dataset there.
+
+And remember to have a quick `glimpse()` at your data. 
+
+
+
+## Activity 3: Calculating demographics 
+
+
+Let’s start with some simple data wrangling steps to compute demographics for our original dataset, `data_prp`. First, we want to determine how many participants took part in the study by Pownall et al. (2023) and compute the mean age and the standard deviation of age for the sample.
+
+### ... for the full sample using `summarise()`
+
+The `summarise()` function is part of the **"Wickham 6"** alongside `group_by()`, `select()`, `filter()`, `mutate()`, and `arrange()`. You used them plenty of times last year.
+
+Within `summarise()`, we can use the `n()` function, which calculates the number of rows in the dataset. Since each row corresponds to a unique participant, this gives us the total number of participants.
+
+To calculate the mean age and the standard deviation of age, we need to use the functions `mean()` and `sd()` on the column `Age` respectively.
+
+```{r, error=TRUE}
+demo_total <- data_prp %>% 
+  summarise(n = n(), # participant number
+            mean_age = mean(Age), # mean age
+            sd_age = sd(Age)) # standard deviation of age
+
+demo_total
+```
+
+R did not give us an error message per se, but the output is not quite as expected either. There are `NA` values in the `mean_age` and `sd_age` columns. Looking at the warning message and at `Age`, can you explain what happened?
+
+::: {.callout-caution collapse="true" icon="false"} 
+
+## Answer
+
+The warning message says: `argument is not numeric or logical: returning NA` If we look at the `Age` column more closely, we can see that it's a character data type.
+
+:::
+
+#### Fixing `Age` {.unnumbered}
+
+Might be wise to look at the unique answers in column `Age` to determine what is wrong. We can do that with the function `distinct()`.
+
+```{r results='hide'}
+age_distinct <- data_prp %>% 
+  distinct(Age)
+
+age_distinct
+```
+
+
+::: {.callout-caution collapse="true" icon="false"}
+
+## Show the unique values of `Age`.
+
+```{r echo=FALSE}
+age_distinct
+```
+
+:::
+
+::: {.columns}
+
+::: {.column}
+
+One cell has the string "years" added to their number 25, which has converted the entire column into a character column. 
+
+We can easily fix this by extracting only the numbers from the column and converting it into a numeric data type. The `parse_number()` function, which is part of the `tidyverse` package, handles both steps in one go (so there’s no need to load additional packages)
+
+We will combine this with the `mutate()` function to create a new column called `Age` (containing those numeric values), effectively replacing the old `Age` column (which had the character values).
+
+:::
+
+
+::: {.column}
+
+![parse_number() illustration by Allison Horst (see [https://allisonhorst.com/r-packages-functions](https://allisonhorst.com/r-packages-functions){target="_blank"})](images/parse_number.png){width="95%"}
+
+:::
+
+:::
+
+```{r}
+data_prp <- data_prp %>% 
+  mutate(Age = parse_number(Age))
+
+typeof(data_prp$Age) # fixed
+```
+#### Computing summary stats {.unnumbered}
+
+Now we can try calculating the demographics for the total sample again. However, we also saw that `age_distinct` that `Age` contains some missing values (`NA`). We need R to ignore those for the calculations, so we add the extra argument `na.rm = TRUE` to the `mean()` and `sd()` functions. If we don't, we'd be back at `NA` values for those 2 columns.
+
+```{r}
+demo_total <- data_prp %>% 
+  summarise(n = n(), # participant number
+            mean_age = mean(Age, na.rm = TRUE), # mean age
+            sd_age = sd(Age, na.rm = TRUE)) # standard deviation of age
+
+demo_total
+```
+
+
+### ... per gender using `summarise()` and `group_by()`
+
+Now we want to compute the summary statistics for each gender. The code inside the `summarise()` function remains unchanged; we just need to use the `group_by()` function beforehand to tell R that we want to compute the summary statistics for each group separately. It’s also a good practice to use `ungroup()` afterward, so you are not taking groupings forward unintentionally.
+
+```{r}
+demo_by_gender <- data_prp %>% 
+  group_by(Gender) %>% # split data up into groups (here Gender)
+  summarise(n = n(), # participant number 
+            mean_age = mean(Age, na.rm = TRUE), # mean age 
+            sd_age = sd(Age, na.rm = TRUE)) %>%  # standard deviation of age
+  ungroup()
+
+demo_by_gender
+```
+
+
+### Adding percentages 
+
+Sometimes, it may be useful to calculate percentages, such as for the gender split. You can do this by adding a line within the `summarise()` function to perform the calculation. All we need to do is take the number of female, male, and non-binary participants (stored in the `n` column of `demo_by_gender`), divide it by the total number of participants (stored in the `n` column of `demo_total`), and multiply by 100. Let's add `percentage` to the `summarise()` function of `demo_by_gender`. Make sure that the code for `percentages` is placed after the value for `n` has been computed. 
+
+Accessing `n` for the different gender categories is straightforward because can refer back to it. However, since the total number of participants is in a different data object, we need to use some baseR functionality to access it - namely via the `$` operator. You just have to name the data object (here `demo_total`), then use the `$` (straight after, without any spaces), and then name the column you want to access (here `n`).
+
+```{r}
+demo_by_gender <- data_prp %>% 
+  group_by(Gender) %>% 
+  summarise(n = n(), 
+            # n from the line above divided by n from demo_total *100
+            percentage = n/demo_total$n *100, 
+            mean_age = mean(Age, na.rm = TRUE), 
+            sd_age = sd(Age, na.rm = TRUE)) %>% 
+  ungroup()
+
+demo_by_gender
+```
+
+::: {.callout-tip collapse="true"}
+
+## Tip for decimal places - use `round()`
+
+Not super important, because you could round the values by yourself when writing up your reports, but if you wanted to tidy up the decimal places in the output, you can do that using the `round()` function. You would need to "wrap" it around your computations and specify how many decimal places you want to display (for example `mean(Age)` would turn into `round(mean(Age), 1)`). It may look odd for `percentage`, just make sure the number that specifies the decimal places is placed **within** the round function. The default value is 0 (meaning no decimal spaces).
+
+```{r}
+demo_by_gender <- data_prp %>% 
+  group_by(Gender) %>% 
+  summarise(n = n(), 
+            percentage = round(n/demo_total$n *100, 2), # percentage with 2 decimal places
+            mean_age = round(mean(Age, na.rm = TRUE), 1), # mean Age with 1 decimal place
+            sd_age = round(sd(Age, na.rm = TRUE), 3)) %>% # sd Age with 3 decimal places
+  ungroup()
+
+demo_by_gender
+```
+
+:::
+
+
+## Activity 4: Questionable Research Practices (QRPs) {#sec-ch2_act4}
+
+#### The main goal is to compute the mean QRP score per participant for time point 1. {.unnumbered}
+
+Looking at the QRP data at time point 1, you determine that
+
+* individual item columns are `r mcq(c(answer = "numeric", x = "character"))`, and 
+* according to the codebook, there are `r mcq(c(answer = "no", x = "some"))` reverse-coded items in this questionnaire. 
+
+So we just have to **compute an average score for items 1 to 11** as items 12 to 15 are distractor items. Seems quite straightforward.
+
+The downside is that individual items are each in a separate column, i.e., in **wide format**, and everything would be easier if the items were arranged in **long format**.
+
+So let's tackle this problem in steps. Best would be to create a separate data object for that. If we wanted to compute this within `data_prp`, it would turn into a nightmare.
+
+* **Step 1**: select the relevant columns `Code`, and `QRPs_1_Time1` to `QRPs_1_Time1` and store them in an object called `qrp_t1`
+* **Step 2**: pivot the data from wide format to long format using `pivot_longer()` so we can calculate the average score more easily (in step 3)
+* **Step 3**: calculate the average QRP score (`QRPs_Acceptance_Time1_mean`) per participant using `group_by()` and `summarise()`
+
+```{r qrps}
+qrp_t1 <- data_prp %>% 
+  #Step 1
+  select(Code, QRPs_1_Time1:QRPs_11_Time1) %>%
+  # Step 2
+  pivot_longer(cols = -Code, names_to = "Items", values_to = "Scores") %>% 
+  # Step 3
+  group_by(Code) %>% # grouping py participant id
+  summarise(QRPs_Acceptance_Time1_mean = mean(Scores)) %>% # calculating the average Score
+  ungroup() # just make it a habit
+```
+
+
+::: {.callout-caution icon="false" collapse="true"} 
+
+## Explain the individual functions
+
+::: {.panel-tabset}
+## `select ()`
+
+The select function allows to include or exclude certain variables (columns). Here we want to focus on the participant id column (i.e., `Code`) and the QRP items at time point 1. We can either list them all individually, i.e., Code, QRPs_1_Time1, QRPs_2_Time1, QRPs_3_Time1, and so forth (you get the gist), but that would take forever to type. 
+
+A short cut would to use the colon operator `:`. It allows us to select all columns that fall within the range of `first_column_name` to `last_column_name`. We can use this here since QRP items 1 to 11 are sequentially listed in `data_prp`.
+
+```{r}
+qrp_step1 <- data_prp %>% 
+  select(Code, QRPs_1_Time1:QRPs_11_Time1)
+
+# show first 5 rows of qrp_step1
+head(qrp_step1, n = 5)
+```
+
+How many rows/observations and columns/variables do we have in `qrp_step1`?
+
+* rows/observations: `r fitb("89")`
+* columns/variables: `r fitb("12")`
+
+
+## `pivot_longer()`
+
+As you can see, the table we got from step 1 is in wide format. To get it into wide format, we need to define:
+
+* the columns that need to be reshuffled from wide into long format (`col` argument). Here we selected "everything except the `Code` column", as indicated by `-Code` [minus `Code`]. However, `QRPs_1_Time1:QRPs_11_Time1` would also work and give you the exact same result.
+* the `names_to` argument. R is creating a new column in which all the column names from the columns you selected in `col` will be stored in. Here we are naming this column "Items" but you could pick something equally sensible if you like.
+* the `values_to` argument. R creates this second column to store all responses the participants gave to the individual questions, i.e., all the numbers in this case. We named it "Scores" here, but you could have called it something different, like "Responses"
+
+
+```{r}
+qrp_step2 <- qrp_step1 %>% 
+  pivot_longer(cols = -Code, names_to = "Items", values_to = "Scores")
+
+# show first 15 rows of qrp_step2
+head(qrp_step2, n = 15)
+```
+
+Now, have a look at `qrp_step2`. In total, we now have `r fitb("979")` rows/observations, `r fitb("11")` per participant, and `r fitb("3")` columns/variables.
+
+
+## `group_by()` and `summarise()`
+
+It's exactly the same sequence we did when calculating the descriptive stats per gender above. The only difference is, we are now grouping the data by participant's `Code` rather than `Gender`.
+
+`summarise()` works exactly the same way: 
+`summarise(new_column_name = function_to_calculate_something(column_name_of_numeric_values))`
+
+The `function_to_calculate_something` can be `mean()`, `sd()` or `sum()` for mean scores, standard deviations, or summed up scores respectively. You could also use `min()` or `max()` if you wanted to determine the lowest or the highest score for each participant.
+
+:::
+
+:::
+
+
+
+## Activity 5: Confidence in understanding Open Science practices
+
+#### The main goal is to compute the mean Understanding score per participant. {.unnumbered}
+
+Again, we only have to compute that for time point 1 because the mean Understanding score for time point 2 was already calculated (column `Time2_Understanding_OS`).
+
+Looking at the Understanding data at time point 1, you determine that
+
+* individual item columns are `r mcq(c(x = "numeric", answer = "character"))`, and 
+* according to the codebook, there are `r mcq(c(answer = "no", x = "some"))` reverse-coded items in this questionnaire. 
+
+So the steps are fairly similar to QRP, but we add an extra step, namely turning the character labels into numbers.
+
+Again, let's do this step by step:
+
+* **Step 1**: select the relevant columns `Code`, and every Understanding column from time point 1 (e.g., from `Understanding_OS_1_Time1` to `Understanding_OS_12_Time1`) and store them in an object called `understanding_t1`
+* **Step 2**: pivot the data from wide format to long format using `pivot_longer()` so we can recode the labels into values (step 3) and calculate the average score (in step 4) more easily
+* **Step 3**: Recode the values "Not at all confident" as 1 and "Entirely confident" as 7. All other values are already numbers. We can use functions `mutate()` in combination with `case_match()` for that
+* **Step 4**: calculate the average QRP score (`QRPs_Acceptance_Time1_mean`) per participant using `group_by()` and `summarise()`
+
+#### Steps 1 and 2 {.unnumbered}
+
+How about you try the first 2 steps yourself using the code from Activity 4 (@sec-ch2_act4) as a template?
+
+```{r understanding, eval=FALSE}
+understanding_t1 <- data_prp %>% 
+  select(???) %>% # Step 1
+  pivot_longer(cols = ???, names_to = "???", values_to = "???") # Step 2
+```
+
+::: {.callout-caution collapse="true" icon="false"} 
+
+## Solution for steps 1 and 2
+
+```{r}
+understanding_t1 <- data_prp %>% 
+  # Step 1
+  select(Code, Understanding_OS_1_Time1:Understanding_OS_12_Time1) %>% 
+  # Step 2 - I picked different column labels this time for some variety
+  pivot_longer(cols = Understanding_OS_1_Time1:Understanding_OS_12_Time1, names_to = "Understanding_Qs", values_to = "Responses") 
 ```
 :::
 
-Sometimes people represent categorical variables with numbers that correspond to names, like 0 = "no" and 1 = "yes", but values in between don't have a clear interpretation. If you have control over how the data are recorded, it's better to use the character names for clarity. You'll learn how to recode columns in @sec-wrangle.
+#### Step 3 {.unnumbered}
 
-### Knitting
+OK, we now want to recode the values in the `Responses` column (or whatever name you picked for your column that has some of the numbers in it) so that "Not at all confident" = 1 and "Entirely confident" = 7. We want to keep all other values as they are (2-6 look already quite "numeric"). 
+
+Let's create a new column `Responses_corrected` that stores the new values with `mutate()`. Then we can combine that with the `case_match()` function.
+
+* The first argument in `case_match()` is the column name of the variable you want to recode.
+* Then you can start recoding the values in the way of `CurrentValue ~ NewValue` (~ is a tilde). Make sure you use the `~` and not `=`.
+* The `.default` argument tells R what to do with values that are neither "Not at all confident" nor "Entirely confident". Here, we want to replace them with the original value of the `Responses` column. In other datasets, you may want to set the default to `NA` for missing values, a character string or a number, and `case_match()` is happy to oblige.
+
+```{r error=TRUE}
+understanding_t1 <- understanding_t1 %>% 
+  mutate(Responses_corrected = case_match(Responses, # column of the values to recode
+                                          "Not at all confident" ~ 1, # values to recode
+                                          "Entirely confident" ~ 7,
+                                          .default = Responses # all other values taken from column Responses
+  ))
+```
+
+::: {.callout-important collapse="true"}
+
+## Error!!! Can you explain what is happening here?
+
+Have a look at the error message. It's pretty helpful this time. It says `Can't combine ..1 (right) <double> and .default <character>.` It means that the replacement values are expected to be character data type since the original column type was a character.
+
+:::
+
+**So how do we fix this?** Actually, there are several ways how this could be done. Click on the tabs below to check out 3 possible solutions.
+
+::: {.panel-tabset group="layers"}
+
+## Fix option 1
+
+One option is to modify the `.default` argument `Responses` so that the values are copied over from the original column, but as a number rather than a character value. The function `as.numeric()` does the conversion. 
+
+```{r warning=FALSE}
+understanding_t1_step3_v1 <- understanding_t1 %>% 
+  mutate(Responses_corrected = case_match(Responses, # column of the values to recode
+                                          "Not at all confident" ~ 1, # values to recode
+                                          "Entirely confident" ~ 7,
+                                          .default = as.numeric(Responses) # all other values taken from column Responses but as numeric data type 
+  ))
+```
+
+## Fix option 2
+
+Change the numeric values on the right side of the `~` to character. Then in a second step, we would need to turn the character column into a numeric type. Again, we have several options to do so. We could either use the `parse_number()` function we encountered earlier during the demographics wrangling or the `as.numeric()` function.
+
+* V1: `Responses_corrected = parse_number(Responses_corrected)`
+* V2: `Responses_corrected = as.numeric(Responses_corrected)`
+
+Just pay attention that you are still working *within* the `mutate()` function.
+
+```{r}
+understanding_t1_step3_v2 <- understanding_t1 %>% 
+  mutate(Responses_corrected = case_match(Responses, # column of the values to recode
+                                          "Not at all confident" ~ "1",
+                                          "Entirely confident" ~ "7",
+                                          .default = Responses # all other values taken from column Responses (character)
+  ),
+  Responses_corrected = parse_number(Responses_corrected)) # turning Responses_corrected into a numeric column
+```
+
+
+## Fix option 3
+
+If you recode all of the labels into numbers (e.g., "2" into a 2, "3" into a 3, etc.), you would not have to convert anything at the end.
+
+```{r}
+understanding_t1_step3_v2 <- understanding_t1 %>% 
+  mutate(Responses_recoded = case_match(Responses, # column of the values to recode
+                                        "Not at all confident" ~ 1, # recode all of them
+                                        "2" ~ 2,
+                                        "3" ~ 3,
+                                        "4" ~ 4,
+                                        "5" ~ 5,
+                                        "6" ~ 6,
+                                        "Entirely confident" ~ 7))
+```
+
+:::
+
+
+::: {.callout-note icon="false"}
+
+## Your Turn
+
+Pick whichever option you prefer and modify the code above that didn't work. You should now be able to calculate the **mean Understanding Score per participant**. Store the average scores in a variable called `Time1_Understanding_OS`.
+
+::: {.callout-caution icon="false" collapse="true"}
+
+## One solution for Steps 3 and 4
+
+```{r warning=FALSE}
+understanding_t1 <- understanding_t1 %>% 
+  mutate(Responses_corrected = case_match(Responses, # column of the values to recode
+                                          "Not at all confident" ~ 1, # values to recode
+                                          "Entirely confident" ~ 7,
+                                          .default = as.numeric(Responses) # all other values taken from column Responses but as numeric data type 
+  )) %>% 
+  # Step 4: calculating averages per participant
+  group_by(Code) %>%
+  summarise(Time1_Understanding_OS = mean(Responses_corrected)) %>%
+  ungroup()
+
+```
+:::
+
+:::
+
+
+Of course, this could have been written up as a single pipe.
+
+::: {.callout-caution collapse="true" icon="false"} 
+
+## Single pipe of activity 5
+
+```{r message=FALSE, warning=FALSE}
+understanding_t1 <- data_prp %>% 
+  # Step 1
+  select(Code, Understanding_OS_1_Time1:Understanding_OS_12_Time1) %>% 
+  # Step 2
+  pivot_longer(cols = -Code, names_to = "Understanding_Qs", values_to = "Responses") %>% 
+  # Step 3
+  mutate(Responses_corrected = case_match(Responses, # column of the values to recode
+                                          "Not at all confident" ~ 1, # values to recode
+                                          "Entirely confident" ~ 7,
+                                          .default = as.numeric(Responses) # all other values taken from column Responses but as numeric data type 
+  )) %>% 
+  # Step 4
+  group_by(Code) %>%
+  summarise(Time1_Understanding_OS = mean(Responses_corrected)) %>%
+  ungroup()
+```
+:::
+
+
+
+
+## Activity 6: Survey of Attitudes Toward Statistics (SATS-28)
+
+#### The main goal is to compute the mean SATS-28 score for each of the 4 subscales per participant for time point 1. {.unnumbered}
+
+Looking at the SATS data at time point 1, you determine that
+
+* individual item columns are `r mcq(c(answer = "numeric", x = "character"))`, and
+* according to the codebook, there are `r mcq(c(x = "no", answer = "some"))` reverse-coded items in this questionnaire.
+* Additionally, we are looking to compute the means for the 4 different subscales of the SAT-28 which are `r fitb("Affect",ignore_case = TRUE)`, `r fitb("Cognitive Competence",ignore_case = TRUE)`, `r fitb("Value",ignore_case = TRUE)`, and `r fitb("Difficulty",ignore_case = TRUE)`.
+
+So this scenario is slightly more tricky than the previous ones because of the reverse-coding and the 4 subscales. So let's tackle this step by step again:
+
+* **Step 1**: select the relevant columns `Code`, and every SATS28 column from time point 1 (e.g., from `SATS28_1_Affect_Time1` to `SATS28_28_Difficulty_Time1`) and store them in an object called `sats_t1`
+* **Step 2**: pivot the data from wide format to long format using `pivot_longer()` so we can recode the labels into values (step 3) and calculate the average score (in step 4) more easily
+* **Step 3**: We need to know which items belong to which subscale - fortunately, we have that information in the variable name and can use the `separate()` function to access it.
+* **Step 4**: We need to know which items are reverse-coded and then reverse-code them - unfortunately, the info is only in the codebook and we need to find a work-around. `case_when()` can help identify and re-score the reverse-coded items.
+* **Step 5**: calculate the average SATS score per participant and subscale using `group_by()` and `summarise()`
+* **Step 6**: use `pivot_wider()` to spread out the dataframe into wide format and `rename()` to tidy up the datanames
+
+#### Steps 1 and 2 {.unnumbered}
+
+The selecting and pivoting are exactly the same way as we already practiced in the other 2 tasks. Apply them here to this questionnaire.
+
+::: {.callout-note collapse="true" icon="false"} 
+
+## Hint
+
+```{r SATS28, eval=FALSE}
+sats_t1 <- data_prp %>% 
+  select(???) %>% # Step 1
+  pivot_longer(cols = ???, names_to = "???", values_to = "???") # Step 2
+```
+
+::: {.callout-caution collapse="true" icon="false"} 
+
+## Solution for steps 1 and 2
+
+```{r}
+sats_t1 <- data_prp %>% 
+  select(Code, SATS28_1_Affect_Time1:SATS28_28_Difficulty_Time1) %>% # Step 1
+  pivot_longer(cols = -Code, names_to = "Items", values_to = "Response") # Step 2
+```
+:::
+
+:::
+
+
+#### Step 3: separate Subscale information {.unnumbered}
+
+If you look at the the `Items` column more closely, you can see that there is information on the `Questionnaire`, the `Item_number`, the `Subscale`, and the `Timepoint` the data was collected at.
+
+We can separate the information into separate columns using the `separate()` function. The function's first argument is the column to separate, then define `into` which columns you want the original column split up, and lastly, define the separator `sep` (here an underscore). For our example, we would write
+
+* V1: `separate(Items, into = c("SATS", "Item_number", "Subscale", "Time"), sep = "_")`
+
+However, we don't need all of those columns, so we could just drop the ones we are not interested in by replacing them with `NA`.
+
+* V2: `separate(Items, into = c(NA, "Item_number", "Subscale", NA), sep = "_")`
+
+We might also add an extra argument of `convert = TRUE` to have numeric columns (i.e., `Item_number`) converted to numeric as opposed to keeping them as character. Saves us typing a few quotation marks later in Step 4.
+
+```{r}
+sats_t1 <- sats_t1 %>% 
+  # Step 3
+  separate(Items, into = c(NA, "Item_number", "Subscale", NA), sep = "_", convert = TRUE)
+
+```
+
+
+#### Step 4: identifying reverse-coded items and then correct them {.unnumbered}
+
+We can use `case_when()` within the `mutate()` function here to create a new column `FW_RV` that stores information on whether the item is a reverse-coded item or not.
+
+`case_when()` works in a similar way to `case_match()`, but `case_match()` only allows to "recode" values (i.e. replace one value with another), whereas `case_when()` lets you use **conditional statements** on the left side of the tilde which is useful when you only want to change *some* of the data based on specific conditions.
+
+Looking at in the codebook, it seems that items 2, 3, 4, 6, 7, 8, 9, 12, 13, 16, 17, 19, 20, 21, 23, 25, 26, 27, 28 are reverse-coded items. The rest are forward-coded.
+
+We want to tell R now, that 
+
+* **if** the `Item_number` is any of those numbers listed above, R should write "Reverse" into the new column `FW_RV` we are creating. Since we have a few possible matches for `Item_number`, we need the Boolean expression `%in%` rather than `==`. 
+* **if** `Item_number` is none of those numbers, then we would like the word "Forward" in the `FW_RV` column to appear. We can achieve that by specifying a `.default` argument again, but this time we want a "word" rather than a value from another column.
+
+
+
+```{r}
+sats_t1 <- sats_t1 %>% 
+  mutate(FW_RV = case_when(
+    Item_number %in% c(2, 3, 4, 6, 7, 8, 9, 12, 13, 16, 17, 19, 20, 21, 23, 25, 26, 27, 28) ~ "Reverse",
+    .default = "Forward"
+  ))
+```
+
+
+Onto the actual correcting of the scores. Again, we can use `case_when ()` within the `mutate()` function for another **conditional statement**. This time, the condition is:
+
+* **if** `FW_RV` column has a value of "Reverse" then we would like to turn all 1 into 7, 2 into 6, etc.
+* **if** `FW_RV` column has a value of "Forward" then we would like keep the score from the `Response` column
+
+There is a quick way and a not so quick way to achieve the actual **reverse-coding**.
+
+* Option 1 (quick): The easiest way to reverse-code scores is by taking the maximum value of the scale, add 1 unit and then subtract the original value. For example, on a 5-point Likert scale, it would be 6 minus the Response; for a 7-point Likert scale, 8-Response, etc. (see tab Option 1).
+* Option 2 (not so quick): This includes the use of 2 conditional statements (see tab Option 2).
+
+
+Use the one you find more intuitive.
+
+::: {.panel-tabset}
+
+
+## Option 1
+
+Here we are using the Boolean expression to determine if there is a string "Reverse" in the `FW_RV` column. And if that conditional statement is `TRUE` then the value in new column we are creating `Scores_corrected` should be calculated as 8 minus the value from the `Response` column. If it's not (i.e., the `.default` argument), then the values of the `Response` column should be kept.
+
+```{r}
+sats_t1 <- sats_t1 %>% 
+  mutate(Scores_corrected = case_when(
+    FW_RV == "Reverse" ~ 8-Response,
+    .default = Response
+  ))
+```
+
+## Option 2
+
+As stated above, the longer version would include 2 conditional statements. The first condition checks if the value in `FW_RV` is "Reverse". The second condition checks if the value in `Response` is equal to a specific number. **If both of these conditions are met**, then the value on the right side of the tilde should be placed in the newly created `Scores_corrected_v2` column.
+
+For example, line 3 would read: if the `FW_RV` value is "Reverse" **AND** the value in the Response column is 1, then place a value of 7 into `Scores_corrected_v2`.
+
+```{r}
+sats_t1 <- sats_t1 %>% 
+  mutate(Scores_corrected_v2 = case_when(
+    FW_RV == "Reverse" & Response == 1 ~ 7,
+    FW_RV == "Reverse" & Response == 2 ~ 6,
+    FW_RV == "Reverse" & Response == 3 ~ 5,
+    # no need to recode 4 as 4
+    FW_RV == "Reverse" & Response == 5 ~ 3,
+    FW_RV == "Reverse" & Response == 6 ~ 2,
+    FW_RV == "Reverse" & Response == 7 ~ 1,
+    .default = Response
+  ))
+```
+
+As you can see now in `sats_t1`, both columns `Scores_corrected` and `Scores_corrected_v2` are identical.
+:::
+
+One way of **checking whether our reverse-coding worked** is to look at the `distinct` values of the original `Response` column and `Scores_corrected`. We would also need to keep information of the `FW_RV` column. 
+
+And to see the pattern better, we want to use `arrange()` to sort the values in a more meaningful way. Remember from last year, the default order is ascending, and you would need to add the function `desc()` on your variable to sort values in a descending order.
+
+```{r}
+check_coding <- sats_t1 %>% 
+  distinct(FW_RV, Response, Scores_corrected) %>% 
+  arrange(desc(FW_RV), Response)
+```
+
+
+::: {.callout-caution collapse="true" icon="false"} 
+
+## Show `check_coding` output
+
+```{r}
+check_coding
+```
+
+
+:::
+
+#### Step 5 {.unnumbered}
+
+Now that we know everything worked out as intended, we can calculate the mean scores of each subscale for each participant in `sats_t1`.
+
+::: {.callout-note collapse="true" icon="false"} 
+
+## Hint
+
+```{r eval=FALSE}
+sats_t1 <- sats_t1 %>% 
+  group_by(???, ???) %>% 
+  summarise(mean_score = ???(???)) %>% 
+  ungroup()
+```
+
+::: {.callout-caution collapse="true" icon="false"} 
+
+## Solution 
+
+```{r}
+sats_t1 <- sats_t1 %>% 
+  group_by(Code, Subscale) %>% 
+  summarise(mean_score = mean(Scores_corrected)) %>% 
+  ungroup()
+```
+:::
+
+:::
+
+#### Step 6 {.unnumbered}
+
+One final step is to turn the data back into **wide format** so that each subscale has its own column. That would make joining the data objects easier. The first argument in `pivot_wider()` is `names_from` and you should specify the column here that you want as your new column headings. The second argument is `values_from` and you need to specify the column that you want to get the cell values from
+
+We should also **rename the column names** to match more with the column names in the codebook. Conveniently, we can use a function called `rename()` that works exactly like `select()` (i.e., `new_name = old_name`) but keeps all the other column names the same (rather than reducing the number of columns)
+
+```{r}
+sats_t1 <- sats_t1 %>% 
+  pivot_wider(names_from = Subscale, values_from = mean_score) %>% 
+  rename(SATS28_Affect_Time1_mean = Affect,
+         SATS28_CognitiveCompetence_Time1_mean = CognitiveCompetence,
+         SATS28_Value_Time1_mean = Value,
+         SATS28_Difficulty_Time1_mean = Difficulty)
+```
+
+
+::: {.callout-caution collapse="true" icon="false"} 
+
+## Show final `sats_t1` output
+
+```{r}
+head(sats_t1, n = 5)
+```
+
+:::
+
+Again, this could have been written up as a single pipe.
+
+::: {.callout-caution collapse="true" icon="false"} 
+
+## Single pipe of activity 6
+
+```{r message=FALSE}
+sats_t1 <- data_prp %>% 
+  # Step 1
+  select(Code, SATS28_1_Affect_Time1:SATS28_28_Difficulty_Time1) %>% 
+  # Step 2
+  pivot_longer(cols = -Code, names_to = "Items", values_to = "Response") %>% 
+  # Step 3
+  separate(Items, into = c(NA, "Item_number", "Subscale", NA), sep = "_", convert = TRUE) %>% 
+  # step 4
+  mutate(FW_RV = case_when(
+    Item_number %in% c(2, 3, 4, 6, 7, 8, 9, 12, 13, 16, 17, 19, 20, 21, 23, 25, 26, 27, 28) ~ "Reverse",
+    .default = "Forward"
+  ),
+    Scores_corrected = case_when(
+      FW_RV == "Reverse" ~ 8-Response,
+      .default = Response
+  )) %>% 
+  # step 5
+  group_by(Code, Subscale) %>% 
+  summarise(mean_score = mean(Scores_corrected)) %>% 
+  ungroup() %>% 
+  # step 6
+  pivot_wider(names_from = Subscale, values_from = mean_score) %>% 
+  rename(SATS28_Affect_Time1_mean = Affect,
+         SATS28_CognitiveCompetence_Time1_mean = CognitiveCompetence,
+         SATS28_Value_Time1_mean = Value,
+         SATS28_Difficulty_Time1_mean = Difficulty)
+```
+:::
+
+
+
+## Activity 7 (Error Mode): Perceptions of supervisory support
+
+#### The main goal is to compute the mean score for perceived supervisory support per participant. {.unnumbered}
+
+Looking at the Understanding data at time point 1, you determine that
+
+* individual item columns are `r mcq(c(answer = "numeric", x = "character"))`, and
+* according to the codebook, there are `r mcq(c(x = "no", answer = "some"))` reverse-coded items in this questionnaire.
+
+I have outlined my steps as follows: 
+
+* **Step 1**: reverse-code the single column first because that's less hassle than having to do that with conditional statements (`Supervisor_15_R`). `mutate()` is my friend.
+* **Step 2**: I want to filter out everyone who failed the attention check in `Supervisor_7`. I can do this with a Boolean expression within the `filter()` function. The correct response was "completely disagree" which is 1.
+* **Step 3**: select their id from time point 2 and all the columns that start with the word "super", apart from `Supervisor_7` and the original `Supervisor_15_R` column
+* **Step 4**: pivot into long format so I can calculate the averages better
+* **Step 5**: calculate the average scores per participant
+
+
+I've started coding but there are some errors in my code. Help me find and fix all of them. Try to go through the code line by line and read the error messages.
+
+```{r super_error, eval=FALSE}
+super <- data_ppr %>% 
+  mutate(Supervisor_15 = 9-supervisor_15_R) %>% 
+  filter(Supervisor_7 = 1) %>% 
+  select(Code, starts_with("Super"), -Supervisor_7, -Supervisor_15_R) 
+pivot_wider(cols = -Code, names_to = "Item", values_to = "Response") %>% 
+  group_by(Time2_Code) %>% 
+  summarise(Mean_Supervisor_Support = mean(Score_corrected, na.rm = TRUE)) %>% 
+  ungroup()
+
+```
+
+
+
+::: {.callout-caution collapse="true" icon="false"} 
+
+## Reveal solution
+
+There were 8 mistakes in the code. Let's go through them line by line.
+
+```{r super_correct}
+super <- data_prp %>% # spelling mistake in data object
+  mutate(Supervisor_15 = 8-Supervisor_15_R) %>% # semantic error: 8 minus response for a 7-point scale and supervisor_15_R needs a capital S
+  filter(Supervisor_7 == 1) %>% # needs a Boolean expression == instead of =
+  select(Code, starts_with("Super"), -Supervisor_7, -Supervisor_15_R) %>% # no pipe at the end, the rest is actually legit
+  pivot_longer(cols = -Code, names_to = "Item", values_to = "Response") %>% # pivot_longer instead of pivot_wider
+  group_by(Code) %>% # Code rather than Time2_Code - the reduced dataset does not contain Time2_Code
+  summarise(Mean_Supervisor_Support = mean(Response, na.rm = TRUE)) %>% # Score_corrected doesn't exist; needs to be Response
+  ungroup()
+```
+
+Did you spot them all? 
+
+* Note that the **semantic error** in line 2 did not give you an error message.
+* Were you thrown off by the `starts_with("Super")` expression in line 4? `starts_with()` and `ends_with()` are great alternatives to selecting columns via `:` But, using `select(Code, Supervisor_1:Supervisor_6, Supervisor_8:Supervisor_14)` would have given us the same result.
+
+:::
+
+
+## Activity 8: Joining everything together with `???_join()`
+
+Time to join all of the relevant data files together so we have a single dataframe ready for the next chapter on data visualisation. There are 4 options of joining data together, namely `inner_join()`, `left_join()`, `right_join()`, and `full_join()`. Each of these functions differs in terms of what information is retained from the two data objects being joined. Here is a quick overview:
+
+
+::: {.callout-note collapse="true"} 
+
+## Additional info on mutating joins
+
+You have 4 types of join functions you could make use of. Click on the panels to know more
+
+::: {.panel-tabset}
+
+A mutating join allows you to combine variables from two tables. It first matches observations by their keys, then copies across variables from one table to the other.
+
+## `inner_join()`
+
+`inner_join()` returns only the rows where the values in the column specified in the `by =` statement match in both tables.
+
+![inner_join(): gif by [Garrick Aden-Buie](https://www.garrickadenbuie.com/project/tidyexplain/){target="_blank"}](images/inner-join.gif)
+
+## `left_join()`
+
+`left_join()` retains the complete first (left) table and adds values from the second (right) table that have matching values in the column specified in the `by =` statement. Rows in the left table with no match in the right table will have missing values (`NA`) in the new columns.
+
+![left_join(): gif by [Garrick Aden-Buie](https://www.garrickadenbuie.com/project/tidyexplain/){target="_blank"}](images/left-join.gif)
+
+## `right_join()`
+
+`right_join()` retains the complete second (right) table and adds values from the first (left) table that have matching values in the column specified in the `by =` statement. Rows in the right table with no match in the left table will have missing values (`NA`) in the new columns.
+
+![right_join(): gif by [Garrick Aden-Buie](https://www.garrickadenbuie.com/project/tidyexplain/){target="_blank"}](images/right-join.gif)
+
+## `full_join()`
+
+`full_join()` returns all rows and all columns from both tables. `NA` values fill unmatched rows.
+
+![full_join(): gif by [Garrick Aden-Buie](https://www.garrickadenbuie.com/project/tidyexplain/){target="_blank"}](images/full-join.gif)
+
+:::
+
+:::
+
+
+From our data_prp, we would need to select demographics data and all summarised questionnaire data from time point 2. And then we want to join all other aggregated datasets from time point 1 that are currently in separate data objects in our `Global Environment`. 
+
+You already encountered `inner_join` last year, but for the minute, we want to keep all of the data from all the data objects and use a `full_join` instead. You are only able to join a max of 2 data objects together, so there will be quite a bit of piping and joining going on in code chunk.
+
+```{r eval=FALSE}
+data_prp_final <- data_prp %>% 
+  select(Code:Plan_prereg, Other_OS_behav_2:Time2_Understanding_OS) %>% 
+  full_join(qrp_t1) %>% 
+  full_join(understanding_t1) %>% 
+  full_join(sats_t1) %>% 
+  full_join(super)
+```
+And this is basically the dataset we need for @sec-dataviz and @sec-dataviz2.
+
+```{r take_out_later, eval=FALSE, include=FALSE}
+data_prp_final <- data_prp %>% 
+  select(Code:Plan_prereg, Pre_reg_group:Time2_Understanding_OS) %>% 
+  full_join(sats_t1) %>% 
+  full_join(qrp_t1) %>% 
+  full_join(understanding_t1) %>% 
+  full_join(super) %>% 
+  select(Code:Plan_prereg, Pre_reg_group, SATS28_Affect_Time1_mean, SATS28_CognitiveCompetence_Time1_mean, SATS28_Value_Time1_mean, SATS28_Difficulty_Time1_mean, QRPs_Acceptance_Time1_mean, Time1_Understanding_OS, 
+         Other_OS_behav_2:Time2_Understanding_OS, Mean_Supervisor_Support)
+
+#data_check <- read_csv("data/data_prp_ch3.csv")
+
+#write_csv(data_prp_final, "data/data_prp_ch3.csv")
+```
+
+
+
+## Knitting
 
 as a means to check if the file as a whole is running
 
@@ -81,42 +899,7 @@ as a means to check if the file as a whole is running
 
 
 
+## [Pair-coding in the lab]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
 
-## Other useful functions
+## [Test your knowledge and challenge yourself]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
 
-### count
-
-### joining things together from separate datasets
-
-**inner_join**
-
-**full_join**
-
-Use the 2 chopped up tables earlier and merge them. They have no values overlapping, so it's difficult
-
-## Tidy data
-
-### pivoting data
-
-pivot_wider and pivot_longer
-
-### recode
-
-### case_when
-
-Allison's drawing
-
-## [Pair-coding in the lab]{style="color: #EBA347; text-transform: uppercase;"} {.unnumbered}
-
-## [Test your knowledge and challenge yourself]{style="color: #EBA347; text-transform: uppercase;"} {.unnumbered}
-
-or for the Wickham 6 part, we could just go here is some data, lets apply them all.
-
-Activity 1: selecting specific columns First of all, we want to select the relevant columns
-
-
-## separate
-
-## calculating percentages from the included pre-reg
-
-already calculated for Time 2 - put the average scores back in

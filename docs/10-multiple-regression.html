@@ -71,6 +71,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="include/webex.css">
 <link rel="stylesheet" href="include/glossary.css">
 <link rel="stylesheet" href="include/style.css">
+<link rel="stylesheet" href="include/custom.scss">
 </head>
 
 <body class="nav-sidebar floating">
@@ -154,31 +155,31 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-dataviz.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data viz</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data viz I</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./04-prob-binom-one-sample.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Revisiting probability and introduction to NHST</span></span></a>
+  <a href="./04-dataviz2.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Data viz II</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-independent.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Independent t-test</span></span></a>
+  <a href="./05-chi-square-one-sample.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Chi-square and one-sample t-test</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./06-paired.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Paired t-test</span></span></a>
+  <a href="./06-independent.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Two-sample t-test</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./07-apes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">APES - Alpha, Power, Effect Sizes, Sample Size</span></span></a>
+  <a href="./07-paired.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">NHST III: Paired t-test</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -275,9 +276,10 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#intended-learning-outcomes" id="toc-intended-learning-outcomes" class="nav-link active" data-scroll-target="#intended-learning-outcomes">Intended Learning Outcomes</a></li>
-  <li><a href="#individual-walkthrough" id="toc-individual-walkthrough" class="nav-link" data-scroll-target="#individual-walkthrough"><span style="color: #EBA347; text-transform: uppercase;">Individual Walkthrough</span></a></li>
+  <li><a href="#individual-walkthrough" id="toc-individual-walkthrough" class="nav-link" data-scroll-target="#individual-walkthrough"><span style="color: #F39C12; text-transform: uppercase;">Individual Walkthrough</span></a></li>
   <li><a href="#activity-1-setup" id="toc-activity-1-setup" class="nav-link" data-scroll-target="#activity-1-setup"><span class="header-section-number">10.1</span> Activity 1: Setup</a></li>
   <li><a href="#activity-2-download-the-data" id="toc-activity-2-download-the-data" class="nav-link" data-scroll-target="#activity-2-download-the-data"><span class="header-section-number">10.2</span> Activity 2: Download the data</a></li>
+  <li><a href="#activity-3-load-in-the-library-read-in-the-data-and-familiarise-yourself-with-the-data" id="toc-activity-3-load-in-the-library-read-in-the-data-and-familiarise-yourself-with-the-data" class="nav-link" data-scroll-target="#activity-3-load-in-the-library-read-in-the-data-and-familiarise-yourself-with-the-data"><span class="header-section-number">10.3</span> Activity 3: Load in the library, read in the data and familiarise yourself with the data</a></li>
   </ul>
 </nav>
     </div>
@@ -286,7 +288,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Multiple regression</span></h1>
+<h1 class="title"><span id="sec-reg_mult" class="quarto-section-identifier"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Multiple regression</span></span></h1>
 </div>
 
 
@@ -307,7 +309,7 @@ ul.task-list li input[type="checkbox"] {
 <p>By the end of this chapter you should be able to:</p>
 </section>
 <section id="individual-walkthrough" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="individual-walkthrough"><span style="color: #EBA347; text-transform: uppercase;">Individual Walkthrough</span></h2>
+<h2 class="unnumbered anchored" data-anchor-id="individual-walkthrough"><span style="color: #F39C12; text-transform: uppercase;">Individual Walkthrough</span></h2>
 </section>
 <section id="activity-1-setup" class="level2" data-number="10.1">
 <h2 data-number="10.1" class="anchored" data-anchor-id="activity-1-setup"><span class="header-section-number">10.1</span> Activity 1: Setup</h2>
@@ -325,6 +327,9 @@ ul.task-list li input[type="checkbox"] {
 <li>insert citation and abstract of the data</li>
 <li>Look at the codebook and the variables</li>
 </ul>
+</section>
+<section id="activity-3-load-in-the-library-read-in-the-data-and-familiarise-yourself-with-the-data" class="level2" data-number="10.3">
+<h2 data-number="10.3" class="anchored" data-anchor-id="activity-3-load-in-the-library-read-in-the-data-and-familiarise-yourself-with-the-data"><span class="header-section-number">10.3</span> Activity 3: Load in the library, read in the data and familiarise yourself with the data</h2>
 
 
 </section>

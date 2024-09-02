@@ -1,11 +1,11 @@
-# One-way ANOVA
+# One-way ANOVA {#sec-oneway}
 
 ## Intended Learning Outcomes {.unnumbered}
 
 By the end of this chapter you should be able to:
 
 
-## [Individual Walkthrough]{style="color: #EBA347; text-transform: uppercase;"} {.unnumbered}
+## [Individual Walkthrough]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
 
 ## Activity 1: Setup
 
@@ -21,3 +21,7 @@ By the end of this chapter you should be able to:
 * Talk about the files
 * insert citation and abstract of the data
 * Look at the codebook and the variables
+
+
+
+Kruskal-Wallis test: This is equivalent to the global significance test in a one-way ANOVA—it tests for differences between the central tendency of several samples.
