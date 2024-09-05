@@ -168,13 +168,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-wrangling.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data wrangling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data wrangling I</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-wrangling2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data wrangling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data wrangling II</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -353,7 +353,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 </header><section id="intended-learning-outcomes" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="intended-learning-outcomes">Intended Learning Outcomes</h2>
-<p>By the end of this chapter you should be able to:</p>
+<p>By the end of this chapter, you should be able to:</p>
 <ul>
 <li>Re-familiarise yourself with setting up projects</li>
 <li>Re-familiarise yourself with RMarkdown documents</li>
@@ -378,12 +378,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Always start with a clear workspace. If your <code>Global Environment</code> contains anything from a previous session, you can’t be certain whether your current code is working as intended or if it’s using objects created earlier.</p>
 <p>To ensure a clean and reproducible workflow, there are a few settings you should adjust immediately after installing or updating RStudio. In <if>Tools &gt; Global Options… General tab</if></p>
 <ul>
-<li>Uncheck the box labeled <if>Restore .RData into workspace at startup</if> to make sure no data from a previous session is loaded into the environment</li>
+<li>Uncheck the box labelled <if>Restore .RData into workspace at startup</if> to make sure no data from a previous session is loaded into the environment</li>
 <li>set <if>Save workspace to .RData on exit</if> to <strong>Never</strong> to prevent your workspace from being saved when you exit RStudio.</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/rstudio_settings_reproducibility.png" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Reproducibility settings in Global Ootions</figcaption></figure>
+<figcaption class="figure-caption">Reproducibility settings in Global Options</figcaption></figure>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -398,7 +398,7 @@ Tip for keeping taps on parentheses
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>R has included <strong>rainbow parentheses</strong> to help with keeping count on the brackets.</p>
-<p>To enable the feature, go to <if>Tools &gt; Global Options… Code tab &gt; Display tab</if> and check the last tickbox “Use rainbow parentheses”</p>
+<p>To enable the feature, go to <if>Tools &gt; Global Options… Code tab &gt; Display tab</if> and tick the last checkbox “Use rainbow parentheses”</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/rainbow.PNG" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Enable Rainbow parenthesis</figcaption></figure>
@@ -440,46 +440,46 @@ Quiz
 <div class="callout-body-container callout-body">
 <p><strong>What is their purpose?</strong></p>
 <strong>The Source pane…</strong>
-<div id="radio_GNWYNOZECD" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_GNWYNOZECD" value="answer"><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_GNWYNOZECD" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_GNWYNOZECD" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_GNWYNOZECD" value=""><span>provides an area to interactively execute code</span></label>
+<div id="radio_XNQMRYVTPB" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XNQMRYVTPB" value="answer"><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_XNQMRYVTPB" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_XNQMRYVTPB" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_XNQMRYVTPB" value=""><span>provides an area to interactively execute code</span></label>
 </div>
 <strong>The Environment pane…</strong>
-<div id="radio_GXDAVIWLLQ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_GXDAVIWLLQ" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_GXDAVIWLLQ" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_GXDAVIWLLQ" value="answer"><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_GXDAVIWLLQ" value=""><span>provides an area to interactively execute code</span></label>
+<div id="radio_XGRJNTMCTI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XGRJNTMCTI" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_XGRJNTMCTI" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_XGRJNTMCTI" value="answer"><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_XGRJNTMCTI" value=""><span>provides an area to interactively execute code</span></label>
 </div>
 <strong>The Console pane…</strong>
-<div id="radio_RJNQYTVKQB" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_RJNQYTVKQB" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_RJNQYTVKQB" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_RJNQYTVKQB" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_RJNQYTVKQB" value="answer"><span>provides an area to interactively execute code</span></label>
+<div id="radio_KXYNBIKPBD" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_KXYNBIKPBD" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_KXYNBIKPBD" value=""><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_KXYNBIKPBD" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_KXYNBIKPBD" value="answer"><span>provides an area to interactively execute code</span></label>
 </div>
 <strong>The Output pane…</strong>
-<div id="radio_EMEUTVOQYP" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_EMEUTVOQYP" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_EMEUTVOQYP" value="answer"><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_EMEUTVOQYP" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_EMEUTVOQYP" value=""><span>provides an area to interactively execute code</span></label>
+<div id="radio_PNLFJIBXVB" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_PNLFJIBXVB" value=""><span>allows users to view and edit various code-related files, such as .Rmd files</span></label><label><input type="radio" autocomplete="off" name="radio_PNLFJIBXVB" value="answer"><span>contains the Files, Plots, R Packages, Help, Tutorial, Viewer, and Presentation tabs</span></label><label><input type="radio" autocomplete="off" name="radio_PNLFJIBXVB" value=""><span>includes the Environment tab that displays currently saved objects, and the History tab that displays the commands that were executed in the current session along a search function</span></label><label><input type="radio" autocomplete="off" name="radio_PNLFJIBXVB" value=""><span>provides an area to interactively execute code</span></label>
 </div>
 <p><strong>Where are these panes located by default?</strong></p>
 <ul>
 <li>The Source pane is located? <select class="webex-select"><option value="blank"></option>
 <option value="">top right</option>
+<option value="answer">top left</option>
 <option value="">bottom left</option>
-<option value="">bottom right</option>
-<option value="answer">top left</option></select>
+<option value="">bottom right</option></select>
 </li>
 <li>The Environment pane is located? <select class="webex-select"><option value="blank"></option>
-<option value="answer">top right</option>
 <option value="">bottom left</option>
+<option value="">bottom right</option>
 <option value="">top left</option>
-<option value="">bottom right</option></select>
+<option value="answer">top right</option></select>
 </li>
 <li>The Console pane is located? <select class="webex-select"><option value="blank"></option>
 <option value="">bottom right</option>
-<option value="">top right</option>
 <option value="answer">bottom left</option>
-<option value="">top left</option></select>
+<option value="">top left</option>
+<option value="">top right</option></select>
 </li>
 <li>The Output pane is located? <select class="webex-select"><option value="blank"></option>
-<option value="answer">bottom right</option>
-<option value="">top right</option>
+<option value="">top left</option>
 <option value="">bottom left</option>
-<option value="">top left</option></select>
+<option value="">top right</option>
+<option value="answer">bottom right</option></select>
 </li>
 </ul>
 </div>
@@ -498,7 +498,7 @@ Quiz
 </li>
 <li>Then, click on “New Directory”</li>
 <li>Then, click on “New Project”</li>
-<li>Name the directory something meaningful (e.g., “2A_chapter1”), and save it in a location that makes sense, for example, a dedicated folder you have for your level 2 Psychology labs - you can either select a folder you have already in place, or create a new one (e.g., I named my new folder “Level 2 labs”)</li>
+<li>Name the directory something meaningful (e.g., “2A_chapter1”), and save it in a location that makes sense, for example, a dedicated folder you have for your level 2 Psychology labs - you can either select a folder you have already in place or create a new one (e.g., I named my new folder “Level 2 labs”)</li>
 <li>Click “Create Project”. RStudio will restart itself and open with this new project directory as the working directory. If you accidentally close it, you can open it by double-clicking on the project icon in your folder</li>
 <li>You can also check in your folder structure that everything was created as intended</li>
 </ul>
@@ -540,21 +540,21 @@ Don’t nest projects
 <ul>
 <li>Open a new R Markdown document: click <if>File &gt; New File &gt; R Markdown</if> or click on the little page icon with a green plus sign (top left).</li>
 <li>Give it a meaningful <code>Title</code> (e.g., Level 2 chapter 1) - you can also change the title later. Feel free to add your name or GUID in the <code>Author</code> field author name. Keep the <code>Default Output Format</code> as HTML.</li>
-<li>Once the Rmd opened, you need to save the file.</li>
+<li>Once the .<code>Rmd</code> opened, you need to save the file.</li>
 <li>To save it, click <if>File &gt; Save As…</if> or click on the little disc icon. Name it something meaningful (e.g., “chapter_01.Rmd”, “01_intro.Rmd”). Make sure there are no spaces in the name - R is not very fond of spaces… This file will automatically be saved in your project folder (i.e., your working directory) so you should now see this file appear in your file viewer pane.</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/Rmd_setup.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">Creating a new Rmd file</figcaption></figure>
+<figcaption class="figure-caption">Creating a new <code>.Rmd</code> file</figcaption></figure>
 </div>
-<p>Remember, an R Markdown document or Rmd has “white space” (i.e., the markdown for formatted text) and “grey parts” (i.e., code chunks) in the default colour scheme (see <a href="#fig-rmd">Figure&nbsp;<span>1.1</span></a>). R Markdown is a powerful tool for creating dynamic documents because it allows you to integrate code and regular text seamlessly. You can then knit your Rmd using the <code>knitr</code> package to create a final document as either a webpage (HTML), a PDF, or Word document (.docx). We’ll only knit to html documents in this course.</p>
+<p>Remember, an R Markdown document or <code>.Rmd</code> has “white space” (i.e., the markdown for formatted text) and “grey parts” (i.e., code chunks) in the default colour scheme (see <a href="#fig-rmd">Figure&nbsp;<span>1.1</span></a>). R Markdown is a powerful tool for creating dynamic documents because it allows you to integrate code and regular text seamlessly. You can then knit your <code>.Rmd</code> using the <code>knitr</code> package to create a final document as either a webpage (HTML), a PDF, or a Word document (.docx). We’ll only knit to HTML documents in this course.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/rm_components.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">R markdown anatomy (image from <a href="https://intro2r.com/r-markdown-anatomy.html" target="_blank">https://intro2r.com/r-markdown-anatomy.html</a>)</figcaption></figure>
 </div>
 <section id="markdown" class="level3" data-number="1.3.1"><h3 data-number="1.3.1" class="anchored" data-anchor-id="markdown">
 <span class="header-section-number">1.3.1</span> Markdown</h3>
-<p>The markdown space in an Rmd is ideal for writing notes that explain your code and document your thought process. Use this space to clarify what your code is doing, why certain decisions were made, and any insights or conclusions you have drawn along the way. These notes are invaluable when revisiting your work later, helping you (or others) understand the rationale behind key decisions, such as setting inclusion/exclusion criteria or interpreting the results of assumption tests. Effectively documenting your work in the markdown space enhances both the clarity and reproducibility of your analysis.</p>
+<p>The markdown space in an <code>.Rmd</code> is ideal for writing notes that explain your code and document your thought process. Use this space to clarify what your code is doing, why certain decisions were made, and any insights or conclusions you have drawn along the way. These notes are invaluable when revisiting your work later, helping you (or others) understand the rationale behind key decisions, such as setting inclusion/exclusion criteria or interpreting the results of assumption tests. Effectively documenting your work in the markdown space enhances both the clarity and reproducibility of your analysis.</p>
 <p>The markdown space offers a variety of formatting options to help you organise and present your notes effectively. Here are a few of them that can enhance your documentation:</p>
 <section id="heading-levels" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="heading-levels">Heading levels</h4>
 <p>There is a variety of <strong>heading levels</strong> to make use of, using the <code>#</code> symbol.</p>
@@ -586,7 +586,7 @@ ERROR: My heading levels don’t render properly when knitting
 </div>
 <div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>You need a space between the # and first letter. If the space is missing, the heading will be displayed in the html as …</p>
+<p>You need a space between the # and the first letter. If the space is missing, the heading will be displayed in the HTML file as …</p>
 <p>#Heading 1</p>
 </div>
 </div>
@@ -633,7 +633,7 @@ ERROR: My bullet points don’t render properly when knitting
 </div>
 <div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>You need an empty row before your bullet points start. If I delete the empty row before the bullet points, they will be displayed in the html as …</p>
+<p>You need an empty row before your bullet points start. If I delete the empty row before the bullet points, they will be displayed in the HTML as …</p>
 <p>Text without the empty row: * bullet point created with <code>*</code> - bullet point created with <code>-</code> + bullet point created with <code>+</code></p>
 </div>
 </div>
@@ -665,7 +665,7 @@ My list items don’t render properly when knitting
 </div>
 <div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>If you don’t leave enough spaces, the list won’t be recognised and your output looks like this:</p>
+<p>If you don’t leave enough spaces, the list won’t be recognised, and your output looks like this:</p>
 <ol start="3" type="1">
 <li>list item 3</li>
 </ol>
@@ -678,9 +678,9 @@ My list items don’t render properly when knitting
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <p>The great thing though is that you don’t need to know your alphabet or number sequences. R markdown will fix that for you</p>
-<p>If I type into my Rmd…</p>
+<p>If I type into my <code>.Rmd</code>…</p>
 <p><img src="images/list_magic.PNG" class="img-fluid"></p>
-<p>…it will be rendered in the knitted html output as…</p>
+<p>…it will be rendered in the knitted HTML output as…</p>
 <ol start="4" type="1">
 <li>list item 3</li>
 <li>list item 1
@@ -728,11 +728,11 @@ ERROR: The labels of the sub-items are not what I thought they would be. You sai
 </div>
 </div>
 </section><section id="emphasis" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="emphasis">Emphasis</h4>
-<p>Include <strong>emphasis</strong> to draw attention to key words in your text:</p>
+<p>Include <strong>emphasis</strong> to draw attention to keywords in your text:</p>
 <table class="table">
 <thead><tr class="header">
 <th style="text-align: left;">R markdown syntax</th>
-<th style="text-align: left;">Displayed in the knitted html file</th>
+<th style="text-align: left;">Displayed in the knitted HTML file</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
@@ -764,12 +764,12 @@ ERROR: The labels of the sub-items are not what I thought they would be. You sai
 <div class="cell-output-display">
 <div id="fig-rmd" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure"><p><img src="images/default_highlighted.png" class="img-fluid figure-img" style="width:100.0%"></p>
-<figcaption class="figure-caption">Figure&nbsp;1.1: Default Rmd with highlighting - names in pink and knitr display options in purple</figcaption></figure>
+<figcaption class="figure-caption">Figure&nbsp;1.1: Default <code>.Rmd</code> with highlighting - names in pink and knitr display options in purple</figcaption></figure>
 </div>
 </div>
 </div>
-<p>Within the curly brackets of a code chunk, you can <strong>specify a name</strong> for the code chunk (see pink highlighting in <a href="#fig-rmd">Figure&nbsp;<span>1.1</span></a>). The chunk name is not necessarily required, however, it is good practice to give each chunk a unique name to support more advanced knitting approaches. It also makes it easier to reference and manage chunks.</p>
-<p>Within the the curly brackets, you can also place <strong>rules and arguments</strong> (see purple highlighting in <a href="#fig-rmd">Figure&nbsp;<span>1.1</span></a>) to control how your code is executed and what is displayed in your final html output. The most common <strong>knitr display options</strong> include:</p>
+<p>Within the curly brackets of a code chunk, you can <strong>specify a name</strong> for the code chunk (see pink highlighting in <a href="#fig-rmd">Figure&nbsp;<span>1.1</span></a>). The chunk name is not necessarily required; however, it is good practice to give each chunk a unique name to support more advanced knitting approaches. It also makes it easier to reference and manage chunks.</p>
+<p>Within the curly brackets, you can also place <strong>rules and arguments</strong> (see purple highlighting in <a href="#fig-rmd">Figure&nbsp;<span>1.1</span></a>) to control how your code is executed and what is displayed in your final HTML output. The most common <strong>knitr display options</strong> include:</p>
 <table class="table">
 <colgroup>
 <col style="width: 30%">
@@ -829,7 +829,7 @@ Important
 <p>The table above will be incredibly important for the data skills homework II. When solving error mode items you will need to pay attention to the first one <code>eval = FALSE</code>.</p>
 </div>
 </div>
-<p>One last thing: In your newly created Rmd file, delete everything below line 12 (keep the set-up code chunk) and save your Rmd by clicking on the disc symbol.</p>
+<p>One last thing: In your newly created <code>.Rmd</code> file, delete everything below line 12 (keep the set-up code chunk) and save your <code>.Rmd</code> by clicking on the disc symbol.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/delete_12.gif" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Delete everything below line 12</figcaption></figure>
@@ -857,7 +857,7 @@ Solution
 </div>
 <div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>On line 12, you should have typed <strong>## Loading packages and reading in data</strong> (or whatever meaningful title you chose). This will create level 2 heading once we knit the Rmd.</p>
+<p>On line 12, you should have typed <strong>## Loading packages and reading in data</strong> (or whatever meaningful title you chose). This will create level 2 heading once we knit the <code>.Rmd</code>.</p>
 </div>
 </div>
 </div>
@@ -865,15 +865,15 @@ Solution
 </div>
 </section></section><section id="sec-download_data_ch1" class="level2" data-number="1.4"><h2 data-number="1.4" class="anchored" data-anchor-id="sec-download_data_ch1">
 <span class="header-section-number">1.4</span> Activity 3: Download the data</h2>
-<p>The data for chapters 1-3. Download it here: <a href="data/data_ch1.zip" title="download">data_ch1.zip</a>. There are 2 csv files contained in a zip-folder. One is the data file we are going to use today <code>prp_data_reduced.csv</code> and the other is an excel file <code>prp_codebook</code> that explains the variables in the data.</p>
+<p>The data for chapters 1-3. Download it here: <a href="data/data_ch1.zip" title="download">data_ch1.zip</a>. There are 2 csv files contained in a zip folder. One is the data file we are going to use today <code>prp_data_reduced.csv</code> and the other is an Excel file <code>prp_codebook</code> that explains the variables in the data.</p>
 <p>The first step is to <strong>unzip the zip folder</strong> so that the files are placed within the same folder as your project.</p>
 <ul>
-<li>place the zip folder within your 2A_chapter1 folder</li>
-<li>right mouse click –&gt; <code>Extract All...</code>
+<li>Place the zip folder within your 2A_chapter1 folder</li>
+<li>Right mouse click –&gt; <code>Extract All...</code>
 </li>
 <li>Check the folder location is the one to extract the files to</li>
-<li>check the extracted files are placed next to the project icon</li>
-<li>files and project should be visible in the Output pane in RStudio</li>
+<li>Check the extracted files are placed next to the project icon</li>
+<li>Files and project should be visible in the Output pane in RStudio</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
@@ -931,7 +931,7 @@ For screenshots click here
 <p>Research shows that questionable research practices (QRPs) are present in undergraduate final-year dissertation projects. One entry-level Open Science practice proposed to mitigate QRPs is “study preregistration,” through which researchers outline their research questions, design, method, and analysis plans before data collection and/or analysis. In this study, we aimed to empirically test the effectiveness of preregistration as a pedagogic tool in undergraduate dissertations using a quasi-experimental design. A total of 89 UK psychology students were recruited, including students who preregistered their empirical quantitative dissertation (<em>n</em> = 52; experimental group) and students who did not (<em>n</em> = 37; control group). Attitudes toward statistics, acceptance of QRPs, and perceived understanding of Open Science were measured both before and after dissertation completion. Exploratory measures included capability, opportunity, and motivation to engage with preregistration, measured at Time 1 only. This study was conducted as a Registered Report; Stage 1 protocol: https://osf.io/9hjbw (date of in-principle acceptance: September 21, 2021). Study preregistration did not significantly affect attitudes toward statistics or acceptance of QRPs. However, students who preregistered reported greater perceived understanding of Open Science concepts from Time 1 to Time 2 compared with students who did not preregister. Exploratory analyses indicated that students who preregistered reported significantly greater capability, opportunity, and motivation to preregister. Qualitative responses revealed that preregistration was perceived to improve clarity and organization of the dissertation, prevent QRPs, and promote rigor. Disadvantages and barriers included time, perceived rigidity, and need for training. These results contribute to discussions surrounding embedding Open Science principles into research training.</p>
 </blockquote>
 <p><strong>Changes made to the dataset</strong></p>
-<p>We made some changes to the dataset for the purpose of increasing difficulty for data wrangling (<a href="03-wrangling2.html"><span>Chapter&nbsp;3</span></a>) and data visualisation (<a href="04-dataviz.html"><span>Chapter&nbsp;4</span></a> and <a href="05-dataviz2.html"><span>Chapter&nbsp;5</span></a>). This will ensure some “teachable moments”. The changes are as follows:</p>
+<p>We made some changes to the dataset for the purpose of increasing difficulty for data wrangling (<a href="02-wrangling.html"><span>Chapter&nbsp;2</span></a> and <a href="03-wrangling2.html"><span>Chapter&nbsp;3</span></a>) and data visualisation (<a href="04-dataviz.html"><span>Chapter&nbsp;4</span></a> and <a href="05-dataviz2.html"><span>Chapter&nbsp;5</span></a>). This will ensure some “teachable moments”. The changes are as follows:</p>
 <ul>
 <li>We removed some of the variables to make the data more manageable for teaching purposes.</li>
 <li>We recoded some values from numeric responses to labels (e.g., <code>understanding</code>).</li>
@@ -940,8 +940,8 @@ For screenshots click here
 <li>The scores in the original file were already corrected from reverse-coded responses. We reversed that process to present raw data here.</li>
 </ul></section><section id="activity-4-loading-packages-and-reading-in-data" class="level2" data-number="1.5"><h2 data-number="1.5" class="anchored" data-anchor-id="activity-4-loading-packages-and-reading-in-data">
 <span class="header-section-number">1.5</span> Activity 4: Loading packages and reading in data</h2>
-<p>The first step is to load in the packages we need, and read in the data. Today, we’ll only be using <code>tidyverse</code>, and <code>read_csv()</code> will help us store the data from <code>prp_data_reduced.csv</code> in an object called data_prp.</p>
-<p>Copy the code into a code chunk in your RmD document and run it. You can either click the <code>green error</code> to run the entire code chunk, or use the shortcut <code>Ctrl + Enter</code> (Windows) or <code>Cmd + Enter</code> (Mac) to run a line of code/ pipe from the Rmd.</p>
+<p>The first step is to load in the packages we need and read in the data. Today, we’ll only be using <code>tidyverse</code>, and <code>read_csv()</code> will help us store the data from <code>prp_data_reduced.csv</code> in an object called data_prp.</p>
+<p>Copy the code into a code chunk in your <code>.Rmd</code> file and run it. You can either click the <code>green error</code> to run the entire code chunk, or use the shortcut <code>Ctrl + Enter</code> (Windows) or <code>Cmd + Enter</code> (Mac) to run a line of code/ pipe from the Rmd.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2"></a>data_prp <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"prp_data_reduced.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -979,7 +979,7 @@ dbl (74): Gender, Secondyeargrade, Opptional_mod, Research_exp, Plan_prereg,...
 <span class="header-section-number">1.6.1</span> First glimpse at the data</h3>
 <p>Before you start wrangling your data, it is important to understand what kind of data you’re working with and what the format of your dataframe looks like.</p>
 <p>As you may have noticed, <code>read_csv()</code> provides a <strong>message</strong> listing the data types in your dataset and how many columns are of each type. Plus, it shows a few examples columns for each data type.</p>
-<p>To obtain more detailed information about your data, you have several options. Click on the individual tabs to see the different options available. Test them out in your own Rmd and use whichever method you prefer (but do it).</p>
+<p>To obtain more detailed information about your data, you have several options. Click on the individual tabs to see the different options available. Test them out in your own <code>.Rmd</code> file and use whichever method you prefer (but do it).</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1246,15 +1246,15 @@ Your Turn
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Now that you have tested out all the options in your own Rmd, you can probably answer the following questions:</p>
+<p>Now that you have tested out all the options in your own <code>.Rmd</code> file, you can probably answer the following questions:</p>
 <ul>
 <li>How many observations? <input class="webex-solveme nospaces" size="2" data-answer="[&quot;89&quot;]">
 </li>
-<li>How many variables? <input class="webex-solveme nospaces" size="2" data-answer="[&quot;90&quot;]">
+<li>How many variables? <input class="webex-solveme nospaces" size="2" data-answer="[&quot;91&quot;]">
 </li>
 <li>How many columns are <code>col_character</code> or <code>chr</code> data type? <input class="webex-solveme nospaces" size="2" data-answer="[&quot;17&quot;]">
 </li>
-<li>How many columns are <code>col_double</code> or <code>dbl</code> data type? <input class="webex-solveme nospaces" size="2" data-answer="[&quot;73&quot;]">
+<li>How many columns are <code>col_double</code> or <code>dbl</code> data type? <input class="webex-solveme nospaces" size="2" data-answer="[&quot;74&quot;]">
 </li>
 </ul>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
@@ -1279,7 +1279,7 @@ Explain the solution
 </div>
 </div>
 </div>
-<p>In your Rmd, include a <strong>new heading level 2</strong> called “Information about the data” (or something equally meaningful) and jot down some notes about <code>data_prp</code>. You could include the citation and/or the abstract, and whatever information you think you should note about this dataset (e.g., any observations from looking at the codebook?). You could also include some notes on the functions used so far and what they do. Try to incorporate some <strong>bold</strong>, <em>italic</em> or <strong><em>bold and italic</em></strong> emphasis and perhaps a bullet point or two.</p>
+<p>In your <code>.Rmd</code>, include a <strong>new heading level 2</strong> called “Information about the data” (or something equally meaningful) and jot down some notes about <code>data_prp</code>. You could include the citation and/or the abstract, and whatever information you think you should note about this dataset (e.g., any observations from looking at the codebook?). You could also include some notes on the functions used so far and what they do. Try to incorporate some <strong>bold</strong>, <em>italic</em> or <strong><em>bold and italic</em></strong> emphasis and perhaps a bullet point or two.</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1683,7 +1683,7 @@ Revealing the mystery code that created <code>data_quiz</code>
 <strong>line 7</strong>: Doesn’t start with a function name and has an indent, which means we are <em>still</em> within the <code>mutate()</code> function - count the opening and closing brackets to confirm.
 <ul>
 <li>Here, we are creating a new column called <code>QRP_item &gt; 4</code>. Notice the two backticks we have to use to make this weird column name work? This is because it has spaces (and we did mention that R doesn’t like spaces). So the backticks help R to group it as a unit/ a single name.</li>
-<li>Next we have a <code>case_when()</code> function which helps executing conditional statements. We are using it to check whether a statement is TRUE or FALSE. Here, we ask whether the QRP item (column <code>QRP_item</code>) is larger than 4 (midpoint of the scale) using the Boolean operator <code>&gt;</code>. If the statement is <code>TRUE</code>, the label <code>TRUE</code> should appear in column <code>QRP_item &gt; 4</code>. Otherwise, if the value is equal to 4 or smaller, the label should read <code>FALSE</code>. We will come back to conditional statements in <a href="03-wrangling2.html"><span>Chapter&nbsp;3</span></a>. But long story short, this Boolean expression created the only logical data type in <code>data_quiz</code>.</li>
+<li>Next we have a <code>case_when()</code> function which helps executing conditional statements. We are using it to check whether a statement is TRUE or FALSE. Here, we ask whether the QRP item (column <code>QRP_item</code>) is larger than 4 (midpoint of the scale) using the Boolean operator <code>&gt;</code>. If the statement is <code>TRUE</code>, the label <code>TRUE</code> should appear in column <code>QRP_item &gt; 4</code>. Otherwise, if the value is equal to 4 or smaller, the label should read <code>FALSE</code>. We will come back to conditional statements in <a href="02-wrangling.html"><span>Chapter&nbsp;2</span></a>. But long story short, this Boolean expression created the only logical data type in <code>data_quiz</code>.</li>
 </ul>
 </li>
 </ul>
@@ -1692,14 +1692,14 @@ Revealing the mystery code that created <code>data_quiz</code>
 </div>
 <p>And with this, we are done with the individual walkthrough. Well done :)</p>
 </section></section><section id="pair-coding-in-the-lab" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="pair-coding-in-the-lab"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding in the lab</span></h2>
-<p>I want to produce a short knitted document that the students have to recreate including some headings, emphasis in the text, bullet points and the first steps of calculation we can do with the loneliness data with no proper data wrangling skills</p>
+<p>I want to produce a short, knitted document that the students have to recreate including some headings, emphasis in the text, bullet points and the first steps of calculation we can do with the loneliness data with no proper data wrangling skills</p>
 </section><section id="test-your-knowledge" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="test-your-knowledge"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge</span></h2>
 <p>Are you ready for some knowledge check questions to test your understanding of the chapter? We also have some faulty codes. See if you can spot what’s wrong with them.</p>
 <section id="knowledge-check" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="knowledge-check">Knowledge check</h3>
 <section id="question-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-1">Question 1</h4>
 One of the key first steps when we open RStudio is to:
-<div id="radio_LOMMIYWLDV" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_LOMMIYWLDV" value="x"><span>put on some music as we will be here a while</span></label><label><input type="radio" autocomplete="off" name="radio_LOMMIYWLDV" value="answer"><span>open an existing project or create a new one</span></label><label><input type="radio" autocomplete="off" name="radio_LOMMIYWLDV" value="x"><span>make a coffee</span></label><label><input type="radio" autocomplete="off" name="radio_LOMMIYWLDV" value="x"><span>check out the news</span></label>
+<div id="radio_SHSOCUOOZM" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_SHSOCUOOZM" value="x"><span>put on some music as we will be here a while</span></label><label><input type="radio" autocomplete="off" name="radio_SHSOCUOOZM" value="answer"><span>open an existing project or create a new one</span></label><label><input type="radio" autocomplete="off" name="radio_SHSOCUOOZM" value="x"><span>make a coffee</span></label><label><input type="radio" autocomplete="off" name="radio_SHSOCUOOZM" value="x"><span>check out the news</span></label>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
@@ -1713,17 +1713,17 @@ Explain this answer
 </div>
 <div id="callout-22" class="callout-22-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Opening an existing project (e.g., when coming back to the same dataset) or creating a new project (e.g., for a new task or new dataset) ensures that subsequent Rmds, any output, figures, etc are saved within the same folder on your computer (i.e., the working directory). If Rmds or data is not in the same folder as “the project icon”, things can get messy and code might not run.</p>
+<p>Opening an existing project (e.g., when coming back to the same dataset) or creating a new project (e.g., for a new task or new dataset) ensures that subsequent <code>.Rmd</code> files, any output, figures, etc are saved within the same folder on your computer (i.e., the working directory). If the<code>.Rmd</code> files or data is not in the same folder as “the project icon”, things can get messy and code might not run.</p>
 </div>
 </div>
 </div>
 </section><section id="question-2" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-2">Question 2</h4>
-<p>When using the default environment color settings for RStudio, what color would the background of a code chunk be in R Markdown? <select class="webex-select"><option value="blank"></option>
+<p>When using the default environment colour settings for RStudio, what colour would the background of a code chunk be in R Markdown? <select class="webex-select"><option value="blank"></option>
 <option value="x">red</option>
 <option value="x">white</option>
 <option value="x">green</option>
 <option value="answer">grey</option></select></p>
-<p>When using the default environment color settings for RStudio, what color would the background of normal text be in R Markdown? <select class="webex-select"><option value="blank"></option>
+<p>When using the default environment colour settings for RStudio, what colour would the background of normal text be in R Markdown? <select class="webex-select"><option value="blank"></option>
 <option value="x">red</option>
 <option value="answer">white</option>
 <option value="x">green</option>
@@ -1746,8 +1746,8 @@ Explain this answer
 </div>
 </section><section id="question-3" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-3">Question 3</h4>
 Code chunks start and end with:
-<div id="radio_QRNVYZAYJJ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_QRNVYZAYJJ" value="x"><span>three single quotes</span></label><label><input type="radio" autocomplete="off" name="radio_QRNVYZAYJJ" value="answer"><span>three backticks</span></label><label><input type="radio" autocomplete="off" name="radio_QRNVYZAYJJ" value="x"><span>three double quotes</span></label><label><input type="radio" autocomplete="off" name="radio_QRNVYZAYJJ" value="x"><span>three single asterisks</span></label>
+<div id="radio_GEPDVBXFDH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_GEPDVBXFDH" value="x"><span>three single quotes</span></label><label><input type="radio" autocomplete="off" name="radio_GEPDVBXFDH" value="answer"><span>three backticks</span></label><label><input type="radio" autocomplete="off" name="radio_GEPDVBXFDH" value="x"><span>three double quotes</span></label><label><input type="radio" autocomplete="off" name="radio_GEPDVBXFDH" value="x"><span>three single asterisks</span></label>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
@@ -1761,12 +1761,12 @@ Explain this answer
 </div>
 <div id="callout-24" class="callout-24-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Code chunks always take the same general format of three backticks followed by curly parentheses and a lower case r inside the parentheses (<code>{r}</code>). People often mistake these backticks for single quotes but that will not work. If you have set your code chunk correctly using backticks, the background color should change to grey from white.</p>
+<p>Code chunks always take the same general format of three backticks followed by curly parentheses and a lower case r inside the parentheses (<code>{r}</code>). People often mistake these backticks for single quotes but that will not work. If you have set your code chunk correctly using backticks, the background colour should change to grey from white.</p>
 </div>
 </div>
 </div>
 </section><section id="question-4" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-4">Question 4</h4>
-<p>What is the correct way to include a code chunk in RMarkdown that will be executed but neither the code nor its output will be shown in the final html document? <select class="webex-select"><option value="blank"></option>
+<p>What is the correct way to include a code chunk in RMarkdown that will be executed but neither the code nor its output will be shown in the final HTML document? <select class="webex-select"><option value="blank"></option>
 <option value="x">{r, echo=FALSE}</option>
 <option value="x">{r, eval=FALSE}</option>
 <option value="answer">{r, include=FALSE}</option>
@@ -1795,7 +1795,7 @@ Explain this answer
 </section></section><section id="error-mode" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="error-mode">Error mode</h3>
 <p>Some of these codes have mistakes in them, other code chunks are not quite producing what was aimed for. Your task is to spot anything faulty, explain why the things happened, and perhaps try to fix them.</p>
 <section id="question-5" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-5">Question 5</h4>
-<p>You want to read in data with the <code>read_csv()</code> function. You have just stated R, created a new Rmd, and typed the following code into your code chunk.</p>
+<p>You want to read in data with the <code>read_csv()</code> function. You have just stated R, created a new <code>.Rmd</code> file, and typed the following code into your code chunk.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1839,7 +1839,7 @@ Explain the solution
 <div id="callout-27" class="callout-27-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>R is looking for a csv file that is called data which is currently not in the working directory. We may assume it’s in the data folder. Perhaps that happened when unzipping the zip file. So instead of placing the csv file on the same level as the project icon, it was unzipped into a folder named data.</p>
-<p>FIX - option 1: Take the <code>data.csv</code> out of the data folder and place it next to the project icon and the Rmd file.</p>
+<p>FIX - option 1: Take the <code>data.csv</code> out of the data folder and place it next to the project icon and the <code>.Rmd</code> file.</p>
 <p>FIX - option 2: Modify your R code to tell R that the data is in a separate folder called data, e.g., …</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">library</span>(tidyverse)</span>
@@ -1873,7 +1873,7 @@ Explain the solution
 </div>
 </div>
 </section><section id="question-8" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-8">Question 8</h4>
-<p>You knitted your Rmd into a html but the output is not as expected. You see the following:</p>
+<p>You knitted your <code>.Rmd</code> into a html but the output is not as expected. You see the following:</p>
 <p><img src="images/error_knitted.PNG" class="img-fluid"></p>
 <p>Why did the file not knit properly?</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
@@ -1888,7 +1888,7 @@ Explain the solution
 </div>
 <div id="callout-29" class="callout-29-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>There is a backtick missing in the code chunk. If you check your Rmd file, you can see that the code chunk does not show up in grey which means it’s one of the 3 backticks at the beginning of the chunk.</p>
+<p>There is a backtick missing in the code chunk. If you check your <code>.Rmd</code> file, you can see that the code chunk does not show up in grey which means it’s one of the 3 backticks at the beginning of the chunk.</p>
 <p><img src="images/error_ch1_08.PNG" class="img-fluid"></p>
 <p>FIX: Add a single backtick manually where it’s missing.</p>
 </div>
@@ -2482,7 +2482,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./02-wrangling.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data wrangling</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data wrangling I</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

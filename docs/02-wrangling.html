@@ -5,7 +5,7 @@
 <meta name="generator" content="quarto-1.3.450">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 <meta name="description" content="Level 2 UG Analysis book">
-<title>Analysis - 2&nbsp; Data wrangling</title>
+<title>Analysis - 2&nbsp; Data wrangling I</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -106,7 +106,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-wrangling.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data wrangling</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./02-wrangling.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data wrangling I</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -168,13 +168,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./02-wrangling.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data wrangling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data wrangling I</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./03-wrangling2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data wrangling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data wrangling II</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -311,18 +311,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 </li>
   <li><a href="#sec-ch2_act4" id="toc-sec-ch2_act4" class="nav-link" data-scroll-target="#sec-ch2_act4"><span class="header-section-number">2.4</span> Activity 4: Questionable Research Practices (QRPs)</a></li>
-  <li><a href="#activity-5-confidence-in-understanding-open-science-practices" id="toc-activity-5-confidence-in-understanding-open-science-practices" class="nav-link" data-scroll-target="#activity-5-confidence-in-understanding-open-science-practices"><span class="header-section-number">2.5</span> Activity 5: Confidence in understanding Open Science practices</a></li>
-  <li><a href="#activity-6-survey-of-attitudes-toward-statistics-sats-28" id="toc-activity-6-survey-of-attitudes-toward-statistics-sats-28" class="nav-link" data-scroll-target="#activity-6-survey-of-attitudes-toward-statistics-sats-28"><span class="header-section-number">2.6</span> Activity 6: Survey of Attitudes Toward Statistics (SATS-28)</a></li>
-  <li><a href="#activity-7-error-mode-perceptions-of-supervisory-support" id="toc-activity-7-error-mode-perceptions-of-supervisory-support" class="nav-link" data-scroll-target="#activity-7-error-mode-perceptions-of-supervisory-support"><span class="header-section-number">2.7</span> Activity 7 (Error Mode): Perceptions of supervisory support</a></li>
-  <li><a href="#activity-8-joining-everything-together-with-_join" id="toc-activity-8-joining-everything-together-with-_join" class="nav-link" data-scroll-target="#activity-8-joining-everything-together-with-_join"><span class="header-section-number">2.8</span> Activity 8: Joining everything together with <code>???_join()</code></a></li>
-  <li><a href="#knitting" id="toc-knitting" class="nav-link" data-scroll-target="#knitting"><span class="header-section-number">2.9</span> Knitting</a></li>
+  <li><a href="#activity-5-knitting" id="toc-activity-5-knitting" class="nav-link" data-scroll-target="#activity-5-knitting"><span class="header-section-number">2.5</span> Activity 5: Knitting</a></li>
+  <li><a href="#activity-6-export-a-data-object-as-a-csv" id="toc-activity-6-export-a-data-object-as-a-csv" class="nav-link" data-scroll-target="#activity-6-export-a-data-object-as-a-csv"><span class="header-section-number">2.6</span> Activity 6: Export a data object as a csv</a></li>
   <li><a href="#pair-coding-in-the-lab" id="toc-pair-coding-in-the-lab" class="nav-link" data-scroll-target="#pair-coding-in-the-lab"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding in the lab</span></a></li>
   <li><a href="#test-your-knowledge-and-challenge-yourself" id="toc-test-your-knowledge-and-challenge-yourself" class="nav-link" data-scroll-target="#test-your-knowledge-and-challenge-yourself"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge and challenge yourself</span></a></li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title"><span id="sec-wrangling" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data wrangling</span></span></h1>
+<h1 class="title"><span id="sec-wrangling" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Data wrangling I</span></span></h1>
 </div>
 
 
@@ -336,29 +333,30 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 </header><section id="intended-learning-outcomes" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="intended-learning-outcomes">Intended Learning Outcomes</h2>
-<p>In this chapter, we are building upon the skills from level 1, bringing together all of the functions you already encountered (and probably forgotten over the summer break) with perhaps introducing 2 or 3 new functions. It’s as much a revision chapter as well as providing an opportunity to apply the functions to a novel dataset.</p>
-<p>By the end of this chapter you should be able to:</p>
+<p>In the next two chapters, we will build on the data wrangling skills from level 1. We will revisit all the functions you have already encountered (and might have forgotten over the summer break) and introduce 2 or 3 new functions. These two chapters will provide an opportunity to revise and apply the functions to a novel dataset.</p>
+<p>By the end of this chapter, you should be able to:</p>
 <ul>
 <li>apply familiar data wrangling functions to novel datasets</li>
 <li>read and interpret error messages</li>
 <li>realise there are several ways of getting to the results</li>
-</ul></section><section id="individual-walkthrough" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="individual-walkthrough"><span style="color: #F39C12; text-transform: uppercase;">Individual Walkthrough</span></h2>
-<p>The main purpose of this chapter is to wrangle your data into shape for data visualisation (<a href="04-dataviz.html"><span>Chapter&nbsp;4</span></a> and <a href="05-dataviz2.html"><span>Chapter&nbsp;5</span></a>). Here, we will:</p>
+<li>export data objects as csv files</li>
+</ul>
+<p>The main purpose of this chapter and <a href="03-wrangling2.html"><span>Chapter&nbsp;3</span></a> is to wrangle your data into shape for data visualisation (<a href="04-dataviz.html"><span>Chapter&nbsp;4</span></a> and <a href="05-dataviz2.html"><span>Chapter&nbsp;5</span></a>). For the two chapters, we will:</p>
 <ol type="1">
 <li>calculate demographics</li>
-<li>tidy 3 different questionnaires with varying degree of complexity</li>
+<li>tidy 3 different questionnaires with varying degrees of complexity</li>
 <li>solve an error mode problem</li>
 <li>join all data objects together</li>
-</ol>
-<p>But first, we need to set up some things.</p>
+</ol></section><section id="individual-walkthrough" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="individual-walkthrough"><span style="color: #F39C12; text-transform: uppercase;">Individual Walkthrough</span></h2>
+<p>Before we start, we need to set up some things.</p>
 </section><section id="activity-1-setup" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="activity-1-setup">
 <span class="header-section-number">2.1</span> Activity 1: Setup</h2>
 <ul>
 <li>We will be working on the <strong>dataset by Pownall et al.&nbsp;(2023)</strong> again, which means we can still use the project we created last week. The data files will already be there, so no need to download them again.</li>
 <li>To <strong>open the project</strong> in RStudio, go to the folder in which you stored the project and the data last time, and double click on the project icon.</li>
 <li>
-<strong>Create a new Rmd</strong> for chapter 2 and save it to your project folder. Name it something meaningful (e.g., “chapter_02”, “02_data_wrangling.Rmd”). See <a href="01-basics.html#sec-rmd"><span>Section&nbsp;1.3</span></a> if you need some guidance.</li>
-<li>In your newly created Rmd file, delete everything below line 12 (after the set-up code chunk).</li>
+<strong>Create a new <code>.Rmd</code></strong> for chapter 2 and save it to your project folder. Name it something meaningful (e.g., “chapter_02”, “02_data_wrangling.Rmd”). See <a href="01-basics.html#sec-rmd"><span>Section&nbsp;1.3</span></a> if you need some guidance.</li>
+<li>In your newly created <code>.Rmd</code> file, delete everything below line 12 (after the set-up code chunk).</li>
 </ul></section><section id="activity-2-load-in-the-libraries-and-read-in-the-data" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="activity-2-load-in-the-libraries-and-read-in-the-data">
 <span class="header-section-number">2.2</span> Activity 2: Load in the libraries and read in the data</h2>
 <p>We will use <code>tidyverse</code> today, and we want to create a data object <code>data_prp</code> that stores the data from the file <code>prp_data_reduced.csv</code>.</p>
@@ -535,7 +533,7 @@ Show the unique values of <code>Age</code>.
 <div class="columns">
 <div class="column">
 <p>One cell has the string “years” added to their number 25, which has converted the entire column into a character column.</p>
-<p>We can easily fix this by extracting only the numbers from the column and converting it into a numeric data type. The <code>parse_number()</code> function, which is part of the <code>tidyverse</code> package, handles both steps in one go (so there’s no need to load additional packages)</p>
+<p>We can easily fix this by extracting only the numbers from the column and converting it into a numeric data type. The <code>parse_number()</code> function, which is part of the <code>tidyverse</code> package, handles both steps in one go (so there’s no need to load additional packages).</p>
 <p>We will combine this with the <code>mutate()</code> function to create a new column called <code>Age</code> (containing those numeric values), effectively replacing the old <code>Age</code> column (which had the character values).</p>
 </div><div class="column">
 <div class="quarto-figure quarto-figure-center">
@@ -554,14 +552,57 @@ Show the unique values of <code>Age</code>.
 </div>
 </div>
 </section><section id="computing-summary-stats" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="computing-summary-stats">Computing summary stats</h4>
-<p>Now we can try calculating the demographics for the total sample again. However, we also saw that <code>age_distinct</code> that <code>Age</code> contains some missing values (<code>NA</code>). We need R to ignore those for the calculations, so we add the extra argument <code>na.rm = TRUE</code> to the <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> and <code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code> functions. If we don’t, we’d be back at <code>NA</code> values for those 2 columns.</p>
+<p>Excellent. Now that the numbers are in a numeric format, let’s try calculating the demographics for the total sample again.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>demo_total <span class="ot">&lt;-</span> data_prp <span class="sc">%&gt;%</span> </span>
 <span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="co"># participant number</span></span>
-<span id="cb9-3"><a href="#cb9-3"></a>            <span class="at">mean_age =</span> <span class="fu">mean</span>(Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co"># mean age</span></span>
-<span id="cb9-4"><a href="#cb9-4"></a>            <span class="at">sd_age =</span> <span class="fu">sd</span>(Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="co"># standard deviation of age</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a>            <span class="at">mean_age =</span> <span class="fu">mean</span>(Age), <span class="co"># mean age</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a>            <span class="at">sd_age =</span> <span class="fu">sd</span>(Age)) <span class="co"># standard deviation of age</span></span>
 <span id="cb9-5"><a href="#cb9-5"></a></span>
 <span id="cb9-6"><a href="#cb9-6"></a>demo_total</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: right;">n</th>
+<th style="text-align: right;">mean_age</th>
+<th style="text-align: right;">sd_age</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td style="text-align: right;">89</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Even though there’s no error or warning, the table still shows <code>NA</code> values for <code>mean_age</code> and <code>sd_age</code>. So, what could possibly be wrong now?</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Did you notice that the <code>Age</code> column in <code>age_distinct</code> contains some missing values (<code>NA</code>)? To be honest, it’s easier to spot this issue in the actual R output than in the printed HTML page.</p>
+</div>
+</div>
+</div>
+</section><section id="computing-summary-stats---third-attempt" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="computing-summary-stats---third-attempt">Computing summary stats - third attempt</h4>
+<p>To ensure R ignores missing values during calculations, we need to add the extra argument <code>na.rm = TRUE</code> to the <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> and <code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code> functions.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>demo_total <span class="ot">&lt;-</span> data_prp <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="co"># participant number</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>            <span class="at">mean_age =</span> <span class="fu">mean</span>(Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co"># mean age</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a>            <span class="at">sd_age =</span> <span class="fu">sd</span>(Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="co"># standard deviation of age</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a></span>
+<span id="cb10-6"><a href="#cb10-6"></a>demo_total</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
@@ -579,19 +620,20 @@ Show the unique values of <code>Age</code>.
 </div>
 </div>
 </div>
+<p>Finally, we’ve got it! 🥳 Third time’s the charm!</p>
 </section></section><section id="per-gender-using-summarise-and-group_by" class="level3" data-number="2.3.2"><h3 data-number="2.3.2" class="anchored" data-anchor-id="per-gender-using-summarise-and-group_by">
 <span class="header-section-number">2.3.2</span> … per gender using <code>summarise()</code> and <code>group_by()</code>
 </h3>
-<p>Now we want to compute the summary statistics for each gender. The code inside the <code>summarise()</code> function remains unchanged; we just need to use the <code>group_by()</code> function beforehand to tell R that we want to compute the summary statistics for each group separately. It’s also a good practice to use <code>ungroup()</code> afterward, so you are not taking groupings forward unintentionally.</p>
+<p>Now we want to compute the summary statistics for each gender. The code inside the <code>summarise()</code> function remains unchanged; we just need to use the <code>group_by()</code> function beforehand to tell R that we want to compute the summary statistics for each group separately. It’s also a good practice to use <code>ungroup()</code> afterwards, so you are not taking groupings forward unintentionally.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>demo_by_gender <span class="ot">&lt;-</span> data_prp <span class="sc">%&gt;%</span> </span>
-<span id="cb10-2"><a href="#cb10-2"></a>  <span class="fu">group_by</span>(Gender) <span class="sc">%&gt;%</span> <span class="co"># split data up into groups (here Gender)</span></span>
-<span id="cb10-3"><a href="#cb10-3"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="co"># participant number </span></span>
-<span id="cb10-4"><a href="#cb10-4"></a>            <span class="at">mean_age =</span> <span class="fu">mean</span>(Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co"># mean age </span></span>
-<span id="cb10-5"><a href="#cb10-5"></a>            <span class="at">sd_age =</span> <span class="fu">sd</span>(Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span>  <span class="co"># standard deviation of age</span></span>
-<span id="cb10-6"><a href="#cb10-6"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb10-7"><a href="#cb10-7"></a></span>
-<span id="cb10-8"><a href="#cb10-8"></a>demo_by_gender</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>demo_by_gender <span class="ot">&lt;-</span> data_prp <span class="sc">%&gt;%</span> </span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">group_by</span>(Gender) <span class="sc">%&gt;%</span> <span class="co"># split data up into groups (here Gender)</span></span>
+<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), <span class="co"># participant number </span></span>
+<span id="cb11-4"><a href="#cb11-4"></a>            <span class="at">mean_age =</span> <span class="fu">mean</span>(Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="co"># mean age </span></span>
+<span id="cb11-5"><a href="#cb11-5"></a>            <span class="at">sd_age =</span> <span class="fu">sd</span>(Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span>  <span class="co"># standard deviation of age</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb11-7"><a href="#cb11-7"></a></span>
+<span id="cb11-8"><a href="#cb11-8"></a>demo_by_gender</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
@@ -628,18 +670,18 @@ Show the unique values of <code>Age</code>.
 </section><section id="adding-percentages" class="level3" data-number="2.3.3"><h3 data-number="2.3.3" class="anchored" data-anchor-id="adding-percentages">
 <span class="header-section-number">2.3.3</span> Adding percentages</h3>
 <p>Sometimes, it may be useful to calculate percentages, such as for the gender split. You can do this by adding a line within the <code>summarise()</code> function to perform the calculation. All we need to do is take the number of female, male, and non-binary participants (stored in the <code>n</code> column of <code>demo_by_gender</code>), divide it by the total number of participants (stored in the <code>n</code> column of <code>demo_total</code>), and multiply by 100. Let’s add <code>percentage</code> to the <code>summarise()</code> function of <code>demo_by_gender</code>. Make sure that the code for <code>percentages</code> is placed after the value for <code>n</code> has been computed.</p>
-<p>Accessing <code>n</code> for the different gender categories is straightforward because can refer back to it. However, since the total number of participants is in a different data object, we need to use some baseR functionality to access it - namely via the <code>$</code> operator. You just have to name the data object (here <code>demo_total</code>), then use the <code>$</code> (straight after, without any spaces), and then name the column you want to access (here <code>n</code>).</p>
+<p>Accessing the value of <code>n</code> for the different gender categories is straightforward because we can refer back to it directly. However, since the total number of participants is stored in a different data object, we need to use a base R function to access it – specifically the <code>$</code> operator. To do this, you simply type the name of the data object (in this case, <code>demo_total</code>), followed by the <code>$</code> symbol (with no spaces), and then the name of the column you want to retrieve (in this case, <code>n</code>). The general pattern is <code>data$column</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>demo_by_gender <span class="ot">&lt;-</span> data_prp <span class="sc">%&gt;%</span> </span>
-<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">group_by</span>(Gender) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-3"><a href="#cb11-3"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), </span>
-<span id="cb11-4"><a href="#cb11-4"></a>            <span class="co"># n from the line above divided by n from demo_total *100</span></span>
-<span id="cb11-5"><a href="#cb11-5"></a>            <span class="at">percentage =</span> n<span class="sc">/</span>demo_total<span class="sc">$</span>n <span class="sc">*</span><span class="dv">100</span>, </span>
-<span id="cb11-6"><a href="#cb11-6"></a>            <span class="at">mean_age =</span> <span class="fu">mean</span>(Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
-<span id="cb11-7"><a href="#cb11-7"></a>            <span class="at">sd_age =</span> <span class="fu">sd</span>(Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb11-8"><a href="#cb11-8"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb11-9"><a href="#cb11-9"></a></span>
-<span id="cb11-10"><a href="#cb11-10"></a>demo_by_gender</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>demo_by_gender <span class="ot">&lt;-</span> data_prp <span class="sc">%&gt;%</span> </span>
+<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">group_by</span>(Gender) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), </span>
+<span id="cb12-4"><a href="#cb12-4"></a>            <span class="co"># n from the line above divided by n from demo_total *100</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a>            <span class="at">percentage =</span> n<span class="sc">/</span>demo_total<span class="sc">$</span>n <span class="sc">*</span><span class="dv">100</span>, </span>
+<span id="cb12-6"><a href="#cb12-6"></a>            <span class="at">mean_age =</span> <span class="fu">mean</span>(Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb12-7"><a href="#cb12-7"></a>            <span class="at">sd_age =</span> <span class="fu">sd</span>(Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-8"><a href="#cb12-8"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb12-9"><a href="#cb12-9"></a></span>
+<span id="cb12-10"><a href="#cb12-10"></a>demo_by_gender</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
@@ -678,7 +720,7 @@ Show the unique values of <code>Age</code>.
 </div>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -687,19 +729,19 @@ Tip for decimal places - use <code><a href="https://rdrr.io/r/base/Round.html">r
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Not super important, because you could round the values by yourself when writing up your reports, but if you wanted to tidy up the decimal places in the output, you can do that using the <code><a href="https://rdrr.io/r/base/Round.html">round()</a></code> function. You would need to “wrap” it around your computations and specify how many decimal places you want to display (for example <code>mean(Age)</code> would turn into <code>round(mean(Age), 1)</code>). It may look odd for <code>percentage</code>, just make sure the number that specifies the decimal places is placed <strong>within</strong> the round function. The default value is 0 (meaning no decimal spaces).</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>demo_by_gender <span class="ot">&lt;-</span> data_prp <span class="sc">%&gt;%</span> </span>
-<span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">group_by</span>(Gender) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-3"><a href="#cb12-3"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), </span>
-<span id="cb12-4"><a href="#cb12-4"></a>            <span class="at">percentage =</span> <span class="fu">round</span>(n<span class="sc">/</span>demo_total<span class="sc">$</span>n <span class="sc">*</span><span class="dv">100</span>, <span class="dv">2</span>), <span class="co"># percentage with 2 decimal places</span></span>
-<span id="cb12-5"><a href="#cb12-5"></a>            <span class="at">mean_age =</span> <span class="fu">round</span>(<span class="fu">mean</span>(Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>), <span class="co"># mean Age with 1 decimal place</span></span>
-<span id="cb12-6"><a href="#cb12-6"></a>            <span class="at">sd_age =</span> <span class="fu">round</span>(<span class="fu">sd</span>(Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">3</span>)) <span class="sc">%&gt;%</span> <span class="co"># sd Age with 3 decimal places</span></span>
-<span id="cb12-7"><a href="#cb12-7"></a>  <span class="fu">ungroup</span>()</span>
-<span id="cb12-8"><a href="#cb12-8"></a></span>
-<span id="cb12-9"><a href="#cb12-9"></a>demo_by_gender</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>demo_by_gender <span class="ot">&lt;-</span> data_prp <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">group_by</span>(Gender) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), </span>
+<span id="cb13-4"><a href="#cb13-4"></a>            <span class="at">percentage =</span> <span class="fu">round</span>(n<span class="sc">/</span>demo_total<span class="sc">$</span>n <span class="sc">*</span><span class="dv">100</span>, <span class="dv">2</span>), <span class="co"># percentage with 2 decimal places</span></span>
+<span id="cb13-5"><a href="#cb13-5"></a>            <span class="at">mean_age =</span> <span class="fu">round</span>(<span class="fu">mean</span>(Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">1</span>), <span class="co"># mean Age with 1 decimal place</span></span>
+<span id="cb13-6"><a href="#cb13-6"></a>            <span class="at">sd_age =</span> <span class="fu">round</span>(<span class="fu">sd</span>(Age, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="dv">3</span>)) <span class="sc">%&gt;%</span> <span class="co"># sd Age with 3 decimal places</span></span>
+<span id="cb13-7"><a href="#cb13-7"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb13-8"><a href="#cb13-8"></a></span>
+<span id="cb13-9"><a href="#cb13-9"></a>demo_by_gender</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
@@ -752,9 +794,9 @@ Tip for decimal places - use <code><a href="https://rdrr.io/r/base/Round.html">r
 <option value="answer">no</option>
 <option value="x">some</option></select> reverse-coded items in this questionnaire.</li>
 </ul>
-<p>So we just have to <strong>compute an average score for items 1 to 11</strong> as items 12 to 15 are distractor items. Seems quite straightforward.</p>
+<p>So, we just have to <strong>compute an average score for items 1 to 11</strong> as items 12 to 15 are distractor items. Seems quite straightforward.</p>
 <p>The downside is that individual items are each in a separate column, i.e., in <strong>wide format</strong>, and everything would be easier if the items were arranged in <strong>long format</strong>.</p>
-<p>So let’s tackle this problem in steps. Best would be to create a separate data object for that. If we wanted to compute this within <code>data_prp</code>, it would turn into a nightmare.</p>
+<p>Let’s tackle this problem in steps. Best would be to create a separate data object for that. If we wanted to compute this within <code>data_prp</code>, it would turn into a nightmare.</p>
 <ul>
 <li>
 <strong>Step 1</strong>: select the relevant columns <code>Code</code>, and <code>QRPs_1_Time1</code> to <code>QRPs_1_Time1</code> and store them in an object called <code>qrp_t1</code>
@@ -766,18 +808,18 @@ Tip for decimal places - use <code><a href="https://rdrr.io/r/base/Round.html">r
 </li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>qrp_t1 <span class="ot">&lt;-</span> data_prp <span class="sc">%&gt;%</span> </span>
-<span id="cb13-2"><a href="#cb13-2"></a>  <span class="co">#Step 1</span></span>
-<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">select</span>(Code, QRPs_1_Time1<span class="sc">:</span>QRPs_11_Time1) <span class="sc">%&gt;%</span></span>
-<span id="cb13-4"><a href="#cb13-4"></a>  <span class="co"># Step 2</span></span>
-<span id="cb13-5"><a href="#cb13-5"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Code, <span class="at">names_to =</span> <span class="st">"Items"</span>, <span class="at">values_to =</span> <span class="st">"Scores"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb13-6"><a href="#cb13-6"></a>  <span class="co"># Step 3</span></span>
-<span id="cb13-7"><a href="#cb13-7"></a>  <span class="fu">group_by</span>(Code) <span class="sc">%&gt;%</span> <span class="co"># grouping py participant id</span></span>
-<span id="cb13-8"><a href="#cb13-8"></a>  <span class="fu">summarise</span>(<span class="at">QRPs_Acceptance_Time1_mean =</span> <span class="fu">mean</span>(Scores)) <span class="sc">%&gt;%</span> <span class="co"># calculating the average Score</span></span>
-<span id="cb13-9"><a href="#cb13-9"></a>  <span class="fu">ungroup</span>() <span class="co"># just make it a habit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>qrp_t1 <span class="ot">&lt;-</span> data_prp <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="#cb14-2"></a>  <span class="co">#Step 1</span></span>
+<span id="cb14-3"><a href="#cb14-3"></a>  <span class="fu">select</span>(Code, QRPs_1_Time1<span class="sc">:</span>QRPs_11_Time1) <span class="sc">%&gt;%</span></span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="co"># Step 2</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Code, <span class="at">names_to =</span> <span class="st">"Items"</span>, <span class="at">values_to =</span> <span class="st">"Scores"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-6"><a href="#cb14-6"></a>  <span class="co"># Step 3</span></span>
+<span id="cb14-7"><a href="#cb14-7"></a>  <span class="fu">group_by</span>(Code) <span class="sc">%&gt;%</span> <span class="co"># grouping py participant id</span></span>
+<span id="cb14-8"><a href="#cb14-8"></a>  <span class="fu">summarise</span>(<span class="at">QRPs_Acceptance_Time1_mean =</span> <span class="fu">mean</span>(Scores)) <span class="sc">%&gt;%</span> <span class="co"># calculating the average Score</span></span>
+<span id="cb14-9"><a href="#cb14-9"></a>  <span class="fu">ungroup</span>() <span class="co"># just make it a habit</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -786,7 +828,7 @@ Explain the individual functions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist">
@@ -796,14 +838,14 @@ Explain the individual functions
 </ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>The select function allows to include or exclude certain variables (columns). Here we want to focus on the participant id column (i.e., <code>Code</code>) and the QRP items at time point 1. We can either list them all individually, i.e., Code, QRPs_1_Time1, QRPs_2_Time1, QRPs_3_Time1, and so forth (you get the gist), but that would take forever to type.</p>
-<p>A short cut would to use the colon operator <code>:</code>. It allows us to select all columns that fall within the range of <code>first_column_name</code> to <code>last_column_name</code>. We can use this here since QRP items 1 to 11 are sequentially listed in <code>data_prp</code>.</p>
+<p>The select function allows to include or exclude certain variables (columns). Here we want to focus on the participant ID column (i.e., <code>Code</code>) and the QRP items at time point 1. We can either list them all individually, i.e., Code, QRPs_1_Time1, QRPs_2_Time1, QRPs_3_Time1, and so forth (you get the gist), but that would take forever to type.</p>
+<p>A shortcut is to use the colon operator <code>:</code>. It allows us to select all columns that fall within the range of <code>first_column_name</code> to <code>last_column_name</code>. We can apply this here since the QRP items (1 to 11) are sequentially listed in <code>data_prp</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a>qrp_step1 <span class="ot">&lt;-</span> data_prp <span class="sc">%&gt;%</span> </span>
-<span id="cb14-2"><a href="#cb14-2"></a>  <span class="fu">select</span>(Code, QRPs_1_Time1<span class="sc">:</span>QRPs_11_Time1)</span>
-<span id="cb14-3"><a href="#cb14-3"></a></span>
-<span id="cb14-4"><a href="#cb14-4"></a><span class="co"># show first 5 rows of qrp_step1</span></span>
-<span id="cb14-5"><a href="#cb14-5"></a><span class="fu">head</span>(qrp_step1, <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>qrp_step1 <span class="ot">&lt;-</span> data_prp <span class="sc">%&gt;%</span> </span>
+<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">select</span>(Code, QRPs_1_Time1<span class="sc">:</span>QRPs_11_Time1)</span>
+<span id="cb15-3"><a href="#cb15-3"></a></span>
+<span id="cb15-4"><a href="#cb15-4"></a><span class="co"># show first 5 rows of qrp_step1</span></span>
+<span id="cb15-5"><a href="#cb15-5"></a><span class="fu">head</span>(qrp_step1, <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
@@ -920,18 +962,18 @@ Explain the individual functions
 </ul>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>As you can see, the table we got from step 1 is in wide format. To get it into wide format, we need to define:</p>
+<p>As you can see, the table we got from Step 1 is in wide format. To get it into wide format, we need to define:</p>
 <ul>
 <li>the columns that need to be reshuffled from wide into long format (<code>col</code> argument). Here we selected “everything except the <code>Code</code> column”, as indicated by <code>-Code</code> [minus <code>Code</code>]. However, <code>QRPs_1_Time1:QRPs_11_Time1</code> would also work and give you the exact same result.</li>
 <li>the <code>names_to</code> argument. R is creating a new column in which all the column names from the columns you selected in <code>col</code> will be stored in. Here we are naming this column “Items” but you could pick something equally sensible if you like.</li>
 <li>the <code>values_to</code> argument. R creates this second column to store all responses the participants gave to the individual questions, i.e., all the numbers in this case. We named it “Scores” here, but you could have called it something different, like “Responses”</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>qrp_step2 <span class="ot">&lt;-</span> qrp_step1 <span class="sc">%&gt;%</span> </span>
-<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Code, <span class="at">names_to =</span> <span class="st">"Items"</span>, <span class="at">values_to =</span> <span class="st">"Scores"</span>)</span>
-<span id="cb15-3"><a href="#cb15-3"></a></span>
-<span id="cb15-4"><a href="#cb15-4"></a><span class="co"># show first 15 rows of qrp_step2</span></span>
-<span id="cb15-5"><a href="#cb15-5"></a><span class="fu">head</span>(qrp_step2, <span class="at">n =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>qrp_step2 <span class="ot">&lt;-</span> qrp_step1 <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Code, <span class="at">names_to =</span> <span class="st">"Items"</span>, <span class="at">values_to =</span> <span class="st">"Scores"</span>)</span>
+<span id="cb16-3"><a href="#cb16-3"></a></span>
+<span id="cb16-4"><a href="#cb16-4"></a><span class="co"># show first 15 rows of qrp_step2</span></span>
+<span id="cb16-5"><a href="#cb16-5"></a><span class="fu">head</span>(qrp_step2, <span class="at">n =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
@@ -1024,162 +1066,33 @@ Explain the individual functions
 <p>Now, have a look at <code>qrp_step2</code>. In total, we now have <input class="webex-solveme nospaces" size="3" data-answer="[&quot;979&quot;]"> rows/observations, <input class="webex-solveme nospaces" size="2" data-answer="[&quot;11&quot;]"> per participant, and <input class="webex-solveme nospaces" size="1" data-answer="[&quot;3&quot;]"> columns/variables.</p>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<p>It’s exactly the same sequence we did when calculating the descriptive stats per gender above. The only difference is, we are now grouping the data by participant’s <code>Code</code> rather than <code>Gender</code>.</p>
+<p>This follows exactly the same sequence we used when calculating descriptive statistics by gender. The only difference is that we are now grouping the data by the participant’s <code>Code</code> instead of <code>Gender</code>.</p>
 <p><code>summarise()</code> works exactly the same way: <code>summarise(new_column_name = function_to_calculate_something(column_name_of_numeric_values))</code></p>
-<p>The <code>function_to_calculate_something</code> can be <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>, <code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code> or <code><a href="https://rdrr.io/r/base/sum.html">sum()</a></code> for mean scores, standard deviations, or summed up scores respectively. You could also use <code><a href="https://rdrr.io/r/base/Extremes.html">min()</a></code> or <code><a href="https://rdrr.io/r/base/Extremes.html">max()</a></code> if you wanted to determine the lowest or the highest score for each participant.</p>
+<p>The <code>function_to_calculate_something</code> can be <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code>, <code><a href="https://rdrr.io/r/stats/sd.html">sd()</a></code> or <code><a href="https://rdrr.io/r/base/sum.html">sum()</a></code> for mean scores, standard deviations, or summed-up scores respectively. You could also use <code><a href="https://rdrr.io/r/base/Extremes.html">min()</a></code> or <code><a href="https://rdrr.io/r/base/Extremes.html">max()</a></code> if you wanted to determine the lowest or the highest score for each participant.</p>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-</section></section><section id="activity-5-confidence-in-understanding-open-science-practices" class="level2" data-number="2.5"><h2 data-number="2.5" class="anchored" data-anchor-id="activity-5-confidence-in-understanding-open-science-practices">
-<span class="header-section-number">2.5</span> Activity 5: Confidence in understanding Open Science practices</h2>
-<section id="the-main-goal-is-to-compute-the-mean-understanding-score-per-participant." class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="the-main-goal-is-to-compute-the-mean-understanding-score-per-participant.">The main goal is to compute the mean Understanding score per participant.</h4>
-<p>Again, we only have to compute that for time point 1 because the mean Understanding score for time point 2 was already calculated (column <code>Time2_Understanding_OS</code>).</p>
-<p>Looking at the Understanding data at time point 1, you determine that</p>
-<ul>
-<li>individual item columns are <select class="webex-select"><option value="blank"></option>
-<option value="x">numeric</option>
-<option value="answer">character</option></select>, and</li>
-<li>according to the codebook, there are <select class="webex-select"><option value="blank"></option>
-<option value="answer">no</option>
-<option value="x">some</option></select> reverse-coded items in this questionnaire.</li>
-</ul>
-<p>So the steps are fairly similar to QRP, but we add an extra step, namely turning the character labels into numbers.</p>
-<p>Again, let’s do this step by step:</p>
-<ul>
-<li>
-<strong>Step 1</strong>: select the relevant columns <code>Code</code>, and every Understanding column from time point 1 (e.g., from <code>Understanding_OS_1_Time1</code> to <code>Understanding_OS_12_Time1</code>) and store them in an object called <code>understanding_t1</code>
-</li>
-<li>
-<strong>Step 2</strong>: pivot the data from wide format to long format using <code>pivot_longer()</code> so we can recode the labels into values (step 3) and calculate the average score (in step 4) more easily</li>
-<li>
-<strong>Step 3</strong>: Recode the values “Not at all confident” as 1 and “Entirely confident” as 7. All other values are already numbers. We can use functions <code>mutate()</code> in combination with <code>case_match()</code> for that</li>
-<li>
-<strong>Step 4</strong>: calculate the average QRP score (<code>QRPs_Acceptance_Time1_mean</code>) per participant using <code>group_by()</code> and <code>summarise()</code>
-</li>
-</ul></section><section id="steps-1-and-2" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="steps-1-and-2">Steps 1 and 2</h4>
-<p>How about you try the first 2 steps yourself using the code from Activity 4 (<a href="03-wrangling2.html#sec-ch2_act4"><span>Section&nbsp;3.4</span></a>) as a template?</p>
+</section></section><section id="activity-5-knitting" class="level2" data-number="2.5"><h2 data-number="2.5" class="anchored" data-anchor-id="activity-5-knitting">
+<span class="header-section-number">2.5</span> Activity 5: Knitting</h2>
+<p>Once you’ve completed your R Markdown file, the final step is to “knit” it, which converts the <code>.Rmd</code> file into a HTML file. Knitting combines your code, text, and output (like tables and plots) into a single cohesive document. This is a really good way to check your code is working.</p>
+<p>To knit the file, <strong>click the Knit button</strong> at the top of your RStudio window. The document will be generated and, depending on your setting, automatically opened in the viewer in the <code>Output pane</code> or an external browser window.</p>
+<p>If any errors occur during knitting, RStudio will show you an error message with details to help you troubleshoot.</p>
+<p>If you want to <strong>intentionally keep any errors</strong> we tackled today to keep a reference on how you solved them, you could add <code>error=TRUE</code> or <code>eval=FALSE</code> to the code chunk that isn’t running.</p>
+</section><section id="activity-6-export-a-data-object-as-a-csv" class="level2" data-number="2.6"><h2 data-number="2.6" class="anchored" data-anchor-id="activity-6-export-a-data-object-as-a-csv">
+<span class="header-section-number">2.6</span> Activity 6: Export a data object as a csv</h2>
+<p>To avoid having to repeat the same steps in the next chapter, it’s a good idea to save the data objects you’ve created today as csv files. You can do this by using the <code>write_csv()</code> function from the <code>readr</code> package. The csv files will appear in your project folder.</p>
+<p>The basic syntax is:</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>understanding_t1 <span class="ot">&lt;-</span> data_prp <span class="sc">%&gt;%</span> </span>
-<span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">select</span>(???) <span class="sc">%&gt;%</span> <span class="co"># Step 1</span></span>
-<span id="cb16-3"><a href="#cb16-3"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> ???, <span class="at">names_to =</span> <span class="st">"???"</span>, <span class="at">values_to =</span> <span class="st">"???"</span>) <span class="co"># Step 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="fu">write_csv</span>(data_object, <span class="st">"filename.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution for steps 1 and 2
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
+<p>Now, let’s export the objects <code>data_prp</code> and <code>qrp_t1</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>understanding_t1 <span class="ot">&lt;-</span> data_prp <span class="sc">%&gt;%</span> </span>
-<span id="cb17-2"><a href="#cb17-2"></a>  <span class="co"># Step 1</span></span>
-<span id="cb17-3"><a href="#cb17-3"></a>  <span class="fu">select</span>(Code, Understanding_OS_1_Time1<span class="sc">:</span>Understanding_OS_12_Time1) <span class="sc">%&gt;%</span> </span>
-<span id="cb17-4"><a href="#cb17-4"></a>  <span class="co"># Step 2 - I picked different column labels this time for some variety</span></span>
-<span id="cb17-5"><a href="#cb17-5"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> Understanding_OS_1_Time1<span class="sc">:</span>Understanding_OS_12_Time1, <span class="at">names_to =</span> <span class="st">"Understanding_Qs"</span>, <span class="at">values_to =</span> <span class="st">"Responses"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">write_csv</span>(data_prp, <span class="st">"data_prp_for_ch3.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</div>
-</div>
-</section><section id="step-3" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="step-3">Step 3</h4>
-<p>OK, we now want to recode the values in the <code>Responses</code> column (or whatever name you picked for your column that has some of the numbers in it) so that “Not at all confident” = 1 and “Entirely confident” = 7. We want to keep all other values as they are (2-6 look already quite “numeric”).</p>
-<p>Let’s create a new column <code>Responses_corrected</code> that stores the new values with <code>mutate()</code>. Then we can combine that with the <code>case_match()</code> function.</p>
-<ul>
-<li>The first argument in <code>case_match()</code> is the column name of the variable you want to recode.</li>
-<li>Then you can start recoding the values in the way of <code>CurrentValue ~ NewValue</code> (~ is a tilde). Make sure you use the <code>~</code> and not <code>=</code>.</li>
-<li>The <code>.default</code> argument tells R what to do with values that are neither “Not at all confident” nor “Entirely confident”. Here, we want to replace them with the original value of the <code>Responses</code> column. In other datasets, you may want to set the default to <code>NA</code> for missing values, a character string or a number, and <code>case_match()</code> is happy to oblige.</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>understanding_t1 <span class="ot">&lt;-</span> understanding_t1 <span class="sc">%&gt;%</span> </span>
-<span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">mutate</span>(<span class="at">Responses_corrected =</span> <span class="fu">case_match</span>(Responses, <span class="co"># column of the values to recode</span></span>
-<span id="cb18-3"><a href="#cb18-3"></a>                                          <span class="st">"Not at all confident"</span> <span class="sc">~</span> <span class="dv">1</span>, <span class="co"># values to recode</span></span>
-<span id="cb18-4"><a href="#cb18-4"></a>                                          <span class="st">"Entirely confident"</span> <span class="sc">~</span> <span class="dv">7</span>,</span>
-<span id="cb18-5"><a href="#cb18-5"></a>                                          <span class="at">.default =</span> Responses <span class="co"># all other values taken from column Responses</span></span>
-<span id="cb18-6"><a href="#cb18-6"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-error">
-<pre><code>Error in `mutate()`:
-ℹ In argument: `Responses_corrected = case_match(...)`.
-Caused by error in `case_match()`:
-! Can't combine `..1 (right)` &lt;double&gt; and `.default` &lt;character&gt;.</code></pre>
-</div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Error!!! Can you explain what is happening here?
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Have a look at the error message. It’s pretty helpful this time. It says <code>Can't combine ..1 (right) &lt;double&gt; and .default &lt;character&gt;.</code> It means that the replacement values are expected to be character data type since the original column type was a character.</p>
-</div>
-</div>
-</div>
-<p><strong>So how do we fix this?</strong> Actually, there are several ways how this could be done. Click on the tabs below to check out 3 possible solutions.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="layers">
-<ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Fix option 1</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Fix option 2</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">Fix option 3</a></li>
-</ul>
-<div class="tab-content" data-group="layers">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<p>One option is to modify the <code>.default</code> argument <code>Responses</code> so that the values are copied over from the original column, but as a number rather than a character value. The function <code><a href="https://rdrr.io/r/base/numeric.html">as.numeric()</a></code> does the conversion.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>understanding_t1_step3_v1 <span class="ot">&lt;-</span> understanding_t1 <span class="sc">%&gt;%</span> </span>
-<span id="cb20-2"><a href="#cb20-2"></a>  <span class="fu">mutate</span>(<span class="at">Responses_corrected =</span> <span class="fu">case_match</span>(Responses, <span class="co"># column of the values to recode</span></span>
-<span id="cb20-3"><a href="#cb20-3"></a>                                          <span class="st">"Not at all confident"</span> <span class="sc">~</span> <span class="dv">1</span>, <span class="co"># values to recode</span></span>
-<span id="cb20-4"><a href="#cb20-4"></a>                                          <span class="st">"Entirely confident"</span> <span class="sc">~</span> <span class="dv">7</span>,</span>
-<span id="cb20-5"><a href="#cb20-5"></a>                                          <span class="at">.default =</span> <span class="fu">as.numeric</span>(Responses) <span class="co"># all other values taken from column Responses but as numeric data type </span></span>
-<span id="cb20-6"><a href="#cb20-6"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<p>Change the numeric values on the right side of the <code>~</code> to character. Then in a second step, we would need to turn the character column into a numeric type. Again, we have several options to do so. We could either use the <code>parse_number()</code> function we encountered earlier during the demographics wrangling or the <code><a href="https://rdrr.io/r/base/numeric.html">as.numeric()</a></code> function.</p>
-<ul>
-<li>V1: <code>Responses_corrected = parse_number(Responses_corrected)</code>
-</li>
-<li>V2: <code>Responses_corrected = as.numeric(Responses_corrected)</code>
-</li>
-</ul>
-<p>Just pay attention that you are still working <em>within</em> the <code>mutate()</code> function.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>understanding_t1_step3_v2 <span class="ot">&lt;-</span> understanding_t1 <span class="sc">%&gt;%</span> </span>
-<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">mutate</span>(<span class="at">Responses_corrected =</span> <span class="fu">case_match</span>(Responses, <span class="co"># column of the values to recode</span></span>
-<span id="cb21-3"><a href="#cb21-3"></a>                                          <span class="st">"Not at all confident"</span> <span class="sc">~</span> <span class="st">"1"</span>,</span>
-<span id="cb21-4"><a href="#cb21-4"></a>                                          <span class="st">"Entirely confident"</span> <span class="sc">~</span> <span class="st">"7"</span>,</span>
-<span id="cb21-5"><a href="#cb21-5"></a>                                          <span class="at">.default =</span> Responses <span class="co"># all other values taken from column Responses (character)</span></span>
-<span id="cb21-6"><a href="#cb21-6"></a>  ),</span>
-<span id="cb21-7"><a href="#cb21-7"></a>  <span class="at">Responses_corrected =</span> <span class="fu">parse_number</span>(Responses_corrected)) <span class="co"># turning Responses_corrected into a numeric column</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
-<p>If you recode all of the labels into numbers (e.g., “2” into a 2, “3” into a 3, etc.), you would not have to convert anything at the end.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a>understanding_t1_step3_v2 <span class="ot">&lt;-</span> understanding_t1 <span class="sc">%&gt;%</span> </span>
-<span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">mutate</span>(<span class="at">Responses_recoded =</span> <span class="fu">case_match</span>(Responses, <span class="co"># column of the values to recode</span></span>
-<span id="cb22-3"><a href="#cb22-3"></a>                                        <span class="st">"Not at all confident"</span> <span class="sc">~</span> <span class="dv">1</span>, <span class="co"># recode all of them</span></span>
-<span id="cb22-4"><a href="#cb22-4"></a>                                        <span class="st">"2"</span> <span class="sc">~</span> <span class="dv">2</span>,</span>
-<span id="cb22-5"><a href="#cb22-5"></a>                                        <span class="st">"3"</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
-<span id="cb22-6"><a href="#cb22-6"></a>                                        <span class="st">"4"</span> <span class="sc">~</span> <span class="dv">4</span>,</span>
-<span id="cb22-7"><a href="#cb22-7"></a>                                        <span class="st">"5"</span> <span class="sc">~</span> <span class="dv">5</span>,</span>
-<span id="cb22-8"><a href="#cb22-8"></a>                                        <span class="st">"6"</span> <span class="sc">~</span> <span class="dv">6</span>,</span>
-<span id="cb22-9"><a href="#cb22-9"></a>                                        <span class="st">"Entirely confident"</span> <span class="sc">~</span> <span class="dv">7</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
+<p>Here we named the file <code>data_prp_for_ch3.csv</code>, so we wouldn’t override the original data csv file <code>prp_data_reduced.csv</code>. However, feel free to choose a name that makes sense to you.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1190,355 +1103,9 @@ Your Turn
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Pick whichever option you prefer and modify the code above that didn’t work. You should now be able to calculate the <strong>mean Understanding Score per participant</strong>. Store the average scores in a variable called <code>Time1_Understanding_OS</code>.</p>
+<p>Export <code>qrp_t1</code>.</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-One solution for Steps 3 and 4
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>understanding_t1 <span class="ot">&lt;-</span> understanding_t1 <span class="sc">%&gt;%</span> </span>
-<span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">mutate</span>(<span class="at">Responses_corrected =</span> <span class="fu">case_match</span>(Responses, <span class="co"># column of the values to recode</span></span>
-<span id="cb23-3"><a href="#cb23-3"></a>                                          <span class="st">"Not at all confident"</span> <span class="sc">~</span> <span class="dv">1</span>, <span class="co"># values to recode</span></span>
-<span id="cb23-4"><a href="#cb23-4"></a>                                          <span class="st">"Entirely confident"</span> <span class="sc">~</span> <span class="dv">7</span>,</span>
-<span id="cb23-5"><a href="#cb23-5"></a>                                          <span class="at">.default =</span> <span class="fu">as.numeric</span>(Responses) <span class="co"># all other values taken from column Responses but as numeric data type </span></span>
-<span id="cb23-6"><a href="#cb23-6"></a>  )) <span class="sc">%&gt;%</span> </span>
-<span id="cb23-7"><a href="#cb23-7"></a>  <span class="co"># Step 4: calculating averages per participant</span></span>
-<span id="cb23-8"><a href="#cb23-8"></a>  <span class="fu">group_by</span>(Code) <span class="sc">%&gt;%</span></span>
-<span id="cb23-9"><a href="#cb23-9"></a>  <span class="fu">summarise</span>(<span class="at">Time1_Understanding_OS =</span> <span class="fu">mean</span>(Responses_corrected)) <span class="sc">%&gt;%</span></span>
-<span id="cb23-10"><a href="#cb23-10"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p>Of course, this could have been written up as a single pipe.</p>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Single pipe of activity 5
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a>understanding_t1 <span class="ot">&lt;-</span> data_prp <span class="sc">%&gt;%</span> </span>
-<span id="cb24-2"><a href="#cb24-2"></a>  <span class="co"># Step 1</span></span>
-<span id="cb24-3"><a href="#cb24-3"></a>  <span class="fu">select</span>(Code, Understanding_OS_1_Time1<span class="sc">:</span>Understanding_OS_12_Time1) <span class="sc">%&gt;%</span> </span>
-<span id="cb24-4"><a href="#cb24-4"></a>  <span class="co"># Step 2</span></span>
-<span id="cb24-5"><a href="#cb24-5"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Code, <span class="at">names_to =</span> <span class="st">"Understanding_Qs"</span>, <span class="at">values_to =</span> <span class="st">"Responses"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb24-6"><a href="#cb24-6"></a>  <span class="co"># Step 3</span></span>
-<span id="cb24-7"><a href="#cb24-7"></a>  <span class="fu">mutate</span>(<span class="at">Responses_corrected =</span> <span class="fu">case_match</span>(Responses, <span class="co"># column of the values to recode</span></span>
-<span id="cb24-8"><a href="#cb24-8"></a>                                          <span class="st">"Not at all confident"</span> <span class="sc">~</span> <span class="dv">1</span>, <span class="co"># values to recode</span></span>
-<span id="cb24-9"><a href="#cb24-9"></a>                                          <span class="st">"Entirely confident"</span> <span class="sc">~</span> <span class="dv">7</span>,</span>
-<span id="cb24-10"><a href="#cb24-10"></a>                                          <span class="at">.default =</span> <span class="fu">as.numeric</span>(Responses) <span class="co"># all other values taken from column Responses but as numeric data type </span></span>
-<span id="cb24-11"><a href="#cb24-11"></a>  )) <span class="sc">%&gt;%</span> </span>
-<span id="cb24-12"><a href="#cb24-12"></a>  <span class="co"># Step 4</span></span>
-<span id="cb24-13"><a href="#cb24-13"></a>  <span class="fu">group_by</span>(Code) <span class="sc">%&gt;%</span></span>
-<span id="cb24-14"><a href="#cb24-14"></a>  <span class="fu">summarise</span>(<span class="at">Time1_Understanding_OS =</span> <span class="fu">mean</span>(Responses_corrected)) <span class="sc">%&gt;%</span></span>
-<span id="cb24-15"><a href="#cb24-15"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-</section></section><section id="activity-6-survey-of-attitudes-toward-statistics-sats-28" class="level2" data-number="2.6"><h2 data-number="2.6" class="anchored" data-anchor-id="activity-6-survey-of-attitudes-toward-statistics-sats-28">
-<span class="header-section-number">2.6</span> Activity 6: Survey of Attitudes Toward Statistics (SATS-28)</h2>
-<section id="the-main-goal-is-to-compute-the-mean-sats-28-score-for-each-of-the-4-subscales-per-participant-for-time-point-1." class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="the-main-goal-is-to-compute-the-mean-sats-28-score-for-each-of-the-4-subscales-per-participant-for-time-point-1.">The main goal is to compute the mean SATS-28 score for each of the 4 subscales per participant for time point 1.</h4>
-<p>Looking at the SATS data at time point 1, you determine that</p>
-<ul>
-<li>individual item columns are <select class="webex-select"><option value="blank"></option>
-<option value="answer">numeric</option>
-<option value="x">character</option></select>, and</li>
-<li>according to the codebook, there are <select class="webex-select"><option value="blank"></option>
-<option value="x">no</option>
-<option value="answer">some</option></select> reverse-coded items in this questionnaire.</li>
-<li>Additionally, we are looking to compute the means for the 4 different subscales of the SAT-28 which are <input class="webex-solveme nospaces ignorecase" size="6" data-answer="[&quot;Affect&quot;]">, <input class="webex-solveme nospaces ignorecase" size="20" data-answer="[&quot;Cognitive Competence&quot;]">, <input class="webex-solveme nospaces ignorecase" size="5" data-answer="[&quot;Value&quot;]">, and <input class="webex-solveme nospaces ignorecase" size="10" data-answer="[&quot;Difficulty&quot;]">.</li>
-</ul>
-<p>So this scenario is slightly more tricky than the previous ones because of the reverse-coding and the 4 subscales. So let’s tackle this step by step again:</p>
-<ul>
-<li>
-<strong>Step 1</strong>: select the relevant columns <code>Code</code>, and every SATS28 column from time point 1 (e.g., from <code>SATS28_1_Affect_Time1</code> to <code>SATS28_28_Difficulty_Time1</code>) and store them in an object called <code>sats_t1</code>
-</li>
-<li>
-<strong>Step 2</strong>: pivot the data from wide format to long format using <code>pivot_longer()</code> so we can recode the labels into values (step 3) and calculate the average score (in step 4) more easily</li>
-<li>
-<strong>Step 3</strong>: We need to know which items belong to which subscale - fortunately, we have that information in the variable name and can use the <code>separate()</code> function to access it.</li>
-<li>
-<strong>Step 4</strong>: We need to know which items are reverse-coded and then reverse-code them - unfortunately, the info is only in the codebook and we need to find a work-around. <code>case_when()</code> can help identify and re-score the reverse-coded items.</li>
-<li>
-<strong>Step 5</strong>: calculate the average SATS score per participant and subscale using <code>group_by()</code> and <code>summarise()</code>
-</li>
-<li>
-<strong>Step 6</strong>: use <code>pivot_wider()</code> to spread out the dataframe into wide format and <code>rename()</code> to tidy up the datanames</li>
-</ul></section><section id="steps-1-and-2-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="steps-1-and-2-1">Steps 1 and 2</h4>
-<p>The selecting and pivoting are exactly the same way as we already practiced in the other 2 tasks. Apply them here to this questionnaire.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hint
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-13" class="callout-13-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a>sats_t1 <span class="ot">&lt;-</span> data_prp <span class="sc">%&gt;%</span> </span>
-<span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">select</span>(???) <span class="sc">%&gt;%</span> <span class="co"># Step 1</span></span>
-<span id="cb25-3"><a href="#cb25-3"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> ???, <span class="at">names_to =</span> <span class="st">"???"</span>, <span class="at">values_to =</span> <span class="st">"???"</span>) <span class="co"># Step 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution for steps 1 and 2
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-12" class="callout-12-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a>sats_t1 <span class="ot">&lt;-</span> data_prp <span class="sc">%&gt;%</span> </span>
-<span id="cb26-2"><a href="#cb26-2"></a>  <span class="fu">select</span>(Code, SATS28_1_Affect_Time1<span class="sc">:</span>SATS28_28_Difficulty_Time1) <span class="sc">%&gt;%</span> <span class="co"># Step 1</span></span>
-<span id="cb26-3"><a href="#cb26-3"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Code, <span class="at">names_to =</span> <span class="st">"Items"</span>, <span class="at">values_to =</span> <span class="st">"Response"</span>) <span class="co"># Step 2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section><section id="step-3-separate-subscale-information" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="step-3-separate-subscale-information">Step 3: separate Subscale information</h4>
-<p>If you look at the the <code>Items</code> column more closely, you can see that there is information on the <code>Questionnaire</code>, the <code>Item_number</code>, the <code>Subscale</code>, and the <code>Timepoint</code> the data was collected at.</p>
-<p>We can separate the information into separate columns using the <code>separate()</code> function. The function’s first argument is the column to separate, then define <code>into</code> which columns you want the original column split up, and lastly, define the separator <code>sep</code> (here an underscore). For our example, we would write</p>
-<ul>
-<li>V1: <code>separate(Items, into = c("SATS", "Item_number", "Subscale", "Time"), sep = "_")</code>
-</li>
-</ul>
-<p>However, we don’t need all of those columns, so we could just drop the ones we are not interested in by replacing them with <code>NA</code>.</p>
-<ul>
-<li>V2: <code>separate(Items, into = c(NA, "Item_number", "Subscale", NA), sep = "_")</code>
-</li>
-</ul>
-<p>We might also add an extra argument of <code>convert = TRUE</code> to have numeric columns (i.e., <code>Item_number</code>) converted to numeric as opposed to keeping them as character. Saves us typing a few quotation marks later in Step 4.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>sats_t1 <span class="ot">&lt;-</span> sats_t1 <span class="sc">%&gt;%</span> </span>
-<span id="cb27-2"><a href="#cb27-2"></a>  <span class="co"># Step 3</span></span>
-<span id="cb27-3"><a href="#cb27-3"></a>  <span class="fu">separate</span>(Items, <span class="at">into =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">"Item_number"</span>, <span class="st">"Subscale"</span>, <span class="cn">NA</span>), <span class="at">sep =</span> <span class="st">"_"</span>, <span class="at">convert =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section><section id="step-4-identifying-reverse-coded-items-and-then-correct-them" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="step-4-identifying-reverse-coded-items-and-then-correct-them">Step 4: identifying reverse-coded items and then correct them</h4>
-<p>We can use <code>case_when()</code> within the <code>mutate()</code> function here to create a new column <code>FW_RV</code> that stores information on whether the item is a reverse-coded item or not.</p>
-<p><code>case_when()</code> works in a similar way to <code>case_match()</code>, but <code>case_match()</code> only allows to “recode” values (i.e.&nbsp;replace one value with another), whereas <code>case_when()</code> lets you use <strong>conditional statements</strong> on the left side of the tilde which is useful when you only want to change <em>some</em> of the data based on specific conditions.</p>
-<p>Looking at in the codebook, it seems that items 2, 3, 4, 6, 7, 8, 9, 12, 13, 16, 17, 19, 20, 21, 23, 25, 26, 27, 28 are reverse-coded items. The rest are forward-coded.</p>
-<p>We want to tell R now, that</p>
-<ul>
-<li>
-<strong>if</strong> the <code>Item_number</code> is any of those numbers listed above, R should write “Reverse” into the new column <code>FW_RV</code> we are creating. Since we have a few possible matches for <code>Item_number</code>, we need the Boolean expression <code>%in%</code> rather than <code>==</code>.</li>
-<li>
-<strong>if</strong> <code>Item_number</code> is none of those numbers, then we would like the word “Forward” in the <code>FW_RV</code> column to appear. We can achieve that by specifying a <code>.default</code> argument again, but this time we want a “word” rather than a value from another column.</li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>sats_t1 <span class="ot">&lt;-</span> sats_t1 <span class="sc">%&gt;%</span> </span>
-<span id="cb28-2"><a href="#cb28-2"></a>  <span class="fu">mutate</span>(<span class="at">FW_RV =</span> <span class="fu">case_when</span>(</span>
-<span id="cb28-3"><a href="#cb28-3"></a>    Item_number <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">19</span>, <span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">26</span>, <span class="dv">27</span>, <span class="dv">28</span>) <span class="sc">~</span> <span class="st">"Reverse"</span>,</span>
-<span id="cb28-4"><a href="#cb28-4"></a>    <span class="at">.default =</span> <span class="st">"Forward"</span></span>
-<span id="cb28-5"><a href="#cb28-5"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Onto the actual correcting of the scores. Again, we can use <code>case_when ()</code> within the <code>mutate()</code> function for another <strong>conditional statement</strong>. This time, the condition is:</p>
-<ul>
-<li>
-<strong>if</strong> <code>FW_RV</code> column has a value of “Reverse” then we would like to turn all 1 into 7, 2 into 6, etc.</li>
-<li>
-<strong>if</strong> <code>FW_RV</code> column has a value of “Forward” then we would like keep the score from the <code>Response</code> column</li>
-</ul>
-<p>There is a quick way and a not so quick way to achieve the actual <strong>reverse-coding</strong>.</p>
-<ul>
-<li>Option 1 (quick): The easiest way to reverse-code scores is by taking the maximum value of the scale, add 1 unit and then subtract the original value. For example, on a 5-point Likert scale, it would be 6 minus the Response; for a 7-point Likert scale, 8-Response, etc. (see tab Option 1).</li>
-<li>Option 2 (not so quick): This includes the use of 2 conditional statements (see tab Option 2).</li>
-</ul>
-<p>Use the one you find more intuitive.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Option 1</a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Option 2</a></li>
-</ul>
-<div class="tab-content">
-<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<p>Here we are using the Boolean expression to determine if there is a string “Reverse” in the <code>FW_RV</code> column. And if that conditional statement is <code>TRUE</code> then the value in new column we are creating <code>Scores_corrected</code> should be calculated as 8 minus the value from the <code>Response</code> column. If it’s not (i.e., the <code>.default</code> argument), then the values of the <code>Response</code> column should be kept.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1"></a>sats_t1 <span class="ot">&lt;-</span> sats_t1 <span class="sc">%&gt;%</span> </span>
-<span id="cb29-2"><a href="#cb29-2"></a>  <span class="fu">mutate</span>(<span class="at">Scores_corrected =</span> <span class="fu">case_when</span>(</span>
-<span id="cb29-3"><a href="#cb29-3"></a>    FW_RV <span class="sc">==</span> <span class="st">"Reverse"</span> <span class="sc">~</span> <span class="dv">8</span><span class="sc">-</span>Response,</span>
-<span id="cb29-4"><a href="#cb29-4"></a>    <span class="at">.default =</span> Response</span>
-<span id="cb29-5"><a href="#cb29-5"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<p>As stated above, the longer version would include 2 conditional statements. The first condition checks if the value in <code>FW_RV</code> is “Reverse”. The second condition checks if the value in <code>Response</code> is equal to a specific number. <strong>If both of these conditions are met</strong>, then the value on the right side of the tilde should be placed in the newly created <code>Scores_corrected_v2</code> column.</p>
-<p>For example, line 3 would read: if the <code>FW_RV</code> value is “Reverse” <strong>AND</strong> the value in the Response column is 1, then place a value of 7 into <code>Scores_corrected_v2</code>.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a>sats_t1 <span class="ot">&lt;-</span> sats_t1 <span class="sc">%&gt;%</span> </span>
-<span id="cb30-2"><a href="#cb30-2"></a>  <span class="fu">mutate</span>(<span class="at">Scores_corrected_v2 =</span> <span class="fu">case_when</span>(</span>
-<span id="cb30-3"><a href="#cb30-3"></a>    FW_RV <span class="sc">==</span> <span class="st">"Reverse"</span> <span class="sc">&amp;</span> Response <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">7</span>,</span>
-<span id="cb30-4"><a href="#cb30-4"></a>    FW_RV <span class="sc">==</span> <span class="st">"Reverse"</span> <span class="sc">&amp;</span> Response <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="dv">6</span>,</span>
-<span id="cb30-5"><a href="#cb30-5"></a>    FW_RV <span class="sc">==</span> <span class="st">"Reverse"</span> <span class="sc">&amp;</span> Response <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="dv">5</span>,</span>
-<span id="cb30-6"><a href="#cb30-6"></a>    <span class="co"># no need to recode 4 as 4</span></span>
-<span id="cb30-7"><a href="#cb30-7"></a>    FW_RV <span class="sc">==</span> <span class="st">"Reverse"</span> <span class="sc">&amp;</span> Response <span class="sc">==</span> <span class="dv">5</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
-<span id="cb30-8"><a href="#cb30-8"></a>    FW_RV <span class="sc">==</span> <span class="st">"Reverse"</span> <span class="sc">&amp;</span> Response <span class="sc">==</span> <span class="dv">6</span> <span class="sc">~</span> <span class="dv">2</span>,</span>
-<span id="cb30-9"><a href="#cb30-9"></a>    FW_RV <span class="sc">==</span> <span class="st">"Reverse"</span> <span class="sc">&amp;</span> Response <span class="sc">==</span> <span class="dv">7</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
-<span id="cb30-10"><a href="#cb30-10"></a>    <span class="at">.default =</span> Response</span>
-<span id="cb30-11"><a href="#cb30-11"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>As you can see now in <code>sats_t1</code>, both columns <code>Scores_corrected</code> and <code>Scores_corrected_v2</code> are identical.</p>
-</div>
-</div>
-</div>
-<p>One way of <strong>checking whether our reverse-coding worked</strong> is to look at the <code>distinct</code> values of the original <code>Response</code> column and <code>Scores_corrected</code>. We would also need to keep information of the <code>FW_RV</code> column.</p>
-<p>And to see the pattern better, we want to use <code>arrange()</code> to sort the values in a more meaningful way. Remember from last year, the default order is ascending, and you would need to add the function <code>desc()</code> on your variable to sort values in a descending order.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a>check_coding <span class="ot">&lt;-</span> sats_t1 <span class="sc">%&gt;%</span> </span>
-<span id="cb31-2"><a href="#cb31-2"></a>  <span class="fu">distinct</span>(FW_RV, Response, Scores_corrected) <span class="sc">%&gt;%</span> </span>
-<span id="cb31-3"><a href="#cb31-3"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(FW_RV), Response)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Show <code>check_coding</code> output
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-14" class="callout-14-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a>check_coding</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped small">
-<thead><tr class="header">
-<th style="text-align: left;">FW_RV</th>
-<th style="text-align: right;">Response</th>
-<th style="text-align: right;">Scores_corrected</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Reverse</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">7</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Reverse</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">6</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Reverse</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">5</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Reverse</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Reverse</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Reverse</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Reverse</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Forward</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Forward</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Forward</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Forward</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Forward</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">5</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Forward</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">6</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Forward</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">7</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section><section id="step-5" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="step-5">Step 5</h4>
-<p>Now that we know everything worked out as intended, we can calculate the mean scores of each subscale for each participant in <code>sats_t1</code>.</p>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hint
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-16" class="callout-16-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>sats_t1 <span class="ot">&lt;-</span> sats_t1 <span class="sc">%&gt;%</span> </span>
-<span id="cb33-2"><a href="#cb33-2"></a>  <span class="fu">group_by</span>(???, ???) <span class="sc">%&gt;%</span> </span>
-<span id="cb33-3"><a href="#cb33-3"></a>  <span class="fu">summarise</span>(<span class="at">mean_score =</span> ???(???)) <span class="sc">%&gt;%</span> </span>
-<span id="cb33-4"><a href="#cb33-4"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1547,293 +1114,18 @@ Solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>sats_t1 <span class="ot">&lt;-</span> sats_t1 <span class="sc">%&gt;%</span> </span>
-<span id="cb34-2"><a href="#cb34-2"></a>  <span class="fu">group_by</span>(Code, Subscale) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-3"><a href="#cb34-3"></a>  <span class="fu">summarise</span>(<span class="at">mean_score =</span> <span class="fu">mean</span>(Scores_corrected)) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-4"><a href="#cb34-4"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'Code'. You can override using the
-`.groups` argument.</code></pre>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">write_csv</span>(qrp_t1, <span class="st">"qrp_t1.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div>
-</div>
-</section><section id="step-6" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="step-6">Step 6</h4>
-<p>One final step is to turn the data back into <strong>wide format</strong> so that each subscale has its own column. That would make joining the data objects easier. The first argument in <code>pivot_wider()</code> is <code>names_from</code> and you should specify the column here that you want as your new column headings. The second argument is <code>values_from</code> and you need to specify the column that you want to get the cell values from</p>
-<p>We should also <strong>rename the column names</strong> to match more with the column names in the codebook. Conveniently, we can use a function called <code>rename()</code> that works exactly like <code>select()</code> (i.e., <code>new_name = old_name</code>) but keeps all the other column names the same (rather than reducing the number of columns)</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a>sats_t1 <span class="ot">&lt;-</span> sats_t1 <span class="sc">%&gt;%</span> </span>
-<span id="cb36-2"><a href="#cb36-2"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Subscale, <span class="at">values_from =</span> mean_score) <span class="sc">%&gt;%</span> </span>
-<span id="cb36-3"><a href="#cb36-3"></a>  <span class="fu">rename</span>(<span class="at">SATS28_Affect_Time1_mean =</span> Affect,</span>
-<span id="cb36-4"><a href="#cb36-4"></a>         <span class="at">SATS28_CognitiveCompetence_Time1_mean =</span> CognitiveCompetence,</span>
-<span id="cb36-5"><a href="#cb36-5"></a>         <span class="at">SATS28_Value_Time1_mean =</span> Value,</span>
-<span id="cb36-6"><a href="#cb36-6"></a>         <span class="at">SATS28_Difficulty_Time1_mean =</span> Difficulty)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Show final <code>sats_t1</code> output
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-17" class="callout-17-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">head</span>(sats_t1, <span class="at">n =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="kable-table">
-<table class="table table-sm table-striped small">
-<colgroup>
-<col style="width: 4%">
-<col style="width: 20%">
-<col style="width: 31%">
-<col style="width: 23%">
-<col style="width: 19%">
-</colgroup>
-<thead><tr class="header">
-<th style="text-align: left;">Code</th>
-<th style="text-align: right;">SATS28_Affect_Time1_mean</th>
-<th style="text-align: right;">SATS28_CognitiveCompetence_Time1_mean</th>
-<th style="text-align: right;">SATS28_Difficulty_Time1_mean</th>
-<th style="text-align: right;">SATS28_Value_Time1_mean</th>
-</tr></thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">AD03</td>
-<td style="text-align: right;">2.333333</td>
-<td style="text-align: right;">3.833333</td>
-<td style="text-align: right;">3.428571</td>
-<td style="text-align: right;">5.555556</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">AD05</td>
-<td style="text-align: right;">3.500000</td>
-<td style="text-align: right;">5.000000</td>
-<td style="text-align: right;">2.142857</td>
-<td style="text-align: right;">4.777778</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Ab01</td>
-<td style="text-align: right;">5.166667</td>
-<td style="text-align: right;">5.666667</td>
-<td style="text-align: right;">4.142857</td>
-<td style="text-align: right;">5.444444</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Al05</td>
-<td style="text-align: right;">2.166667</td>
-<td style="text-align: right;">2.666667</td>
-<td style="text-align: right;">2.857143</td>
-<td style="text-align: right;">3.777778</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Am05</td>
-<td style="text-align: right;">4.166667</td>
-<td style="text-align: right;">5.666667</td>
-<td style="text-align: right;">5.571429</td>
-<td style="text-align: right;">4.888889</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p>Again, this could have been written up as a single pipe.</p>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Single pipe of activity 6
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-18" class="callout-18-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a>sats_t1 <span class="ot">&lt;-</span> data_prp <span class="sc">%&gt;%</span> </span>
-<span id="cb38-2"><a href="#cb38-2"></a>  <span class="co"># Step 1</span></span>
-<span id="cb38-3"><a href="#cb38-3"></a>  <span class="fu">select</span>(Code, SATS28_1_Affect_Time1<span class="sc">:</span>SATS28_28_Difficulty_Time1) <span class="sc">%&gt;%</span> </span>
-<span id="cb38-4"><a href="#cb38-4"></a>  <span class="co"># Step 2</span></span>
-<span id="cb38-5"><a href="#cb38-5"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Code, <span class="at">names_to =</span> <span class="st">"Items"</span>, <span class="at">values_to =</span> <span class="st">"Response"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb38-6"><a href="#cb38-6"></a>  <span class="co"># Step 3</span></span>
-<span id="cb38-7"><a href="#cb38-7"></a>  <span class="fu">separate</span>(Items, <span class="at">into =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">"Item_number"</span>, <span class="st">"Subscale"</span>, <span class="cn">NA</span>), <span class="at">sep =</span> <span class="st">"_"</span>, <span class="at">convert =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb38-8"><a href="#cb38-8"></a>  <span class="co"># step 4</span></span>
-<span id="cb38-9"><a href="#cb38-9"></a>  <span class="fu">mutate</span>(<span class="at">FW_RV =</span> <span class="fu">case_when</span>(</span>
-<span id="cb38-10"><a href="#cb38-10"></a>    Item_number <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">9</span>, <span class="dv">12</span>, <span class="dv">13</span>, <span class="dv">16</span>, <span class="dv">17</span>, <span class="dv">19</span>, <span class="dv">20</span>, <span class="dv">21</span>, <span class="dv">23</span>, <span class="dv">25</span>, <span class="dv">26</span>, <span class="dv">27</span>, <span class="dv">28</span>) <span class="sc">~</span> <span class="st">"Reverse"</span>,</span>
-<span id="cb38-11"><a href="#cb38-11"></a>    <span class="at">.default =</span> <span class="st">"Forward"</span></span>
-<span id="cb38-12"><a href="#cb38-12"></a>  ),</span>
-<span id="cb38-13"><a href="#cb38-13"></a>    <span class="at">Scores_corrected =</span> <span class="fu">case_when</span>(</span>
-<span id="cb38-14"><a href="#cb38-14"></a>      FW_RV <span class="sc">==</span> <span class="st">"Reverse"</span> <span class="sc">~</span> <span class="dv">8</span><span class="sc">-</span>Response,</span>
-<span id="cb38-15"><a href="#cb38-15"></a>      <span class="at">.default =</span> Response</span>
-<span id="cb38-16"><a href="#cb38-16"></a>  )) <span class="sc">%&gt;%</span> </span>
-<span id="cb38-17"><a href="#cb38-17"></a>  <span class="co"># step 5</span></span>
-<span id="cb38-18"><a href="#cb38-18"></a>  <span class="fu">group_by</span>(Code, Subscale) <span class="sc">%&gt;%</span> </span>
-<span id="cb38-19"><a href="#cb38-19"></a>  <span class="fu">summarise</span>(<span class="at">mean_score =</span> <span class="fu">mean</span>(Scores_corrected)) <span class="sc">%&gt;%</span> </span>
-<span id="cb38-20"><a href="#cb38-20"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb38-21"><a href="#cb38-21"></a>  <span class="co"># step 6</span></span>
-<span id="cb38-22"><a href="#cb38-22"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Subscale, <span class="at">values_from =</span> mean_score) <span class="sc">%&gt;%</span> </span>
-<span id="cb38-23"><a href="#cb38-23"></a>  <span class="fu">rename</span>(<span class="at">SATS28_Affect_Time1_mean =</span> Affect,</span>
-<span id="cb38-24"><a href="#cb38-24"></a>         <span class="at">SATS28_CognitiveCompetence_Time1_mean =</span> CognitiveCompetence,</span>
-<span id="cb38-25"><a href="#cb38-25"></a>         <span class="at">SATS28_Value_Time1_mean =</span> Value,</span>
-<span id="cb38-26"><a href="#cb38-26"></a>         <span class="at">SATS28_Difficulty_Time1_mean =</span> Difficulty)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-</section></section><section id="activity-7-error-mode-perceptions-of-supervisory-support" class="level2" data-number="2.7"><h2 data-number="2.7" class="anchored" data-anchor-id="activity-7-error-mode-perceptions-of-supervisory-support">
-<span class="header-section-number">2.7</span> Activity 7 (Error Mode): Perceptions of supervisory support</h2>
-<section id="the-main-goal-is-to-compute-the-mean-score-for-perceived-supervisory-support-per-participant." class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="the-main-goal-is-to-compute-the-mean-score-for-perceived-supervisory-support-per-participant.">The main goal is to compute the mean score for perceived supervisory support per participant.</h4>
-<p>Looking at the Understanding data at time point 1, you determine that</p>
-<ul>
-<li>individual item columns are <select class="webex-select"><option value="blank"></option>
-<option value="answer">numeric</option>
-<option value="x">character</option></select>, and</li>
-<li>according to the codebook, there are <select class="webex-select"><option value="blank"></option>
-<option value="x">no</option>
-<option value="answer">some</option></select> reverse-coded items in this questionnaire.</li>
-</ul>
-<p>I have outlined my steps as follows:</p>
-<ul>
-<li>
-<strong>Step 1</strong>: reverse-code the single column first because that’s less hassle than having to do that with conditional statements (<code>Supervisor_15_R</code>). <code>mutate()</code> is my friend.</li>
-<li>
-<strong>Step 2</strong>: I want to filter out everyone who failed the attention check in <code>Supervisor_7</code>. I can do this with a Boolean expression within the <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> function. The correct response was “completely disagree” which is 1.</li>
-<li>
-<strong>Step 3</strong>: select their id from time point 2 and all the columns that start with the word “super”, apart from <code>Supervisor_7</code> and the original <code>Supervisor_15_R</code> column</li>
-<li>
-<strong>Step 4</strong>: pivot into long format so I can calculate the averages better</li>
-<li>
-<strong>Step 5</strong>: calculate the average scores per participant</li>
-</ul>
-<p>I’ve started coding but there are some errors in my code. Help me find and fix all of them. Try to go through the code line by line and read the error messages.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a>super <span class="ot">&lt;-</span> data_ppr <span class="sc">%&gt;%</span> </span>
-<span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">mutate</span>(<span class="at">Supervisor_15 =</span> <span class="dv">9</span><span class="sc">-</span>supervisor_15_R) <span class="sc">%&gt;%</span> </span>
-<span id="cb39-3"><a href="#cb39-3"></a>  <span class="fu">filter</span>(<span class="at">Supervisor_7 =</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb39-4"><a href="#cb39-4"></a>  <span class="fu">select</span>(Code, <span class="fu">starts_with</span>(<span class="st">"Super"</span>), <span class="sc">-</span>Supervisor_7, <span class="sc">-</span>Supervisor_15_R) </span>
-<span id="cb39-5"><a href="#cb39-5"></a><span class="fu">pivot_wider</span>(<span class="at">cols =</span> <span class="sc">-</span>Code, <span class="at">names_to =</span> <span class="st">"Item"</span>, <span class="at">values_to =</span> <span class="st">"Response"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb39-6"><a href="#cb39-6"></a>  <span class="fu">group_by</span>(Time2_Code) <span class="sc">%&gt;%</span> </span>
-<span id="cb39-7"><a href="#cb39-7"></a>  <span class="fu">summarise</span>(<span class="at">Mean_Supervisor_Support =</span> <span class="fu">mean</span>(Score_corrected, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb39-8"><a href="#cb39-8"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Reveal solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-19" class="callout-19-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>There were 8 mistakes in the code. Let’s go through them line by line.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a>super <span class="ot">&lt;-</span> data_prp <span class="sc">%&gt;%</span> <span class="co"># spelling mistake in data object</span></span>
-<span id="cb40-2"><a href="#cb40-2"></a>  <span class="fu">mutate</span>(<span class="at">Supervisor_15 =</span> <span class="dv">8</span><span class="sc">-</span>Supervisor_15_R) <span class="sc">%&gt;%</span> <span class="co"># semantic error: 8 minus response for a 7-point scale and supervisor_15_R needs a capital S</span></span>
-<span id="cb40-3"><a href="#cb40-3"></a>  <span class="fu">filter</span>(Supervisor_7 <span class="sc">==</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="co"># needs a Boolean expression == instead of =</span></span>
-<span id="cb40-4"><a href="#cb40-4"></a>  <span class="fu">select</span>(Code, <span class="fu">starts_with</span>(<span class="st">"Super"</span>), <span class="sc">-</span>Supervisor_7, <span class="sc">-</span>Supervisor_15_R) <span class="sc">%&gt;%</span> <span class="co"># no pipe at the end, the rest is actually legit</span></span>
-<span id="cb40-5"><a href="#cb40-5"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>Code, <span class="at">names_to =</span> <span class="st">"Item"</span>, <span class="at">values_to =</span> <span class="st">"Response"</span>) <span class="sc">%&gt;%</span> <span class="co"># pivot_longer instead of pivot_wider</span></span>
-<span id="cb40-6"><a href="#cb40-6"></a>  <span class="fu">group_by</span>(Code) <span class="sc">%&gt;%</span> <span class="co"># Code rather than Time2_Code - the reduced dataset does not contain Time2_Code</span></span>
-<span id="cb40-7"><a href="#cb40-7"></a>  <span class="fu">summarise</span>(<span class="at">Mean_Supervisor_Support =</span> <span class="fu">mean</span>(Response, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> <span class="co"># Score_corrected doesn't exist; needs to be Response</span></span>
-<span id="cb40-8"><a href="#cb40-8"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Did you spot them all?</p>
-<ul>
-<li>Note that the <strong>semantic error</strong> in line 2 did not give you an error message.</li>
-<li>Were you thrown off by the <code>starts_with("Super")</code> expression in line 4? <code>starts_with()</code> and <code>ends_with()</code> are great alternatives to selecting columns via <code>:</code> But, using <code>select(Code, Supervisor_1:Supervisor_6, Supervisor_8:Supervisor_14)</code> would have given us the same result.</li>
-</ul>
-</div>
-</div>
-</div>
-</section></section><section id="activity-8-joining-everything-together-with-_join" class="level2" data-number="2.8"><h2 data-number="2.8" class="anchored" data-anchor-id="activity-8-joining-everything-together-with-_join">
-<span class="header-section-number">2.8</span> Activity 8: Joining everything together with <code>???_join()</code>
-</h2>
-<p>Time to join all of the relevant data files together so we have a single dataframe ready for the next chapter on data visualisation. There are 4 options of joining data together, namely <code>inner_join()</code>, <code>left_join()</code>, <code>right_join()</code>, and <code>full_join()</code>. Each of these functions differs in terms of what information is retained from the two data objects being joined. Here is a quick overview:</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Additional info on mutating joins
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-20" class="callout-20-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>You have 4 types of join functions you could make use of. Click on the panels to know more</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist">
-<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true"><code>inner_join()</code></a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false"><code>left_join()</code></a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false"><code>right_join()</code></a></li>
-<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-4" role="tab" aria-controls="tabset-4-4" aria-selected="false"><code>full_join()</code></a></li>
-</ul>
-<div class="tab-content">
-<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
-<p><code>inner_join()</code> returns only the rows where the values in the column specified in the <code>by =</code> statement match in both tables.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/inner-join.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">inner_join(): gif by <a href="https://www.garrickadenbuie.com/project/tidyexplain/" target="_blank">Garrick Aden-Buie</a></figcaption></figure>
-</div>
-</div>
-<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
-<p><code>left_join()</code> retains the complete first (left) table and adds values from the second (right) table that have matching values in the column specified in the <code>by =</code> statement. Rows in the left table with no match in the right table will have missing values (<code>NA</code>) in the new columns.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/left-join.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">left_join(): gif by <a href="https://www.garrickadenbuie.com/project/tidyexplain/" target="_blank">Garrick Aden-Buie</a></figcaption></figure>
-</div>
-</div>
-<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
-<p><code>right_join()</code> retains the complete second (right) table and adds values from the first (left) table that have matching values in the column specified in the <code>by =</code> statement. Rows in the right table with no match in the left table will have missing values (<code>NA</code>) in the new columns.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/right-join.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">right_join(): gif by <a href="https://www.garrickadenbuie.com/project/tidyexplain/" target="_blank">Garrick Aden-Buie</a></figcaption></figure>
-</div>
-</div>
-<div id="tabset-4-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-4-tab">
-<p><code>full_join()</code> returns all rows and all columns from both tables. <code>NA</code> values fill unmatched rows.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/full-join.gif" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">full_join(): gif by <a href="https://www.garrickadenbuie.com/project/tidyexplain/" target="_blank">Garrick Aden-Buie</a></figcaption></figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<p>From our data_prp, we would need to select demographics data and all summarised questionnaire data from time point 2. And then we want to join all other aggregated datasets from time point 1 that are currently in separate data objects in our <code>Global Environment</code>.</p>
-<p>You already encountered <code>inner_join</code> last year, but for the minute, we want to keep all of the data from all the data objects and use a <code>full_join</code> instead. You are only able to join a max of 2 data objects together, so there will be quite a bit of piping and joining going on in code chunk.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>data_prp_final <span class="ot">&lt;-</span> data_prp <span class="sc">%&gt;%</span> </span>
-<span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">select</span>(Code<span class="sc">:</span>Plan_prereg, Other_OS_behav_2<span class="sc">:</span>Time2_Understanding_OS) <span class="sc">%&gt;%</span> </span>
-<span id="cb41-3"><a href="#cb41-3"></a>  <span class="fu">full_join</span>(qrp_t1) <span class="sc">%&gt;%</span> </span>
-<span id="cb41-4"><a href="#cb41-4"></a>  <span class="fu">full_join</span>(understanding_t1) <span class="sc">%&gt;%</span> </span>
-<span id="cb41-5"><a href="#cb41-5"></a>  <span class="fu">full_join</span>(sats_t1) <span class="sc">%&gt;%</span> </span>
-<span id="cb41-6"><a href="#cb41-6"></a>  <span class="fu">full_join</span>(super)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>And this is basically the dataset we need for <a href="04-dataviz.html"><span>Chapter&nbsp;4</span></a> and <a href="05-dataviz2.html"><span>Chapter&nbsp;5</span></a>.</p>
-</section><section id="knitting" class="level2" data-number="2.9"><h2 data-number="2.9" class="anchored" data-anchor-id="knitting">
-<span class="header-section-number">2.9</span> Knitting</h2>
-<p>as a means to check if the file as a whole is running</p>
+<p>Check that your csv files have appeared in your project folder, and you’re all set!</p>
+<p><strong>That’s it for Chapter 2: Individual Walkthrough.</strong></p>
 </section><section id="pair-coding-in-the-lab" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="pair-coding-in-the-lab"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding in the lab</span></h2>
 </section><section id="test-your-knowledge-and-challenge-yourself" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="test-your-knowledge-and-challenge-yourself"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge and challenge yourself</span></h2>
 
@@ -2424,7 +1716,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
   <div class="nav-page nav-page-next">
       <a href="./03-wrangling2.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data wrangling</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Data wrangling II</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

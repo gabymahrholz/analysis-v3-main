@@ -13,10 +13,10 @@ By the end of this chapter you should be able to:
 
 ## Activity 1: Setup & download the data
 
-* create a new project and name it something meaningful (e.g., "2A_chapter6", or "06_independent_ttest"). See @sec-project if you need some guidance.
+* create a new project and name it something meaningful (e.g., "2A_chapter7", or "07_independent_ttest"). See @sec-project if you need some guidance.
 * create a new Rmd file and save it to your project folder. See @sec-rmd if you get stuck. 
 * delete everything after the setup code chunk (e.g., line 12 and below)
-* download a reduced dataset here: [data_ch6.zip](data/data_ch6.zip "download"). You'll see the Codebook, a demographics file, a file containing the mean response times, and a docx file of Supplementary Materials with extra information about the Simon Task, the results, etc. We also provided the raw data file for you to see what experimental data looks like when it hasn't been pre-processed yet.
+* download a reduced dataset here: [data_ch7.zip](data/data_ch7.zip "download"). You'll see the Codebook, a demographics file, a file containing the mean response times, and a docx file of Supplementary Materials with extra information about the Simon Task, the results, etc. We also provided the raw data file for you to see what experimental data looks like when it hasn't been pre-processed yet.
 * Extract the data files from the zip folder and place them in your project folder. If you need help, see @sec-download_data_ch1.
 
 

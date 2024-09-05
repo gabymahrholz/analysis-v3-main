@@ -1,5 +1,5 @@
 ---
-lightbox: true
+output: revealjs
 ---
 
 # Chi-square and one-sample t-test  {#sec-nhstI}
@@ -24,30 +24,30 @@ By the end of this chapter you should be able to:
 Which test to use depends on what type of variable(s) you have and what your research question is about.
 
 
-* 2 categorical: Cross-Tabulation Chi-Square Test (@sec-chi_square)
-* 1 continuous: One-sample t-test (@sec-onesample)
-* 1 continuous DV and 1 categorical IV (with 2 levels): 
-  * Independent (between-subjects design, @sec-independent) 
-  * Paired t-test (within-subjects design, @sec-within)
-* 1 continuous DV and 1 categorical IV (with more than 2 levels): One-way ANOVA (@sec-oneway)
-* 1 continuous DV and more than 1 categorical IVs: Factorial ANOVA (@sec-factorial)
-* 2 continuous measured variables (testing association): Correlation (@sec-cor)
-* 1 continuous DV and 1 continuous IV (testing predictions): Regression (@sec-reg)
-* 1 continuous DV and multiple continuous predictors: regression for predictions (@sec-reg_mult)
+* Cross-tabulation chi-Square test (this chapter, @sec-chi_square)
+* One-sample t-test (this chapter, @sec-onesample)
+* Two-sample or independent t-test (between-subjects design, @sec-independent) 
+* Paired t-test (within-subjects design, @sec-within)
+* Correlation (@sec-cor)
+* Simple regression (@sec-reg)
+* Multiple regression (@sec-reg_mult)
+* One-way ANOVA (@sec-oneway)
+* Factorial ANOVA (@sec-factorial)
+
 
 Maybe in a flow chart
 
 
-![Simplified flowchart to help select the most appropriate test (created with drawio)](images/Flowchart_tests_drawio.png){.lightbox}
+![Simplified flowchart to help select the most appropriate test (created with [drawio](https://draw.io/){target="_blank"}). [View larger version](images/Flowchart_tests_drawio.png){target="_blank"}](images/Flowchart_tests_drawio.png)
 
-To view the high-res version of the image: <if>right mouse click \> Open image in new tab</if>
+
 
 ## Activity 1: Setup & download the data
 
-* create a new project and name it something meaningful (e.g., "2A_chapter5", or "05_chi_square_one_sample_t"). See @sec-project if you need some guidance.
+* create a new project and name it something meaningful (e.g., "2A_chapter6", or "06_chi_square_one_sample_t"). See @sec-project if you need some guidance.
 * create a new Rmd file and save it to your project folder. See @sec-rmd if you get stuck. 
 * delete everything after the setup code chunk (e.g., line 12 and below)
-* download a reduced dataset here: [data_ch5.zip](data/data_ch5.zip "download"). You'll see one csv file with demographic information and questionnaire data as well as the codebook.
+* download a reduced dataset here: [data_ch6.zip](data/data_ch6.zip "download"). You'll see one csv file with demographic information and questionnaire data as well as the codebook.
 * Extract the data files from the zip folder and place them in your project folder. If you need help, see @sec-download_data_ch1.
 
 
@@ -271,7 +271,7 @@ ggplot(chi_square, aes(x = eduLevel, fill = gender)) +
 ### Task 5: Compute a chi-square test
 
 
-Before we can do that, we need to turn our tibble into a dataframe - the `associationTest()` function we are using to compute the Chi-square test does not like tibbles.[*you have nooooo clue how long that took to figure out - let's say the error message was not entirely useful*]
+Before we can do that, we need to turn our tibble into a dataframe - the `associationTest()` function we are using to compute the Chi-square test does not like tibbles. [*you have nooooo clue how long that took to figure out - let's say the error message was not entirely useful*]
 
 ```{r}
 chi_square_df <- as.data.frame(chi_square)
@@ -482,7 +482,7 @@ No surprise here, the test shows p < .001 because we have more than 1000 partici
 Either choose visual or computational inspection for normality tests. NO NEED TO DO BOTH!!!
 
 * State what method you used and your reasons for choosing the method (visual/computational and what plot/test you used)
-* state the outcome of the test - for visual inspection just say whether normality assumption held or not (no need to include that extra plot in the results section). For computational methods, report the test result in APA style
+* State the outcome of the test - for visual inspection just say whether normality assumption held or not (no need to include that extra plot in the results section). For computational methods, report the test result in APA style
 * State the conclusions you draw from it - parametric or non-parametric test
 
 :::
@@ -543,7 +543,7 @@ If any of the assumptions are violated, you need to switch to the non-parametric
 That means we need to find the population median, and calculate some summary stats for our sample:
 
 * The population median is listed in a supporting document on the [official WEMWBS website](https://warwick.ac.uk/fac/sci/med/research/platform/wemwbs/using/howto/){target="_blank"} as 53.0. 
-* we can easily calculate the summary statistics using the function summary
+* We can easily calculate the summary statistics using the function summary.
 
 ```{r}
 summary(one_sample)
@@ -555,7 +555,7 @@ The function to compute a one-sample Wilcoxon test test is `wilcox.test()`. It's
 ```{r}
 wilcox.test(one_sample$wemwbs_sum, mu = 53.0)
 ```
-As we can see, the output gives us a V value, but we need to report a z value in the final write-up. Unfortunately, we have to calculate z manually. According to Andy Field (2012, p. 665), we need to use the qnorm function on the halved p-value from our Wilcoxon test above.
+As we can see, the output gives us a V value, but we need to report a Z value in the final write-up. Unfortunately, we have to calculate Z manually. According to Andy Field (2012, p. 665), we need to use the qnorm function on the halved p-value from our Wilcoxon test above.
 
 ```{r}
 # storing the p-value

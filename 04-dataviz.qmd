@@ -174,15 +174,15 @@ You need to stick to the first 3 layers to get your base plot. Everything else i
 ## Activity 1: Set-up and data for today
 
 -   We are still working with the data by Pownall et al. (2023) which we aggregated in @sec-wrangling. So, open your project.
-- However, we could do with a fresh Rmd: Create a new Rmd and save it to your project folder. Name it something meaningful (e.g., "chapter_03", "03_data_viz.Rmd"). See @sec-rmd if you need some guidance. Delete everything below line 12 (keep the set-up code chunk)
--   We aggregated the data in @sec-wrangling. If you want a fresh copy, download the data here: [data_prp_ch3.csv](data/data_prp_ch3.csv "download"). Make sure to place the csv file in the same folder.
+- However, we could do with a fresh Rmd: Create a new Rmd and save it to your project folder. Name it something meaningful (e.g., "chapter_04", "04_data_viz.Rmd"). See @sec-rmd if you need some guidance. Delete everything below line 12 (keep the set-up code chunk)
+-   We aggregated the data in @sec-wrangling. If you want a fresh copy, download the data here: [data_prp_for_ch4.csv](data/data_prp_for_ch4.csv "download"). Make sure to place the csv file in the project folder.
 -   If you need a reminder about the data and variables, have a look at the codebook and/or @sec-download_data_ch1.
 
 
 
-## Activity 2: Load in the libraries, read in the data, and tidy the dataframe
+## Activity 2: Load in the libraries and read in the data
 
-We need the package `tidyverse` today, and the data `data_prp_ch3.csv`.
+We need the package `tidyverse` today, and the data `data_prp_for_ch4.csv`.
 
 ```{r eval=FALSE}
 ## packages 
@@ -198,7 +198,7 @@ data_prp_viz <- read_csv(???)
 
 ```{r eval=FALSE}
 library(tidyverse)
-data_prp_viz <- read_csv("data_prp_ch3.csv")
+data_prp_viz <- read_csv("data_prp_for_ch4.csv")
 ```
 
 :::
@@ -208,7 +208,7 @@ data_prp_viz <- read_csv("data_prp_ch3.csv")
 ## I basically have to have 2 code chunks since I tell them to put the data files next to the project, and mine are in a separate folder called data - unless I'll turn this into a fixed path
 
 library(tidyverse)
-data_prp_viz <- read_csv("data/data_prp_ch3.csv")
+data_prp_viz <- read_csv("data/data_prp_for_ch4.csv")
 ```
 
 #### Re-familiarise yourself with the data structure {.unnumbered}

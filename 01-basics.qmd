@@ -2,7 +2,7 @@
 
 ## Intended Learning Outcomes {.unnumbered}
 
-By the end of this chapter you should be able to:
+By the end of this chapter, you should be able to:
 
 -   Re-familiarise yourself with setting up projects
 -   Re-familiarise yourself with RMarkdown documents
@@ -41,10 +41,10 @@ Always start with a clear workspace. If your  `Global Environment` contains anyt
 
 To ensure a clean and reproducible workflow, there are a few settings you should adjust immediately after installing or updating RStudio. In <if>Tools \> Global Options... General tab</if>
 
--   Uncheck the box labeled <if>Restore .RData into workspace at startup</if> to make sure no data from a previous session is loaded into the environment
+-   Uncheck the box labelled <if>Restore .RData into workspace at startup</if> to make sure no data from a previous session is loaded into the environment
 -   set <if>Save workspace to .RData on exit</if> to **Never** to prevent your workspace from being saved when you exit RStudio.
 
-![Reproducibility settings in Global Ootions](images/rstudio_settings_reproducibility.png)
+![Reproducibility settings in Global Options](images/rstudio_settings_reproducibility.png)
 
 ::: {.callout-tip collapse="true"}
 
@@ -52,7 +52,7 @@ To ensure a clean and reproducible workflow, there are a few settings you should
 
 R has included **rainbow parentheses** to help with keeping count on the brackets.
 
-To enable the feature, go to <if>Tools \> Global Options... Code tab \> Display tab</if> and check the last tickbox "Use rainbow parentheses"
+To enable the feature, go to <if>Tools \> Global Options... Code tab \> Display tab</if> and tick the last checkbox "Use rainbow parentheses"
 
 ![Enable Rainbow parenthesis](images/rainbow.PNG)
 
@@ -115,7 +115,7 @@ On your own computer, open RStudio, and complete the following steps in this ord
 -   Click on <if>File \> New Project...</if>
 -   Then, click on "New Directory"
 -   Then, click on "New Project"
--   Name the directory something meaningful (e.g., "2A_chapter1"), and save it in a location that makes sense, for example, a dedicated folder you have for your level 2 Psychology labs - you can either select a folder you have already in place, or create a new one (e.g., I named my new folder "Level 2 labs")
+-   Name the directory something meaningful (e.g., "2A_chapter1"), and save it in a location that makes sense, for example, a dedicated folder you have for your level 2 Psychology labs - you can either select a folder you have already in place or create a new one (e.g., I named my new folder "Level 2 labs")
 -   Click "Create Project". RStudio will restart itself and open with this new project directory as the working directory. If you accidentally close it, you can open it by double-clicking on the project icon in your folder
 -   You can also check in your folder structure that everything was created as intended
 
@@ -141,16 +141,16 @@ Don't ever save a new project **inside** another project directory. This can cau
 
 -   Open a new R Markdown document: click <if>File \> New File \> R Markdown</if> or click on the little page icon with a green plus sign (top left).
 -   Give it a meaningful `Title` (e.g., Level 2 chapter 1) - you can also change the title later. Feel free to add your name or GUID in the `Author` field author name. Keep the `Default Output Format` as HTML.
--   Once the Rmd opened, you need to save the file.
+-   Once the .`Rmd` opened, you need to save the file.
 -   To save it, click <if>File \> Save As...</if> or click on the little disc icon. Name it something meaningful (e.g., "chapter_01.Rmd", "01_intro.Rmd"). Make sure there are no spaces in the name - R is not very fond of spaces... This file will automatically be saved in your project folder (i.e., your working directory) so you should now see this file appear in your file viewer pane.
 
 
 
-![Creating a new Rmd file](images/Rmd_setup.gif)
+![Creating a new `.Rmd` file](images/Rmd_setup.gif)
 
 
 
-Remember, an R Markdown document or Rmd has "white space" (i.e., the markdown for formatted text) and "grey parts" (i.e., code chunks) in the default colour scheme (see @fig-rmd). R Markdown is a powerful tool for creating dynamic documents because it allows you to integrate code and regular text seamlessly. You can then knit your Rmd using the `knitr` package to create a final document as either a webpage (HTML), a PDF, or Word document (.docx). We'll only knit to html documents in this course.
+Remember, an R Markdown document or `.Rmd` has "white space" (i.e., the markdown for formatted text) and "grey parts" (i.e., code chunks) in the default colour scheme (see @fig-rmd). R Markdown is a powerful tool for creating dynamic documents because it allows you to integrate code and regular text seamlessly. You can then knit your `.Rmd` using the `knitr` package to create a final document as either a webpage (HTML), a PDF, or a Word document (.docx). We'll only knit to HTML documents in this course.
 
 
 ![R markdown anatomy (image from [https://intro2r.com/r-markdown-anatomy.html](https://intro2r.com/r-markdown-anatomy.html){target="_blank"})](images/rm_components.png)
@@ -159,7 +159,7 @@ Remember, an R Markdown document or Rmd has "white space" (i.e., the markdown fo
 
 ### Markdown
 
-The markdown space in an Rmd is ideal for writing notes that explain your code and document your thought process. Use this space to clarify what your code is doing, why certain decisions were made, and any insights or conclusions you have drawn along the way. These notes are invaluable when revisiting your work later, helping you (or others) understand the rationale behind key decisions, such as setting inclusion/exclusion criteria or interpreting the results of assumption tests. Effectively documenting your work in the markdown space enhances both the clarity and reproducibility of your analysis.
+The markdown space in an `.Rmd` is ideal for writing notes that explain your code and document your thought process. Use this space to clarify what your code is doing, why certain decisions were made, and any insights or conclusions you have drawn along the way. These notes are invaluable when revisiting your work later, helping you (or others) understand the rationale behind key decisions, such as setting inclusion/exclusion criteria or interpreting the results of assumption tests. Effectively documenting your work in the markdown space enhances both the clarity and reproducibility of your analysis.
 
 
 The markdown space offers a variety of formatting options to help you organise and present your notes effectively. Here are a few of them that can enhance your documentation:
@@ -204,7 +204,7 @@ There is a variety of **heading levels** to make use of, using the `#` symbol.
 ::: {.callout-important collapse="true"}
 ## ERROR: My heading levels don't render properly when knitting
 
-You need a space between the # and first letter. If the space is missing, the heading will be displayed in the html as ...
+You need a space between the # and the first letter. If the space is missing, the heading will be displayed in the HTML file as ...
 
 #Heading 1
 
@@ -239,7 +239,7 @@ or use bullet points of different levels using 1 tab key press or 2 spaces (for 
 ::: {.callout-important collapse="true"}
 ## ERROR: My bullet points don't render properly when knitting
 
-You need an empty row before your bullet points start. If I delete the empty row before the bullet points, they will be displayed in the html as ...
+You need an empty row before your bullet points start. If I delete the empty row before the bullet points, they will be displayed in the HTML as ...
 
 Text without the empty row:
 * bullet point created with `*`
@@ -262,7 +262,7 @@ Start the line with **1.**, **2.**, etc. When you want to include sub-items, eit
 
 ## My list items don't render properly when knitting
 
-If you don't leave enough spaces, the list won't be recognised and your output looks like this:
+If you don't leave enough spaces, the list won't be recognised, and your output looks like this:
 
 3. list item 3
   i) sub-item 1 (with only 2 spaces)
@@ -274,11 +274,11 @@ If you don't leave enough spaces, the list won't be recognised and your output l
 
 The great thing though is that you don't need to know your alphabet or number sequences. R markdown will fix that for you
 
-If I type into my Rmd...
+If I type into my `.Rmd`...
 
 ![](images/list_magic.PNG)
 
-...it will be rendered in the knitted html output as...
+...it will be rendered in the knitted HTML output as...
 
 4. list item 3
 1. list item 1
@@ -306,9 +306,9 @@ Yes, they do but you need to label your sub-item lists accordingly. The first la
 
 #### Emphasis {.unnumbered}
 
-Include **emphasis** to draw attention to key words in your text:
+Include **emphasis** to draw attention to keywords in your text:
 
-|R markdown syntax  | Displayed in the knitted html file |
+|R markdown syntax  | Displayed in the knitted HTML file |
 |:----------------- |:-----------------------------------|
 | \**bold text**    | **bold text**                      |
 | \*italic text*    | *italic text*                      |
@@ -329,14 +329,14 @@ You can **insert a new code chunk** in several ways:
 * Type ` ```{r}` and ` ``` ` manually
 
 
-```{r fig-rmd, echo=FALSE, fig.cap="Default Rmd with highlighting - names in pink and knitr display options in purple"}
+```{r fig-rmd, echo=FALSE, fig.cap="Default `.Rmd` with highlighting - names in pink and knitr display options in purple"}
 knitr::include_graphics("images/default_highlighted.png")
 ``` 
 
 
-Within the curly brackets of a code chunk, you can **specify a name** for the code chunk (see pink highlighting in @fig-rmd). The chunk name is not necessarily required, however, it is good practice to give each chunk a unique name to support more advanced knitting approaches. It also makes it easier to reference and manage chunks.
+Within the curly brackets of a code chunk, you can **specify a name** for the code chunk (see pink highlighting in @fig-rmd). The chunk name is not necessarily required; however, it is good practice to give each chunk a unique name to support more advanced knitting approaches. It also makes it easier to reference and manage chunks.
 
-Within the the curly brackets, you can also place **rules and arguments** (see purple highlighting in @fig-rmd) to control how your code is executed and what is displayed in your final html output. The most common **knitr display options** include:
+Within the curly brackets, you can also place **rules and arguments** (see purple highlighting in @fig-rmd) to control how your code is executed and what is displayed in your final HTML output. The most common **knitr display options** include:
 
 
 | Code                | Does code run | Does code show | Do results show |
@@ -355,7 +355,7 @@ The table above will be incredibly important for the data skills homework II. Wh
 :::
 
 
-One last thing: In your newly created Rmd file, delete everything below line 12 (keep the set-up code chunk) and save your Rmd by clicking on the disc symbol.
+One last thing: In your newly created `.Rmd` file, delete everything below line 12 (keep the set-up code chunk) and save your `.Rmd` by clicking on the disc symbol.
 
 ![Delete everything below line 12](images/delete_12.gif)
 
@@ -370,7 +370,7 @@ That was quite a long section about what Markdown can do. I promise, we'll pract
 
 ## Solution
 
-On line 12, you should have typed **## Loading packages and reading in data** (or whatever meaningful title you chose). This will create level 2 heading once we knit the Rmd.
+On line 12, you should have typed **## Loading packages and reading in data** (or whatever meaningful title you chose). This will create level 2 heading once we knit the `.Rmd`.
 
 :::
 
@@ -378,15 +378,15 @@ On line 12, you should have typed **## Loading packages and reading in data** (o
 
 ## Activity 3: Download the data {#sec-download_data_ch1}
 
-The data for chapters 1-3. Download it here: [data_ch1.zip](data/data_ch1.zip "download"). There are 2 csv files contained in a zip-folder. One is the data file we are going to use today `prp_data_reduced.csv` and the other is an excel file `prp_codebook` that explains the variables in the data.
+The data for chapters 1-3. Download it here: [data_ch1.zip](data/data_ch1.zip "download"). There are 2 csv files contained in a zip folder. One is the data file we are going to use today `prp_data_reduced.csv` and the other is an Excel file `prp_codebook` that explains the variables in the data.
 
 The first step is to **unzip the zip folder** so that the files are placed within the same folder as your project.
 
-* place the zip folder within your 2A_chapter1 folder
-* right mouse click --> `Extract All...`
+* Place the zip folder within your 2A_chapter1 folder
+* Right mouse click --> `Extract All...`
 * Check the folder location is the one to extract the files to
-* check the extracted files are placed next to the project icon
-* files and project should be visible in the Output pane in RStudio
+* Check the extracted files are placed next to the project icon
+* Files and project should be visible in the Output pane in RStudio
 
 
 ::: {.callout-note collapse="true"}
@@ -421,7 +421,7 @@ The paper by Pownall et al. was a **registered report** published in 2023, and t
 
 **Changes made to the dataset**
 
-We made some changes to the dataset for the purpose of increasing difficulty for data wrangling (@sec-wrangling) and data visualisation (@sec-dataviz and @sec-dataviz2). This will ensure some "teachable moments". The changes are as follows:
+We made some changes to the dataset for the purpose of increasing difficulty for data wrangling (@sec-wrangling and @sec-wrangling2) and data visualisation (@sec-dataviz and @sec-dataviz2). This will ensure some "teachable moments". The changes are as follows:
 
 * We removed some of the variables to make the data more manageable for teaching purposes.
 * We recoded some values from numeric responses to labels (e.g., `understanding`).
@@ -433,9 +433,9 @@ We made some changes to the dataset for the purpose of increasing difficulty for
 
 ## Activity 4: Loading packages and reading in data
 
-The first step is to load in the packages we need, and read in the data. Today, we'll only be using `tidyverse`, and `read_csv()` will help us store the data from `prp_data_reduced.csv` in an object called data_prp.
+The first step is to load in the packages we need and read in the data. Today, we'll only be using `tidyverse`, and `read_csv()` will help us store the data from `prp_data_reduced.csv` in an object called data_prp.
 
-Copy the code into a code chunk in your RmD document and run it. You can either click the `green error` to run the entire code chunk, or use the shortcut `Ctrl + Enter` (Windows) or `Cmd + Enter` (Mac) to run a line of code/ pipe from the Rmd.
+Copy the code into a code chunk in your `.Rmd` file and run it. You can either click the `green error` to run the entire code chunk, or use the shortcut `Ctrl + Enter` (Windows) or `Cmd + Enter` (Mac) to run a line of code/ pipe from the Rmd.
 
 
 ```{r eval=FALSE}
@@ -464,7 +464,7 @@ Before you start wrangling your data, it is important to understand what kind of
 
 As you may have noticed, `read_csv()` provides a **message** listing the data types in your dataset and how many columns are of each type. Plus, it shows a few examples columns for each data type.
 
-To obtain more detailed information about your data, you have several options. Click on the individual tabs to see the different options available. Test them out in your own Rmd and use whichever method you prefer (but do it). 
+To obtain more detailed information about your data, you have several options. Click on the individual tabs to see the different options available. Test them out in your own `.Rmd` file and use whichever method you prefer (but do it). 
 
 ::: {.callout-warning}
 
@@ -523,12 +523,12 @@ One common source of confusion is not seeing all your columns when you open up a
 
 ## Your Turn
 
-Now that you have tested out all the options in your own Rmd, you can probably answer the following questions:
+Now that you have tested out all the options in your own `.Rmd` file, you can probably answer the following questions:
 
 * How many observations? `r fitb("89")`
-* How many variables? `r fitb("90")`
+* How many variables? `r fitb("91")`
 * How many columns are `col_character` or `chr` data type? `r fitb("17")`
-* How many columns are `col_double` or `dbl` data type? `r fitb("73")`
+* How many columns are `col_double` or `dbl` data type? `r fitb("74")`
 
 
 ::: {.callout-caution collapse="true" icon="false"} 
@@ -547,7 +547,7 @@ Whilst `spec()` is quite useful for data type information per individual column,
 :::
 
 
-In your Rmd, include a **new heading level 2** called "Information about the data" (or something equally meaningful) and jot down some notes about `data_prp`. You could include the citation and/or the abstract, and whatever information you think you should note about this dataset (e.g., any observations from looking at the codebook?). You could also include some notes on the functions used so far and what they do. Try to incorporate some **bold**, *italic* or ***bold and italic*** emphasis and perhaps a bullet point or two.
+In your `.Rmd`, include a **new heading level 2** called "Information about the data" (or something equally meaningful) and jot down some notes about `data_prp`. You could include the citation and/or the abstract, and whatever information you think you should note about this dataset (e.g., any observations from looking at the codebook?). You could also include some notes on the functions used so far and what they do. Try to incorporate some **bold**, *italic* or ***bold and italic*** emphasis and perhaps a bullet point or two.
 
 
 ::: {.callout-caution collapse="true" icon="false"} 
@@ -611,7 +611,7 @@ When the data type is incorrect, you won't be able to compute anything, despite 
 ```
 :::
 
-**Logical** data (also sometimes called “Boolean” values) are one of two values: TRUE or FALSE (written in uppercase). They become really important when we use `filter()` or `mutate()` with conditional statements such as `case_when()`. More about those in @sec-wrangling.
+**Logical** data (also sometimes called “Boolean” values) are one of two values: TRUE or FALSE (written in uppercase). They become really important when we use `filter()` or `mutate()` with conditional statements such as `case_when()`. More about those in @sec-wrangling2.
 
 Some commonly used logical operators:
 
@@ -747,7 +747,7 @@ And with this, we are done with the individual walkthrough. Well done :)
 
 ## [Pair-coding in the lab]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
 
-I want to produce a short knitted document that the students have to recreate including some headings, emphasis in the text, bullet points and the first steps of calculation we can do with the loneliness data with no proper data wrangling skills
+I want to produce a short, knitted document that the students have to recreate including some headings, emphasis in the text, bullet points and the first steps of calculation we can do with the loneliness data with no proper data wrangling skills
 
 
 
@@ -767,15 +767,15 @@ One of the key first steps when we open RStudio is to: `r longmcq(c(x = "put on 
 
 ## Explain this answer
 
-Opening an existing project (e.g., when coming back to the same dataset) or creating a new project (e.g., for a new task or new dataset) ensures that subsequent Rmds, any output, figures, etc are saved within the same folder on your computer (i.e., the working directory). If Rmds or data is not in the same folder as "the project icon", things can get messy and code might not run.
+Opening an existing project (e.g., when coming back to the same dataset) or creating a new project (e.g., for a new task or new dataset) ensures that subsequent `.Rmd` files, any output, figures, etc are saved within the same folder on your computer (i.e., the working directory). If the`.Rmd` files or data is not in the same folder as "the project icon", things can get messy and code might not run.
 
 :::
   
 #### Question 2 {.unnumbered}
 
-When using the default environment color settings for RStudio, what color would the background of a code chunk be in R Markdown? `r mcq(c(x = "red", x = "white", x = "green", answer = "grey"))`
+When using the default environment colour settings for RStudio, what colour would the background of a code chunk be in R Markdown? `r mcq(c(x = "red", x = "white", x = "green", answer = "grey"))`
 
-When using the default environment color settings for RStudio, what color would the background of normal text be in R Markdown? `r mcq(c(x = "red", answer = "white", x = "green", x = "grey"))`
+When using the default environment colour settings for RStudio, what colour would the background of normal text be in R Markdown? `r mcq(c(x = "red", answer = "white", x = "green", x = "grey"))`
 
 ::: {.callout-caution collapse="true" icon="false"} 
 
@@ -793,14 +793,14 @@ Code chunks start and end with: `r longmcq(c(x = "three single quotes", answer =
 
 ## Explain this answer
 
-Code chunks always take the same general format of three backticks followed by curly parentheses and a lower case r inside the parentheses (`{r}`). People often mistake these backticks for single quotes but that will not work. If you have set your code chunk correctly using backticks, the background color should change to grey from white.
+Code chunks always take the same general format of three backticks followed by curly parentheses and a lower case r inside the parentheses (`{r}`). People often mistake these backticks for single quotes but that will not work. If you have set your code chunk correctly using backticks, the background colour should change to grey from white.
 
 :::
 
 
 #### Question 4 {.unnumbered}
 
-What is the correct way to include a code chunk in RMarkdown that will be executed but neither the code nor its output will be shown in the final html document? `r mcq(c(x = "{r, echo=FALSE}", x = "{r, eval=FALSE}", answer = "{r, include=FALSE}", x = "{r, results='hide'}"))`
+What is the correct way to include a code chunk in RMarkdown that will be executed but neither the code nor its output will be shown in the final HTML document? `r mcq(c(x = "{r, echo=FALSE}", x = "{r, eval=FALSE}", answer = "{r, include=FALSE}", x = "{r, results='hide'}"))`
 
 
 ::: {.callout-caution collapse="true" icon="false"} 
@@ -825,7 +825,7 @@ Some of these codes have mistakes in them, other code chunks are not quite produ
 
 #### Question 5 {.unnumbered}
 
-You want to read in data with the `read_csv()` function. You have just stated R, created a new Rmd, and typed the following code into your code chunk.
+You want to read in data with the `read_csv()` function. You have just stated R, created a new `.Rmd` file, and typed the following code into your code chunk.
 
 ```{r eval=FALSE}
 data <- read_csv("data.csv")
@@ -865,7 +865,7 @@ Why is there an error message?
 
 R is looking for a csv file that is called data which is currently not in the working directory. We may assume it's in the data folder. Perhaps that happened when unzipping the zip file. So instead of placing the csv file on the same level as the project icon, it was unzipped into a folder named data.
 
-FIX - option 1: Take the `data.csv` out of the data folder and place it next to the project icon and the Rmd file.
+FIX - option 1: Take the `data.csv` out of the data folder and place it next to the project icon and the `.Rmd` file.
 
 FIX - option 2: Modify your R code to tell R that the data is in a separate folder called data, e.g., ...
 
@@ -903,7 +903,7 @@ FIX: Type `install.packages("tidyverse")` into your **Console**.
 
 #### Question 8 {.unnumbered}
 
-You knitted your Rmd into a html but the output is not as expected. You see the following:
+You knitted your `.Rmd` into a html but the output is not as expected. You see the following:
 
 ![](images/error_knitted.PNG)
 
@@ -913,13 +913,10 @@ Why did the file not knit properly?
 
 ## Explain the solution
 
-There is a backtick missing in the code chunk. If you check your Rmd file, you can see that the code chunk does not show up in grey which means it's one of the 3 backticks at the beginning of the chunk.
+There is a backtick missing in the code chunk. If you check your `.Rmd` file, you can see that the code chunk does not show up in grey which means it's one of the 3 backticks at the beginning of the chunk.
 
 ![](images/error_ch1_08.PNG)
 
 FIX: Add a single backtick manually where it's missing.
 
 :::
-
-
-
