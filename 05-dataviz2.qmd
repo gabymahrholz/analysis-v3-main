@@ -13,26 +13,28 @@ library(wesanderson)
 
 By the end of this chapter you should be able to:
 
--   choose an appropriate plot for continuous variables and a mix of continuous/categorical variables 
+-   choose an appropriate plot for continuous variables 
+-   choose an appropriate plot when you've got a mix of continuous/categorical variables 
 -   create a basic version of an appropriate plot
 -   apply extra layers to change the appearance of the plot
 
+In this chapter, we are continuing our journey of appropriate plots. Last week, we looked at which **plots are appropriate for categorical variables**. Today, we'll focus on continuous variables and which plots to choose with a **mix of continuous and categorical variables**.
+
+
+
 ## [Individual Walkthrough]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
-
-In this chapter, we are continuing our journey of appropriate plots. Last week, we looked at which plots are appropriate for categorical variables. Today, we'll focus on continuous variables and which plots to choose with a mix of continuous and categorical variables.
-
 
 
 ## Activity 1: Set-up and data for today
 
--   We are still working with the data by Pownall et al. (2023) which we aggregated in @sec-wrangling. Open the project.
--   You could use the same Rmd as last week if you want to keep all plotting in one document or create a new Rmd to separate plots for categorical and continuous variables. Up to you.
+-   We are still working with the data by Pownall et al. (2023). **Open the project**.
+-   You could use the same `.Rmd` file as last week if you want to keep all plotting in one document or create a new `.Rmd` to separate plots for categorical and continuous variables. Up to you.
 -   The aggregated data is the same as last week. It should be in your project folder but in case it got lost, download it again and place it in your project folder: [data_prp_for_ch4.csv](data/data_prp_for_ch4.csv "download").
 -   If you need a reminder about the data and variables, have a look at the codebook and/or @sec-download_data_ch1.
 
 
 
-## Activity 2: Load in the libraries, read in the data, and tidy the dataframe
+## Activity 2: Load in libraries, read in data, and adjust data types
 
 We need the package `tidyverse` today, and the data `data_prp_ch3.csv`.
 
@@ -95,13 +97,9 @@ If you are working within the same Rmd file as last week, you can skip these ini
 :::
 
 
-## Continuing with Appropriate plots {.unnumbered}
+## Activity 3: Histogram (`geom_histogram()`)
 
-## One continuous variable
-
-### Histogram `geom_histogram()`
-
-If you wanted to show the distribution of a continuous variable, you can use a histogram. As with every plot, you need at least 3 layers to create a base version of the plot. Similar to `geom_bar()`, `geom_histogram()` only requires an `x` variable as it does the counting "in the background".
+If you wanted to show the **distribution of a continuous variable**, you can use a histogram. As with every plot, you need at least 3 layers to create a base version of the plot. Similar to `geom_bar()`, `geom_histogram()` only requires an `x` variable as it does the counting "in the background".
 
 A histogram splits the data into “bins” (i.e., groupings displayed in a single bar). These values are plotted along the x-axis and shows the count of how many observations are in each bin along the y-axis. It's basically a bar chart for continuous variables.
 
@@ -222,13 +220,11 @@ ggplot(data_prp_viz, aes(x = Age)) +
 :::
 
 
-## Two continuous variables
+## Activity 4: Scatterplot (`geom_point()`)
 
-### Scatterplot `geom_point()`
+Scatterplots are appropriate when you want to plot **two continuous variables**. Here, we want to display the relationship between Acceptance of QRPs at Time point 1 and 2. The default scatterplot would be created with `geom_point()`.
 
-We want to display the relationship between Acceptance of QRPs at Time point 1 and 2. The default scatterplot would be created with `geom_point()`.
-
-We could also add a trendline by adding `geom_smooth()`. The default trendline is `loess`. If you want a linear trendline, you would need to add `method = lm` into `geom_smooth()` function.
+We could also **add a trendline** by adding `geom_smooth()`. The default trendline is `loess`. If you want a linear trendline, you would need to add `method = lm` into `geom_smooth()` function.
 
 ```{r eval=FALSE}
 ggplot(data_prp_viz, aes(x = QRPs_Acceptance_Time1_mean, y = QRPs_Acceptance_Time2_mean)) +
@@ -255,14 +251,14 @@ Scat_1 + scat_2 + plot_layout(nrow = 1)
 
 
 
-Customising the colour of plot is slightly different to the other plots we've encountered so far. Technically, the point is not a "filled-in black area", but an extremely wide outline of a circle. Therefore, we cannot use the usual `fill` argument, but have to switch to the `colour` argument (like we did for the outline of the histogram).
+Customising the colour of plot is slightly different to the other plots we've encountered so far. Technically, the point is not a "filled-in black area", but an extremely wide outline of a circle. Therefore, we cannot use the usual `fill` argument, but have to switch to the `colour` argument (like we did for the outline of the histogram). See the tabs below how to change the colour for all points or if you want to change the colour according to groupings.
 
 
 ::: {.panel-tabset}
 
 ## Colour for all points
 
-If we want to **change the colour of all the points**, we would add the `colour` argument to the `geom_point() function`. Likewise, changing the **colour of the trendline** would also require a `colour` argument. Here we went with pre-defined colour names, but HEX codes would work too
+If we want to **change the colour of all the points**, we would add the `colour` argument to the `geom_point()` function. Likewise, changing the **colour of the trendline** would also require a `colour` argument. Here we went with pre-defined colour names, but HEX codes would work too
 
 ```{r}
 # colour of all points and the trendline
@@ -301,16 +297,16 @@ ggplot(data_prp_viz, aes(x = QRPs_Acceptance_Time1_mean, y = QRPs_Acceptance_Tim
 
 :::
 
-::: {.callout-note collapse="false" icon="false"} 
+::: {.callout-note icon="false"} 
 
 ## Your Turn
 
 All other layers would be exactly the same as in other plots. Try to add layers to the make the plot above prettier: 
 
-1. relabel axes x and y
-2. set the x and y axis range from 1 to 7
-3. move the legend to a different position (either top, left, or bottom)
-4. add a theme
+* [ ] 1. relabel axes x and y
+* [ ] 2. set the x and y axis range from 1 to 7
+* [ ] 3. move the legend to a different position (either top, left, or bottom)
+* [ ] 4. add a theme
 
 
 ::: {.callout-note collapse="true" icon="false"} 
@@ -353,11 +349,11 @@ ggplot(data_prp_viz, aes(x = QRPs_Acceptance_Time1_mean, y = QRPs_Acceptance_Tim
 
 
 
-## Continuous with categorical grouping variable
 
-### Boxplot
 
-We want to create a boxplot to investigate whether their understanding of open science depends on whether or not students had research experience. Our default boxplot would look like this:
+## Activity 5: Boxplot (`geom_boxplot()`)
+
+A boxplot is one of the options to display a **continuous variable with categorical grouping variable**. Here, we want to create a boxplot to investigate whether their understanding of open science depends on whether or not students had research experience. Our default boxplot would look like this:
 
 ```{r}
 # default boxplot
@@ -434,9 +430,9 @@ ggplot(data_prp_viz, aes(x = Research_exp, y = Time1_Understanding_OS, fill = Re
 
 
 
-### Violin plot
+## Activity 6: Violin plot (`geom_violin()`)
 
-We want to create a violin plot to investigate whether the perception of supervisor support depended on planning to pre-register the dissertation. Our default violin plot would look like this:
+An alternative to display a continuous variable with categorical grouping variable is a violin plot. Here, we want to create a violin plot to investigate whether the perception of supervisor support depended on planning to pre-register the dissertation. Our default violin plot would look like this:
 
 ```{r}
 # default boxplot
@@ -444,7 +440,7 @@ ggplot(data_prp_viz, aes(x = Plan_prereg, y = Mean_Supervisor_Support)) +
   geom_violin()
 ```
 
-::: {.callout-note collapse="false" icon="false"} 
+::: {.callout-note icon="false"} 
 
 ## Your Turn
 
@@ -479,7 +475,7 @@ ggplot(data_prp_viz, aes(x = Plan_prereg, y = Mean_Supervisor_Support, fill = Pl
 :::
 
 
-### Violin-boxplots
+## Activity 7: Violin-boxplots
 
 So far, we've only added one `geom_` to our plots. Due to the layered system, we could add multiple geoms, for example, when creating a violin-boxplot. 
 
@@ -497,6 +493,7 @@ ggplot(data_prp_viz, aes(x = Secondyeargrade, y = QRPs_Acceptance_Time2_mean)) +
   geom_boxplot() +
   geom_violin()
 ```
+
 
 ```{r, fig-vb_bv, echo=FALSE, fig.cap="Default violin-boxplot: Order of the layer matters"}
 vb <- ggplot(data_prp_viz, aes(x = Secondyeargrade, y = QRPs_Acceptance_Time2_mean)) +
@@ -541,13 +538,15 @@ ggplot(data_prp_viz, aes(x = Secondyeargrade, y = QRPs_Acceptance_Time2_mean, fi
   scale_fill_brewer(palette = "RdPu") # customise colour
 ```
 
+:::
 
+::: {.callout-note icon="false"} 
 
 ## Your Turn
 
-* Change the x- and y-axis labels
-* Remove the legend
-* add a theme
+* [ ] Change the x- and y-axis labels
+* [ ] Remove the legend
+* [ ] add a theme
 
 ::: {.callout-caution collapse="true" icon="false"} 
 
@@ -569,7 +568,7 @@ ggplot(data_prp_viz, aes(x = Secondyeargrade, y = QRPs_Acceptance_Time2_mean, fi
 :::
 
 
-## Faceting - adding another grouping variable
+## Activity 8: Faceting - adding another grouping variable
 
 Faceting is really useful when you have subsets in the data. We will use this here on the violin-boxplot from above, but you could add this to pretty much any plot. The function to split up the plots into facets is called `facet_wrap()`. 
 
@@ -671,6 +670,10 @@ Provide a barchart, a violin-boxplot, and a scatterplot from the loneliness data
 
 Which plot would you choose for
 
+### Activity 5: Your Turn
 
+Pick **any single or two categorical variables** from the dataset and **choose one of the appropriate plot choices**. Start with a base plot and add other layers if you please. 
+
+Save your plot and share it with us on Teams.
 
 

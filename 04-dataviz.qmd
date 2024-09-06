@@ -18,6 +18,9 @@ By the end of this chapter you should be able to:
 -   create a basic version of an appropriate plot
 -   apply extra layers to change the appearance of the plot
 
+
+It is time to think about which plot is the appropriate plot for your data. Different types of variables require different types of plots, so this comes back to how many variables are you aiming to plot and what kind of data type are they. Today, we will focus on **plots for categorical data**. Next week, we'll cover plots for continuous variables and discover which plots are appropriate if you have a mix of continuous and categorical variables.
+
 ## [Individual Walkthrough]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
 
 ## Building plots
@@ -25,14 +28,14 @@ By the end of this chapter you should be able to:
 We are using the package `ggplot2` to create data visualisations. It's part of the tidyverse package. Actually, most people call th package `ggplot` but it's official name is `ggplot2`.
 
 ::: grid
-::: g-col-5
-**ggplot2** uses a layered grammar of graphics, in which plots are built up in a series of layers. You would start with a base layer (opening ggplot), adding **data** and **aesthetics**, and selecting the **geometries** for plot.
+::: g-col-6
+**ggplot2** uses a **layered grammar of graphics**, in which plots are built up in a series of layers. You would start with a base layer (opening ggplot), adding **data** and **aesthetics**, and selecting the **geometries** for plot.
 
-These first 3 layers will give you the most simple version of a complete plot, but you could add other layers to make the plots pretty by using **scales**, **facets**, **coordinates**, **labels** and **themes**.
+These first 3 layers will give you the most simple version of a complete plot, but you could add other layers to make the plots more accessible (and pretty) by using **scales**, **facets**, **coordinates**, **labels** and **themes**.
 :::
 
-::: g-col-7
-![gg layers [(Presentation by Ryan Safner)](https://metricsf20.classes.ryansafner.com/slides/1.3-slides#20){target="_blank"}](images/gglayers.png){width="70%"}
+::: g-col-6
+![gg layers [(Presentation by Ryan Safner)](https://metricsf20.classes.ryansafner.com/slides/1.3-slides#20){target="_blank"}](images/gglayers.png){width="90%"}
 :::
 :::
 
@@ -173,14 +176,14 @@ You need to stick to the first 3 layers to get your base plot. Everything else i
 
 ## Activity 1: Set-up and data for today
 
--   We are still working with the data by Pownall et al. (2023) which we aggregated in @sec-wrangling. So, open your project.
-- However, we could do with a fresh Rmd: Create a new Rmd and save it to your project folder. Name it something meaningful (e.g., "chapter_04", "04_data_viz.Rmd"). See @sec-rmd if you need some guidance. Delete everything below line 12 (keep the set-up code chunk)
--   We aggregated the data in @sec-wrangling. If you want a fresh copy, download the data here: [data_prp_for_ch4.csv](data/data_prp_for_ch4.csv "download"). Make sure to place the csv file in the project folder.
+-   We are still working with the data by Pownall et al. (2023), so **open your project**.
+-   However, we could do with a fresh Rmd: **Create a new `.Rmd` file*** and save it to your project folder. Name it something meaningful (e.g., "chapter_04", "04_data_viz.Rmd"). See @sec-rmd if you need some guidance. Delete everything below line 12 (keep the set-up code chunk)
+-   We aggregated the data in @sec-wrangling and @sec-wrangling2. If you want a fresh copy, download the data here: [data_prp_for_ch4.csv](data/data_prp_for_ch4.csv "download"). Make sure to place the csv file in the project folder.
 -   If you need a reminder about the data and variables, have a look at the codebook and/or @sec-download_data_ch1.
 
 
 
-## Activity 2: Load in the libraries and read in the data
+## Activity 2: Load in libraries, read in data, and adjust data types
 
 We need the package `tidyverse` today, and the data `data_prp_for_ch4.csv`.
 
@@ -192,7 +195,7 @@ We need the package `tidyverse` today, and the data `data_prp_for_ch4.csv`.
 data_prp_viz <- read_csv(???)
 ```
 
-::: {.callout-note collapse="true" icon="false"}
+::: {.callout-caution collapse="true" icon="false"}
 
 ## Solution
 
@@ -211,11 +214,11 @@ library(tidyverse)
 data_prp_viz <- read_csv("data/data_prp_for_ch4.csv")
 ```
 
-#### Re-familiarise yourself with the data structure {.unnumbered}
+
 
 As we said in @sec-familiarise, it is always recommended to glimpse at the data to see how many variables and observations there are in the dataset and what kind of data type they are.
 
-::: {.callout-note collapse="true"}
+::: {.callout-note collapse="true" icon="false"}
 ## glimpse output
 
 ```{r}
@@ -250,17 +253,14 @@ data_prp_viz <- data_prp_viz %>%
 
 
 
-## Appropriate plots? {.unnumbered}
-
-Now we can think about which plot is the appropriate plot for your data. Different types of variables require different types of plots, so this comes back to how many variables are you aiming to plot and what kind of data type are they. The following part is organised by type of variable.
 
 
-Today, we will focus on plots for categorical data. Next week, we'll cover plots for continuous variables and discover which plots are appropriate if you have a mix of continuous and categorical variables
 
 
-## One categorical variable
 
-### Barchart (`geom_bar()`)
+## Activity 3: Barchart (`geom_bar()`)
+
+A barchart is the way to go when you have a single categorical variable you want to plot.
 
 Let's say we want to count some demographics. To keep it simple, we want to show gender counts. We would use a **barplot** for it. This is done with `geom_bar()` in your third layer, and because the counting is done in the background, the `aes` only requires an x value (i.e. the name of your variable).
 
@@ -268,6 +268,7 @@ Let's say we want to count some demographics. To keep it simple, we want to show
 ggplot(data_prp_viz, aes(x = Gender)) +
   geom_bar() 
 ```
+
 
 This is the base plot done. You can customise it by adding different layers. For example, the labels aren't super clear or it could do with a dash of colour. Click on the tabs below to see examples of what could be added and practice on your base plot in your own Rmd.
 
@@ -344,7 +345,7 @@ ggplot(data_prp_viz, aes(x = Gender, fill = Gender)) +
 ```
 :::
 
-### Column plot (`geom_col()`)
+## Activity 4: Column plot (`geom_col()`)
 
 If someone had already summarised those counts for you, you would not be able to use `geom_bar()`. In that case, you would switch to `geom_col()`.
 
@@ -362,7 +363,10 @@ ggplot(gender_count, aes(x = Gender, y = n, fill = Gender)) +
   geom_col()
 ```
 
-### Activity 3: Make the column plot pretty
+
+::: {.callout-note icon="false"}
+
+## Your Turn: Make the column plot pretty
 
 The other layers to change the colour scheme, axes labels and margins, removing the legend and altering the theme require exactly the same functions as with the boxplot above. Test yourself to see if you could...
 
@@ -393,13 +397,17 @@ ggplot(gender_count, aes(x = Gender, y = n, fill = Gender)) +
   # different theme
   theme_light()
 ```
+
 :::
 
-## Two categorical variables
+:::
 
-For this task, we can look at the variable `Plan_prereg` measuring whether they planned to pre-register their undergraduate dissertation at time point 1, and `Pre_reg_group` whether they actually ended up doing a pre-registration for their undergraduate dissertations.
+## Activity 5: Stacked, percent stacked, and grouped barchart
 
-### Stacked and percent stacked barchart
+If we are dealing with **two categorical variables**, we have the three options to display stacked barcharts - "normal" **Stacked barchart** (default option), a **Percent stacked barchart**, or a **Grouped barchart**. 
+
+
+For this activity, we can look at the variable `Plan_prereg` measuring whether students planned to pre-register their undergraduate dissertation at time point 1, and `Pre_reg_group` whether they actually ended up doing a pre-registration for their undergraduate dissertations.
 
 One way to display that data is by creating a **Stacked barchart** (default option) or a **Percent stacked barchart**. For both options, the subgroups are displayed on top of each other. To show the two plots next to each other for better comparison, we moved the legend to the bottom of the chart.
 
@@ -441,11 +449,10 @@ If we wanted to show that, a **Percent stacked barchart** (@fig-barcharts_stacke
 The position argument `position = "stack"` is the default. Adding this argument to the code for the left plot in @fig-barcharts_stacked would produce the same plot a leaving the argument out.
 :::
 
-### Grouped barchart
 
-A second option is a **Grouped barchart** which displays the bars next to each other. We would achieve that by changing the position argument to **"dogde"**. You can see the default version of the plot in the @fig-barchart_grouped on the left, and one with more layers on the right.
+The other option is a **Grouped barchart** which displays the bars next to each other. We would achieve that by changing the position argument to **"dogde"**. You can see the default version of the plot in the @fig-barchart_grouped on the left, and one with more layers on the right.
 
-Instead of using an existing colour palette, we changed the colours manually using hex codes. These are some of the colours Gaby used in her PhD, but you can either 
+Instead of using an existing colour palette, we changed the colours manually using hex codes. These are some of the colours Gaby used in her PhD thesis, but you can either ...
 
 * create your own colour hex codes; check out [this website](https://www.hexcolortool.com/){target="_blank"} OR
 * use a pre-defined colour name like "green" or "purple instead. See a full list [here](https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/){target="_blank"}
@@ -476,8 +483,10 @@ ggplot(data_prp_viz, aes(x = Plan_prereg, fill = Pre_reg_group)) +
   ) +
   # pick a theme
   theme_classic() + 
-  theme(legend.position = "bottom") + # need to move this part to the end otherwise the `theme_*` overrides it
-  guides(fill = guide_legend(nrow = 2)) # display legend categories across 2 rows
+  # need to move this following line to the end otherwise the `theme_*` overrides it
+  theme(legend.position = "bottom") + 
+  # display across 2 rows
+  guides(fill = guide_legend(nrow = 2))
   
 ```
 
@@ -500,8 +509,10 @@ gbc_pretty <- ggplot(data_prp_viz, aes(x = Plan_prereg, fill = Pre_reg_group)) +
   ) +
   # pick a theme
   theme_classic() + 
-  theme(legend.position = "bottom") + # need to move this part to the end otherwise the `theme_*` overrides it
-  guides(fill = guide_legend(nrow = 2)) # display across 2 rows
+  # need to move this following line to the end otherwise the `theme_*` overrides it
+  theme(legend.position = "bottom") + 
+  # display across 2 rows
+  guides(fill = guide_legend(nrow = 2)) 
 
 gbc_default + gbc_pretty + plot_layout(nrow = 1)  
 ```
@@ -616,7 +627,7 @@ comp_a + comp_b + plot_layout(nrow = 1)
 :::
 
 
-## Activity 4: Save your plots
+## Activity 6: Save your plots
 
 You can save your figures with the function `ggsave()`. It will save to your project folder.
 
@@ -627,15 +638,11 @@ ggsave(filename = "last_plot.png")
 ```
 
 ```{r include=FALSE}
-ggplot(prereg_plan_follow, aes(x = Plan_prereg, fill = Closely_follow)) +
-  geom_bar(position = "fill") + # add position argument here
-  theme(legend.position = "bottom") + # move legend to the bottom
-  guides(fill = guide_legend(nrow = 2)) # display across 2 rows
-
+comp_b
 ggsave(filename = "images/last_plot.png")
 ```
 
-::: {.callout-note collapse="true"}
+::: {.callout-note collapse="true" icon="false"}
 
 ## Our last plot saved
 
@@ -674,14 +681,14 @@ ggsave(filename = "images/grouped_bar.png",
 Filename is the name you want your png to be called, plot refers to the object name. 
 
 
-::: {.callout-note collapse="true"}
+::: {.callout-note collapse="true" icon="false"}
 
 ## Our saved `grouped_bar.png` would look like this:
 
 ![](images/grouped_bar.png)
 :::
 
-That is with default settings. If you like it, keep it, but if you think it looks a bit "stretched", you can specify the width, the height, and the units (e.g., "cm", "mm", "in", "px" are possible). You might need to play about with the dimension before it feels right.
+That is with default settings. If you like it, keep it, but if you think it looks a bit "off", you can specify the width, the height, and the units (e.g., "cm", "mm", "in", "px" are possible). You might need to play about with the dimension before it feels right.
 
 ```{r eval=FALSE}
 ggsave(filename = "grouped_bar2.png", 
@@ -695,20 +702,16 @@ ggsave(filename = "images/grouped_bar2.png",
        width = 16, height = 9, units = "cm")
 ```
 
-::: {.callout-note collapse="true"}
+::: {.callout-note collapse="true" icon="false"}
 
-## png with different dimensions
+## `grouped_bar.png` with different dimensions
 
 ![](images/grouped_bar2.png)
 :::
 
 
 
-## Activity 5: Your Turn
 
-Pick **any single or two categorical variables** from the dataset and **choose one of the appropriate plot choices**. Start with a base plot and add other layers if you please. 
-
-Save your plot and share it with us on Teams.
 
 
 

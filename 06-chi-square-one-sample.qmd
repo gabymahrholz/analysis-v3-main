@@ -21,8 +21,12 @@ By the end of this chapter you should be able to:
 
 ## Overview
 
-Which test to use depends on what type of variable(s) you have and what your research question is about.
+Which test to use depends on what type of variable(s) you have and what your research question is about. You can see them in the flowchart below.
 
+
+![Simplified flowchart to help select the most appropriate test (created with [drawio](https://draw.io/){target="_blank"}). [View larger version](images/Flowchart_tests_drawio.png){target="_blank"}](images/Flowchart_tests_drawio.png)
+
+You can see below in which chapter they will be discussed:
 
 * Cross-tabulation chi-Square test (this chapter, @sec-chi_square)
 * One-sample t-test (this chapter, @sec-onesample)
@@ -33,13 +37,6 @@ Which test to use depends on what type of variable(s) you have and what your res
 * Multiple regression (@sec-reg_mult)
 * One-way ANOVA (@sec-oneway)
 * Factorial ANOVA (@sec-factorial)
-
-
-Maybe in a flow chart
-
-
-![Simplified flowchart to help select the most appropriate test (created with [drawio](https://draw.io/){target="_blank"}). [View larger version](images/Flowchart_tests_drawio.png){target="_blank"}](images/Flowchart_tests_drawio.png)
-
 
 
 ## Activity 1: Setup & download the data

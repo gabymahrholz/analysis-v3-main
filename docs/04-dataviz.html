@@ -302,25 +302,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#individual-walkthrough" id="toc-individual-walkthrough" class="nav-link" data-scroll-target="#individual-walkthrough"><span style="color: #F39C12; text-transform: uppercase;">Individual Walkthrough</span></a></li>
   <li><a href="#building-plots" id="toc-building-plots" class="nav-link" data-scroll-target="#building-plots"><span class="header-section-number">4.1</span> Building plots</a></li>
   <li><a href="#activity-1-set-up-and-data-for-today" id="toc-activity-1-set-up-and-data-for-today" class="nav-link" data-scroll-target="#activity-1-set-up-and-data-for-today"><span class="header-section-number">4.2</span> Activity 1: Set-up and data for today</a></li>
-  <li><a href="#activity-2-load-in-the-libraries-and-read-in-the-data" id="toc-activity-2-load-in-the-libraries-and-read-in-the-data" class="nav-link" data-scroll-target="#activity-2-load-in-the-libraries-and-read-in-the-data"><span class="header-section-number">4.3</span> Activity 2: Load in the libraries and read in the data</a></li>
-  <li><a href="#appropriate-plots" id="toc-appropriate-plots" class="nav-link" data-scroll-target="#appropriate-plots">Appropriate plots?</a></li>
-  <li>
-<a href="#one-categorical-variable" id="toc-one-categorical-variable" class="nav-link" data-scroll-target="#one-categorical-variable"><span class="header-section-number">4.4</span> One categorical variable</a>
-  <ul class="collapse">
-<li><a href="#barchart-geom_bar" id="toc-barchart-geom_bar" class="nav-link" data-scroll-target="#barchart-geom_bar"><span class="header-section-number">4.4.1</span> Barchart (<code>geom_bar()</code>)</a></li>
-  <li><a href="#column-plot-geom_col" id="toc-column-plot-geom_col" class="nav-link" data-scroll-target="#column-plot-geom_col"><span class="header-section-number">4.4.2</span> Column plot (<code>geom_col()</code>)</a></li>
-  <li><a href="#activity-3-make-the-column-plot-pretty" id="toc-activity-3-make-the-column-plot-pretty" class="nav-link" data-scroll-target="#activity-3-make-the-column-plot-pretty"><span class="header-section-number">4.4.3</span> Activity 3: Make the column plot pretty</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#two-categorical-variables" id="toc-two-categorical-variables" class="nav-link" data-scroll-target="#two-categorical-variables"><span class="header-section-number">4.5</span> Two categorical variables</a>
-  <ul class="collapse">
-<li><a href="#stacked-and-percent-stacked-barchart" id="toc-stacked-and-percent-stacked-barchart" class="nav-link" data-scroll-target="#stacked-and-percent-stacked-barchart"><span class="header-section-number">4.5.1</span> Stacked and percent stacked barchart</a></li>
-  <li><a href="#grouped-barchart" id="toc-grouped-barchart" class="nav-link" data-scroll-target="#grouped-barchart"><span class="header-section-number">4.5.2</span> Grouped barchart</a></li>
-  </ul>
-</li>
-  <li><a href="#activity-4-save-your-plots" id="toc-activity-4-save-your-plots" class="nav-link" data-scroll-target="#activity-4-save-your-plots"><span class="header-section-number">4.6</span> Activity 4: Save your plots</a></li>
-  <li><a href="#activity-5-your-turn" id="toc-activity-5-your-turn" class="nav-link" data-scroll-target="#activity-5-your-turn"><span class="header-section-number">4.7</span> Activity 5: Your Turn</a></li>
+  <li><a href="#activity-2-load-in-libraries-read-in-data-and-adjust-data-types" id="toc-activity-2-load-in-libraries-read-in-data-and-adjust-data-types" class="nav-link" data-scroll-target="#activity-2-load-in-libraries-read-in-data-and-adjust-data-types"><span class="header-section-number">4.3</span> Activity 2: Load in libraries, read in data, and adjust data types</a></li>
+  <li><a href="#activity-3-barchart-geom_bar" id="toc-activity-3-barchart-geom_bar" class="nav-link" data-scroll-target="#activity-3-barchart-geom_bar"><span class="header-section-number">4.4</span> Activity 3: Barchart (<code>geom_bar()</code>)</a></li>
+  <li><a href="#activity-4-column-plot-geom_col" id="toc-activity-4-column-plot-geom_col" class="nav-link" data-scroll-target="#activity-4-column-plot-geom_col"><span class="header-section-number">4.5</span> Activity 4: Column plot (<code>geom_col()</code>)</a></li>
+  <li><a href="#activity-5-stacked-percent-stacked-and-grouped-barchart" id="toc-activity-5-stacked-percent-stacked-and-grouped-barchart" class="nav-link" data-scroll-target="#activity-5-stacked-percent-stacked-and-grouped-barchart"><span class="header-section-number">4.6</span> Activity 5: Stacked, percent stacked, and grouped barchart</a></li>
+  <li><a href="#activity-6-save-your-plots" id="toc-activity-6-save-your-plots" class="nav-link" data-scroll-target="#activity-6-save-your-plots"><span class="header-section-number">4.7</span> Activity 6: Save your plots</a></li>
   <li><a href="#pair-coding" id="toc-pair-coding" class="nav-link" data-scroll-target="#pair-coding"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding</span></a></li>
   <li><a href="#test-your-knowledge" id="toc-test-your-knowledge" class="nav-link" data-scroll-target="#test-your-knowledge"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge</span></a></li>
   </ul></nav>
@@ -347,18 +333,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>choose an appropriate plot for categorical variables</li>
 <li>create a basic version of an appropriate plot</li>
 <li>apply extra layers to change the appearance of the plot</li>
-</ul></section><section id="individual-walkthrough" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="individual-walkthrough"><span style="color: #F39C12; text-transform: uppercase;">Individual Walkthrough</span></h2>
+</ul>
+<p>It is time to think about which plot is the appropriate plot for your data. Different types of variables require different types of plots, so this comes back to how many variables are you aiming to plot and what kind of data type are they. Today, we will focus on <strong>plots for categorical data</strong>. Next week, we’ll cover plots for continuous variables and discover which plots are appropriate if you have a mix of continuous and categorical variables.</p>
+</section><section id="individual-walkthrough" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="individual-walkthrough"><span style="color: #F39C12; text-transform: uppercase;">Individual Walkthrough</span></h2>
 </section><section id="building-plots" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="building-plots">
 <span class="header-section-number">4.1</span> Building plots</h2>
 <p>We are using the package <code>ggplot2</code> to create data visualisations. It’s part of the tidyverse package. Actually, most people call th package <code>ggplot</code> but it’s official name is <code>ggplot2</code>.</p>
 <div class="grid">
-<div class="g-col-5">
-<p><strong>ggplot2</strong> uses a layered grammar of graphics, in which plots are built up in a series of layers. You would start with a base layer (opening ggplot), adding <strong>data</strong> and <strong>aesthetics</strong>, and selecting the <strong>geometries</strong> for plot.</p>
-<p>These first 3 layers will give you the most simple version of a complete plot, but you could add other layers to make the plots pretty by using <strong>scales</strong>, <strong>facets</strong>, <strong>coordinates</strong>, <strong>labels</strong> and <strong>themes</strong>.</p>
+<div class="g-col-6">
+<p><strong>ggplot2</strong> uses a <strong>layered grammar of graphics</strong>, in which plots are built up in a series of layers. You would start with a base layer (opening ggplot), adding <strong>data</strong> and <strong>aesthetics</strong>, and selecting the <strong>geometries</strong> for plot.</p>
+<p>These first 3 layers will give you the most simple version of a complete plot, but you could add other layers to make the plots more accessible (and pretty) by using <strong>scales</strong>, <strong>facets</strong>, <strong>coordinates</strong>, <strong>labels</strong> and <strong>themes</strong>.</p>
 </div>
-<div class="g-col-7">
+<div class="g-col-6">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="images/gglayers.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figure class="figure"><p><img src="images/gglayers.png" class="img-fluid figure-img" style="width:90.0%"></p>
 <figcaption class="figure-caption">gg layers <a href="https://metricsf20.classes.ryansafner.com/slides/1.3-slides#20" target="_blank">(Presentation by Ryan Safner)</a></figcaption></figure>
 </div>
 </div>
@@ -669,12 +657,12 @@ Important
 </section><section id="activity-1-set-up-and-data-for-today" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="activity-1-set-up-and-data-for-today">
 <span class="header-section-number">4.2</span> Activity 1: Set-up and data for today</h2>
 <ul>
-<li>We are still working with the data by Pownall et al.&nbsp;(2023) which we aggregated in <a href="02-wrangling.html"><span>Chapter&nbsp;2</span></a>. So, open your project.</li>
-<li>However, we could do with a fresh Rmd: Create a new Rmd and save it to your project folder. Name it something meaningful (e.g., “chapter_04”, “04_data_viz.Rmd”). See <a href="01-basics.html#sec-rmd"><span>Section&nbsp;1.3</span></a> if you need some guidance. Delete everything below line 12 (keep the set-up code chunk)</li>
-<li>We aggregated the data in <a href="02-wrangling.html"><span>Chapter&nbsp;2</span></a>. If you want a fresh copy, download the data here: <a href="data/data_prp_for_ch4.csv" title="download">data_prp_for_ch4.csv</a>. Make sure to place the csv file in the project folder.</li>
+<li>We are still working with the data by Pownall et al.&nbsp;(2023), so <strong>open your project</strong>.</li>
+<li>However, we could do with a fresh Rmd: <strong>Create a new <code>.Rmd</code> file</strong>* and save it to your project folder. Name it something meaningful (e.g., “chapter_04”, “04_data_viz.Rmd”). See <a href="01-basics.html#sec-rmd"><span>Section&nbsp;1.3</span></a> if you need some guidance. Delete everything below line 12 (keep the set-up code chunk)</li>
+<li>We aggregated the data in <a href="02-wrangling.html"><span>Chapter&nbsp;2</span></a> and <a href="03-wrangling2.html"><span>Chapter&nbsp;3</span></a>. If you want a fresh copy, download the data here: <a href="data/data_prp_for_ch4.csv" title="download">data_prp_for_ch4.csv</a>. Make sure to place the csv file in the project folder.</li>
 <li>If you need a reminder about the data and variables, have a look at the codebook and/or <a href="01-basics.html#sec-download_data_ch1"><span>Section&nbsp;1.4</span></a>.</li>
-</ul></section><section id="activity-2-load-in-the-libraries-and-read-in-the-data" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="activity-2-load-in-the-libraries-and-read-in-the-data">
-<span class="header-section-number">4.3</span> Activity 2: Load in the libraries and read in the data</h2>
+</ul></section><section id="activity-2-load-in-libraries-read-in-data-and-adjust-data-types" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="activity-2-load-in-libraries-read-in-data-and-adjust-data-types">
+<span class="header-section-number">4.3</span> Activity 2: Load in libraries, read in data, and adjust data types</h2>
 <p>We need the package <code>tidyverse</code> today, and the data <code>data_prp_for_ch4.csv</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="do">## packages </span></span>
@@ -683,7 +671,7 @@ Important
 <span id="cb17-4"><a href="#cb17-4"></a><span class="do">## data</span></span>
 <span id="cb17-5"><a href="#cb17-5"></a>data_prp_viz <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(???)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -702,12 +690,11 @@ Solution
 </div>
 </div>
 </div>
-<section id="re-familiarise-yourself-with-the-data-structure" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="re-familiarise-yourself-with-the-data-structure">Re-familiarise yourself with the data structure</h4>
 <p>As we said in <a href="01-basics.html#sec-familiarise"><span>Section&nbsp;1.6</span></a>, it is always recommended to glimpse at the data to see how many variables and observations there are in the dataset and what kind of data type they are.</p>
-<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 glimpse output
@@ -773,13 +760,9 @@ $ Mean_Supervisor_Support               &lt;dbl&gt; 5.230769, 6.285714, 6.857143
 <span id="cb21-14"><a href="#cb21-14"></a>         <span class="at">Research_exp =</span> <span class="fu">factor</span>(Research_exp),</span>
 <span id="cb21-15"><a href="#cb21-15"></a>         <span class="at">Pre_reg_group =</span> <span class="fu">factor</span>(Pre_reg_group))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section></section><section id="appropriate-plots" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="appropriate-plots">Appropriate plots?</h2>
-<p>Now we can think about which plot is the appropriate plot for your data. Different types of variables require different types of plots, so this comes back to how many variables are you aiming to plot and what kind of data type are they. The following part is organised by type of variable.</p>
-<p>Today, we will focus on plots for categorical data. Next week, we’ll cover plots for continuous variables and discover which plots are appropriate if you have a mix of continuous and categorical variables</p>
-</section><section id="one-categorical-variable" class="level2" data-number="4.4"><h2 data-number="4.4" class="anchored" data-anchor-id="one-categorical-variable">
-<span class="header-section-number">4.4</span> One categorical variable</h2>
-<section id="barchart-geom_bar" class="level3" data-number="4.4.1"><h3 data-number="4.4.1" class="anchored" data-anchor-id="barchart-geom_bar">
-<span class="header-section-number">4.4.1</span> Barchart (<code>geom_bar()</code>)</h3>
+</section><section id="activity-3-barchart-geom_bar" class="level2" data-number="4.4"><h2 data-number="4.4" class="anchored" data-anchor-id="activity-3-barchart-geom_bar">
+<span class="header-section-number">4.4</span> Activity 3: Barchart (<code>geom_bar()</code>)</h2>
+<p>A barchart is the way to go when you have a single categorical variable you want to plot.</p>
 <p>Let’s say we want to count some demographics. To keep it simple, we want to show gender counts. We would use a <strong>barplot</strong> for it. This is done with <code>geom_bar()</code> in your third layer, and because the counting is done in the background, the <code>aes</code> only requires an x value (i.e.&nbsp;the name of your variable).</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">ggplot</span>(data_prp_viz, <span class="fu">aes</span>(<span class="at">x =</span> Gender)) <span class="sc">+</span></span>
@@ -883,8 +866,8 @@ $ Mean_Supervisor_Support               &lt;dbl&gt; 5.230769, 6.285714, 6.857143
 </div>
 </div>
 </div>
-</section><section id="column-plot-geom_col" class="level3" data-number="4.4.2"><h3 data-number="4.4.2" class="anchored" data-anchor-id="column-plot-geom_col">
-<span class="header-section-number">4.4.2</span> Column plot (<code>geom_col()</code>)</h3>
+</section><section id="activity-4-column-plot-geom_col" class="level2" data-number="4.5"><h2 data-number="4.5" class="anchored" data-anchor-id="activity-4-column-plot-geom_col">
+<span class="header-section-number">4.5</span> Activity 4: Column plot (<code>geom_col()</code>)</h2>
 <p>If someone had already summarised those counts for you, you would not be able to use <code>geom_bar()</code>. In that case, you would switch to <code>geom_col()</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>gender_count <span class="ot">&lt;-</span> data_prp_viz <span class="sc">%&gt;%</span> </span>
@@ -927,8 +910,16 @@ $ Mean_Supervisor_Support               &lt;dbl&gt; 5.230769, 6.285714, 6.857143
 </div>
 </div>
 </div>
-</section><section id="activity-3-make-the-column-plot-pretty" class="level3" data-number="4.4.3"><h3 data-number="4.4.3" class="anchored" data-anchor-id="activity-3-make-the-column-plot-pretty">
-<span class="header-section-number">4.4.3</span> Activity 3: Make the column plot pretty</h3>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your Turn: Make the column plot pretty
+</div>
+</div>
+<div class="callout-body-container callout-body">
 <p>The other layers to change the colour scheme, axes labels and margins, removing the legend and altering the theme require exactly the same functions as with the boxplot above. Test yourself to see if you could…</p>
 <ul class="task-list">
 <li>
@@ -981,11 +972,12 @@ Possible solution code for the column plot (with a different colour palette and 
 </div>
 </div>
 </div>
-</section></section><section id="two-categorical-variables" class="level2" data-number="4.5"><h2 data-number="4.5" class="anchored" data-anchor-id="two-categorical-variables">
-<span class="header-section-number">4.5</span> Two categorical variables</h2>
-<p>For this task, we can look at the variable <code>Plan_prereg</code> measuring whether they planned to pre-register their undergraduate dissertation at time point 1, and <code>Pre_reg_group</code> whether they actually ended up doing a pre-registration for their undergraduate dissertations.</p>
-<section id="stacked-and-percent-stacked-barchart" class="level3" data-number="4.5.1"><h3 data-number="4.5.1" class="anchored" data-anchor-id="stacked-and-percent-stacked-barchart">
-<span class="header-section-number">4.5.1</span> Stacked and percent stacked barchart</h3>
+</div>
+</div>
+</section><section id="activity-5-stacked-percent-stacked-and-grouped-barchart" class="level2" data-number="4.6"><h2 data-number="4.6" class="anchored" data-anchor-id="activity-5-stacked-percent-stacked-and-grouped-barchart">
+<span class="header-section-number">4.6</span> Activity 5: Stacked, percent stacked, and grouped barchart</h2>
+<p>If we are dealing with <strong>two categorical variables</strong>, we have the three options to display stacked barcharts - “normal” <strong>Stacked barchart</strong> (default option), a <strong>Percent stacked barchart</strong>, or a <strong>Grouped barchart</strong>.</p>
+<p>For this activity, we can look at the variable <code>Plan_prereg</code> measuring whether students planned to pre-register their undergraduate dissertation at time point 1, and <code>Pre_reg_group</code> whether they actually ended up doing a pre-registration for their undergraduate dissertations.</p>
 <p>One way to display that data is by creating a <strong>Stacked barchart</strong> (default option) or a <strong>Percent stacked barchart</strong>. For both options, the subgroups are displayed on top of each other. To show the two plots next to each other for better comparison, we moved the legend to the bottom of the chart.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="do">## Stacked barchart</span></span>
@@ -1022,10 +1014,8 @@ Note
 <p>The position argument <code>position = "stack"</code> is the default. Adding this argument to the code for the left plot in <a href="#fig-barcharts_stacked">Figure&nbsp;<span>4.3</span></a> would produce the same plot a leaving the argument out.</p>
 </div>
 </div>
-</section><section id="grouped-barchart" class="level3" data-number="4.5.2"><h3 data-number="4.5.2" class="anchored" data-anchor-id="grouped-barchart">
-<span class="header-section-number">4.5.2</span> Grouped barchart</h3>
-<p>A second option is a <strong>Grouped barchart</strong> which displays the bars next to each other. We would achieve that by changing the position argument to <strong>“dogde”</strong>. You can see the default version of the plot in the <a href="#fig-barchart_grouped">Figure&nbsp;<span>4.4</span></a> on the left, and one with more layers on the right.</p>
-<p>Instead of using an existing colour palette, we changed the colours manually using hex codes. These are some of the colours Gaby used in her PhD, but you can either</p>
+<p>The other option is a <strong>Grouped barchart</strong> which displays the bars next to each other. We would achieve that by changing the position argument to <strong>“dogde”</strong>. You can see the default version of the plot in the <a href="#fig-barchart_grouped">Figure&nbsp;<span>4.4</span></a> on the left, and one with more layers on the right.</p>
+<p>Instead of using an existing colour palette, we changed the colours manually using hex codes. These are some of the colours Gaby used in her PhD thesis, but you can either …</p>
 <ul>
 <li>create your own colour hex codes; check out <a href="https://www.hexcolortool.com/" target="_blank">this website</a> OR</li>
 <li>use a pre-defined colour name like “green” or “purple instead. See a full list <a href="https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/" target="_blank">here</a>
@@ -1053,8 +1043,10 @@ Note
 <span id="cb31-17"><a href="#cb31-17"></a>  ) <span class="sc">+</span></span>
 <span id="cb31-18"><a href="#cb31-18"></a>  <span class="co"># pick a theme</span></span>
 <span id="cb31-19"><a href="#cb31-19"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> </span>
-<span id="cb31-20"><a href="#cb31-20"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span> <span class="co"># need to move this part to the end otherwise the `theme_*` overrides it</span></span>
-<span id="cb31-21"><a href="#cb31-21"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">nrow =</span> <span class="dv">2</span>)) <span class="co"># display legend categories across 2 rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-20"><a href="#cb31-20"></a>  <span class="co"># need to move this following line to the end otherwise the `theme_*` overrides it</span></span>
+<span id="cb31-21"><a href="#cb31-21"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span> </span>
+<span id="cb31-22"><a href="#cb31-22"></a>  <span class="co"># display across 2 rows</span></span>
+<span id="cb31-23"><a href="#cb31-23"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">nrow =</span> <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -1065,7 +1057,7 @@ Note
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1074,7 +1066,7 @@ Special case: Categorical variables with missing values
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>If we had chosen a different categorical variable containing missing values, such as <code>Closely_follow</code> then our plots would have included those missing values by default. The code for changing the colour of the missing values columns would need to be specified slightly differently using an <code>na.value =</code> argument within the <code>scale_fill</code> function. Here is an example of a grouped barchart.</p>
 <div class="cell" data-layout-align="center">
@@ -1113,7 +1105,7 @@ Special case: Categorical variables with missing values
 <span id="cb33-4"><a href="#cb33-4"></a>  <span class="fu">drop_na</span>(Closely_follow)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1122,7 +1114,7 @@ check NAs have been removed
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse">
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="co"># check NA have been removed</span></span>
@@ -1194,24 +1186,24 @@ check NAs have been removed
 </div>
 </div>
 </div>
-</section></section><section id="activity-4-save-your-plots" class="level2" data-number="4.6"><h2 data-number="4.6" class="anchored" data-anchor-id="activity-4-save-your-plots">
-<span class="header-section-number">4.6</span> Activity 4: Save your plots</h2>
+</section><section id="activity-6-save-your-plots" class="level2" data-number="4.7"><h2 data-number="4.7" class="anchored" data-anchor-id="activity-6-save-your-plots">
+<span class="header-section-number">4.7</span> Activity 6: Save your plots</h2>
 <p>You can save your figures with the function <code>ggsave()</code>. It will save to your project folder.</p>
 <p>There are two ways you can use <code>ggsave()</code>. If you don’t tell <code>ggsave()</code> which plot you want to save, by <strong>default</strong> it will <strong>save the last plot you created</strong>. Our last plot was the one without <code>NA</code> from the special case scenario (<a href="#fig-barchart_na_no_na">Figure&nbsp;<span>4.6</span></a>). However, if you did not follow along with the special case scenario, your last plot will be grouped bar chart on the right from <a href="#fig-barchart_grouped">Figure&nbsp;<span>4.4</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">"last_plot.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Our last plot saved
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div id="callout-10" class="callout-10-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><img src="images/last_plot.png" class="img-fluid"></p>
 </div>
@@ -1242,48 +1234,44 @@ Our last plot saved
 </div>
 </div>
 <p>Filename is the name you want your png to be called, plot refers to the object name.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-10-contents" aria-controls="callout-10" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Our saved <code>grouped_bar.png</code> would look like this:
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-10" class="callout-10-contents callout-collapse collapse">
+<div id="callout-11" class="callout-11-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><img src="images/grouped_bar.png" class="img-fluid"></p>
 </div>
 </div>
 </div>
-<p>That is with default settings. If you like it, keep it, but if you think it looks a bit “stretched”, you can specify the width, the height, and the units (e.g., “cm”, “mm”, “in”, “px” are possible). You might need to play about with the dimension before it feels right.</p>
+<p>That is with default settings. If you like it, keep it, but if you think it looks a bit “off”, you can specify the width, the height, and the units (e.g., “cm”, “mm”, “in”, “px” are possible). You might need to play about with the dimension before it feels right.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">"grouped_bar2.png"</span>, </span>
 <span id="cb40-2"><a href="#cb40-2"></a>       <span class="at">plot =</span> grouped_bar, </span>
 <span id="cb40-3"><a href="#cb40-3"></a>       <span class="at">width =</span> <span class="dv">16</span>, <span class="at">height =</span> <span class="dv">9</span>, <span class="at">units =</span> <span class="st">"cm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-12-contents" aria-controls="callout-12" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
-<i class="callout-icon"></i>
+<i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-png with different dimensions
+<code>grouped_bar.png</code> with different dimensions
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-11" class="callout-11-contents callout-collapse collapse">
+<div id="callout-12" class="callout-12-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><img src="images/grouped_bar2.png" class="img-fluid"></p>
 </div>
 </div>
 </div>
-</section><section id="activity-5-your-turn" class="level2" data-number="4.7"><h2 data-number="4.7" class="anchored" data-anchor-id="activity-5-your-turn">
-<span class="header-section-number">4.7</span> Activity 5: Your Turn</h2>
-<p>Pick <strong>any single or two categorical variables</strong> from the dataset and <strong>choose one of the appropriate plot choices</strong>. Start with a base plot and add other layers if you please.</p>
-<p>Save your plot and share it with us on Teams.</p>
 </section><section id="pair-coding" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="pair-coding"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding</span></h2>
 <p>Provide a barchart, a violin-boxplot, and a scatterplot from the loneliness data and the students have to try and recreate one of those in the lab. If they are overly fast, they can do the other 2.</p>
 </section><section id="test-your-knowledge" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="test-your-knowledge"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge</span></h2>
