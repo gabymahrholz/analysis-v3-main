@@ -5,6 +5,7 @@ project:
   resources: resources
 execute:
   freeze: auto
+lightbox: true
 book:
   title: Analysis
   subtitle: ''
