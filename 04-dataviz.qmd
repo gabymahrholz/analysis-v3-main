@@ -712,7 +712,7 @@ Save your plot and share it with us on Teams.
 
 
 
-## [Pair-coding in the lab]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
+## [Pair-coding]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
 
 Provide a barchart, a violin-boxplot, and a scatterplot from the loneliness data and the students have to try and recreate one of those in the lab. If they are overly fast, they can do the other 2.
 

@@ -1,4 +1,4 @@
-# Projects, R Markdown, and Data Wrangling {#sec-basics}
+# Projects and R Markdown {#sec-basics}
 
 ## Intended Learning Outcomes {.unnumbered}
 
@@ -745,7 +745,7 @@ And with this, we are done with the individual walkthrough. Well done :)
 
 
 
-## [Pair-coding in the lab]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
+## [Pair-coding]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
 
 I want to produce a short, knitted document that the students have to recreate including some headings, emphasis in the text, bullet points and the first steps of calculation we can do with the loneliness data with no proper data wrangling skills
 

@@ -162,7 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Projects, R Markdown, and Data Wrangling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Projects and R Markdown</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -309,9 +309,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#activity-6-check-assumptions" id="toc-activity-6-check-assumptions" class="nav-link" data-scroll-target="#activity-6-check-assumptions"><span class="header-section-number">7.7</span> Activity 6: Check assumptions</a></li>
   <li><a href="#activity-7-compute-a-two-sample-t-test-and-effect-size" id="toc-activity-7-compute-a-two-sample-t-test-and-effect-size" class="nav-link" data-scroll-target="#activity-7-compute-a-two-sample-t-test-and-effect-size"><span class="header-section-number">7.8</span> Activity 7: Compute a Two-sample t-test and effect size</a></li>
   <li><a href="#activity-8-sensitivity-power-analysis" id="toc-activity-8-sensitivity-power-analysis" class="nav-link" data-scroll-target="#activity-8-sensitivity-power-analysis"><span class="header-section-number">7.9</span> Activity 8: Sensitivity power analysis</a></li>
-  <li><a href="#activity-9-the-write-up" id="toc-activity-9-the-write-up" class="nav-link" data-scroll-target="#activity-9-the-write-up"><span class="header-section-number">7.10</span> Activity 9: The write-up</a></li>
-  <li><a href="#sec-alternative_two_sample" id="toc-sec-alternative_two_sample" class="nav-link" data-scroll-target="#sec-alternative_two_sample"><span class="header-section-number">7.11</span> Activity 10: Non-parametric alternative</a></li>
-  <li><a href="#pair-coding-in-the-lab" id="toc-pair-coding-in-the-lab" class="nav-link" data-scroll-target="#pair-coding-in-the-lab"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding in the lab</span></a></li>
+  <li><a href="#but-my-two-groups-have-unequal-sample-sizes-and-there-is-only-one-n-in-pwr.t.test.-what-do-i-do" id="toc-but-my-two-groups-have-unequal-sample-sizes-and-there-is-only-one-n-in-pwr.t.test.-what-do-i-do" class="nav-link" data-scroll-target="#but-my-two-groups-have-unequal-sample-sizes-and-there-is-only-one-n-in-pwr.t.test.-what-do-i-do"><span class="header-section-number">7.10</span> But my two groups have unequal sample sizes, and there is only one n in <code>pwr.t.test</code>. What do I do?</a></li>
+  <li><a href="#activity-9-the-write-up" id="toc-activity-9-the-write-up" class="nav-link" data-scroll-target="#activity-9-the-write-up"><span class="header-section-number">7.11</span> Activity 9: The write-up</a></li>
+  <li><a href="#sec-alternative_two_sample" id="toc-sec-alternative_two_sample" class="nav-link" data-scroll-target="#sec-alternative_two_sample"><span class="header-section-number">7.12</span> Activity 10: Non-parametric alternative</a></li>
+  <li><a href="#pair-coding" id="toc-pair-coding" class="nav-link" data-scroll-target="#pair-coding"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding</span></a></li>
   <li><a href="#test-your-knowledge" id="toc-test-your-knowledge" class="nav-link" data-scroll-target="#test-your-knowledge"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge</span></a></li>
   </ul></nav>
     </div>
@@ -781,9 +782,10 @@ Important
 </li>
 <li>The second argument is the data</li>
 <li>The third argument is specifying whether variances are equal between the groups. By default is is <code>var.equal = FALSE</code> which means a <strong>Welch t-test</strong> is getting conducted. If you were to set <code>var.equal</code> to <code>TRUE</code>, you would conduct a Student t-test.</li>
+<li>The 4th argument <code>alternative</code> is “two.sided” by default, meaning we are checking the alternative hypothesis in both directions (i.e., a non-directional hypothesis)</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">t.test</span>(simon_effect <span class="sc">~</span> similarity, <span class="at">data =</span> simon_effect, <span class="at">var.equal =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a><span class="fu">t.test</span>(simon_effect <span class="sc">~</span> similarity, <span class="at">data =</span> simon_effect, <span class="at">var.equal =</span> <span class="cn">FALSE</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Welch Two Sample t-test
@@ -819,7 +821,7 @@ mean in group different      mean in group same
 <p>Next up is the sensitivity power analysis to determine the minimum effect size that we could have reliably detected with the number of participants that took part, the alpha level at 0.05, and an assumed power of 0.8.</p>
 <p>The function we need to compute this is <code>pwr.t.test()</code> which is part of the <code>pwr</code> package. The arguments in the formula are the same as for the one-sample t-test; we just need to adjust the number of participants (which is the number of observations per sample) and setting the type to “two.sample”.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">pwr.t.test</span>(<span class="at">n =</span> <span class="dv">80</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">type =</span> <span class="st">"two.sample"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">pwr.t.test</span>(<span class="at">n =</span> <span class="dv">80</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">type =</span> <span class="st">"two.sample"</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
      Two-sample t test power calculation 
@@ -836,7 +838,7 @@ NOTE: n is number in *each* group</code></pre>
 <p>So the smallest effect size we can detect with a sample size of 80 participants in each group, an alpha level of 0.05, and power of 0.8 is 0.45. This is a larger value than the actual effect size we calculated with the <code>CohensD</code> function above (i.e., 0.14) which means our analysis is underpowered to detect this extremely small effect.</p>
 <p>Just out of curiosity, if we were to replicate this study, and we wanted to be able to detect an effect size that small, how many participants would we need to recruit? We run the <code>pwr.t.test()</code> function again, but replacing n with the effect size d.&nbsp;Ooft; we would need ca 1500 participants in total. To be honest, 0.145 would not be a meaningful effect size.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.145</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">type =</span> <span class="st">"two.sample"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">pwr.t.test</span>(<span class="at">d =</span> <span class="fl">0.145</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">type =</span> <span class="st">"two.sample"</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
      Two-sample t test power calculation 
@@ -850,18 +852,39 @@ NOTE: n is number in *each* group</code></pre>
 NOTE: n is number in *each* group</code></pre>
 </div>
 </div>
-</section><section id="activity-9-the-write-up" class="level2" data-number="7.10"><h2 data-number="7.10" class="anchored" data-anchor-id="activity-9-the-write-up">
-<span class="header-section-number">7.10</span> Activity 9: The write-up</h2>
+</section><section id="but-my-two-groups-have-unequal-sample-sizes-and-there-is-only-one-n-in-pwr.t.test.-what-do-i-do" class="level2 {callout-tip}" data-number="7.10"><h2 data-number="7.10" class="anchored" data-anchor-id="but-my-two-groups-have-unequal-sample-sizes-and-there-is-only-one-n-in-pwr.t.test.-what-do-i-do">
+<span class="header-section-number">7.10</span> But my two groups have unequal sample sizes, and there is only one n in <code>pwr.t.test</code>. What do I do?</h2>
+<p>No problem. You can use the function <code>pwr.t2n.test()</code> that allows you to specify two different sample sizes n1 and n2. The rest stays pretty much the same, even though there is no need to specify the type anymore.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">pwr.t2n.test</span>(<span class="at">n1 =</span> <span class="cn">NULL</span>, <span class="at">n2=</span> <span class="cn">NULL</span>, <span class="at">d =</span> <span class="cn">NULL</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">power =</span> <span class="cn">NULL</span>, <span class="at">alternative =</span> <span class="fu">c</span>(<span class="st">"two.sided"</span>, <span class="st">"less"</span>,<span class="st">"greater"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s try it for our example. We should get the same result though.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">pwr.t2n.test</span>(<span class="at">n1 =</span> <span class="dv">80</span>, <span class="at">n2=</span> <span class="dv">80</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+     t test power calculation 
+
+             n1 = 80
+             n2 = 80
+              d = 0.445672
+      sig.level = 0.05
+          power = 0.8
+    alternative = two.sided</code></pre>
+</div>
+</div>
+</section><section id="activity-9-the-write-up" class="level2" data-number="7.11"><h2 data-number="7.11" class="anchored" data-anchor-id="activity-9-the-write-up">
+<span class="header-section-number">7.11</span> Activity 9: The write-up</h2>
 <p>We hypothesised that there would be a significant difference in the Simon effect between participants who received the same stimuli in both sessions <span class="math inline">\((N = 80, M = 35.99 msec, SD = 22.40 msec)\)</span> and those who received different stimuli <span class="math inline">\((N = 80, M = 32.86 msec, SD = 20.79 msec)\)</span>. Using a two-sample Welch t-test, the effect was found to be non-significant and of a small magnitude, <span class="math inline">\(t(157.14) = 0.92, p = .360, d = 0.15\)</span>. The overall mean difference between groups was small <span class="math inline">\((M_{diff} = 3.14 msec)\)</span>. Therefore, we fail to reject the null hypothesis.</p>
-</section><section id="sec-alternative_two_sample" class="level2" data-number="7.11"><h2 data-number="7.11" class="anchored" data-anchor-id="sec-alternative_two_sample">
-<span class="header-section-number">7.11</span> Activity 10: Non-parametric alternative</h2>
+</section><section id="sec-alternative_two_sample" class="level2" data-number="7.12"><h2 data-number="7.12" class="anchored" data-anchor-id="sec-alternative_two_sample">
+<span class="header-section-number">7.12</span> Activity 10: Non-parametric alternative</h2>
 <p>The <strong>Mann-Whitney U-test</strong> is the non-parametric equivalent to the independent two-sample t-test. The test can be used for any situation requiring a test to compare the median of two samples.</p>
 <p>According to the paper by Delacre et al.&nbsp;(2017), the Mann-Whitney U-test can cope with normality issues, but it remains sensitive to heteroscedasticity. Here, we won’t have a problem, since the variances in the two groups were equal, but perhaps be mindful in other datasets when assessing assumptions and drawing conclusions from them.</p>
 <p>First, let’s start of by computing the median for each group</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>simon_effect <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(similarity) <span class="sc">%&gt;%</span> </span>
-<span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), </span>
-<span id="cb18-3"><a href="#cb18-3"></a>            <span class="at">median =</span> <span class="fu">median</span>(simon_effect))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>simon_effect <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(similarity) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>(), </span>
+<span id="cb21-3"><a href="#cb21-3"></a>            <span class="at">median =</span> <span class="fu">median</span>(simon_effect))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
@@ -888,7 +911,7 @@ NOTE: n is number in *each* group</code></pre>
 </div>
 <p>To conduct a Mann-Whitney U-test, use the function <code><a href="https://rdrr.io/r/stats/wilcox.test.html">wilcox.test()</a></code>. This time, use the formula approach <code>DV ~ IV</code> - again, this is the same code structure we just used for the independent t-test.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a><span class="fu">wilcox.test</span>(simon_effect <span class="sc">~</span> similarity, <span class="at">data =</span> simon_effect)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">wilcox.test</span>(simon_effect <span class="sc">~</span> similarity, <span class="at">data =</span> simon_effect)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Wilcoxon rank sum test with continuity correction
@@ -901,7 +924,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 <p>The <strong>effect size</strong> for the Mann-Whitney U-test is r. To compute r, we’d need the standardised test statistic z and divide that the square-root of the number of pairs n: <span class="math inline">\(r = \frac{|z|}{\sqrt n}\)</span>. Or we could just use the <code>wilcox_effsize()</code> function from the <code>rstatix</code> package.</p>
 <p>The arguments are in a slightly different order, but exactly the same as in the Wilcox test we used above.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a><span class="fu">wilcox_effsize</span>(<span class="at">data =</span> simon_effect, <span class="at">formula =</span> simon_effect <span class="sc">~</span> similarity)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">wilcox_effsize</span>(<span class="at">data =</span> simon_effect, <span class="at">formula =</span> simon_effect <span class="sc">~</span> similarity)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="kable-table">
 <table class="table table-sm table-striped small">
@@ -929,7 +952,7 @@ alternative hypothesis: true location shift is not equal to 0</code></pre>
 </div>
 <p>This is once again considered a small effect. Anyway, we do have all the numbers now to write up the results:</p>
 <p>A Mann-Whitney U-test was conducted to determine whether there was a significant difference in the Simon effect between participants who received the same stimuli in both sessions <span class="math inline">\((N = 80, MdnRT = 35.68 msec)\)</span> and those who received different stimuli <span class="math inline">\((N = 80, Mdn RT = 34.44 msec)\)</span>. The results indicate that the median difference was non-significant and of a small magnitude, <span class="math inline">\(W = 3001, p = .498, r = .054\)</span>. Therefore, we fail to reject the null hypothesis.</p>
-</section><section id="pair-coding-in-the-lab" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="pair-coding-in-the-lab"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding in the lab</span></h2>
+</section><section id="pair-coding" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="pair-coding"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding</span></h2>
 </section><section id="test-your-knowledge" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="test-your-knowledge"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge</span></h2>
 
 

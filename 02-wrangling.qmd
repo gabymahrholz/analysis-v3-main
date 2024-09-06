@@ -396,7 +396,7 @@ Check that your csv files have appeared in your project folder, and you're all s
 **That’s it for Chapter 2: Individual Walkthrough.**
 
 
-## [Pair-coding in the lab]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
+## [Pair-coding]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
 
 ## [Test your knowledge and challenge yourself]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
 

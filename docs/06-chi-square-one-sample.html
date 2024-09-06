@@ -162,7 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Projects, R Markdown, and Data Wrangling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Projects and R Markdown</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -328,7 +328,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 </li>
   <li><a href="#sec-alternative_one_sample" id="toc-sec-alternative_one_sample" class="nav-link" data-scroll-target="#sec-alternative_one_sample"><span class="header-section-number">6.7</span> Activity 6: Non-parametric alternative</a></li>
-  <li><a href="#pair-coding-in-the-lab" id="toc-pair-coding-in-the-lab" class="nav-link" data-scroll-target="#pair-coding-in-the-lab"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding in the lab</span></a></li>
+  <li><a href="#pair-coding" id="toc-pair-coding" class="nav-link" data-scroll-target="#pair-coding"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding</span></a></li>
   <li><a href="#test-your-knowledge-on-chapters-3-and-4" id="toc-test-your-knowledge-on-chapters-3-and-4" class="nav-link" data-scroll-target="#test-your-knowledge-on-chapters-3-and-4"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge on Chapters 3 and 4</span></a></li>
   </ul></nav>
     </div>
@@ -950,9 +950,9 @@ Report-writing Tip
 </div>
 </section></section><section id="task-5-compute-a-one-sample-t-test-and-effect-size" class="level3" data-number="6.6.5"><h3 data-number="6.6.5" class="anchored" data-anchor-id="task-5-compute-a-one-sample-t-test-and-effect-size">
 <span class="header-section-number">6.6.5</span> Task 5: Compute a One-sample t-test and effect size</h3>
-<p>We can use the <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> function to compute a one-sample t-test. The <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> function is part of BaseR, and yes, you guessed it, our first argument has to follow the pattern <code>data$column</code>. The second argument (<code>mu</code>) lists the population mean we are testing our sample against (here 51.0). The test is “two.sided” by default, so you can leave the argument out.</p>
+<p>We can use the <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> function to compute a one-sample t-test. The <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> function is part of BaseR, and yes, you guessed it, our first argument has to follow the pattern <code>data$column</code>. The second argument (<code>mu</code>) lists the population mean we are testing our sample against (here 51.0). The <code>alternative</code> is “two.sided” by default, so you could leave the argument out.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">t.test</span>(one_sample<span class="sc">$</span>wemwbs_sum, <span class="at">mu =</span> <span class="fl">51.0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">t.test</span>(one_sample<span class="sc">$</span>wemwbs_sum, <span class="at">mu =</span> <span class="fl">51.0</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One Sample t-test
@@ -1058,7 +1058,7 @@ alternative hypothesis: true location is not equal to 53</code></pre>
 </div>
 <p>Now we have all the numbers we need to write up the results:</p>
 <p>A One-sample Wilcoxon signed-rank test was used to compare Gamers’ mental-wellbeing scores (Mdn = 46.0) to the population median of 53.0. The test showed a significant difference, <span class="math inline">\(Z = -19.12, p &lt; .001, r = .590\)</span>. The strength of the effect is considered medium. We therefore reject the null hypothesis in favour of H<sub>1</sub>.</p>
-</section><section id="pair-coding-in-the-lab" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="pair-coding-in-the-lab"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding in the lab</span></h2>
+</section><section id="pair-coding" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="pair-coding"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding</span></h2>
 </section><section id="test-your-knowledge-on-chapters-3-and-4" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="test-your-knowledge-on-chapters-3-and-4"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge on Chapters 3 and 4</span></h2>
 
 

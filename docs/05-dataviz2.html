@@ -162,7 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Projects, R Markdown, and Data Wrangling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Projects and R Markdown</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -324,7 +324,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul>
 </li>
   <li><a href="#faceting---adding-another-grouping-variable" id="toc-faceting---adding-another-grouping-variable" class="nav-link" data-scroll-target="#faceting---adding-another-grouping-variable"><span class="header-section-number">5.6</span> Faceting - adding another grouping variable</a></li>
-  <li><a href="#pair-coding-in-the-lab" id="toc-pair-coding-in-the-lab" class="nav-link" data-scroll-target="#pair-coding-in-the-lab"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding in the lab</span></a></li>
+  <li><a href="#pair-coding" id="toc-pair-coding" class="nav-link" data-scroll-target="#pair-coding"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding</span></a></li>
   <li><a href="#test-your-knowledge-on-chapters-3-and-4" id="toc-test-your-knowledge-on-chapters-3-and-4" class="nav-link" data-scroll-target="#test-your-knowledge-on-chapters-3-and-4"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge on Chapters 3 and 4</span></a></li>
   </ul></nav>
     </div>
@@ -356,7 +356,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>We are still working with the data by Pownall et al.&nbsp;(2023) which we aggregated in <a href="02-wrangling.html"><span>Chapter&nbsp;2</span></a>. Open the project.</li>
 <li>You could use the same Rmd as last week if you want to keep all plotting in one document or create a new Rmd to separate plots for categorical and continuous variables. Up to you.</li>
-<li>The aggregated data is the same as last week. It should be in your project folder but in case it got lost, download it again and place it in your project folder: <a href="data/data_prp_ch3.csv" title="download">data_prp_ch3.csv</a>.</li>
+<li>The aggregated data is the same as last week. It should be in your project folder but in case it got lost, download it again and place it in your project folder: <a href="data/data_prp_for_ch4.csv" title="download">data_prp_for_ch4.csv</a>.</li>
 <li>If you need a reminder about the data and variables, have a look at the codebook and/or <a href="01-basics.html#sec-download_data_ch1"><span>Section&nbsp;1.4</span></a>.</li>
 </ul></section><section id="activity-2-load-in-the-libraries-read-in-the-data-and-tidy-the-dataframe" class="level2" data-number="5.2"><h2 data-number="5.2" class="anchored" data-anchor-id="activity-2-load-in-the-libraries-read-in-the-data-and-tidy-the-dataframe">
 <span class="header-section-number">5.2</span> Activity 2: Load in the libraries, read in the data, and tidy the dataframe</h2>
@@ -382,7 +382,7 @@ Solution
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-2"><a href="#cb2-2"></a>data_prp_viz <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data_prp_ch3.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2"></a>data_prp_viz <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data_prp_for_ch4.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1172,7 +1172,7 @@ Solution
 </div>
 </div>
 </div>
-</section><section id="pair-coding-in-the-lab" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="pair-coding-in-the-lab"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding in the lab</span></h2>
+</section><section id="pair-coding" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="pair-coding"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding</span></h2>
 <p>Provide a barchart, a violin-boxplot, and a scatterplot from the loneliness data and the students have to try and recreate one of those in the lab. If they are overly fast, they can do the other 2.</p>
 </section><section id="test-your-knowledge-on-chapters-3-and-4" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="test-your-knowledge-on-chapters-3-and-4"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge on Chapters 3 and 4</span></h2>
 <p>Which plot would you choose for</p>

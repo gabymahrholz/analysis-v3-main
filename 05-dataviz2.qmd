@@ -27,7 +27,7 @@ In this chapter, we are continuing our journey of appropriate plots. Last week, 
 
 -   We are still working with the data by Pownall et al. (2023) which we aggregated in @sec-wrangling. Open the project.
 -   You could use the same Rmd as last week if you want to keep all plotting in one document or create a new Rmd to separate plots for categorical and continuous variables. Up to you.
--   The aggregated data is the same as last week. It should be in your project folder but in case it got lost, download it again and place it in your project folder: [data_prp_ch3.csv](data/data_prp_ch3.csv "download").
+-   The aggregated data is the same as last week. It should be in your project folder but in case it got lost, download it again and place it in your project folder: [data_prp_for_ch4.csv](data/data_prp_for_ch4.csv "download").
 -   If you need a reminder about the data and variables, have a look at the codebook and/or @sec-download_data_ch1.
 
 
@@ -51,7 +51,7 @@ data_prp_viz <- ???
 
 ```{r eval=FALSE}
 library(tidyverse)
-data_prp_viz <- read_csv("data_prp_ch3.csv")
+data_prp_viz <- read_csv("data_prp_for_ch4.csv")
 ```
 
 :::
@@ -62,7 +62,7 @@ data_prp_viz <- read_csv("data_prp_ch3.csv")
 ## I basically have to have 2 code chunks since I tell them to put the data files next to the project, and mine are in a separate folder called data - unless I'll turn this into a fixed path
 
 library(tidyverse)
-data_prp_viz <- read_csv("data/data_prp_ch3.csv")
+data_prp_viz <- read_csv("data/data_prp_for_ch4.csv")
 ```
 
 
@@ -657,7 +657,7 @@ ggplot(data_facet, aes(x = Time1, y = Time2)) +
 
 
 
-## [Pair-coding in the lab]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
+## [Pair-coding]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
 
 Provide a barchart, a violin-boxplot, and a scatterplot from the loneliness data and the students have to try and recreate one of those in the lab. If they are overly fast, they can do the other 2.
 

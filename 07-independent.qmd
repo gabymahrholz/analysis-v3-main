@@ -312,10 +312,11 @@ The `t.test()` function we used for the one-sample t-test can be used here, howe
 * The first argument in the formula with the pattern `DV ~ IV`
 * The second argument is the data
 * The third argument is specifying whether variances are equal between the groups. By default is is `var.equal = FALSE` which means a **Welch t-test** is getting conducted. If you were to set `var.equal` to `TRUE`, you would conduct a Student t-test.
+* The 4th argument `alternative` is "two.sided" by default, meaning we are checking the alternative hypothesis in both directions (i.e., a non-directional hypothesis)
 
 
 ```{r}
-t.test(simon_effect ~ similarity, data = simon_effect, var.equal = FALSE)
+t.test(simon_effect ~ similarity, data = simon_effect, var.equal = FALSE, alternative = "two.sided")
 ```
 The output tells us:
 
@@ -340,15 +341,36 @@ Next up is the sensitivity power analysis to determine the minimum effect size t
 The function we need to compute this is `pwr.t.test()` which is part of the `pwr` package. The arguments in the formula are the same as for the one-sample t-test; we just need to adjust the number of participants (which is the number of observations per sample) and setting the type to "two.sample".
 
 ```{r}
-pwr.t.test(n = 80, sig.level = 0.05, power = 0.8, type = "two.sample")
+pwr.t.test(n = 80, sig.level = 0.05, power = 0.8, type = "two.sample", alternative = "two.sided")
 ```
+
 So the smallest effect size we can detect with a sample size of 80 participants in each group, an alpha level of 0.05, and power of 0.8 is 0.45. This is a larger value than the actual effect size we calculated with the `CohensD` function above (i.e., 0.14) which means our analysis is underpowered to detect this extremely small effect.
 
 Just out of curiosity, if we were to replicate this study, and we wanted to be able to detect an effect size that small, how many participants would we need to recruit? We run the `pwr.t.test()` function again, but replacing n with the effect size d. Ooft; we would need ca 1500 participants in total. To be honest, 0.145 would not be a meaningful effect size.
 
 ```{r}
-pwr.t.test(d = 0.145, sig.level = 0.05, power = 0.8, type = "two.sample")
+pwr.t.test(d = 0.145, sig.level = 0.05, power = 0.8, type = "two.sample", alternative = "two.sided")
 ```
+
+
+::: {callout-tip}
+
+## But my two groups have unequal sample sizes, and there is only one n in `pwr.t.test`. What do I do?
+
+No problem. You can use the function `pwr.t2n.test()` that allows you to specify two different sample sizes n1 and n2. The rest stays pretty much the same, even though there is no need to specify the type anymore.
+
+```{r eval=FALSE}
+pwr.t2n.test(n1 = NULL, n2= NULL, d = NULL, sig.level = 0.05, power = NULL, alternative = c("two.sided", "less","greater"))
+```
+
+Let's try it for our example. We should get the same result though.
+
+```{r}
+pwr.t2n.test(n1 = 80, n2= 80, sig.level = 0.05, power = 0.8, alternative = "two.sided")
+```
+
+:::
+
 
 ## Activity 9: The write-up
 
@@ -392,7 +414,7 @@ This is once again considered a small effect. Anyway, we do have all the numbers
 A Mann-Whitney U-test was conducted to determine whether there was a significant difference in the Simon effect between participants who received the same stimuli in both sessions $(N = 80, MdnRT = 35.68 msec)$ and those who received different stimuli $(N = 80, Mdn RT = 34.44 msec)$. The results indicate that the median difference was non-significant and of a small magnitude, $W = 3001, p = .498, r = .054$. Therefore, we fail to reject the null hypothesis.
 
 
-## [Pair-coding in the lab]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
+## [Pair-coding]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
 
 
 

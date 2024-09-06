@@ -162,7 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./01-basics.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Projects, R Markdown, and Data Wrangling</span></span></a>
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Projects and R Markdown</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -302,7 +302,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#individual-walkthrough" id="toc-individual-walkthrough" class="nav-link" data-scroll-target="#individual-walkthrough"><span style="color: #F39C12; text-transform: uppercase;">Individual Walkthrough</span></a></li>
   <li><a href="#building-plots" id="toc-building-plots" class="nav-link" data-scroll-target="#building-plots"><span class="header-section-number">4.1</span> Building plots</a></li>
   <li><a href="#activity-1-set-up-and-data-for-today" id="toc-activity-1-set-up-and-data-for-today" class="nav-link" data-scroll-target="#activity-1-set-up-and-data-for-today"><span class="header-section-number">4.2</span> Activity 1: Set-up and data for today</a></li>
-  <li><a href="#activity-2-load-in-the-libraries-read-in-the-data-and-tidy-the-dataframe" id="toc-activity-2-load-in-the-libraries-read-in-the-data-and-tidy-the-dataframe" class="nav-link" data-scroll-target="#activity-2-load-in-the-libraries-read-in-the-data-and-tidy-the-dataframe"><span class="header-section-number">4.3</span> Activity 2: Load in the libraries, read in the data, and tidy the dataframe</a></li>
+  <li><a href="#activity-2-load-in-the-libraries-and-read-in-the-data" id="toc-activity-2-load-in-the-libraries-and-read-in-the-data" class="nav-link" data-scroll-target="#activity-2-load-in-the-libraries-and-read-in-the-data"><span class="header-section-number">4.3</span> Activity 2: Load in the libraries and read in the data</a></li>
   <li><a href="#appropriate-plots" id="toc-appropriate-plots" class="nav-link" data-scroll-target="#appropriate-plots">Appropriate plots?</a></li>
   <li>
 <a href="#one-categorical-variable" id="toc-one-categorical-variable" class="nav-link" data-scroll-target="#one-categorical-variable"><span class="header-section-number">4.4</span> One categorical variable</a>
@@ -321,7 +321,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
   <li><a href="#activity-4-save-your-plots" id="toc-activity-4-save-your-plots" class="nav-link" data-scroll-target="#activity-4-save-your-plots"><span class="header-section-number">4.6</span> Activity 4: Save your plots</a></li>
   <li><a href="#activity-5-your-turn" id="toc-activity-5-your-turn" class="nav-link" data-scroll-target="#activity-5-your-turn"><span class="header-section-number">4.7</span> Activity 5: Your Turn</a></li>
-  <li><a href="#pair-coding-in-the-lab" id="toc-pair-coding-in-the-lab" class="nav-link" data-scroll-target="#pair-coding-in-the-lab"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding in the lab</span></a></li>
+  <li><a href="#pair-coding" id="toc-pair-coding" class="nav-link" data-scroll-target="#pair-coding"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding</span></a></li>
   <li><a href="#test-your-knowledge" id="toc-test-your-knowledge" class="nav-link" data-scroll-target="#test-your-knowledge"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge</span></a></li>
   </ul></nav>
     </div>
@@ -673,8 +673,8 @@ Important
 <li>However, we could do with a fresh Rmd: Create a new Rmd and save it to your project folder. Name it something meaningful (e.g., “chapter_04”, “04_data_viz.Rmd”). See <a href="01-basics.html#sec-rmd"><span>Section&nbsp;1.3</span></a> if you need some guidance. Delete everything below line 12 (keep the set-up code chunk)</li>
 <li>We aggregated the data in <a href="02-wrangling.html"><span>Chapter&nbsp;2</span></a>. If you want a fresh copy, download the data here: <a href="data/data_prp_for_ch4.csv" title="download">data_prp_for_ch4.csv</a>. Make sure to place the csv file in the project folder.</li>
 <li>If you need a reminder about the data and variables, have a look at the codebook and/or <a href="01-basics.html#sec-download_data_ch1"><span>Section&nbsp;1.4</span></a>.</li>
-</ul></section><section id="activity-2-load-in-the-libraries-read-in-the-data-and-tidy-the-dataframe" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="activity-2-load-in-the-libraries-read-in-the-data-and-tidy-the-dataframe">
-<span class="header-section-number">4.3</span> Activity 2: Load in the libraries, read in the data, and tidy the dataframe</h2>
+</ul></section><section id="activity-2-load-in-the-libraries-and-read-in-the-data" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="activity-2-load-in-the-libraries-and-read-in-the-data">
+<span class="header-section-number">4.3</span> Activity 2: Load in the libraries and read in the data</h2>
 <p>We need the package <code>tidyverse</code> today, and the data <code>data_prp_for_ch4.csv</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="do">## packages </span></span>
@@ -1284,7 +1284,7 @@ png with different dimensions
 <span class="header-section-number">4.7</span> Activity 5: Your Turn</h2>
 <p>Pick <strong>any single or two categorical variables</strong> from the dataset and <strong>choose one of the appropriate plot choices</strong>. Start with a base plot and add other layers if you please.</p>
 <p>Save your plot and share it with us on Teams.</p>
-</section><section id="pair-coding-in-the-lab" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="pair-coding-in-the-lab"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding in the lab</span></h2>
+</section><section id="pair-coding" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="pair-coding"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding</span></h2>
 <p>Provide a barchart, a violin-boxplot, and a scatterplot from the loneliness data and the students have to try and recreate one of those in the lab. If they are overly fast, they can do the other 2.</p>
 </section><section id="test-your-knowledge" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="test-your-knowledge"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge</span></h2>
 <p>Which plot would you choose for</p>

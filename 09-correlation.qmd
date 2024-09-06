@@ -35,7 +35,7 @@ Spearman’s Rank correlation: This is equivalent to Pearson’s correlation—i
 https://tuos-bio-data-skills.github.io/intro-stats-book/non-parametric-tests.html
 
 
-## [Pair-coding in the lab]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
+## [Pair-coding]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
 
 
 

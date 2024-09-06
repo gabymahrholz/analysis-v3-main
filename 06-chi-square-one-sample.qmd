@@ -494,11 +494,12 @@ Either choose visual or computational inspection for normality tests. NO NEED TO
 ### Task 5: Compute a One-sample t-test and effect size
 
 
-We can use the `t.test()` function to compute a one-sample t-test. The `t.test()` function is part of BaseR, and yes, you guessed it, our first argument has to follow the pattern `data$column`. The second argument (`mu`) lists the population mean we are testing our sample against (here 51.0). The test is "two.sided" by default, so you can leave the argument out.
+We can use the `t.test()` function to compute a one-sample t-test. The `t.test()` function is part of BaseR, and yes, you guessed it, our first argument has to follow the pattern `data$column`. The second argument (`mu`) lists the population mean we are testing our sample against (here 51.0). The `alternative` is "two.sided" by default, so you could leave the argument out.
 
 ```{r}
-t.test(one_sample$wemwbs_sum, mu = 51.0)
+t.test(one_sample$wemwbs_sum, mu = 51.0, alternative = "two.sided")
 ```
+
 The output is quite informative. It gives us information about:
 
 * the variable column that was tested, 
@@ -579,7 +580,7 @@ Now we have all the numbers we need to write up the results:
 A One-sample Wilcoxon signed-rank test was used to compare Gamers’ mental-wellbeing scores (Mdn = 46.0) to the population median of 53.0. The test showed a significant difference, $Z = -19.12, p < .001, r = .590$. The strength of the effect is considered medium. We therefore reject the null hypothesis in favour of H~1~. 
 
 
-## [Pair-coding in the lab]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
+## [Pair-coding]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
 
 
 
