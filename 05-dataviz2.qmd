@@ -92,7 +92,7 @@ data_prp_viz <- data_prp_viz %>%
 
 ::: {.callout-tip}
 
-If you are working within the same Rmd file as last week, you can skip these initial steps but you have to run the code you had already placed at the start of last-week's Rmd file to load tidyverse into the library, read in the data, and convert some of the variables into factors.
+If you are working within the same `.Rmd` file as last week, you can skip these initial steps but you have to run the code you had already placed at the start of last-week's `.Rmd` file to load tidyverse into the library, read in the data, and convert some of the variables into factors.
 
 :::
 

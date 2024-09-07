@@ -306,3 +306,78 @@ text
 
 
 str_detect(Items, "_R") ~ 8-Scores,
+
+
+
+## Activity 7: Compute a paired t-test and effect size
+
+The paired t-test compares two sample means to each other, but the two groups are related to each other, i.e. “paired”, e.g., the same mice before and after treatment. The paired t-test simply calculates the difference between paired groups and then performs the one-sample t-test on the differences.
+
+```{r}
+library(rstatix)
+```
+
+The `t.test()` function we used for the one-sample t-test can be used here, however, it has been a bit buggy recently not taking in certain arguments (more so for the paired sample t-test we talk about in the next chapter). Therefore, we are switching over to the `t_test()` function from the `rstatix` package.
+
+The output is organised slightly different to what we've seen in the `t.test()` function, and whilst it looks neater, it does provide less information at first glimpse.
+
+The **Welch t-test is the default option** because the `var.equal`argument is set to `FALSE`. You won't be able to see it in the table output unless you know what you are looking for. Hence we would suggest adding all the default arguments into the function to be able to trace what you are doing.
+
+* The first argument is the data
+* The second argument in the formula with the pattern `DV ~ IV`
+* Next we want to specify `paired = FALSE` as we don't want a paired t-test (`paired = FALSE` is the default)
+* Then, we want to specify `var.equal = FALSE` for a Welch t-test (`var.equal = FALSE` is the default)
+* The alternative is "two.sided" by default
+* You can set the argument `detailed` to `TRUE` to get some more information (default is `detailed = FALSE`).
+
+
+
+```{r eval=FALSE}
+t_test(data = simon_effect, 
+       formula = simon_effect ~ similarity, # DV ~ IV
+       paired = FALSE, # for an independent t-test (default)
+       var.equal = FALSE, # for a Welch t-test (default)
+       alternative = "two.sided", # default - the alternative hypothesis is non-directional
+       detailed = FALSE) # set this to true for more detail (FALSE is default)
+```
+
+So, what can we see in the output:
+
+* The output gives you the `.y.` which is the DV and `group1` and `group2` will list the 2 levels of the IV that the test compared (in our case "different" and "same").
+* It also lists `n1` and `n2`, which are the sample sizes for groups 1 and 2 respectively
+* statistic is the t-value
+* df is the degrees of freedom, and
+* p is the p-value
+
+If you set the `detailed` argument to `TRUE`, you get slightly more information. Let's have a look
+
+```{r eval=FALSE}
+t_test(data = simon_effect, 
+       formula = simon_effect ~ similarity, # DV ~ IV
+       paired = FALSE, # for an independent t-test (default)
+       var.equal = FALSE, # for a Welch t-test (default)
+       alternative = "two.sided", # default - the alternative hypothesis is tested in both directions
+       detailed = TRUE) # set this to true for more detail (FALSE is default)
+```
+
+<p></p>
+Additional information that is useful:
+
+* estimate which is the difference score between the groups (here 3.14 msec = 35.99-32.86)
+* estimate1 which is the average value from group 1 (here 32.86 ms - and it matches with the value we calculated in the descriptives for the "different" group)
+* estimate2 which is the average value from group 2 (here 35.99 ms - and it matches with the value we calculated in the descriptives for the "same" group)
+* lower and higher confidence intervals might also be useful, and
+* the alternative is listed as "two.sided"
+
+
+Now on to the information that is a bit of a let-down: **The method is listed as T-test**. This will always be the output whether use the formula for a one-sample t-test, independent t-test, or a paired t-test. Therefore it's really not great. This is the reason why we tell you to put all the arguments in, even the default ones. If you don't you may have a tough time identifying what you just did.
+
+::: {.callout-tip}
+
+You can see what test you conducted by looking at the df in the table. 
+
+* If the df is $n1 + n2 - 2$ it's a Student t-test and equal variance are assumed (i.e., `var.equal = TRUE`). 
+* If the df is approximately $n1 + n2 -2$ but some weird number with decimal places, you know `var.equal` was set to `FALSE` and it is actually a Welch t-test.
+* If the df is $n1 - 1$ or $n2 - 1$ it's a paired t-test (even though it would be more useful to only have one n displayed in that case - but ah well)
+
+:::

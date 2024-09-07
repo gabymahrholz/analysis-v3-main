@@ -18,7 +18,7 @@ In this chapter, we will continue from where we left off in @sec-wrangling. We w
 ## Activity 1: Setup
 
 * Go to the project folder we have been using in the last two weeks and double-click on the project icon to **open the project** in RStudio
-* Either **Create a new `.Rmd`** for chapter 3 and save it to your project folder or continue the one from last week. See @sec-rmd if you need some guidance.
+* Either **Create a new `.Rmd` file** for chapter 3 and save it to your project folder or continue the one from last week. See @sec-rmd if you need some guidance.
 
 
 ## Activity 2: Load in the libraries and read in the data

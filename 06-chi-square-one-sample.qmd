@@ -21,7 +21,11 @@ By the end of this chapter you should be able to:
 
 ## Overview
 
-Which test to use depends on what type of variable(s) you have and what your research question is about. You can see them in the flowchart below.
+they are all part of a general linear model. 
+
+The general linear model incorporates a number of different statistical models: ANOVA, ANCOVA, MANOVA, MANCOVA, ordinary linear regression, t-test and F-test. 
+
+Which test to use depends on what type of variable(s) you have, what design you chose, and what your research question is about. You can see them in the flowchart below.
 
 
 ![Simplified flowchart to help select the most appropriate test (created with [drawio](https://draw.io/){target="_blank"}). [View larger version](images/Flowchart_tests_drawio.png){target="_blank"}](images/Flowchart_tests_drawio.png)
@@ -41,10 +45,10 @@ You can see below in which chapter they will be discussed:
 
 ## Activity 1: Setup & download the data
 
-* create a new project and name it something meaningful (e.g., "2A_chapter6", or "06_chi_square_one_sample_t"). See @sec-project if you need some guidance.
-* create a new Rmd file and save it to your project folder. See @sec-rmd if you get stuck. 
-* delete everything after the setup code chunk (e.g., line 12 and below)
-* download a reduced dataset here: [data_ch6.zip](data/data_ch6.zip "download"). You'll see one csv file with demographic information and questionnaire data as well as the codebook.
+* **Create a new project** and name it something meaningful (e.g., "2A_chapter6", or "06_chi_square_one_sample_t"). See @sec-project if you need some guidance.
+* **Create a new `.Rmd` file** and save it to your project folder. See @sec-rmd if you get stuck. 
+* Delete everything after the setup code chunk (e.g., line 12 and below)
+* **Download a reduced dataset** here: [data_ch6.zip](data/data_ch6.zip "download"). You'll see one csv file with demographic information and questionnaire data as well as the codebook.
 * Extract the data files from the zip folder and place them in your project folder. If you need help, see @sec-download_data_ch1.
 
 
@@ -386,7 +390,7 @@ It appears that there is one outlier on the lower tail, however, when inspecting
 
 ::: {.callout-important} 
 
-If you are taking any of the outliers out, you need to recalculated the descriptive stats.
+If you are removing any of the outliers, you need to recalculated the descriptive stats.
 
 :::
 
@@ -456,11 +460,14 @@ ggplot(one_sample, aes(sample = wemwbs_sum)) +
 :::
 
 
-You can also assess normality with the **Shapiro-Wilk’s test**. The null hypothesis is that the population is distributed normally. Therefore, if the p-value of the Shapiro-Wilk’s test smaller than .05, normality is rejected. 
+You could also assess normality with the **Shapiro-Wilk’s test**. The null hypothesis is that the population is distributed normally. Therefore, if the p-value of the Shapiro-Wilk’s test smaller than .05, normality is rejected. 
 
 ::: {.callout-important}
 
-Shapiro-Wilk is a good method for small sample sizes (e.g., smaller than 50 samples). If you have large sample sizes, Shapiro-Wilk will definitely produce a significant p-value regardless of what the distribution looks like. So don't rely on its output when you have large sample sizes.
+Shapiro-Wilk is an OK method for small sample sizes (e.g., smaller than 50 samples) if the deviation from normality is fairly obvious. If we are dealing with slight deviations from normality, it might not be sensitive enough to pick that up. But t-tests, ANOVAs etc. should be robust for slight deviations from normality anyway.
+
+In contrast, when you have large sample sizes, Shapiro-Wilk is overly sensitive and will definitely produce a significant p-value regardless of what the distribution looks like. So don't rely on its output when you have large sample sizes, and be mindful of its output when you have small sample sizes.
+
 :::
 
 The function in R is `shapiro.test()` and it's built into BaseR, meaning, we need our data object, the `$` and the column we want to address.
@@ -469,7 +476,7 @@ The function in R is `shapiro.test()` and it's built into BaseR, meaning, we nee
 ```{r}
 shapiro.test(one_sample$wemwbs_sum)
 ```
-No surprise here, the test shows p < .001 because we have more than 1000 participants. Nevertheless, if you had a smaller sample and you needed to write this result up in your report, you would report it in APA style: $W = .99, p < .001$.
+No surprise here, the test shows p < .001 because we have more than 1000 participants. Nevertheless, if you decided on using the Shapiro-Wilk test in your report, you'd need to write this result up in APA style: $W = .99, p < .001$.
 
 
 ::: {.callout-tip}
@@ -538,7 +545,7 @@ A one-sample t-test was computed to determine whether the average mental well-be
 
 If any of the assumptions are violated, you need to switch to the non-parametric alternative. For the one-sample t-test, this is a **One-sample Wilcoxon signed-rank test**. Instead of the mean, it compares the median of a sample against a single value (i.e., the population median).
 
-That means we need to find the population median, and calculate some summary stats for our sample:
+That means we need to find the population median, and calculate some **summary stats** for our sample:
 
 * The population median is listed in a supporting document on the [official WEMWBS website](https://warwick.ac.uk/fac/sci/med/research/platform/wemwbs/using/howto/){target="_blank"} as 53.0. 
 * We can easily calculate the summary statistics using the function summary.
@@ -548,12 +555,13 @@ summary(one_sample)
 ```
 
 
-The function to compute a one-sample Wilcoxon test test is `wilcox.test()`. It's part of BaseR and code-wise, it works very similar to the one-sample t-test.
+The function to **compute a one-sample Wilcoxon test** is `wilcox.test()`. It's part of BaseR and code-wise, it works very similar to the one-sample t-test.
 
 ```{r}
 wilcox.test(one_sample$wemwbs_sum, mu = 53.0)
 ```
-As we can see, the output gives us a V value, but we need to report a Z value in the final write-up. Unfortunately, we have to calculate Z manually. According to Andy Field (2012, p. 665), we need to use the qnorm function on the halved p-value from our Wilcoxon test above.
+
+As we can see, the output gives us a V value, but we need to report **the standardised test statistic Z** in the final write-up. Unfortunately, we have to calculate Z manually. According to Andy Field (2012, p. 665), we need to use the qnorm function on the halved p-value from our Wilcoxon test above. Here, we store the p-value in the `Global Environment` as `p_wilcoxon` because it can store more decimal places than we see on the output above which means the Z value will be more accurate.
 
 ```{r}
 # storing the p-value
@@ -566,15 +574,15 @@ z
 ```
 
 
-We also need to calculate the effect size `r`, which we can do via the `wilcoxonOneSampleR` from the `rcompanion` package. The default value will be 3 decimal places, but you can change that with the `digits` argument.
+We also need to **calculate the effect size `r`**, which we can do via the `wilcoxonOneSampleR` from the `rcompanion` package. The default value will be 3 decimal places, but you can change that with the `digits` argument.
 
 ```{r}
 wilcoxonOneSampleR(one_sample$wemwbs_sum, mu = 53.0, digits = 3)
 ```
 
-Now we have all the numbers we need to write up the results: 
+Now we have all the numbers we need to **write up the results**: 
 
-A One-sample Wilcoxon signed-rank test was used to compare Gamers’ mental-wellbeing scores (Mdn = 46.0) to the population median of 53.0. The test showed a significant difference, $Z = -19.12, p < .001, r = .590$. The strength of the effect is considered medium. We therefore reject the null hypothesis in favour of H~1~. 
+A One-sample Wilcoxon signed-rank test was used to compare Gamers’ mental-wellbeing median scores (Mdn = 46.0) to the population median of 53.0. The test showed a significant difference, $Z = -19.12, p < .001, r = .590$. The strength of the effect is considered medium. We therefore reject the null hypothesis in favour of H~1~. 
 
 
 ## [Pair-coding]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}

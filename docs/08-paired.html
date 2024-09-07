@@ -306,11 +306,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#activity-4-compute-descriptives" id="toc-activity-4-compute-descriptives" class="nav-link" data-scroll-target="#activity-4-compute-descriptives"><span class="header-section-number">8.4</span> Activity 4: Compute descriptives</a></li>
   <li><a href="#activity-5-create-an-appropriate-plot" id="toc-activity-5-create-an-appropriate-plot" class="nav-link" data-scroll-target="#activity-5-create-an-appropriate-plot"><span class="header-section-number">8.5</span> Activity 5: Create an appropriate plot</a></li>
   <li><a href="#activity-6-check-assumptions" id="toc-activity-6-check-assumptions" class="nav-link" data-scroll-target="#activity-6-check-assumptions"><span class="header-section-number">8.6</span> Activity 6: Check assumptions</a></li>
-  <li><a href="#activity-7-compute-a-two-sample-t-test-and-effect-size" id="toc-activity-7-compute-a-two-sample-t-test-and-effect-size" class="nav-link" data-scroll-target="#activity-7-compute-a-two-sample-t-test-and-effect-size"><span class="header-section-number">8.7</span> Activity 7: Compute a Two-sample t-test and effect size</a></li>
-  <li><a href="#activity-7-compute-a-two-sample-t-test-and-effect-size-1" id="toc-activity-7-compute-a-two-sample-t-test-and-effect-size-1" class="nav-link" data-scroll-target="#activity-7-compute-a-two-sample-t-test-and-effect-size-1"><span class="header-section-number">8.8</span> Activity 7: Compute a Two-sample t-test and effect size</a></li>
-  <li><a href="#activity-8-sensitivity-power-analysis" id="toc-activity-8-sensitivity-power-analysis" class="nav-link" data-scroll-target="#activity-8-sensitivity-power-analysis"><span class="header-section-number">8.9</span> Activity 8: Sensitivity power analysis</a></li>
-  <li><a href="#activity-9-the-write-up" id="toc-activity-9-the-write-up" class="nav-link" data-scroll-target="#activity-9-the-write-up"><span class="header-section-number">8.10</span> Activity 9: The write-up</a></li>
-  <li><a href="#sec-alternative_two_sample" id="toc-sec-alternative_two_sample" class="nav-link" data-scroll-target="#sec-alternative_two_sample"><span class="header-section-number">8.11</span> Activity 10: Non-parametric alternative</a></li>
+  <li><a href="#activity-7-compute-a-paired-t-test-and-effect-size" id="toc-activity-7-compute-a-paired-t-test-and-effect-size" class="nav-link" data-scroll-target="#activity-7-compute-a-paired-t-test-and-effect-size"><span class="header-section-number">8.7</span> Activity 7: Compute a paired t-test and effect size</a></li>
+  <li><a href="#activity-8-sensitivity-power-analysis" id="toc-activity-8-sensitivity-power-analysis" class="nav-link" data-scroll-target="#activity-8-sensitivity-power-analysis"><span class="header-section-number">8.8</span> Activity 8: Sensitivity power analysis</a></li>
+  <li><a href="#activity-9-the-write-up" id="toc-activity-9-the-write-up" class="nav-link" data-scroll-target="#activity-9-the-write-up"><span class="header-section-number">8.9</span> Activity 9: The write-up</a></li>
+  <li><a href="#sec-alternative_paired" id="toc-sec-alternative_paired" class="nav-link" data-scroll-target="#sec-alternative_paired"><span class="header-section-number">8.10</span> Activity 10: Non-parametric alternative</a></li>
   <li><a href="#pair-coding" id="toc-pair-coding" class="nav-link" data-scroll-target="#pair-coding"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding</span></a></li>
   <li><a href="#test-your-knowledge" id="toc-test-your-knowledge" class="nav-link" data-scroll-target="#test-your-knowledge"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge</span></a></li>
   </ul></nav>
@@ -342,11 +341,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We will still be working with the dataset from the study by Zwaan et al.&nbsp;(2018) in this chapter. Have a look at <a href="07-independent.html"><span>Chapter&nbsp;7</span></a> or the SupMats document if you need a refresher about the Simon Task data.</p>
 <ul>
 <li>Open last week’s project</li>
-<li>create a new Rmd file and save it to your project folder</li>
-<li>delete everything after the setup code chunk</li>
+<li>Create a new <code>.Rmd</code> file and save it to your project folder</li>
+<li>Delete everything after the setup code chunk</li>
 </ul></section><section id="activity-2-library-and-data-for-today" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="activity-2-library-and-data-for-today">
 <span class="header-section-number">8.2</span> Activity 2: Library and data for today</h2>
-<p>Today, we’ll need the following packages <code>tidyverse</code>, <em>ETC</em>. Again, we also need to read in the data from <code>MeansSimonTask.csv</code> and the demographics information from <code>DemoSimonTask.csv</code>.</p>
+<p>Today, we’ll need the following packages <code>rstatix</code>, <code>tidyverse</code>, <code>qqplotr</code>, <code>lsr</code>, and <code>pwr</code>. Again, we also need to read in the data from <code>MeansSimonTask.csv</code> and the demographics information from <code>DemoSimonTask.csv</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># load in the packages</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>???</span>
@@ -369,95 +368,508 @@ Solution
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="co"># load in the packages</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb2-3"><a href="#cb2-3"></a></span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="co"># read in the data</span></span>
-<span id="cb2-5"><a href="#cb2-5"></a>zwaan_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"MeansSimonTask.csv"</span>)</span>
-<span id="cb2-6"><a href="#cb2-6"></a>zwaan_demo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"DemoSimonTask.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(rstatix)</span>
+<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="fu">library</span>(qqplotr)</span>
+<span id="cb2-5"><a href="#cb2-5"></a><span class="fu">library</span>(lsr)</span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="fu">library</span>(pwr)</span>
+<span id="cb2-7"><a href="#cb2-7"></a></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co"># read in the data</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>zwaan_data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"MeansSimonTask.csv"</span>)</span>
+<span id="cb2-10"><a href="#cb2-10"></a>zwaan_demo <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"DemoSimonTask.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </div>
-<p>As usual, familiarise yourself with the data before starting on the between-subjects t-test.</p>
-</section><section id="activity-3-preparing-the-dataframe" class="level2" data-number="8.3"><h2 data-number="8.3" class="anchored" data-anchor-id="activity-3-preparing-the-dataframe">
+<p>As usual, take some time to familiarize yourself with the data before starting the within-subjects t-test.</p>
+<p>Today, we’ll focus on the Simon effect. Remember that the Simon effect predicts that congruent trials will have shorter response times than incongruent trials.</p>
+<ul>
+<li>Potential research question: “Is there a significant difference in response times between congruent and incongruent trials in a Simon task?”</li>
+<li>Null Hypothesis (H<sub>0</sub>): “There is no significant difference in response times between congruent and incongruent trials in a Simon task.”</li>
+<li>Alternative Hypothesis (H<sub>1</sub>): “There is a significant difference in response times between congruent and incongruent trials in a Simon task.”</li>
+</ul></section><section id="activity-3-preparing-the-dataframe" class="level2" data-number="8.3"><h2 data-number="8.3" class="anchored" data-anchor-id="activity-3-preparing-the-dataframe">
 <span class="header-section-number">8.3</span> Activity 3: Preparing the dataframe</h2>
-<p>join the files together</p>
+<p>Again, we need to calculate one mean response time (RT) value for congruent and one for incongruent trials per participant. Like last week, we can also compute the Simon effect again as the difference score between incongruent and congruent trails.</p>
+<p>To keep all the data in one place, we should join this output with the demographics. While you won’t need the demographic information for the t-test itself, having it included will give you a complete dataframe. This can be useful when you need to calculate demographics for the Methods section; for example if you end up excluding data points you can compute sample size, age and gender splits straight away rather than having to apply the same exclusions to a different data object.</p>
+<p>For the paired version of the <code>t.test</code>, we need congruent and inconguent trials in separate columns, so that each participant still only has one row in the dataframe (i.e., wide format). Here is the output we are after:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 7%">
+<col style="width: 4%">
+<col style="width: 21%">
+<col style="width: 12%">
+<col style="width: 11%">
+<col style="width: 13%">
+<col style="width: 14%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">participant</th>
+<th style="text-align: left;">gender</th>
+<th style="text-align: right;">age</th>
+<th style="text-align: left;">education</th>
+<th style="text-align: left;">similarity</th>
+<th style="text-align: right;">congruent</th>
+<th style="text-align: right;">incongruent</th>
+<th style="text-align: right;">simon_effect</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">T1</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: left;">High school</td>
+<td style="text-align: left;">same</td>
+<td style="text-align: right;">475.0032</td>
+<td style="text-align: right;">508.2835</td>
+<td style="text-align: right;">33.28029</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">T10</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: left;">Associate’s degree</td>
+<td style="text-align: left;">same</td>
+<td style="text-align: right;">420.1515</td>
+<td style="text-align: right;">401.5800</td>
+<td style="text-align: right;">-18.57148</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">T109</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: left;">Bachelor’s degree</td>
+<td style="text-align: left;">same</td>
+<td style="text-align: right;">339.5343</td>
+<td style="text-align: right;">375.7152</td>
+<td style="text-align: right;">36.18085</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">T11</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">71</td>
+<td style="text-align: left;">High school</td>
+<td style="text-align: left;">same</td>
+<td style="text-align: right;">516.9722</td>
+<td style="text-align: right;">542.3111</td>
+<td style="text-align: right;">25.33889</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">T111</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">34</td>
+<td style="text-align: left;">High school</td>
+<td style="text-align: left;">same</td>
+<td style="text-align: right;">373.5778</td>
+<td style="text-align: right;">394.0665</td>
+<td style="text-align: right;">20.48874</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Challenge yourself: See if you could reproduce the table without hints this time.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>simon_effect <span class="ot">&lt;-</span> zwaan_data <span class="sc">%&gt;%</span> </span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> session1_congruent<span class="sc">:</span>session2_incongruent, <span class="at">names_to =</span> <span class="st">"col_headings"</span>, <span class="at">values_to =</span> <span class="st">"RT"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="fu">separate</span>(col_headings, <span class="at">into =</span> <span class="fu">c</span>(<span class="st">"Session_number"</span>, <span class="st">"congruency"</span>), <span class="at">sep =</span> <span class="st">"_"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-4"><a href="#cb3-4"></a>  <span class="fu">group_by</span>(participant, similarity, congruency) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-5"><a href="#cb3-5"></a>  <span class="fu">summarise</span>(<span class="at">mean_RT =</span> <span class="fu">mean</span>(RT)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-6"><a href="#cb3-6"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb3-7"><a href="#cb3-7"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> congruency, <span class="at">values_from =</span> mean_RT) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-8"><a href="#cb3-8"></a>  <span class="fu">mutate</span>(<span class="at">simon_effect =</span> incongruent <span class="sc">-</span> congruent) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-9"><a href="#cb3-9"></a>  <span class="fu">full_join</span>(zwaan_demo, <span class="at">by =</span> <span class="fu">join_by</span>(participant <span class="sc">==</span> twosubjectnumber)) <span class="sc">%&gt;%</span> </span>
+<span id="cb3-10"><a href="#cb3-10"></a>  <span class="fu">select</span>(participant, <span class="at">gender =</span> gender_response, <span class="at">age =</span> age_response, <span class="at">education =</span> education_response, similarity<span class="sc">:</span>simon_effect)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+You could have also
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>looked at the hints from the last chapter, since this is exactly the same dataframe we need today.</li>
+<li>saved the data object from last week as a csv file and read it in here.</li>
+</ol>
+</div>
+</div>
+</div>
 </section><section id="activity-4-compute-descriptives" class="level2" data-number="8.4"><h2 data-number="8.4" class="anchored" data-anchor-id="activity-4-compute-descriptives">
 <span class="header-section-number">8.4</span> Activity 4: Compute descriptives</h2>
-<p>compute means and sd</p>
+<p>We want to compute means and standard deviations for the <code>congruent</code> and the <code>incongruent</code> trials. Then we want to subtract the mean RT of the congruent trials from the mean RT of the incongruent trials to get the average difference score between the two conditions.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>descriptives <span class="ot">&lt;-</span> simon_effect <span class="sc">%&gt;%</span> </span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="fu">summarise</span>(<span class="at">mean_congruent =</span> <span class="fu">mean</span>(congruent),</span>
+<span id="cb4-3"><a href="#cb4-3"></a>            <span class="at">sd_congruent =</span> <span class="fu">sd</span>(congruent),</span>
+<span id="cb4-4"><a href="#cb4-4"></a>            <span class="at">mean_incongruent =</span> <span class="fu">mean</span>(incongruent),</span>
+<span id="cb4-5"><a href="#cb4-5"></a>            <span class="at">sd_incongruent =</span> <span class="fu">sd</span>(incongruent),</span>
+<span id="cb4-6"><a href="#cb4-6"></a>            <span class="at">diff =</span> mean_incongruent <span class="sc">-</span> mean_congruent, <span class="co"># diff = mean(simon_effect) would also work</span></span>
+<span id="cb4-7"><a href="#cb4-7"></a>            <span class="at">sd_diff =</span> <span class="fu">sd</span>(simon_effect))</span>
+<span id="cb4-8"><a href="#cb4-8"></a></span>
+<span id="cb4-9"><a href="#cb4-9"></a>descriptives</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 16%">
+<col style="width: 21%">
+<col style="width: 19%">
+<col style="width: 11%">
+<col style="width: 11%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: right;">mean_congruent</th>
+<th style="text-align: right;">sd_congruent</th>
+<th style="text-align: right;">mean_incongruent</th>
+<th style="text-align: right;">sd_incongruent</th>
+<th style="text-align: right;">diff</th>
+<th style="text-align: right;">sd_diff</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td style="text-align: right;">427.6528</td>
+<td style="text-align: right;">74.17418</td>
+<td style="text-align: right;">462.0785</td>
+<td style="text-align: right;">74.69692</td>
+<td style="text-align: right;">34.42571</td>
+<td style="text-align: right;">21.59876</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Notice how we did not have to use <code>group_by()</code> here since the data is in wide format.</p>
+</div>
+</div>
 </section><section id="activity-5-create-an-appropriate-plot" class="level2" data-number="8.5"><h2 data-number="8.5" class="anchored" data-anchor-id="activity-5-create-an-appropriate-plot">
 <span class="header-section-number">8.5</span> Activity 5: Create an appropriate plot</h2>
-<p>make a plot</p>
+<p>To create an appropriate plot, we’d like the data to be in long format, with a column for <code>congruency</code> that hold the labels of congruent and incorgruent trials, and a column that stores the <code>mean_RT</code> for each. Each participant should have 2 rows now:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 8%">
+<col style="width: 4%">
+<col style="width: 21%">
+<col style="width: 12%">
+<col style="width: 14%">
+<col style="width: 13%">
+<col style="width: 10%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">participant</th>
+<th style="text-align: left;">gender</th>
+<th style="text-align: right;">age</th>
+<th style="text-align: left;">education</th>
+<th style="text-align: left;">similarity</th>
+<th style="text-align: right;">simon_effect</th>
+<th style="text-align: left;">congruency</th>
+<th style="text-align: right;">mean_RT</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">T1</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: left;">High school</td>
+<td style="text-align: left;">same</td>
+<td style="text-align: right;">33.28029</td>
+<td style="text-align: left;">congruent</td>
+<td style="text-align: right;">475.0032</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">T1</td>
+<td style="text-align: left;">Female</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: left;">High school</td>
+<td style="text-align: left;">same</td>
+<td style="text-align: right;">33.28029</td>
+<td style="text-align: left;">incongruent</td>
+<td style="text-align: right;">508.2835</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">T10</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: left;">Associate’s degree</td>
+<td style="text-align: left;">same</td>
+<td style="text-align: right;">-18.57148</td>
+<td style="text-align: left;">congruent</td>
+<td style="text-align: right;">420.1515</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">T10</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: left;">Associate’s degree</td>
+<td style="text-align: left;">same</td>
+<td style="text-align: right;">-18.57148</td>
+<td style="text-align: left;">incongruent</td>
+<td style="text-align: right;">401.5800</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">T109</td>
+<td style="text-align: left;">Male</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: left;">Bachelor’s degree</td>
+<td style="text-align: left;">same</td>
+<td style="text-align: right;">36.18085</td>
+<td style="text-align: left;">congruent</td>
+<td style="text-align: right;">339.5343</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your Turn
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Create the table above and then create an appropriate plot</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution for the data
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>simon_effect_long <span class="ot">&lt;-</span> simon_effect <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="fu">c</span>(congruent, incongruent), <span class="at">names_to =</span> <span class="st">"congruency"</span>, <span class="at">values_to =</span> <span class="st">"mean_RT"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution for the plot
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">ggplot</span>(simon_effect_long, <span class="fu">aes</span>(<span class="at">x =</span> congruency, <span class="at">y =</span> mean_RT, <span class="at">fill =</span> congruency)) <span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.4</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>  <span class="fu">scale_fill_viridis_d</span>(<span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb6-6"><a href="#cb6-6"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Congruency"</span>, <span class="at">y =</span> <span class="st">"mean Response Time"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="08-paired_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section><section id="activity-6-check-assumptions" class="level2" data-number="8.6"><h2 data-number="8.6" class="anchored" data-anchor-id="activity-6-check-assumptions">
 <span class="header-section-number">8.6</span> Activity 6: Check assumptions</h2>
-<p>test assumptions and say what it means for your test</p>
-<p>Assumes interval/ratio data continuous measurement scale Assumes scores are independent from each other one score should not have any relationship to another (e.g.&nbsp;each pair of values is from a separate participant) Assumes difference scores are approximately normally distributed</p>
-<p><strong>If any of the assumptions are violated, use the non-parametric equivalent to the between-subjects t-test, see <a href="#sec-alternative_two_sample"><span>Section&nbsp;8.11</span></a>.</strong></p>
-</section><section id="activity-7-compute-a-two-sample-t-test-and-effect-size" class="level2" data-number="8.7"><h2 data-number="8.7" class="anchored" data-anchor-id="activity-7-compute-a-two-sample-t-test-and-effect-size">
-<span class="header-section-number">8.7</span> Activity 7: Compute a Two-sample t-test and effect size</h2>
-<p>t-test with effect size</p>
-</section><section id="activity-7-compute-a-two-sample-t-test-and-effect-size-1" class="level2" data-number="8.8"><h2 data-number="8.8" class="anchored" data-anchor-id="activity-7-compute-a-two-sample-t-test-and-effect-size-1">
-<span class="header-section-number">8.8</span> Activity 7: Compute a Two-sample t-test and effect size</h2>
+<p>The assumptions for a paired t-test are fairly similar to the one-sample t-test.</p>
+<section id="assumption-1-continuous-dv" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="assumption-1-continuous-dv">Assumption 1: Continuous DV</h4>
+<p>The dependent variable needs to be measured at interval or ratio level. We can confirm that by looking at either the columns <code>congruent</code> and <code>incongruent</code> in the object <code>simon_effect</code>. Or the variable <code>mean_RT</code> in <code>simon_effect_long</code>. This assumption holds.</p>
+</section><section id="assumption-2-data-are-independent" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="assumption-2-data-are-independent">Assumption 2: Data are independent</h4>
+<p>For a paired t-test this assumption applies to the <strong>pair of values</strong>, i.e., each pair of values needs to be from a separate participant. We assume this assumption holds for our data.</p>
+</section><section id="assumption-3-normality" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="assumption-3-normality">Assumption 3: Normality</h4>
+<p>This assumption requires the <strong>difference scores</strong> to be approximately normally distributed. We cannot see that from the violin-boxplot above and have to plot the difference score, i.e., variable <code>simon_effect</code>.</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Your Turn
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Plot the difference score</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Think back to the one-sample t-test. How did we plot the normality assumption there?</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist">
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">Option 1: Q-Q plot</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Option 2: Violin-boxplot of the difference score</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Option 3: Shapiro-Wilk test</a></li>
+</ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">library</span>(rstatix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(simon_effect, <span class="fu">aes</span>(<span class="at">sample =</span> simon_effect)) <span class="sc">+</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">stat_qq_band</span>(<span class="at">fill =</span> <span class="st">"#FB8D61"</span>, <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>  <span class="fu">stat_qq_line</span>(<span class="at">colour =</span> <span class="st">"#FB8D61"</span>) <span class="sc">+</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">stat_qq_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="08-paired_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">ggplot</span>(simon_effect, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> simon_effect)) <span class="sc">+</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="fu">geom_violin</span>(<span class="at">fill =</span> <span class="st">"#FB8D61"</span>, <span class="at">alpha =</span> <span class="fl">0.4</span>) <span class="sc">+</span> <span class="co"># alpha for opacity, fill for adding colour</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"#FB8D61"</span>, <span class="at">width =</span> <span class="fl">0.5</span>) <span class="sc">+</span> <span class="co"># change width of the boxes</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb8-6"><a href="#cb8-6"></a>       <span class="at">y =</span> <span class="st">"Difference in mean Response Time scores"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="08-paired_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">shapiro.test</span>(simon_effect<span class="sc">$</span>simon_effect)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
 <pre><code>
-Attaching package: 'rstatix'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:stats':
+    Shapiro-Wilk normality test
 
-    filter</code></pre>
+data:  simon_effect$simon_effect
+W = 0.98588, p-value = 0.1047</code></pre>
 </div>
 </div>
-<p>The <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> function we used for the one-sample t-test can be used here, however, it has been a bit buggy recently not taking in certain arguments (more so for the paired sample t-test we talk about in the next chapter). Therefore, we are switching over to the <code>t_test()</code> function from the <code>rstatix</code> package.</p>
-<p>The output is organised slightly different to what we’ve seen in the <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> function, and whilst it looks neater, it does provide less information at first glimpse.</p>
-<p>The <strong>Welch t-test is the default option</strong> because the <code>var.equal</code>argument is set to <code>FALSE</code>. You won’t be able to see it in the table output unless you know what you are looking for. Hence we would suggest adding all the default arguments into the function to be able to trace what you are doing.</p>
+</div>
+</div>
+</div>
+<p>Both plots would suggest there are slight deviations from normality in the tails, but Shapiro-Wilk does not pick those up. Hence we conclude, the difference scores are approximately normally distributed.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p><strong>If any of the assumptions are violated, use the non-parametric equivalent to the paired t-test, see <a href="#sec-alternative_paired"><span>Section&nbsp;8.10</span></a>.</strong></p>
+</section></section><section id="activity-7-compute-a-paired-t-test-and-effect-size" class="level2" data-number="8.7"><h2 data-number="8.7" class="anchored" data-anchor-id="activity-7-compute-a-paired-t-test-and-effect-size">
+<span class="header-section-number">8.7</span> Activity 7: Compute a paired t-test and effect size</h2>
+<p>We can use the <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> function again to compute the paired t-test. However, we are stuck with the BaseR pattern <code>data$column</code> once more.</p>
+<p>In case you haven’t picked it up by now, I am not much a fan of <code>data$column</code> (i.e., wide format) and prefer the <code>DV ~ IV</code> (i.e., long format) pattern. And there was a time when the <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> function allowed to add an extra argument <code>paired = TRUE</code> to the formula version but that is no longer the case. Now, the argument <em>only</em> works on the default method, specifying arguments x and y separately. And because the default version doesn’t allow us to add a <code>data =</code> argument, we have to revert to <code>data$column</code>.</p>
+<p>Long story short, here are the arguments you need from the data object in wide format (in this case <code>simon_effect</code>:</p>
 <ul>
-<li>The first argument is the data</li>
-<li>The second argument in the formula with the pattern <code>DV ~ IV</code>
-</li>
-<li>Next we want to specify <code>paired = FALSE</code> as we don’t want a paired t-test (<code>paired = FALSE</code> is the default)</li>
-<li>Then, we want to specify <code>var.equal = FALSE</code> for a Welch t-test (<code>var.equal = FALSE</code> is the default)</li>
-<li>The alternative is “two.sided” by default</li>
-<li>You can set the argument <code>detailed</code> to <code>TRUE</code> to get some more information (default is <code>detailed = FALSE</code>).</li>
+<li>
+<code>data$column</code> for condition 1</li>
+<li>
+<code>data$column</code> for condition 2</li>
+<li>the extra argument <code>paired = TRUE</code> to tell the function we are conducting a paired rather than a two-sample t-test</li>
 </ul>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">t_test</span>(<span class="at">data =</span> simon_effect, </span>
-<span id="cb6-2"><a href="#cb6-2"></a>       <span class="at">formula =</span> simon_effect <span class="sc">~</span> similarity, <span class="co"># DV ~ IV</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a>       <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="co"># for an independent t-test (default)</span></span>
-<span id="cb6-4"><a href="#cb6-4"></a>       <span class="at">var.equal =</span> <span class="cn">FALSE</span>, <span class="co"># for a Welch t-test (default)</span></span>
-<span id="cb6-5"><a href="#cb6-5"></a>       <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="co"># default - the alternative hypothesis is non-directional</span></span>
-<span id="cb6-6"><a href="#cb6-6"></a>       <span class="at">detailed =</span> <span class="cn">FALSE</span>) <span class="co"># set this to true for more detail (FALSE is default)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="fu">t.test</span>(simon_effect<span class="sc">$</span>congruent, simon_effect<span class="sc">$</span>incongruent, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Paired t-test
+
+data:  simon_effect$congruent and simon_effect$incongruent
+t = -20.161, df = 159, p-value &lt; 2.2e-16
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ -37.79808 -31.05334
+sample estimates:
+mean difference 
+      -34.42571 </code></pre>
 </div>
-<p>So, what can we see in the output:</p>
+</div>
+<p>The output tells us pretty much what we need to know:</p>
 <ul>
-<li>The output gives you the <code>.y.</code> which is the DV and <code>group1</code> and <code>group2</code> will list the 2 levels of the IV that the test compared (in our case “different” and “same”).</li>
-<li>It also lists <code>n1</code> and <code>n2</code>, which are the sample sizes for groups 1 and 2 respectively</li>
-<li>statistic is the t-value</li>
-<li>df is the degrees of freedom, and</li>
-<li>p is the p-value</li>
+<li>the test that was conducted (here a paired t-test)</li>
+<li>the conditions that were compared (here congruent and incongruent),</li>
+<li>the t value, degrees of freedom, and p,</li>
+<li>the alternative hypothesis,</li>
+<li>a 95% confidence interval,</li>
+<li>and the mean difference score between both conditions (which also matches with our descriptives above)</li>
 </ul>
-<p>If you set the <code>detailed</code> argument to <code>TRUE</code>, you get slightly more information. Let’s have a look</p>
+<p>The <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> function does not give us an <strong>effect size</strong>, so, again, we have to compute it ourselves. We can use the <code>CohensD()</code> function from the <code>lsr</code> package as we did for the one-sample and the two-sample t-test. We can use the formula approach here as well, and add the extra argument <code>method = "paired"</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">t_test</span>(<span class="at">data =</span> simon_effect, </span>
-<span id="cb7-2"><a href="#cb7-2"></a>       <span class="at">formula =</span> simon_effect <span class="sc">~</span> similarity, <span class="co"># DV ~ IV</span></span>
-<span id="cb7-3"><a href="#cb7-3"></a>       <span class="at">paired =</span> <span class="cn">FALSE</span>, <span class="co"># for an independent t-test (default)</span></span>
-<span id="cb7-4"><a href="#cb7-4"></a>       <span class="at">var.equal =</span> <span class="cn">FALSE</span>, <span class="co"># for a Welch t-test (default)</span></span>
-<span id="cb7-5"><a href="#cb7-5"></a>       <span class="at">alternative =</span> <span class="st">"two.sided"</span>, <span class="co"># default - the alternative hypothesis is tested in both directions</span></span>
-<span id="cb7-6"><a href="#cb7-6"></a>       <span class="at">detailed =</span> <span class="cn">TRUE</span>) <span class="co"># set this to true for more detail (FALSE is default)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a><span class="fu">cohensD</span>(simon_effect<span class="sc">$</span>congruent, simon_effect<span class="sc">$</span>incongruent, <span class="at">method =</span> <span class="st">"paired"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.593874</code></pre>
 </div>
-<p>
-</p>
-<p>Additional information that is useful:</p>
-<ul>
-<li>estimate which is the difference score between the groups (here 3.14 msec = 35.99-32.86)</li>
-<li>estimate1 which is the average value from group 1 (here 32.86 ms - and it matches with the value we calculated in the descriptives for the “different” group)</li>
-<li>estimate2 which is the average value from group 2 (here 35.99 ms - and it matches with the value we calculated in the descriptives for the “same” group)</li>
-<li>lower and higher confidence intervals might also be useful, and</li>
-<li>the alternative is listed as “two.sided”</li>
-</ul>
-<p>Now on to the information that is a bit of a let-down: <strong>The method is listed as T-test</strong>. This will always be the output whether use the formula for a one-sample t-test, independent t-test, or a paired t-test. Therefore it’s really not great. This is the reason why we tell you to put all the arguments in, even the default ones. If you don’t you may have a tough time identifying what you just did.</p>
+</div>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -468,30 +880,170 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You can see what test you conducted by looking at the df in the table.</p>
-<ul>
-<li>If the df is <span class="math inline">\(n1 + n2 - 2\)</span> it’s a Student t-test and equal variance are assumed (i.e., <code>var.equal = TRUE</code>).</li>
-<li>If the df is approximately <span class="math inline">\(n1 + n2 -2\)</span> but some weird number with decimal places, you know <code>var.equal</code> was set to <code>FALSE</code> and it is actually a Welch t-test.</li>
-<li>If the df is <span class="math inline">\(n1 - 1\)</span> or <span class="math inline">\(n2 - 1\)</span> it’s a paired t-test (even though it would be more useful to only have one n displayed in that case - but ah well)</li>
-</ul>
-</div>
-</div>
-<p>This <code>t_test()</code> function does not give us an <strong>effect size</strong> either, so we have to compute it once again. We can use the <code>CohensD()</code> function from the <code>lsr</code> package as we did for the one-sample t-test. We can use the formula approach here as well.</p>
+<p>The <code>cohensD()</code> function would take a long format formula approach, such as from <code>simon_effect_long</code>, but you would need to assure that the columns are ordered correctly, i.e., Participant 1: condition 1, condition 2; Participant 2: condition 1, condition 2; etc.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a><span class="fu">cohensD</span>(simon_effect <span class="sc">~</span> similarity, <span class="at">data =</span> simon_effect)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="fu">cohensD</span>(mean_RT <span class="sc">~</span> congruency, <span class="at">data =</span> simon_effect_long, <span class="at">method =</span> <span class="st">"paired"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in cohensD(mean_RT ~ congruency, data = simon_effect_long, method =
+"paired"): calculating paired samples Cohen's d using formula input. Results
+will be incorrect if cases do not appear in the same order for both levels of
+the grouping factor</code></pre>
 </div>
-</section><section id="activity-8-sensitivity-power-analysis" class="level2" data-number="8.9"><h2 data-number="8.9" class="anchored" data-anchor-id="activity-8-sensitivity-power-analysis">
-<span class="header-section-number">8.9</span> Activity 8: Sensitivity power analysis</h2>
-<p>power calculations</p>
-</section><section id="activity-9-the-write-up" class="level2" data-number="8.10"><h2 data-number="8.10" class="anchored" data-anchor-id="activity-9-the-write-up">
-<span class="header-section-number">8.10</span> Activity 9: The write-up</h2>
-</section><section id="sec-alternative_two_sample" class="level2" data-number="8.11"><h2 data-number="8.11" class="anchored" data-anchor-id="sec-alternative_two_sample">
-<span class="header-section-number">8.11</span> Activity 10: Non-parametric alternative</h2>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1.593874</code></pre>
+</div>
+</div>
+</div>
+</div>
+</section><section id="activity-8-sensitivity-power-analysis" class="level2" data-number="8.8"><h2 data-number="8.8" class="anchored" data-anchor-id="activity-8-sensitivity-power-analysis">
+<span class="header-section-number">8.8</span> Activity 8: Sensitivity power analysis</h2>
+<p>As we the other t-test, we are conducting a sensitivity power analysis to determine the minimum effect size we could have determined with the number of participants (n = 160), alpha of 0.05 and power of 0.8. This will tell us if our analysis was sufficiently powered or not.</p>
+<p>The function is once again <code>pwr.t.test()</code> from the <code>pwr</code> package. The arguments in the formula are the same as for the one-sample t-test; we just need to adjust the number of participants and set the type to “paired”.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">wilcox.test</span>(x <span class="sc">~</span> group, <span class="at">data =</span> xxx, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">pwr.t.test</span>(<span class="at">n =</span> <span class="dv">160</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">type =</span> <span class="st">"paired"</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+     Paired t test power calculation 
+
+              n = 160
+              d = 0.222858
+      sig.level = 0.05
+          power = 0.8
+    alternative = two.sided
+
+NOTE: n is number of *pairs*</code></pre>
 </div>
-<p>https://tuos-bio-data-skills.github.io/intro-stats-book/non-parametric-tests.html Wilcoxon signed-rank test: This test is equivalent to a one-sample and paired-sample t-test. This test can be used to:</p>
-<p>compare a sample to a single value, or test for differences between paired samples.</p>
+</div>
+<p>The minimum effect size we could reliably detect is 0.22. Our actual effect size was 1.59, so this analysis was sufficiently powered.</p>
+</section><section id="activity-9-the-write-up" class="level2" data-number="8.9"><h2 data-number="8.9" class="anchored" data-anchor-id="activity-9-the-write-up">
+<span class="header-section-number">8.9</span> Activity 9: The write-up</h2>
+<p>Using a , a medium significant effect was found (t(31) = 2.4, p = .023, d = .42) which supports the alternative hypothesis that preferential looking time is higher for the familiar melody compared to the baseline stage.</p>
+<p>We hypothesised that there would be a significant difference in the response times between congruent <span class="math inline">\((M = 427.65 msec, SD = 74.17 msec)\)</span> and incongruent trials <span class="math inline">\((M = 462.08 msec, SD = 74.70 msec)\)</span> of a Simon task. On average, participants were faster in the congruent compared to the incongruent condition <span class="math inline">\((M_{diff} = 34.43 msec, SD_{diff} = 21.60 msec)\)</span>. Using a within-subjects t-test, the effect was found to be significant and of a large magnitude, <span class="math inline">\(t(159) = 20.16, p &lt; .001, d = 1.59\)</span>. Therefore, we reject the null hypothesis in favour of H<sub>1</sub>.</p>
+</section><section id="sec-alternative_paired" class="level2" data-number="8.10"><h2 data-number="8.10" class="anchored" data-anchor-id="sec-alternative_paired">
+<span class="header-section-number">8.10</span> Activity 10: Non-parametric alternative</h2>
+<p>The <strong>Wilcoxon signed-rank test</strong> is the non-parametric equivalent to the paired t-test, comparing the difference between the median for two measurements.</p>
+<p>Before we compute the test, we need to determine some <strong>summary stats</strong> (e.g., the median) for the congruent and incongruent conditions. Similar to the One-sample Wilcoxon signed-rank test, we can use the <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code> function again because our data is in wide format.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">summary</span>(simon_effect)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> participant           gender               age         education        
+ Length:160         Length:160         Min.   :19.00   Length:160        
+ Class :character   Class :character   1st Qu.:30.75   Class :character  
+ Mode  :character   Mode  :character   Median :37.00   Mode  :character  
+                                       Mean   :39.86                     
+                                       3rd Qu.:49.00                     
+                                       Max.   :71.00                     
+  similarity          congruent      incongruent     simon_effect   
+ Length:160         Min.   :290.0   Min.   :324.9   Min.   :-18.57  
+ Class :character   1st Qu.:379.4   1st Qu.:413.9   1st Qu.: 21.62  
+ Mode  :character   Median :411.3   Median :449.7   Median : 34.77  
+                    Mean   :427.7   Mean   :462.1   Mean   : 34.43  
+                    3rd Qu.:458.7   3rd Qu.:496.3   3rd Qu.: 46.22  
+                    Max.   :741.5   Max.   :727.9   Max.   :103.84  </code></pre>
+</div>
+</div>
+<p>Now we can move on to the <strong>Wilcoxon signed-rank test</strong>. We will use the <code><a href="https://rdrr.io/r/stats/wilcox.test.html">wilcox.test()</a></code> function again, but add the argument <code>paired = TRUE</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">wilcox.test</span>(simon_effect<span class="sc">$</span>congruent, simon_effect<span class="sc">$</span>incongruent, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Wilcoxon signed rank test with continuity correction
+
+data:  simon_effect$congruent and simon_effect$incongruent
+V = 144, p-value &lt; 2.2e-16
+alternative hypothesis: true location shift is not equal to 0</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We could have also run a <strong>One-sample Wilcoxon signed-rank test</strong> on the difference score, but instead of comparing that to a population median, we would compare it to 0.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">wilcox.test</span>(simon_effect<span class="sc">$</span>simon_effect, <span class="at">mu =</span> <span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Wilcoxon signed rank test with continuity correction
+
+data:  simon_effect$simon_effect
+V = 12736, p-value &lt; 2.2e-16
+alternative hypothesis: true location is not equal to 0</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+The order of the arguments matters
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The p-value is the same but the V values seem to differ. Yes and no. The order in which you input variables into the function will affect the value of V - has to do with how the ranks are getting assigned. In our column <code>simon_effect</code> we subtracted congruent RT from incongruent RT. To have the exact equivalent, we would have had to switch the columns in the <code><a href="https://rdrr.io/r/stats/wilcox.test.html">wilcox.test()</a></code> function. And as you can see, the V values match.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">wilcox.test</span>(simon_effect<span class="sc">$</span>incongruent, simon_effect<span class="sc">$</span>congruent, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Wilcoxon signed rank test with continuity correction
+
+data:  simon_effect$incongruent and simon_effect$congruent
+V = 12736, p-value &lt; 2.2e-16
+alternative hypothesis: true location shift is not equal to 0</code></pre>
+</div>
+</div>
+</div>
+</div>
+<p>We should also compute the <strong>standardised test statistic Z</strong>. Again, we need to calculate Z manually, using the qnorm function on the halved p-value from our Wilcoxon test above.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="co"># storing the p-value</span></span>
+<span id="cb28-2"><a href="#cb28-2"></a>p_wilcoxon <span class="ot">&lt;-</span> <span class="fu">wilcox.test</span>(simon_effect<span class="sc">$</span>incongruent, simon_effect<span class="sc">$</span>congruent, <span class="at">paired =</span> <span class="cn">TRUE</span>)<span class="sc">$</span>p.value</span>
+<span id="cb28-3"><a href="#cb28-3"></a></span>
+<span id="cb28-4"><a href="#cb28-4"></a><span class="co"># calculate the z value from half the p-value</span></span>
+<span id="cb28-5"><a href="#cb28-5"></a>z <span class="ot">=</span> <span class="fu">qnorm</span>(p_wilcoxon<span class="sc">/</span><span class="dv">2</span>)</span>
+<span id="cb28-6"><a href="#cb28-6"></a>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -10.72532</code></pre>
+</div>
+</div>
+<p>To calculate an <strong>effect size</strong>, we would need to use the function <code>wilcox_effsize()</code> from the <code>rstatix</code> package. Unlike, the <code><a href="https://rdrr.io/r/stats/wilcox.test.html">wilcox.test()</a></code> and the <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> function, <code>wilcox_effsize()</code> expects data to be in long format to be able to use the <code>DV ~ IV</code> pattern. Fortunately, we still have that available in <code>simon_effect_long</code>. We also need to add the argument <code>paired = TRUE</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">wilcox_effsize</span>(<span class="at">data =</span> simon_effect_long, <span class="at">formula =</span> mean_RT <span class="sc">~</span> congruency, <span class="at">paired =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">.y.</th>
+<th style="text-align: left;">group1</th>
+<th style="text-align: left;">group2</th>
+<th style="text-align: right;">effsize</th>
+<th style="text-align: right;">n1</th>
+<th style="text-align: right;">n2</th>
+<th style="text-align: left;">magnitude</th>
+</tr></thead>
+<tbody><tr class="odd">
+<td style="text-align: left;">mean_RT</td>
+<td style="text-align: left;">congruent</td>
+<td style="text-align: left;">incongruent</td>
+<td style="text-align: right;">0.8479786</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: right;">160</td>
+<td style="text-align: left;">large</td>
+</tr></tbody>
+</table>
+</div>
+</div>
+</div>
+<p>Now we have all the numbers to <strong>write this up</strong>:</p>
+<p>A Wilcoxon signed-rank test was conducted to determine whether there was a significant difference in response times between congruent <span class="math inline">\((Mdn = 411.3 msec)\)</span> and incongruent trials <span class="math inline">\((Mdn = 449.7 msec)\)</span> in a Simon task. Median response times of Congruent trials were significantly faster <span class="math inline">\((Mdn = 34.77 msec)\)</span> than incongruent trials, <span class="math inline">\(Z = -10.73, p &lt; .001, r = .848\)</span>. The difference can be classified as large according to Cohen (1992). Therefore, we reject the null hypothesis in favour of H<sub>1</sub>.</p>
 </section><section id="pair-coding" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="pair-coding"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding</span></h2>
 </section><section id="test-your-knowledge" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="test-your-knowledge"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge</span></h2>
 

@@ -177,7 +177,7 @@ You need to stick to the first 3 layers to get your base plot. Everything else i
 ## Activity 1: Set-up and data for today
 
 -   We are still working with the data by Pownall et al. (2023), so **open your project**.
--   However, we could do with a fresh Rmd: **Create a new `.Rmd` file*** and save it to your project folder. Name it something meaningful (e.g., "chapter_04", "04_data_viz.Rmd"). See @sec-rmd if you need some guidance. Delete everything below line 12 (keep the set-up code chunk)
+-   However, we could do with a fresh Rmd: **Create a new `.Rmd` file*** and save it to your project folder. Name it something meaningful (e.g., "chapter_04.Rmd", "04_data_viz.Rmd"). See @sec-rmd if you need some guidance. Delete everything below line 12 (keep the set-up code chunk)
 -   We aggregated the data in @sec-wrangling and @sec-wrangling2. If you want a fresh copy, download the data here: [data_prp_for_ch4.csv](data/data_prp_for_ch4.csv "download"). Make sure to place the csv file in the project folder.
 -   If you need a reminder about the data and variables, have a look at the codebook and/or @sec-download_data_ch1.
 

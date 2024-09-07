@@ -27,7 +27,7 @@ Before we start, we need to set up some things.
 
 * We will be working on the **dataset by Pownall et al. (2023)** again, which means we can still use the project we created last week. The data files will already be there, so no need to download them again.
 * To **open the project** in RStudio, go to the folder in which you stored the project and the data last time, and double click on the project icon.
-* **Create a new `.Rmd`** for chapter 2 and save it to your project folder. Name it something meaningful (e.g., “chapter_02”, “02_data_wrangling.Rmd”). See @sec-rmd if you need some guidance.
+* **Create a new `.Rmd` file** for chapter 2 and save it to your project folder. Name it something meaningful (e.g., “chapter_02.Rmd”, “02_data_wrangling.Rmd”). See @sec-rmd if you need some guidance.
 * In your newly created `.Rmd` file, delete everything below line 12 (after the set-up code chunk).
 
 
