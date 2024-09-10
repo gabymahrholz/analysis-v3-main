@@ -304,6 +304,7 @@ How many rows/observations and columns/variables do we have in `qrp_step1`?
 * columns/variables: `r fitb("12")`
 
 
+
 ## `pivot_longer()`
 
 As you can see, the table we got from Step 1 is in wide format. To get it into wide format, we need to define:
@@ -338,7 +339,19 @@ The `function_to_calculate_something` can be `mean()`, `sd()` or `sum()` for mea
 :::
 
 
+::: {.callout-tip} 
 
+You could **rename the columns whilst selecting** them. The pattern would be `select(new_name = old_name)`. For example, if we wanted to select variable `Code` and rename it as `Participant_ID`, we could do that.
+
+```{r}
+renaming_col <- data_prp %>% 
+  select(Participant_ID = Code)
+
+head(renaming_col, n = 5)
+```
+
+
+:::
 
 
 ## Activity 5: Knitting
@@ -398,5 +411,181 @@ Check that your csv files have appeared in your project folder, and you're all s
 
 ## [Pair-coding]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
 
+```{r reading in data for me, echo=FALSE, message=FALSE}
+library(tidyverse)
+
+dog_data_raw <- read_csv("data/dog_data_raw.csv")
+```
+
+We will be working with the data from Binfet et al. (2021) again - the randomised controlled trial data about therapy dog intervention. Today we want to **calculate an average `Flourishing` score for each participant** measured at time point 1 (pre-intervention) from the raw data file `dog_data_raw`. Currently, it looks like this:
+
+```{r echo=FALSE}
+flourishing_brief <- dog_data_raw %>% 
+  select(RID, F1_1:F1_8)
+
+head(flourishing_brief, n = 5)
+```
+
+
+But we want to have the data looking like this:
+
+```{r echo=FALSE}
+flourishing_tidy <- dog_data_raw %>% 
+  select(RID, starts_with("F1")) %>% 
+  pivot_longer(cols = -RID, names_to = "Names", values_to = "Response") %>% 
+  group_by(RID) %>% 
+  summarise(Flourishing_pre = mean(Response)) %>% 
+  ungroup()
+
+head(flourishing_tidy, n = 5)
+```
+
+
+### Task 1: Open the R project you created last week {.unnumbered}
+
+If you haven't created an R project for the lab yet, please do it now. If you have already one in place, open it.
+
+### Task 2: Open your `.Rmd` file from last week {.unnumbered}
+
+Since we haven't used it much, feel free to use the `.Rmd` file you created last week in Task 2. 
+
+### Task 3: Load in the library and read in the data {.unnumbered}
+
+The data should be in your project folder. If you did not download it last week, or you want a fresh copy, you can download the data again here: [data_pair_ch1](data/data_pair_ch1.zip "download").
+
+We are using the package `tidyverse` today, and the datafile we should read in is `dog_data_raw.csv`.
+
+
+::: {.callout-note collapse="true" icon="false"}
+
+## Hint
+
+```{r eval=FALSE}
+# loading tidyverse into the library
+library(???)
+
+# reading in `dog_data_raw.csv`
+dog_data_raw <- read_csv("???")
+```
+
+
+:::
+
+
+### Task 4: Calculating the mean for `Fourishing_pre` {.unnumbered}
+
+* **Step 1**: select all relevant columns, such as participant ID and all the 8 items of the `Flourishing` questionnaire that participants completed before the intervention. Store them in an object called `data_flourishing`
+
+::: {.callout-note collapse="true" icon="false"}
+
+## Hint
+
+Look at the codebook. Try to figure out 
+
+* the variable name of the column in which the participant id is stored, and 
+* which items relate to the Flourishing scale at Stage `pre` 
+
+::: {.callout-note collapse="true" icon="false"}
+
+## More concrete hint
+
+* the participant id column is called `RID` 
+* The Flourishing items at pre-intervention stage start with `F1_`
+
+:::
+
+:::
+
+
+* **Step 2**: pivot the data from wide format to long format so we can calculate the average score more easily (in step 3)
+
+::: {.callout-note collapse="true" icon="false"}
+
+## Hint
+
+Which pivot function do we need? We have `pivot_wider()` and `pivot_longer()` to choose from.
+
+We also need 3 arguments in that function: 
+
+* the columns we want to select (e.g., all the flourishing items), 
+* the name of the column in which the current column headings will be stored (e.g., "Questionnaire"), and 
+* the name of the column that should store all the values (e.g., "Responses").
+
+
+::: {.callout-note collapse="true" icon="false"}
+
+## More concrete hint
+
+```{r eval=FALSE}
+  pivot_longer(cols = ???, names_to = "???", values_to = "???")
+```
+
+
+:::
+
+:::
+
+
+* **Step 3**: calculate the average Flourishing score per participant. To match with the table above, we want to call this column `Flourishing_pre`
+
+::: {.callout-note collapse="true" icon="false"}
+
+## Hint
+
+Before we can summarise the mean, perhaps we need to group the data?
+
+::: {.callout-note collapse="true" icon="false"}
+
+## More concrete hint
+
+```{r eval=FALSE}
+  group_by(???) %>% 
+  summarise(Flourishing_pre = ???(???)) %>% 
+  ungroup()
+```
+
+:::
+
+:::
+
+::: {.callout-caution collapse="true" icon="false"}
+
+## Solution
+
+```{r eval=FALSE}
+# loading tidyverse into the library
+library(tidyverse)
+
+# reading in `dog_data_raw.csv`
+dog_data_raw <- read_csv("dog_data_raw.csv")
+
+# Task 4: Tidying 
+data_flourishing <- dog_data_raw %>% 
+  # Step 1
+  select(RID, F1_1:F1_8) %>% 
+  # Step 2
+  pivot_longer(cols = -RID, names_to = "Questionnaire", values_to = "Responses") %>% 
+  # Step 3
+  group_by(RID) %>% 
+  summarise(Flourishing_pre = mean(Response)) %>% 
+  ungroup()
+```
+
+:::
+
+
+
+
 ## [Test your knowledge and challenge yourself]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
 
+
+include a few mcq items here
+
+
+If you want to **challenge yourself** and apply the skills from chapter 2 further, you could wrangle the data from `dog_data_raw` for some of the other questionnaires _pre and/or _post intervention:
+
+* the mean score for `flourishing_post` for each participant
+* the mean scores for the PANAS - Positive and/or negative affect item per participant 
+* the mean score for the happiness (SHS) item responses per participant
+
+The 3 steps are equivalent for those questionnaires - select, pivot, group_by and summarise; you just have to "replace" the questionnaire items involved.

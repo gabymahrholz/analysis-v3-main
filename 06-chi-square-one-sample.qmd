@@ -66,9 +66,6 @@ As you can see, the study is a pre-print published on PsyArXiv Preprints. The da
 
 
 
-
-
-
 **Changes made to the dataset**
 
 * We selected demographic variables, such as age, gender, ethnicity, employment, education level, and the Warwick-Edinburgh Mental Wellbeing Scale from the rich dataset.
@@ -201,7 +198,6 @@ We need to calculate counts for each combination of the variables. This is best 
 chi_square_frequency <- chi_square %>% 
   count(gender, eduLevel) %>% 
   pivot_wider(names_from = eduLevel, values_from = n)
-
 
 chi_square_frequency
 ```
