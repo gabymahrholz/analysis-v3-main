@@ -1489,7 +1489,7 @@ Solution
 </div>
 </div>
 </section></section><section id="test-your-knowledge-and-challenge-yourself" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="test-your-knowledge-and-challenge-yourself"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge and challenge yourself</span></h2>
-<p>include a few mcq items here</p>
+<p><strong>include a few mcq items here</strong></p>
 <p>If you want to <strong>challenge yourself</strong> and apply the skills from chapter 2 further, you could wrangle the data from <code>dog_data_raw</code> for some of the other questionnaires _pre and/or _post intervention:</p>
 <ul>
 <li>the mean score for <code>flourishing_post</code> for each participant</li>
@@ -1497,6 +1497,104 @@ Solution
 <li>the mean score for the happiness (SHS) item responses per participant</li>
 </ul>
 <p>The 3 steps are equivalent for those questionnaires - select, pivot, group_by and summarise; you just have to “replace” the questionnaire items involved.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution for <strong>Challenge yourself</strong>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Flourishing post-intervention</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="do">## flourishing_post</span></span>
+<span id="cb25-2"><a href="#cb25-2"></a>flourishing_post <span class="ot">&lt;-</span> dog_data_raw <span class="sc">%&gt;%</span> </span>
+<span id="cb25-3"><a href="#cb25-3"></a>  <span class="co"># Step 1</span></span>
+<span id="cb25-4"><a href="#cb25-4"></a>  <span class="fu">select</span>(RID, <span class="fu">starts_with</span>(<span class="st">"F2"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-5"><a href="#cb25-5"></a>  <span class="co"># Step 2</span></span>
+<span id="cb25-6"><a href="#cb25-6"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>RID, <span class="at">names_to =</span> <span class="st">"Names"</span>, <span class="at">values_to =</span> <span class="st">"Response"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-7"><a href="#cb25-7"></a>  <span class="co"># Step 3</span></span>
+<span id="cb25-8"><a href="#cb25-8"></a>  <span class="fu">group_by</span>(RID) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-9"><a href="#cb25-9"></a>  <span class="fu">summarise</span>(<span class="at">Flourishing_post =</span> <span class="fu">mean</span>(Response)) <span class="sc">%&gt;%</span> </span>
+<span id="cb25-10"><a href="#cb25-10"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The PANAS could be solved more concisely with the skills we learn in <a href="03-wrangling2.html"><span>Chapter&nbsp;3</span></a>, but for now, you would have solved it this way:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="co"># PANAS - positive affect pre</span></span>
+<span id="cb26-2"><a href="#cb26-2"></a>PANAS_PA_pre <span class="ot">&lt;-</span> dog_data_raw <span class="sc">%&gt;%</span> </span>
+<span id="cb26-3"><a href="#cb26-3"></a>  <span class="co"># Step 1</span></span>
+<span id="cb26-4"><a href="#cb26-4"></a>  <span class="fu">select</span>(RID, PN1_3, PN1_5, PN1_7, PN1_8, PN1_10) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-5"><a href="#cb26-5"></a>  <span class="co"># Step 2</span></span>
+<span id="cb26-6"><a href="#cb26-6"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>RID, <span class="at">names_to =</span> <span class="st">"Items"</span>, <span class="at">values_to =</span> <span class="st">"Scores"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-7"><a href="#cb26-7"></a>  <span class="co"># Step 3</span></span>
+<span id="cb26-8"><a href="#cb26-8"></a>  <span class="fu">group_by</span>(RID) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-9"><a href="#cb26-9"></a>  <span class="fu">summarise</span>(<span class="at">PANAS_PA_pre =</span> <span class="fu">mean</span>(Scores)) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-10"><a href="#cb26-10"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb26-11"><a href="#cb26-11"></a></span>
+<span id="cb26-12"><a href="#cb26-12"></a><span class="co"># PANAS - positive affect post</span></span>
+<span id="cb26-13"><a href="#cb26-13"></a>PANAS_PA_post <span class="ot">&lt;-</span> dog_data_raw <span class="sc">%&gt;%</span> </span>
+<span id="cb26-14"><a href="#cb26-14"></a>  <span class="co"># Step 1</span></span>
+<span id="cb26-15"><a href="#cb26-15"></a>  <span class="fu">select</span>(RID, PN2_3, PN2_5, PN2_7, PN2_8, PN2_10) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-16"><a href="#cb26-16"></a>  <span class="co"># Step 2</span></span>
+<span id="cb26-17"><a href="#cb26-17"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>RID, <span class="at">names_to =</span> <span class="st">"Items"</span>, <span class="at">values_to =</span> <span class="st">"Scores"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-18"><a href="#cb26-18"></a>  <span class="co"># Step 3</span></span>
+<span id="cb26-19"><a href="#cb26-19"></a>  <span class="fu">group_by</span>(RID) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-20"><a href="#cb26-20"></a>  <span class="fu">summarise</span>(<span class="at">PANAS_PA_post =</span> <span class="fu">mean</span>(Scores)) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-21"><a href="#cb26-21"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb26-22"><a href="#cb26-22"></a></span>
+<span id="cb26-23"><a href="#cb26-23"></a><span class="co"># PANAS - negative affect pre</span></span>
+<span id="cb26-24"><a href="#cb26-24"></a>PANAS_NA_pre <span class="ot">&lt;-</span> dog_data_raw <span class="sc">%&gt;%</span> </span>
+<span id="cb26-25"><a href="#cb26-25"></a>  <span class="co"># Step 1</span></span>
+<span id="cb26-26"><a href="#cb26-26"></a>  <span class="fu">select</span>(RID, PN1_1, PN1_2, PN1_4, PN1_6, PN1_9) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-27"><a href="#cb26-27"></a>  <span class="co"># Step 2</span></span>
+<span id="cb26-28"><a href="#cb26-28"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>RID, <span class="at">names_to =</span> <span class="st">"Items"</span>, <span class="at">values_to =</span> <span class="st">"Scores"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-29"><a href="#cb26-29"></a>  <span class="co"># Step 3</span></span>
+<span id="cb26-30"><a href="#cb26-30"></a>  <span class="fu">group_by</span>(RID) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-31"><a href="#cb26-31"></a>  <span class="fu">summarise</span>(<span class="at">PANAS_NA_pre =</span> <span class="fu">mean</span>(Scores)) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-32"><a href="#cb26-32"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb26-33"><a href="#cb26-33"></a></span>
+<span id="cb26-34"><a href="#cb26-34"></a><span class="co"># PANAS - negative affect post</span></span>
+<span id="cb26-35"><a href="#cb26-35"></a>PANAS_NA_post <span class="ot">&lt;-</span> dog_data_raw <span class="sc">%&gt;%</span> </span>
+<span id="cb26-36"><a href="#cb26-36"></a>  <span class="co"># Step 1</span></span>
+<span id="cb26-37"><a href="#cb26-37"></a>  <span class="fu">select</span>(RID, PN2_1, PN2_2, PN2_4, PN2_6, PN2_9) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-38"><a href="#cb26-38"></a>  <span class="co"># Step 2</span></span>
+<span id="cb26-39"><a href="#cb26-39"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>RID, <span class="at">names_to =</span> <span class="st">"Items"</span>, <span class="at">values_to =</span> <span class="st">"Scores"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-40"><a href="#cb26-40"></a>  <span class="co"># Step 3</span></span>
+<span id="cb26-41"><a href="#cb26-41"></a>  <span class="fu">group_by</span>(RID) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-42"><a href="#cb26-42"></a>  <span class="fu">summarise</span>(<span class="at">PANAS_NA_post =</span> <span class="fu">mean</span>(Scores)) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-43"><a href="#cb26-43"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Happiness scale</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a><span class="co"># happiness_pre</span></span>
+<span id="cb27-2"><a href="#cb27-2"></a>happiness_pre <span class="ot">&lt;-</span> dog_data_raw <span class="sc">%&gt;%</span> </span>
+<span id="cb27-3"><a href="#cb27-3"></a>  <span class="co"># Step 1</span></span>
+<span id="cb27-4"><a href="#cb27-4"></a>  <span class="fu">select</span>(RID, HA1_1, HA1_2, HA1_3) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-5"><a href="#cb27-5"></a>  <span class="co"># Step 2</span></span>
+<span id="cb27-6"><a href="#cb27-6"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>RID, <span class="at">names_to =</span> <span class="st">"Item"</span>, <span class="at">values_to =</span> <span class="st">"Score"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-7"><a href="#cb27-7"></a>  <span class="co"># Step 3</span></span>
+<span id="cb27-8"><a href="#cb27-8"></a>  <span class="fu">group_by</span>(RID) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-9"><a href="#cb27-9"></a>  <span class="fu">summarise</span>(<span class="at">SHS_pre =</span> <span class="fu">mean</span>(Score)) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-10"><a href="#cb27-10"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb27-11"><a href="#cb27-11"></a></span>
+<span id="cb27-12"><a href="#cb27-12"></a><span class="co">#happiness_post</span></span>
+<span id="cb27-13"><a href="#cb27-13"></a>happiness_post <span class="ot">&lt;-</span> dog_data_raw <span class="sc">%&gt;%</span> </span>
+<span id="cb27-14"><a href="#cb27-14"></a>  <span class="co"># Step 1</span></span>
+<span id="cb27-15"><a href="#cb27-15"></a>  <span class="fu">select</span>(RID, HA2_1, HA2_2, HA2_3) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-16"><a href="#cb27-16"></a>  <span class="co"># Step 2</span></span>
+<span id="cb27-17"><a href="#cb27-17"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>RID, <span class="at">names_to =</span> <span class="st">"Item"</span>, <span class="at">values_to =</span> <span class="st">"Score"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-18"><a href="#cb27-18"></a>  <span class="co"># Step 3</span></span>
+<span id="cb27-19"><a href="#cb27-19"></a>  <span class="fu">group_by</span>(RID) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-20"><a href="#cb27-20"></a>  <span class="fu">summarise</span>(<span class="at">SHS_post =</span> <span class="fu">mean</span>(Score)) <span class="sc">%&gt;%</span> </span>
+<span id="cb27-21"><a href="#cb27-21"></a>  <span class="fu">ungroup</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
 
 
 </section></main><!-- /main --><script>

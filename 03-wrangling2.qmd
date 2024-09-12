@@ -648,5 +648,504 @@ write_csv(data_prp_final, "data_prp_for_ch4.csv")
 
 ## [Pair-coding]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
 
+
+```{r reading in data for me, echo=FALSE, message=FALSE}
+library(tidyverse)
+
+dog_data_raw <- read_csv("data/dog_data_raw.csv")
+```
+
+We will be working with the data from Binfet et al. (2021) again - the randomised controlled trial data about therapy dog intervention. Today we want to **calculate an average `Loneliness` score for each participant** measured at time point 1 (pre-intervention) from the raw data file `dog_data_raw`. Currently, it looks like this:
+
+```{r echo=FALSE}
+loneliness_brief <- dog_data_raw %>% 
+  select(RID, starts_with("L1"))
+
+head(loneliness_brief, n = 5)
+```
+
+
+But we want to have the data looking like this:
+
+```{r echo=FALSE}
+loneliness_tidy <- dog_data_raw %>% 
+  select(RID, starts_with("L1")) %>% 
+  pivot_longer(cols = -RID, names_to = "Names", values_to = "Response") %>% 
+  mutate(Score_corrected = case_when(
+    Names %in% c("L1_1", "L1_5", "L1_6", "L1_9", "L1_10", "L1_15", "L1_16", "L1_19", "L1_20") ~ 5-Response,
+    .default = Response
+    )) %>% 
+  group_by(RID) %>% 
+  summarise(Loneliness_pre = mean(Score_corrected, na.rm = TRUE)) %>% 
+  ungroup()
+
+head(loneliness_tidy, n = 5)
+```
+
+This task is a bit more challenging compared to last week's lab activity since the loneliness scale contains some reverse-coded items.
+
+### Task 1: Open the R project for the lab {.unnumbered}
+
+### Task 2: Open your `.Rmd` file from last week or create a new `.Rmd` file {.unnumbered}
+
+You could continue the `.Rmd` file you used last week, or create a new `.Rmd`. If you need some guidance, have a look at @sec-rmd.
+
+### Task 3: Load in the library and read in the data {.unnumbered}
+
+The data should already be in your project folder. If you want a fresh copy, you can download the data again here: [data_pair_ch1](data/data_pair_ch1.zip "download").
+
+We are using the package `tidyverse` today, and the datafile we should read in is `dog_data_raw.csv`.
+
+
+::: {.callout-note collapse="true" icon="false"}
+
+## Hint
+
+```{r eval=FALSE}
+# loading tidyverse into the library
+library(???)
+
+# reading in `dog_data_raw.csv`
+dog_data_raw <- read_csv("???")
+```
+
+
+:::
+
+### Task 4: Calculating the mean for `Loneliness_pre` {.unnumbered}
+
+
+* **Step 1**: select all relevant columns, such as participant ID and all the 20 items of the `Loneliness` questionnaire that participants completed before the intervention. Store them in an object called `data_loneliness`
+
+::: {.callout-note collapse="true" icon="false"}
+
+## Hint
+
+Look at the codebook. Try to figure out 
+
+* the variable name of the column in which the participant id is stored, and 
+* which items relate to the Loneliness scale at Stage "pre"
+
+::: {.callout-note collapse="true" icon="false"}
+
+## More concrete hint
+
+* the participant id column is called `RID` 
+* The Loneliness items at pre-intervention stage start with `L1_`
+
+:::
+
+:::
+
+
+* **Step 2**: pivot the data from wide format to long format so we can reverse-score and calculate the average score more easily (in step 3)
+
+::: {.callout-note collapse="true" icon="false"}
+
+## Hint
+
+`pivot_`
+
+We also need 3 arguments in that function: 
+
+* the columns we want to select (e.g., all the loneliness items), 
+* the name of the column in which the current column headings will be stored (e.g., "Qs"), and 
+* the name of the column that should store all the values (e.g., "Responses").
+
+
+::: {.callout-note collapse="true" icon="false"}
+
+## More concrete hint
+
+```{r eval=FALSE}
+  pivot_longer(cols = ???, names_to = "???", values_to = "???")
+```
+
+
+:::
+
+:::
+
+
+* **Step 3**: Reverse-scoring 
+
+Identify the reverse-coded items of the loneliness scale and reverse-score them.
+
+::: {.callout-note collapse="true" icon="false"}
+
+## Hint
+
+We need to figure out:
+
+* which are the items of the loneliness scale we need to reverse-score
+* what is the measuring scale of loneliness so we can determine the new values
+* which function to use to create a new column that has the corrected scores in it
+* which one of the `case_` functions will get us there
+
+
+::: {.callout-note collapse="true" icon="false"}
+
+## More concrete hint
+
+* The items to be reverse-coded items can be found in the codebook: L1_1, L1_5, L1_6, L1_9, L1_10, L1_15, L1_16, L1_19, L1_20
+* the loneliness scale ranges from 1 to 4, so we need to replace 1 with 4, 2 with 3, 3 with 2, and 4 with 1
+* the function to create a new column `mutate()`
+* it's a conditional statement rather than "just" replacing values, hence we need `case_when()`
+
+```{r eval=FALSE}
+  mutate(Score_corrected = case_when(
+    ??? ~ ???,
+    .default = ???
+    ))
+```
+
+
+:::
+
+:::
+
+
+
+* **Step 4**: calculate the average Loneliness score per participant. To match with the table above, we want to call this column `Loneliness_pre`
+
+::: {.callout-note collapse="true" icon="false"}
+
+## Hint
+
+grouping and summarising
+
+::: {.callout-note collapse="true" icon="false"}
+
+## More concrete hint
+
+```{r eval=FALSE}
+  group_by(???) %>% 
+  summarise(Loneliness_pre = ???(???)) %>% 
+  ungroup()
+```
+
+:::
+
+:::
+
+
+::: {.callout-caution collapse="true" icon="false"}
+
+## Solution
+
+```{r eval=FALSE}
+# loading tidyverse into the library
+library(tidyverse)
+
+# reading in `dog_data_raw.csv`
+dog_data_raw <- read_csv("dog_data_raw.csv")
+
+# Task 4: Tidying 
+loneliness_tidy <- dog_data_raw %>% 
+  # Step 1
+  select(RID, starts_with("L1")) %>% # select(RID, L1_1:L1_20) also works
+  # Step 2
+  pivot_longer(cols = -RID, names_to = "Qs", values_to = "Response") %>% 
+  # Step 3
+  mutate(Score_corrected = case_when(
+    Qs %in% c("L1_1", "L1_5", "L1_6", "L1_9", "L1_10", "L1_15", "L1_16", "L1_19", "L1_20") ~ 5-Response,
+    .default = Response
+    )) %>% 
+  # Step 4
+  group_by(RID) %>% 
+  summarise(Loneliness_pre = mean(Score_corrected, na.rm = TRUE)) %>% 
+  ungroup()
+```
+
+:::
+
+
+
+
 ## [Test your knowledge and challenge yourself]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
 
+**include a few mcq items here**
+
+
+If you want to **challenge yourself** and apply the skills from chapter 3 further, you could wrangle the data from `dog_data_raw` for one of the other questionnaires. There are plenty of options to choose from:
+
+::: {.callout-tip collapse="true" icon="false"}
+
+## Difficulty level: easy
+
+* recode column Live_Pets so the values read yes and no rather than 1 and 2
+* recode Year of Study so they have the labels from the codebook rather than the numbers
+* reverse-code the Homesickness scale for _pre and _post 
+* renaming the columns of the other one-item scales as `Stress_pre`, `Stress_post`, `Engagement_pre` and `Engagement_post`
+
+Any of these tasks should be doable in one step. No need to select or pivot anything. You could just modify `dog_data_raw`.
+
+::: {.callout-note collapse="true" icon="false"}
+
+## Hints
+
+* For the **recoding tasks**, you need to work out which function to use to recode one value as another - just plain replacing, no conditional statements
+* The **reverse-coding** might sound daunting to do in one step, but it is only a single value that needs to be recoded. Take some inspiration from Activity 5 (error mode).
+* For the **renaming tasks**, check how you would change column names without reducing the number of columns overall 
+
+:::
+
+::: {.callout-caution collapse="true" icon="false"}
+
+## Solution for **Challenge yourself - easy**
+
+```{r eval=FALSE}
+## Live_Pets
+dog_data_raw <- dog_data_raw %>%
+  mutate(Live_Pets = case_match(Live_Pets,
+                                1 ~ "yes",
+                                2 ~ "no"))
+```
+
+```{r eval=FALSE}
+## Year of Study
+dog_data_raw <- dog_data_raw %>%
+  mutate(Year_of_Study = case_match(Year_of_Study,
+                                    1 ~ "First",
+                                    2 ~ "Second",
+                                    3 ~ "Third",
+                                    4 ~ "Fourth",
+                                    5 ~ "Fifth or above"))
+```
+
+```{r eval=FALSE}
+## Reverse-coding of homesickness pre and post. It's a 5-point scale, hence you'd calculate 6-the original response column
+dog_data_raw <- dog_data_raw %>% 
+  mutate(Homesick_pre = 6-HO1_1,
+         Homesick_post = 6-HO2_1)
+```
+
+```{r eval=FALSE}
+## Renaming of Stress and Engagement
+dog_data_raw <- dog_data_raw %>% 
+  rename(Stress_pre = S1_1, Stress_post = S2_1, Engagement_pre = HO1_2, Engagement_post = HO2_2)
+```
+
+:::
+
+:::
+
+
+::: {.callout-warning collapse="true" icon="false"}
+
+## Difficulty level: medium
+
+* reverse-code the Social connectedness scale (pre-intervention) and compute a mean score per participant
+
+::: {.callout-note collapse="true" icon="false"}
+
+## Hints
+
+This task would take 4 steps to complete. These are the exact same steps we applied to `Loneliness_pre` in the lab activity. You would just need to figure out which items are related to the Social connectedness scale (pre-intervention) and which ones of those are reverse-coded. The codebook has all the answers.
+
+:::
+
+::: {.callout-caution collapse="true" icon="false"}
+
+## Solution for **Challenge yourself - medium**
+
+
+```{r eval=FALSE}
+## SCS pre
+scs_pre <- dog_data_raw %>% 
+  select(RID, starts_with("SC1")) %>% 
+  pivot_longer(cols = -RID, names_to = "Names", values_to = "Response") %>% 
+  mutate(Score_corrected = case_when(
+    Names %in% c("SC1_3", "SC1_6", "SC1_7", "SC1_9", "SC1_11", "SC1_13", "SC1_15", "SC1_17", "SC1_18", "SC1_20") ~ 7-Response,
+    .default = Response
+    )) %>% 
+  group_by(RID) %>% 
+  summarise(SCS_pre = mean(Score_corrected, na.rm = TRUE)) %>% 
+  ungroup()
+
+```
+
+:::
+
+
+:::
+
+
+::: {.callout-caution collapse="true" icon="false"}
+
+## Difficulty level: hard
+
+* reverse-code the Loneliness scale (post-intervention) and compute a mean score per participant 
+* reverse-code the Social connectedness scale (post-intervention) and compute a mean score per participant 
+
+
+Both activities are similar to Activity 3 from the individual walkthrough and would take about 5 steps to complete. **Start by mapping out the steps**.
+
+::: {.callout-note collapse="true" icon="false"}
+
+## Hints
+
+* **Step 1**: select all relevant columns, such as participant ID and all the items that belong to the questionnaire that participants completed after the intervention
+* **Step 2**: pivot the data from wide format to long format so we can reverse-score and calculate the average score more easily
+* **Step 3**: recode the initial responses so that the new column has numbers instead of labels
+* **Step 4**: Reverse-score the items that are labelled as "Reverse" in the codebook and then reverse-score them
+* **Step 5**: group by and summarise to calculate the mean Score 
+
+
+
+:::
+
+::: {.callout-caution collapse="true" icon="false"}
+
+## Solution for **Challenge yourself - hard**
+
+
+```{r eval=FALSE}
+## loneliness post
+lonely_post <- dog_data_raw %>% 
+  # Step 1
+  select(RID, starts_with("L2")) %>% 
+  # Step 2
+  pivot_longer(cols = -RID, names_to = "Names", values_to = "Response") %>% 
+  # Step 3
+  mutate(Score = case_match(Response,
+                            "never" ~ 1,
+                            "rarely" ~ 2,
+                            "sometimes" ~ 3,
+                            "often" ~ 4,
+                            .default = NA
+  ),
+  # Step 4 - we are still in the same mutate function (count the brackets)
+        Score_corrected = case_when(
+          Names %in% c("L2_1", "L2_5", "L2_6", "L2_9", "L2_10", "L2_15", "L2_16", "L2_19", "L2_20") ~ 5-Score,
+          .default = Score
+  )) %>% 
+  # Step 5
+  group_by(RID) %>% 
+  summarise(Loneliness_post = mean(Score_corrected, na.rm = TRUE)) %>% 
+  ungroup()
+
+```
+
+
+```{r eval=FALSE}
+## SCS post
+scs_post <- dog_data_raw %>% 
+  # Step 1
+  select(RID, starts_with("SC2")) %>% 
+  # Step 2
+  pivot_longer(cols = -RID, names_to = "Names", values_to = "Response") %>% 
+  # Step 3
+  mutate(Response = case_match(Response,
+                               "strongly disagree" ~ "1",
+                               "strongly agree" ~ "6",
+                               .default = Response),
+         Response = parse_number(Response),
+  # Step 4 - we are still in the same mutate function (count the brackets)
+         Score_corrected = case_when(
+           Names %in% c("SC2_3", "SC2_6", "SC2_7", "SC2_9", "SC2_11", "SC2_13", "SC2_15", "SC2_17", "SC2_18", "SC2_20") ~ 7-Response,
+           .default = Response
+         )) %>% 
+  # Step 5
+  group_by(RID) %>% 
+  summarise(SCS_post = mean(Score_corrected, na.rm = TRUE)) %>% 
+  ungroup()
+```
+
+:::
+
+:::
+
+
+::: {.callout-important collapse="true" icon="false"}
+
+## Difficulty level: extra hard
+
+* PANAS: positive and negative affect of pre- and post-intervention in a single pipe rather than in 4 different data objects (see last week's)
+
+This task would take about 7 steps to get it from
+
+```{r echo=FALSE}
+PANAS <- dog_data_raw %>% 
+  select(RID, starts_with("PN"))
+
+head(PANAS, n = 5)
+```
+to 
+
+```{r echo=FALSE, message=FALSE}
+PANAS <- dog_data_raw %>% 
+  # Step 1
+  select(RID, starts_with("PN")) %>% 
+  # Step 2
+  pivot_longer(cols = -RID, names_to = "Items", values_to = "Scores") %>% 
+  # Step 3
+  separate(Items, into = c("Stage", "Item_number"), sep = "_", convert = TRUE) %>% 
+  # Step 4 recode Stage
+  mutate(Stage = case_match(Stage,
+                            "PN1" ~ "pre",
+                            "PN2" ~ "post")) %>% 
+  # Step 5 identify subscales by item number
+  mutate(Subscales = case_when(
+    Item_number %in% c(3, 5, 7, 8, 10) ~ "PANAS_PA",
+    .default = "PANAS_NA"
+  )) %>% 
+  # Step 6 
+  group_by(RID, Stage, Subscales) %>% 
+  summarise(Score = mean(Scores)) %>% 
+  ungroup() %>% 
+  # Step 7 - to make the data look like the data in `dog_data_clean_long.csv`
+  pivot_wider(names_from = Subscales, values_from = Score)
+
+head(PANAS, n = 5)
+```
+
+
+::: {.callout-note collapse="true" icon="false"}
+
+## Hints
+
+**Start by mapping out the steps**
+
+* **Step 1**: select all relevant columns, such as participant ID and all the items that belong to PANAs scale (pos, neg, pre, and post)
+* **Step 2**: pivot the data from wide format to long format. You want to do that for ALL columns that are not the participant id. The data object should have 3 columns and 5680 observations, i.e. each participant has 20 rows.
+* **Step 3**: All of the items will have the structure `PN1_1`. Use separate to split the information across 2 columns. First column has information about the `Stage`, second column should turn into an `Item_number` and it should convert into a numeric column in the process to save you typing quotation marks in Step 5.  
+* **Step 4**: recode the `Stage` column you just created so that everything that starts with PN1 relates to "pre" and PN2 as post.
+* **Step 5**: identify the subscales positive affect (PA) and negative affect (NA) by item number and recode them. This requires a conditional statement.
+* **Step 6**: group by and summarise to calculate the mean Score 
+* **Step 7**: pivot, so that you have the 2 PANAS subscales presented in separate columns (see table above). You might need an extra step if the columns aren't labelled exactly as shown in the table above. 
+
+
+:::
+
+::: {.callout-caution collapse="true" icon="false"}
+
+## Solution for **Challenge yourself - extra hard**
+
+```{r eval=FALSE}
+PANAS <- dog_data_raw %>% 
+  # Step 1
+  select(RID, starts_with("PN")) %>% 
+  # Step 2
+  pivot_longer(cols = -RID, names_to = "Items", values_to = "Scores") %>% 
+  # Step 3
+  separate(Items, into = c("Stage", "Item_number"), sep = "_", convert = TRUE) %>% 
+  # Step 4 recode Stage
+  mutate(Stage = case_match(Stage,
+                            "PN1" ~ "pre",
+                            "PN2" ~ "post")) %>% 
+  # Step 5 identify subscales by item number
+  mutate(Subscales = case_when(
+    Item_number %in% c(3, 5, 7, 8, 10) ~ "PANAS_PA",
+    .default = "PANAS_NA"
+  )) %>% 
+  # Step 6 
+  group_by(RID, Stage, Subscales) %>% 
+  summarise(Score = mean(Scores)) %>% 
+  ungroup() %>% 
+  # Step 7 - to make the data look like the data in `dog_data_clean_long.csv`
+  pivot_wider(names_from = Subscales, values_from = Score)
+```
+:::
+
+:::

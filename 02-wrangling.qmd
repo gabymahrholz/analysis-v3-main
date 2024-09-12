@@ -579,7 +579,7 @@ data_flourishing <- dog_data_raw %>%
 ## [Test your knowledge and challenge yourself]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
 
 
-include a few mcq items here
+**include a few mcq items here**
 
 
 If you want to **challenge yourself** and apply the skills from chapter 2 further, you could wrangle the data from `dog_data_raw` for some of the other questionnaires _pre and/or _post intervention:
@@ -589,3 +589,100 @@ If you want to **challenge yourself** and apply the skills from chapter 2 furthe
 * the mean score for the happiness (SHS) item responses per participant
 
 The 3 steps are equivalent for those questionnaires - select, pivot, group_by and summarise; you just have to "replace" the questionnaire items involved.
+
+::: {.callout-caution collapse="true" icon="false"}
+
+## Solution for **Challenge yourself**
+
+Flourishing post-intervention
+
+```{r eval=FALSE}
+## flourishing_post
+flourishing_post <- dog_data_raw %>% 
+  # Step 1
+  select(RID, starts_with("F2")) %>% 
+  # Step 2
+  pivot_longer(cols = -RID, names_to = "Names", values_to = "Response") %>% 
+  # Step 3
+  group_by(RID) %>% 
+  summarise(Flourishing_post = mean(Response)) %>% 
+  ungroup()
+```
+
+The PANAS could be solved more concisely with the skills we learn in @sec-wrangling2, but for now, you would have solved it this way:
+
+```{r eval=FALSE}
+# PANAS - positive affect pre
+PANAS_PA_pre <- dog_data_raw %>% 
+  # Step 1
+  select(RID, PN1_3, PN1_5, PN1_7, PN1_8, PN1_10) %>% 
+  # Step 2
+  pivot_longer(cols = -RID, names_to = "Items", values_to = "Scores") %>% 
+  # Step 3
+  group_by(RID) %>% 
+  summarise(PANAS_PA_pre = mean(Scores)) %>% 
+  ungroup()
+
+# PANAS - positive affect post
+PANAS_PA_post <- dog_data_raw %>% 
+  # Step 1
+  select(RID, PN2_3, PN2_5, PN2_7, PN2_8, PN2_10) %>% 
+  # Step 2
+  pivot_longer(cols = -RID, names_to = "Items", values_to = "Scores") %>% 
+  # Step 3
+  group_by(RID) %>% 
+  summarise(PANAS_PA_post = mean(Scores)) %>% 
+  ungroup()
+
+# PANAS - negative affect pre
+PANAS_NA_pre <- dog_data_raw %>% 
+  # Step 1
+  select(RID, PN1_1, PN1_2, PN1_4, PN1_6, PN1_9) %>% 
+  # Step 2
+  pivot_longer(cols = -RID, names_to = "Items", values_to = "Scores") %>% 
+  # Step 3
+  group_by(RID) %>% 
+  summarise(PANAS_NA_pre = mean(Scores)) %>% 
+  ungroup()
+
+# PANAS - negative affect post
+PANAS_NA_post <- dog_data_raw %>% 
+  # Step 1
+  select(RID, PN2_1, PN2_2, PN2_4, PN2_6, PN2_9) %>% 
+  # Step 2
+  pivot_longer(cols = -RID, names_to = "Items", values_to = "Scores") %>% 
+  # Step 3
+  group_by(RID) %>% 
+  summarise(PANAS_NA_post = mean(Scores)) %>% 
+  ungroup()
+
+```
+
+Happiness scale
+
+```{r eval=FALSE}
+# happiness_pre
+happiness_pre <- dog_data_raw %>% 
+  # Step 1
+  select(RID, HA1_1, HA1_2, HA1_3) %>% 
+  # Step 2
+  pivot_longer(cols = -RID, names_to = "Item", values_to = "Score") %>% 
+  # Step 3
+  group_by(RID) %>% 
+  summarise(SHS_pre = mean(Score)) %>% 
+  ungroup()
+
+#happiness_post
+happiness_post <- dog_data_raw %>% 
+  # Step 1
+  select(RID, HA2_1, HA2_2, HA2_3) %>% 
+  # Step 2
+  pivot_longer(cols = -RID, names_to = "Item", values_to = "Score") %>% 
+  # Step 3
+  group_by(RID) %>% 
+  summarise(SHS_post = mean(Score)) %>% 
+  ungroup()
+```
+
+
+:::
