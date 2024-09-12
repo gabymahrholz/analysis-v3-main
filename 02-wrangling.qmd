@@ -578,9 +578,11 @@ data_flourishing <- dog_data_raw %>%
 
 ## [Test your knowledge and challenge yourself]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
 
+### Knowledge check {.unnumbered}
 
 **include a few mcq items here**
 
+### Challenge Yourself {.unnumbered}
 
 If you want to **challenge yourself** and apply the skills from chapter 2 further, you could wrangle the data from `dog_data_raw` for some of the other questionnaires _pre and/or _post intervention:
 
