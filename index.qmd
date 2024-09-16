@@ -1,16 +1,41 @@
 # Overview {.unnumbered}
 
-**Book Name:** Analysis
 
-**Summary:** Materials for the 2nd year undergraduate programme at the University of Glasgow, School of Psychology & Neuroscience.
+This course covers data skills R Markdown, data wrangling, and data visualisation. This book also introduces learners to the most common statistical analyses such as t-test, correlations, regressions, and ANOVAs. The main idea of this book is being reproducible in our data analysis approach. 
 
-**Authors:** CKT & GM. This version of the book is adapted from a previous version written by Phil McAleer, Carolina E. Kuepper-Tetzel, & Helena M. Paterson
 
-**Aim:** This course covers data skills such as R Markdown, data wrangling with tidyverse, and data visualisation with ggplot2. It also introduces statistical concepts such as probabilities, Null Hypothesis Significance Testing (NHST), alpha, power, effect size, and sample size. The most common statistical analyses are covered in this book such as t-test, correlations, ANOVAs, and regressions.
+### How To Use This Book {.unnumbered}
 
-**Note:** This book is currently being updated which means that chapters are being published on a rolling basis.
+Each chapter in the book has the same structure: 
 
-**Contact:** This book is a living document and will be regularly checked and updated for improvements. Should you have any issues using the book or queries, please contact [Carolina E. Kuepper-Tetzel](mailto:carolina.kuepper-tetzel@glasgow.ac.uk).
+1. **Individual walkthrough**: Complete this section at your own pace. Take your time to complete the guided activities. Plan for time pockets in your week to work through this section. 
+2. **Pair coding**: During the lab we are reserving time for you to work through activities with a peer. If you get stuck, try to solve the issue. A GTA and your tutor will be available to help you, too. 
+3. **Test your knowledge**: The final section in each chapter is a short quiz that assesses your knowledge and skills covered in the chapter. 
+
+
+To support you to work through the book chapters continuously, we have scheduled each chapter so that it aligns as well as possible with the stats lectures and the lab content. We also made sure that no chapters are scheduled during busy assessment times (such as during the run-up to the research report deadline). You will have chapters in weeks 1-5 and then again weeks 9-11. 
+
+If you get stuck, seek help during your lab, GTA or PAL support sessions, and/or by posting on the Data Skills and R channel on Teams. 
+
+### Statement on use of AI {.unnumbered}
+
+A premium subscription to ChatGPT using GPT4.0 was used to assist in the writing of these materials in the following ways:
+
+* To suggest multiple-choice questions and other types of quizzes and/or to provide the text for "Explain this answer" for such quizzes
+* To proof-read and check for typos and inconsistencies in variable names
+* To suggest improvements to the text
+
+Any information provided by ChatGPT was verified, for example, where code was used, the syntax and output was checked to ensure it was correct and where theoretical or conceptual information was provided, only that which the author could verify from their pre-existing expertise was included. 
+
+
+
+
+
+**Note & Contact**: This book is currently being updated which means that chapters are being published on a rolling basis. We regularly check and update for improvements. If you have any feedback or suggestions, please submit them to our [Analysis R Book Improvement form](https://forms.office.com/e/qsZCBmduJB){target="_blank"}. For people outwith University of Glasgow: You are welcome to share feedback by emailing [Gaby Mahrholz](mailto:gaby.mahrholz@glasgow.ac.uk). 
+
+**Acknowledgement of previous versions**: This version of the book was adapted from a previous version written by Phil McAleer, Carolina E. Kuepper-Tetzel, & Helena M. Paterson
+
+
 
 ```{r, echo=FALSE}
 version <- R.version.string
@@ -19,33 +44,3 @@ nickname <- R.version$nickname
 
 **R Version:** This book has been written with `r version` (`r nickname`) and RStudio version 2023.12.1+402 "Ocean Storm".
 
-**Randomising Seed:** In chapters that use some level of randomisation, where we have remembered, the seed is set as 1409.
-
-<!-- **Cite as:** McAleer, P., Kuepper-Tetzel, C. E., & Paterson, H. M. (2021, July 14). Analysis (Version 2). Zenodo. <a href = "http://doi.org/10.5281/zenodo.3822464" target = "_blank">http://doi.org/10.5281/zenodo.3822464</a> -->
-
-<!-- <span style="font-size: 22px; font-weight: bold; color: var(--purple);">Welcome to the Analysis Book</span> -->
-
-<br> In this book, we will help you learn a whole host of skills and methods based around being a psychologist. If you have completed the Data Skills book in the **PsyTeachR** series (<a href="https://psyteachr.github.io/" target = "_blank">https://psyteachr.github.io/</a>) the first few chapters will be familiar to you, with some additions. This is deliberate in order to refresh your knowledge and skills before moving on to more advanced topics. First, we will remind you how to work with R Markdown, before recapping the main functions we use for visualisation and data wrangling. From there we will build your understanding of probability before going on to using all these refreshed skills to analyse a variety of different experiments. The main idea of this book is being reproducible in our data analysis approach.
-
-This book requires a higher level of self-directed learning than the first book; part of learning is trying things out yourself and recognising where you need help. If you get stuck, google the problem or what you would like to do and see if that helps.
-
-When working through this book remember that this is not about learning a software. We do not teach R independent of statistical knowledge and content. Rather, we teach data and analytical skills and knowledge within R. The goal is to continuously improve your data analysis skills!
-
-You can do this!
-
-
-::: {.callout-tip}
-.callout-tip: Tips
-:::
-
-::: {.callout-warning}
-.callout-warning: Notes to warn you about something.
-:::
-
-::: {.callout-caution}
-.callout-caution: Notes about things that could cause serious errors.
-:::
-
-::: {.callout-important}
-.callout-important: Notes about things that are important.
-:::

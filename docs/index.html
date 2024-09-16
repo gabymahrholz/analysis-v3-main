@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.450">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="description" content="Level 2 UG Analysis book">
+<meta name="description" content="Data skills book for Level 2 Psychology students at the School of Psychology and Neuroscience at the University of Glasgow">
 <title>Analysis</title>
 <style>
 code{white-space: pre-wrap;}
@@ -225,32 +225,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix-c-exporting-server.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Exporting files from the server</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./appendix-d-symbols.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Symbols</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Symbols</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-x-How-to-cite-R.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Citing R and RStudio</span></span></a>
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Citing R and RStudio</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-y-license.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">License</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
   </div>
 </li>
       </ul>
@@ -263,7 +251,13 @@ ul.task-list li input[type="checkbox"] {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+<li>
+<a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a>
+  <ul class="collapse">
+<li><a href="#how-to-use-this-book" id="toc-how-to-use-this-book" class="nav-link" data-scroll-target="#how-to-use-this-book">How To Use This Book</a></li>
+  <li><a href="#statement-on-use-of-ai" id="toc-statement-on-use-of-ai" class="nav-link" data-scroll-target="#statement-on-use-of-ai">Statement on use of AI</a></li>
+  </ul>
+</li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -273,7 +267,7 @@ ul.task-list li input[type="checkbox"] {
 
 <div>
   <div class="description">
-    Level 2 UG Analysis book
+    Data skills book for Level 2 Psychology students at the School of Psychology and Neuroscience at the University of Glasgow
   </div>
 </div>
 
@@ -281,9 +275,10 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Authors</div>
     <div class="quarto-title-meta-contents">
              <p>Gaby Mahrholz <a href="https://orcid.org/0000-0002-2135-6888" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
+             <p>Carolina E. Kuepper-Tetzel <a href="https://orcid.org/0000-0003-0830-7915" class="quarto-title-author-orcid"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2ZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo1N0NEMjA4MDI1MjA2ODExOTk0QzkzNTEzRjZEQTg1NyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozM0NDOEJGNEZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozM0NDOEJGM0ZGNTcxMUUxODdBOEVCODg2RjdCQ0QwOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1IE1hY2ludG9zaCI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkZDN0YxMTc0MDcyMDY4MTE5NUZFRDc5MUM2MUUwNEREIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjU3Q0QyMDgwMjUyMDY4MTE5OTRDOTM1MTNGNkRBODU3Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+84NovQAAAR1JREFUeNpiZEADy85ZJgCpeCB2QJM6AMQLo4yOL0AWZETSqACk1gOxAQN+cAGIA4EGPQBxmJA0nwdpjjQ8xqArmczw5tMHXAaALDgP1QMxAGqzAAPxQACqh4ER6uf5MBlkm0X4EGayMfMw/Pr7Bd2gRBZogMFBrv01hisv5jLsv9nLAPIOMnjy8RDDyYctyAbFM2EJbRQw+aAWw/LzVgx7b+cwCHKqMhjJFCBLOzAR6+lXX84xnHjYyqAo5IUizkRCwIENQQckGSDGY4TVgAPEaraQr2a4/24bSuoExcJCfAEJihXkWDj3ZAKy9EJGaEo8T0QSxkjSwORsCAuDQCD+QILmD1A9kECEZgxDaEZhICIzGcIyEyOl2RkgwAAhkmC+eAm0TAAAAABJRU5ErkJggg=="></a></p>
           </div>
   </div>
     
@@ -294,75 +289,33 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 <section id="overview" class="level1 unnumbered"><h1 class="unnumbered">Overview</h1><p><img src="images/logos/logo_analysis.png" title="Analysis" class="quarto-cover-image img-fluid"></p>
-<p><strong>Book Name:</strong> Analysis</p>
-<p><strong>Summary:</strong> Materials for the 2nd year undergraduate programme at the University of Glasgow, School of Psychology &amp; Neuroscience.</p>
-<p><strong>Authors:</strong> CKT &amp; GM. This version of the book is adapted from a previous version written by Phil McAleer, Carolina E. Kuepper-Tetzel, &amp; Helena M. Paterson</p>
-<p><strong>Aim:</strong> This course covers data skills such as R Markdown, data wrangling with tidyverse, and data visualisation with ggplot2. It also introduces statistical concepts such as probabilities, Null Hypothesis Significance Testing (NHST), alpha, power, effect size, and sample size. The most common statistical analyses are covered in this book such as t-test, correlations, ANOVAs, and regressions.</p>
-<p><strong>Note:</strong> This book is currently being updated which means that chapters are being published on a rolling basis.</p>
-<p><strong>Contact:</strong> This book is a living document and will be regularly checked and updated for improvements. Should you have any issues using the book or queries, please contact <a href="mailto:carolina.kuepper-tetzel@glasgow.ac.uk">Carolina E. Kuepper-Tetzel</a>.</p>
+<p>This course covers data skills R Markdown, data wrangling, and data visualisation. This book also introduces learners to the most common statistical analyses such as t-test, correlations, regressions, and ANOVAs. The main idea of this book is being reproducible in our data analysis approach.</p>
+<section id="how-to-use-this-book" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="how-to-use-this-book">How To Use This Book</h3>
+<p>Each chapter in the book has the same structure:</p>
+<ol type="1">
+<li>
+<strong>Individual walkthrough</strong>: Complete this section at your own pace. Take your time to complete the guided activities. Plan for time pockets in your week to work through this section.</li>
+<li>
+<strong>Pair coding</strong>: During the lab we are reserving time for you to work through activities with a peer. If you get stuck, try to solve the issue. A GTA and your tutor will be available to help you, too.</li>
+<li>
+<strong>Test your knowledge</strong>: The final section in each chapter is a short quiz that assesses your knowledge and skills covered in the chapter.</li>
+</ol>
+<p>To support you to work through the book chapters continuously, we have scheduled each chapter so that it aligns as well as possible with the stats lectures and the lab content. We also made sure that no chapters are scheduled during busy assessment times (such as during the run-up to the research report deadline). You will have chapters in weeks 1-5 and then again weeks 9-11.</p>
+<p>If you get stuck, seek help during your lab, GTA or PAL support sessions, and/or by posting on the Data Skills and R channel on Teams.</p>
+</section><section id="statement-on-use-of-ai" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="statement-on-use-of-ai">Statement on use of AI</h3>
+<p>A premium subscription to ChatGPT using GPT4.0 was used to assist in the writing of these materials in the following ways:</p>
+<ul>
+<li>To suggest multiple-choice questions and other types of quizzes and/or to provide the text for “Explain this answer” for such quizzes</li>
+<li>To proof-read and check for typos and inconsistencies in variable names</li>
+<li>To suggest improvements to the text</li>
+</ul>
+<p>Any information provided by ChatGPT was verified, for example, where code was used, the syntax and output was checked to ensure it was correct and where theoretical or conceptual information was provided, only that which the author could verify from their pre-existing expertise was included.</p>
+<p><strong>Note &amp; Contact</strong>: This book is currently being updated which means that chapters are being published on a rolling basis. We regularly check and update for improvements. If you have any feedback or suggestions, please submit them to our <a href="https://forms.office.com/e/qsZCBmduJB" target="_blank">Analysis R Book Improvement form</a>. For people outwith University of Glasgow: You are welcome to share feedback by emailing <a href="mailto:gaby.mahrholz@glasgow.ac.uk">Gaby Mahrholz</a>.</p>
+<p><strong>Acknowledgement of previous versions</strong>: This version of the book was adapted from a previous version written by Phil McAleer, Carolina E. Kuepper-Tetzel, &amp; Helena M. Paterson</p>
 <p><strong>R Version:</strong> This book has been written with R version 4.4.1 (2024-06-14 ucrt) (Race for Your Life) and RStudio version 2023.12.1+402 “Ocean Storm”.</p>
-<p><strong>Randomising Seed:</strong> In chapters that use some level of randomisation, where we have remembered, the seed is set as 1409.</p>
-<!-- **Cite as:** McAleer, P., Kuepper-Tetzel, C. E., & Paterson, H. M. (2021, July 14). Analysis (Version 2). Zenodo. <a href = "http://doi.org/10.5281/zenodo.3822464" target = "_blank">http://doi.org/10.5281/zenodo.3822464</a> -->
-<!-- <span style="font-size: 22px; font-weight: bold; color: var(--purple);">Welcome to the Analysis Book</span> -->
-<p><br> In this book, we will help you learn a whole host of skills and methods based around being a psychologist. If you have completed the Data Skills book in the <strong>PsyTeachR</strong> series (<a href="https://psyteachr.github.io/" target="_blank">https://psyteachr.github.io/</a>) the first few chapters will be familiar to you, with some additions. This is deliberate in order to refresh your knowledge and skills before moving on to more advanced topics. First, we will remind you how to work with R Markdown, before recapping the main functions we use for visualisation and data wrangling. From there we will build your understanding of probability before going on to using all these refreshed skills to analyse a variety of different experiments. The main idea of this book is being reproducible in our data analysis approach.</p>
-<p>This book requires a higher level of self-directed learning than the first book; part of learning is trying things out yourself and recognising where you need help. If you get stuck, google the problem or what you would like to do and see if that helps.</p>
-<p>When working through this book remember that this is not about learning a software. We do not teach R independent of statistical knowledge and content. Rather, we teach data and analytical skills and knowledge within R. The goal is to continuously improve your data analysis skills!</p>
-<p>You can do this!</p>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Tip
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>.callout-tip: Tips</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-warning callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Warning
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>.callout-warning: Notes to warn you about something.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Caution
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>.callout-caution: Notes about things that could cause serious errors.</p>
-</div>
-</div>
-<div class="callout callout-style-default callout-important callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Important
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>.callout-important: Notes about things that are important.</p>
-</div>
-</div>
 
 
-</section></main><!-- /main --><script>
+</section></section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {

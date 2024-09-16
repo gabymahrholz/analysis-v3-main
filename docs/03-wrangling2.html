@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.3.450">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="description" content="Level 2 UG Analysis book">
+<meta name="description" content="Data skills book for Level 2 Psychology students at the School of Psychology and Neuroscience at the University of Glasgow">
 <title>Analysis - 3&nbsp; Data wrangling II</title>
 <style>
 code{white-space: pre-wrap;}
@@ -260,32 +260,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./appendix-c-exporting-server.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Exporting files from the server</span></span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="./appendix-d-symbols.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Symbols</span></span></a>
+ <span class="menu-text"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Symbols</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-x-How-to-cite-R.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">E</span>&nbsp; <span class="chapter-title">Citing R and RStudio</span></span></a>
+ <span class="menu-text"><span class="chapter-number">D</span>&nbsp; <span class="chapter-title">Citing R and RStudio</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./appendix-y-license.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">License</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">References</span></a>
   </div>
 </li>
       </ul>
@@ -1200,7 +1188,7 @@ Info on mutating joins
 </div>
 <p>From our <code>data_prp</code>, we need to select demographics data and all summarised questionnaire data from time point 2. Next, we will join this with all other aggregated datasets from time point 1 which are currently stored in separate data objects in the <code>Global Environment</code>.</p>
 <p>You have already encountered <code>inner_join</code> last year, but for now, we want to retain all data from all the data objects, so we will use <code>full_join</code> instead. Keep in mind, you can only join two data objects at a time, so there will be quite a bit of piping and joining in the upcoming code chunk.</p>
-<p>PS: Since I (Gaby) am a bit particular, I want my columns to be arranged in a meaningful pattern. Hence I’m using <code>select</code> to sort them in a better way.</p>
+<p>PS: Since I (Gaby) am a bit particular, I want my columns to be arranged meaningfully. Hence I’m using <code>select</code> to sort them in a better way.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>data_prp_final <span class="ot">&lt;-</span> data_prp <span class="sc">%&gt;%</span> </span>
 <span id="cb28-2"><a href="#cb28-2"></a>  <span class="fu">select</span>(Code<span class="sc">:</span>Plan_prereg, Other_OS_behav_2<span class="sc">:</span>Time2_Understanding_OS) <span class="sc">%&gt;%</span> </span>
@@ -1714,9 +1702,10 @@ Difficulty level: easy
 <div id="callout-31" class="callout-31-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
-<li>recode column Live_Pets so the values read yes and no rather than 1 and 2</li>
-<li>recode Year of Study so they have the labels from the codebook rather than the numbers</li>
-<li>reverse-code the Homesickness scale for _pre and _post</li>
+<li>recode column <code>Live_Pets</code> so the values read yes and no rather than 1 and 2</li>
+<li>recode <code>Year_of_Study</code> so they have the labels from the codebook rather than the numbers</li>
+<li>reverse-code the <code>Homesickness</code> scale for <code>_pre</code> and <code>_post</code>
+</li>
 <li>renaming the columns of the other one-item scales as <code>Stress_pre</code>, <code>Stress_post</code>, <code>Engagement_pre</code> and <code>Engagement_post</code>
 </li>
 </ul>
@@ -1880,15 +1869,15 @@ Hints
 <div class="callout-body-container callout-body">
 <ul>
 <li>
-<strong>Step 1</strong>: select all relevant columns, such as participant ID and all the items that belong to the questionnaire that participants completed after the intervention</li>
+<strong>Step 1</strong>: Select all relevant columns, such as participant ID and all the items that belong to the questionnaire that participants completed after the intervention</li>
 <li>
-<strong>Step 2</strong>: pivot the data from wide format to long format so we can reverse-score and calculate the average score more easily</li>
+<strong>Step 2</strong>: Pivot the data from wide format to long format so we can reverse-score and calculate the average score more easily</li>
 <li>
-<strong>Step 3</strong>: recode the initial responses so that the new column has numbers instead of labels</li>
+<strong>Step 3</strong>: Recode the initial responses so that the new column has numbers instead of labels</li>
 <li>
 <strong>Step 4</strong>: Reverse-score the items that are labelled as “Reverse” in the codebook and then reverse-score them</li>
 <li>
-<strong>Step 5</strong>: group by and summarise to calculate the mean Score</li>
+<strong>Step 5</strong>: Group by and summarise to calculate the mean Score</li>
 </ul>
 </div>
 </div>

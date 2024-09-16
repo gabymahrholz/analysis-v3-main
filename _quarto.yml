@@ -10,14 +10,17 @@ book:
   title: Analysis
   subtitle: ''
   author:
-    orcid: 0000-0002-2135-6888
-    name:
-      family: Mahrholz
-      given: Gaby
-    roles: ~
+    - orcid: 0000-0002-2135-6888
+      name:
+        family: Mahrholz
+        given: Gaby
+    - orcid: 0000-0003-0830-7915
+      name:
+        family: Kuepper-Tetzel
+        given: Carolina E.
   doi: ''
   license: CC-BY
-  description: Level 2 UG Analysis book
+  description: Data skills book for Level 2 Psychology students at the School of Psychology and Neuroscience at the University of Glasgow
   cover-image: images/logos/logo_analysis.png
   image: images/logos/logo_analysis.png
   favicon: images/logos/logo_analysis.png
@@ -63,11 +66,9 @@ book:
   appendices:
   - appendix-a-installing-r.qmd
   - appendix-b-updating-packages.qmd
-  - appendix-c-exporting-server.qmd
   - appendix-d-symbols.qmd
   - appendix-x-How-to-cite-R.qmd
   - appendix-y-license.qmd
-  - references.qmd
 bibliography: include/references.bib
 csl: include/apa.csl
 format:
