@@ -1,6 +1,3 @@
----
-output: revealjs
----
 
 # Chi-square and one-sample t-test  {#sec-nhstI}
 
