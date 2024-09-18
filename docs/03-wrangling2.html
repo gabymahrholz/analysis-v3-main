@@ -308,7 +308,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <a href="#test-your-knowledge-and-challenge-yourself" id="toc-test-your-knowledge-and-challenge-yourself" class="nav-link" data-scroll-target="#test-your-knowledge-and-challenge-yourself"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge and challenge yourself</span></a>
   <ul class="collapse">
 <li><a href="#knowledge-check" id="toc-knowledge-check" class="nav-link" data-scroll-target="#knowledge-check">Knowledge check</a></li>
-  <li><a href="#challenge-yourself" id="toc-challenge-yourself" class="nav-link" data-scroll-target="#challenge-yourself">Challenge Yourself</a></li>
+  <li><a href="#challenge-yourself" id="toc-challenge-yourself" class="nav-link" data-scroll-target="#challenge-yourself">Challenge yourself</a></li>
   </ul>
 </li>
   </ul></nav>
@@ -335,7 +335,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>read and interpret error messages</li>
 <li>realise there are several ways of getting to the results</li>
 </ul>
-<p>In this chapter, we will continue from where we left off in <a href="02-wrangling.html"><span>Chapter&nbsp;2</span></a>. We will compute average scores for two of the questionnaires, address an error mode problem, and finally, join all data objects together. This will finalise our data for the upcoming data visualization sections (<a href="04-dataviz.html"><span>Chapter&nbsp;4</span></a> and <a href="05-dataviz2.html"><span>Chapter&nbsp;5</span></a>).</p>
+<p>In this chapter, we will pick up where we left off in <a href="02-wrangling.html"><span>Chapter&nbsp;2</span></a>. We will calculate average scores for two of the questionnaires, address an error mode problem, and finally, join all data objects together. This will finalise our data for the upcoming data visualization sections (<a href="04-dataviz.html"><span>Chapter&nbsp;4</span></a> and <a href="05-dataviz2.html"><span>Chapter&nbsp;5</span></a>).</p>
 </section><section id="individual-walkthrough" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="individual-walkthrough"><span style="color: #F39C12; text-transform: uppercase;">Individual Walkthrough</span></h2>
 </section><section id="activity-1-setup" class="level2" data-number="3.1"><h2 data-number="3.1" class="anchored" data-anchor-id="activity-1-setup">
 <span class="header-section-number">3.1</span> Activity 1: Setup</h2>
@@ -344,7 +344,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Either <strong>Create a new <code>.Rmd</code> file</strong> for chapter 3 and save it to your project folder or continue the one from last week. See <a href="01-basics.html#sec-rmd"><span>Section&nbsp;1.3</span></a> if you need some guidance.</li>
 </ul></section><section id="activity-2-load-in-the-libraries-and-read-in-the-data" class="level2" data-number="3.2"><h2 data-number="3.2" class="anchored" data-anchor-id="activity-2-load-in-the-libraries-and-read-in-the-data">
 <span class="header-section-number">3.2</span> Activity 2: Load in the libraries and read in the data</h2>
-<p>We will use <code>tidyverse</code> today, as well as the two csv files we created at the end of the last chapter: <code>data_prp_for_ch3.csv</code> and <code>qrp_t1.csv</code>. If you need to download them for whatever reason, click on the following links: <a href="data/data_prp_for_ch3.csv" title="download">data_prp_for_ch3.csv</a> and <a href="data/qrp_t1.csv" title="download">qrp_t1.csv</a>.</p>
+<p>Today, we will be using <code>tidyverse</code> along with the two csv files created at the end of the last chapter: <code>data_prp_for_ch3.csv</code> and <code>qrp_t1.csv</code>. If you need to download them again for any reason, click on the following links: <a href="data/data_prp_for_ch3.csv" title="download">data_prp_for_ch3.csv</a> and <a href="data/qrp_t1.csv" title="download">qrp_t1.csv</a>.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -390,7 +390,7 @@ Solution
 </section><section id="activity-3-confidence-in-understanding-open-science-practices" class="level2" data-number="3.3"><h2 data-number="3.3" class="anchored" data-anchor-id="activity-3-confidence-in-understanding-open-science-practices">
 <span class="header-section-number">3.3</span> Activity 3: Confidence in understanding Open Science practices</h2>
 <section id="the-main-goal-is-to-compute-the-mean-understanding-score-per-participant." class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="the-main-goal-is-to-compute-the-mean-understanding-score-per-participant.">The main goal is to compute the mean Understanding score per participant.</h4>
-<p>The mean Understanding score for time point 2 is already calculated in the (column <code>Time2_Understanding_OS</code>), but we have to compute it for time point 1.</p>
+<p>The mean Understanding score for time point 2 has already been calculated (in the <code>Time2_Understanding_OS</code> column), but we still need to compute it for time point 1.</p>
 <p>Looking at the Understanding data at time point 1, you determine that</p>
 <ul>
 <li>individual item columns are <select class="webex-select"><option value="blank"></option>
@@ -404,16 +404,16 @@ Solution
 <p>Again, let’s do this step by step:</p>
 <ul>
 <li>
-<strong>Step 1</strong>: select the relevant columns <code>Code</code>, and every Understanding column from time point 1 (e.g., from <code>Understanding_OS_1_Time1</code> to <code>Understanding_OS_12_Time1</code>) and store them in an object called <code>understanding_t1</code>
+<strong>Step 1</strong>: Select the relevant columns <code>Code</code>, and every Understanding column from time point 1 (e.g., from <code>Understanding_OS_1_Time1</code> to <code>Understanding_OS_12_Time1</code>) and store them in an object called <code>understanding_t1</code>
 </li>
 <li>
-<strong>Step 2</strong>: pivot the data from wide format to long format using <code>pivot_longer()</code> so we can recode the labels into values (step 3) and calculate the average score (in step 4) more easily</li>
+<strong>Step 2</strong>: Pivot the data from wide format to long format using <code>pivot_longer()</code> so we can recode the labels into values (step 3) and calculate the average score (in step 4) more easily</li>
 <li>
 <strong>Step 3</strong>: Recode the values “Not at all confident” as 1 and “Entirely confident” as 7. All other values are already numbers. We can use functions <code>mutate()</code> in combination with <code>case_match()</code> for that</li>
 <li>
-<strong>Step 4</strong>: calculate the average QRP score (<code>QRPs_Acceptance_Time1_mean</code>) per participant using <code>group_by()</code> and <code>summarise()</code>
+<strong>Step 4</strong>: Calculate the average QRP score (<code>QRPs_Acceptance_Time1_mean</code>) per participant using <code>group_by()</code> and <code>summarise()</code>
 </li>
-</ul></section><section id="steps-1-and-2-select-and-pivot" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="steps-1-and-2-select-and-pivot">Steps 1 and 2: select and pivot</h4>
+</ul></section><section id="steps-1-and-2-select-and-pivot" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="steps-1-and-2-select-and-pivot">Steps 1 and 2: Select and pivot</h4>
 <p>How about you try the first 2 steps yourself using the code from Chapter 2 Activity 4 (<a href="02-wrangling.html#sec-ch2_act4"><span>Section&nbsp;2.4</span></a>) as a template?</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>understanding_t1 <span class="ot">&lt;-</span> data_prp <span class="sc">%&gt;%</span> </span>
@@ -447,8 +447,8 @@ Solution for steps 1 and 2
 <p>Let’s create a new column <code>Responses_corrected</code> that stores the new values with <code>mutate()</code>. Then we can combine that with the <code>case_match()</code> function.</p>
 <ul>
 <li>The first argument in <code>case_match()</code> is the column name of the variable you want to recode.</li>
-<li>Then you can start recoding the values in the way of <code>CurrentValue ~ NewValue</code> (~ is a tilde). Make sure you use the <code>~</code> and not <code>=</code>.</li>
-<li>The <code>.default</code> argument tells R what to do with values that are neither “Not at all confident” nor “Entirely confident”. Here, we want to replace them with the original value of the <code>Responses</code> column. In other datasets, you may want to set the default to <code>NA</code> for missing values, a character string or a number, and <code>case_match()</code> is happy to oblige.</li>
+<li>Then you can start recoding the values in the way of <code>CurrentValue ~ NewValue</code> (~ is a tilde). Make sure you use the <code>~</code> and not <code>=</code>!</li>
+<li>Lastly, the <code>.default</code> argument tells R what to do with values that are neither “Not at all confident” nor “Entirely confident”. Here, we want to replace them with the original value of the <code>Responses</code> column. In other datasets, you may want to set the default to <code>NA</code> for missing values, a character string or a number, and <code>case_match()</code> is happy to oblige.</li>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>understanding_t1 <span class="ot">&lt;-</span> understanding_t1 <span class="sc">%&gt;%</span> </span>
@@ -489,7 +489,7 @@ Error!!! Can you explain what is happening here?
 </ul>
 <div class="tab-content" data-group="layers">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>One option is to modify the <code>.default</code> argument <code>Responses</code> so that the values are copied over from the original column but as a number rather than a character value. The function <code><a href="https://rdrr.io/r/base/numeric.html">as.numeric()</a></code> does the conversion.</p>
+<p>One option is to modify the <code>.default</code> argument <code>Responses</code> so that the values are copied over from the original column but as a number rather than the original character value. The function <code><a href="https://rdrr.io/r/base/numeric.html">as.numeric()</a></code> does the conversion.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>understanding_t1_step3_v1 <span class="ot">&lt;-</span> understanding_t1 <span class="sc">%&gt;%</span> </span>
 <span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">mutate</span>(<span class="at">Responses_corrected =</span> <span class="fu">case_match</span>(Responses, <span class="co"># column of the values to recode</span></span>
@@ -623,21 +623,21 @@ Single pipe of activity 3
 <p>This scenario is slightly more tricky than the previous ones due to the reverse-coding and the 4 subscales. So, let’s tackle this step by step again:</p>
 <ul>
 <li>
-<strong>Step 1</strong>: select the relevant columns <code>Code</code>, and every SATS28 column from time point 1 (e.g., from <code>SATS28_1_Affect_Time1</code> to <code>SATS28_28_Difficulty_Time1</code>) and store them in an object called <code>sats_t1</code>
+<strong>Step 1</strong>: Select the relevant columns <code>Code</code>, and every SATS28 column from time point 1 (e.g., from <code>SATS28_1_Affect_Time1</code> to <code>SATS28_28_Difficulty_Time1</code>) and store them in an object called <code>sats_t1</code>
 </li>
 <li>
-<strong>Step 2</strong>: pivot the data from wide format to long format using <code>pivot_longer()</code> so we can recode the labels into values (step 3) and calculate the average score (in step 4) more easily</li>
+<strong>Step 2</strong>: Pivot the data from wide format to long format using <code>pivot_longer()</code> so we can recode the labels into values (step 3) and calculate the average score (in step 4) more easily</li>
 <li>
 <strong>Step 3</strong>: We need to know which items belong to which subscale - fortunately, we have that information in the variable name and can use the <code>separate()</code> function to access it.</li>
 <li>
-<strong>Step 4</strong>: We need to know which items are reverse-coded and then reverse-code them - unfortunately, the info is only in the codebook and we need to find a work-around. <code>case_when()</code> can help identify and re-score the reverse-coded items.</li>
+<strong>Step 4</strong>: We need to know which items are reverse-coded and then reverse-score them - unfortunately, the info is only in the codebook and we need to find a work-around. <code>case_when()</code> can help identify and re-score the reverse-coded items.</li>
 <li>
-<strong>Step 5</strong>: calculate the average SATS score per participant and subscale using <code>group_by()</code> and <code>summarise()</code>
+<strong>Step 5</strong>: Calculate the average SATS score per participant and subscale using <code>group_by()</code> and <code>summarise()</code>
 </li>
 <li>
-<strong>Step 6</strong>: use <code>pivot_wider()</code> to spread out the dataframe into wide format and <code>rename()</code> to tidy up the datanames</li>
+<strong>Step 6</strong>: use <code>pivot_wider()</code> to spread out the dataframe into wide format and <code>rename()</code> to tidy up the column names</li>
 </ul></section><section id="steps-1-and-2-select-and-pivot-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="steps-1-and-2-select-and-pivot-1">Steps 1 and 2: select and pivot</h4>
-<p>The selecting and pivoting are exactly the same way as we already practised in the other 2 questionniares. Apply them here to this questionnaire.</p>
+<p>The selecting and pivoting are exactly the same way as we already practiced in the other 2 questionnaires. Apply them here to this questionnaire.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -698,8 +698,8 @@ Solution for steps 1 and 2
 </div>
 </section><section id="step-4-identifying-reverse-coded-items-and-then-correct-them" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="step-4-identifying-reverse-coded-items-and-then-correct-them">Step 4: identifying reverse-coded items and then correct them</h4>
 <p>We can use <code>case_when()</code> within the <code>mutate()</code> function here to create a new column <code>FW_RV</code> that stores information on whether the item is a reverse-coded item or not.</p>
-<p><code>case_when()</code> works similarly to <code>case_match()</code>, however <code>case_match()</code> only allows you to “recode” values (i.e., replace one value with another), whereas <code>case_when()</code> is more flexible. It allows you to use <strong>conditional statements</strong> on the left side of the tilde which is useful when you want to change only <em>some</em> of the data based on specific conditions.</p>
-<p>Looking at the codebook, it seems that items 2, 3, 4, 6, 7, 8, 9, 12, 13, 16, 17, 19, 20, 21, 23, 25, 26, 27, 28 are reverse-coded. The rest are forward-coded.</p>
+<p><code>case_when()</code> works similarly to <code>case_match()</code>, however <code>case_match()</code> only allows us to “recode” values (i.e., replace one value with another), whereas <code>case_when()</code> is more flexible. It allows us to use <strong>conditional statements</strong> on the left side of the tilde which is useful when you want to change only <em>some</em> of the data based on specific conditions.</p>
+<p>Looking at the codebook, it seems that items 2, 3, 4, 6, 7, 8, 9, 12, 13, 16, 17, 19, 20, 21, 23, 25, 26, 27, and 28 are reverse-coded. The rest are forward-coded.</p>
 <p>We want to tell R now, that</p>
 <ul>
 <li>
@@ -714,7 +714,7 @@ Solution for steps 1 and 2
 <span id="cb15-4"><a href="#cb15-4"></a>    <span class="at">.default =</span> <span class="st">"Forward"</span></span>
 <span id="cb15-5"><a href="#cb15-5"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Moving on to correcting the scores. Once again, we can use <code>case_when ()</code> within the <code>mutate()</code> function to create another <strong>conditional statement</strong>. This time, the condition is:</p>
+<p>Moving on to correcting the scores: Once again, we can use <code>case_when ()</code> within the <code>mutate()</code> function to create another <strong>conditional statement</strong>. This time, the condition is:</p>
 <ul>
 <li>
 <strong>if</strong> <code>FW_RV</code> column has a value of “Reverse” then we would like to turn all 1 into 7, 2 into 6, etc.</li>
@@ -723,8 +723,10 @@ Solution for steps 1 and 2
 </ul>
 <p>There is a quick way and a not-so-quick way to achieve the actual <strong>reverse-coding</strong>.</p>
 <ul>
-<li>Option 1 (quick): The easiest way to reverse-code scores is by taking the maximum value of the scale, adding 1 unit and then subtracting the original value. For example, on a 5-point Likert scale, it would be 6 minus the original rating; for a 7-point Likert scale, 8 minus the original rating, etc. (see tab Option 1).</li>
-<li>Option 2 (not so quick): This includes the use of 2 conditional statements (see tab Option 2).</li>
+<li>
+<strong>Option 1 (quick)</strong>: The easiest way to reverse-code scores is to take the maximum value of the scale, add 1 unit, and subtract the original value. For example, on a 5-point Likert scale, it would be 6 minus the original rating; for a 7-point Likert scale, 8 minus the original rating, etc. (see <em>Option 1</em> tab).</li>
+<li>
+<strong>Option 2 (not so quick)</strong>: This involves using two conditional statements (see <em>Option 2</em> tab).</li>
 </ul>
 <p>Use the one you find more intuitive.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -734,7 +736,7 @@ Solution for steps 1 and 2
 </ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<p>Here we are using the Boolean expression to determine if there is a string “Reverse” in the <code>FW_RV</code> column. And if that conditional statement is <code>TRUE</code> then the value in the new column we are creating <code>Scores_corrected</code> should be calculated as 8 minus the value from the <code>Response</code> column. If it’s not (i.e., the <code>.default</code> argument), then the values of the <code>Response</code> column should be kept.</p>
+<p>Here we are using a Boolean expression to check if the string “Reverse” is present in the <code>FW_RV</code> column. If this condition is <code>TRUE</code>, the value in the new column we’re creating, <code>Scores_corrected</code>, will be calculated as 8 minus the value from the Response column. If the condition is FALSE (handled by the .default argument), the original values from the <code>Response</code> column will be retained.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>sats_t1 <span class="ot">&lt;-</span> sats_t1 <span class="sc">%&gt;%</span> </span>
 <span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">mutate</span>(<span class="at">Scores_corrected =</span> <span class="fu">case_when</span>(</span>
@@ -744,8 +746,8 @@ Solution for steps 1 and 2
 </div>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<p>As stated above, the longer version would include 2 conditional statements. The first condition checks if the value in <code>FW_RV</code> is “Reverse”. The second condition checks if the value in <code>Response</code> is equal to a specific number. <strong>If both conditions are met</strong>, then the value on the right side of the tilde should be placed in the newly created <code>Scores_corrected_v2</code> column.</p>
-<p>For example, line 3 would read: if the <code>FW_RV</code> value is “Reverse” <strong>AND</strong> the value in the Response column is 1, then place a value of 7 into <code>Scores_corrected_v2</code>.</p>
+<p>As stated above, the longer approach involves using two conditional statements. The first condition checks if the value in the <code>FW_RV</code> column is “Reverse”, while the second condition checks if the value in the <code>Response</code> column equals a specific number. <strong>When both conditions are met</strong>, the corresponding value on the right side of the tilde is placed in the newly created <code>Scores_corrected_v2</code> column.</p>
+<p>For example, line 3 would read: if the value in the <code>FW_RV</code> column is “Reverse” <strong>AND</strong> the value in the <code>Response</code> column is 1, then assign a value of 7 to the <code>Scores_corrected_v2</code> column.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>sats_t1 <span class="ot">&lt;-</span> sats_t1 <span class="sc">%&gt;%</span> </span>
 <span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">mutate</span>(<span class="at">Scores_corrected_v2 =</span> <span class="fu">case_when</span>(</span>
@@ -763,8 +765,8 @@ Solution for steps 1 and 2
 </div>
 </div>
 </div>
-<p>One way of <strong>checking whether our reverse-coding worked</strong> is to look at the <code>distinct</code> values of the original <code>Response</code> column and <code>Scores_corrected</code>. We would also need to keep information of the <code>FW_RV</code> column.</p>
-<p>To see the pattern better, we want to use <code>arrange()</code> to sort the values in a more meaningful way. Remember from last year, the default order is ascending, and you would need to add the function <code>desc()</code> on your variable to sort values in descending order.</p>
+<p>One way to <strong>check whether our reverse-coding worked</strong> is by examining the <code>distinct</code> values in the original <code>Response</code> column and comparing them with the <code>Scores_corrected</code>. We should also retain the <code>FW_RV</code> column to observe how the reverse-coding applied.</p>
+<p>To see the patterns more clearly, we can use <code>arrange()</code> to sort the values in a meaningful order. Remember, the default sorting order is ascending, so if you want to sort values in descending order, you’ll need to wrap your variable in the desc() function.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a>check_coding <span class="ot">&lt;-</span> sats_t1 <span class="sc">%&gt;%</span> </span>
 <span id="cb18-2"><a href="#cb18-2"></a>  <span class="fu">distinct</span>(FW_RV, Response, Scores_corrected) <span class="sc">%&gt;%</span> </span>
@@ -920,8 +922,8 @@ Solution
 </div>
 </div>
 </section><section id="step-6" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="step-6">Step 6</h4>
-<p>One final step is to turn the data back into <strong>wide format</strong> so that each subscale has its own column. That would make joining the data objects easier. The first argument in <code>pivot_wider()</code> is <code>names_from</code> and you should specify the column here that you want as your new column headings. The second argument is <code>values_from</code> and you need to specify the column that you want to get the cell values from</p>
-<p>We should also <strong>rename the column names</strong> to match more with the column names in the codebook. Conveniently, we can use a function called <code>rename()</code> that works exactly like <code>select()</code> (i.e., pattern <code>new_name = old_name</code>) but keeps all the other column names the same (rather than reducing the number of columns)</p>
+<p>The final step is to transform the data back into wide format, ensuring that each subscale has its own column. This will make it easier to join the data objects later on. In <code>pivot_wider()</code>, the first argument, <code>names_from</code>, specifies the column you want to use for your new column headings. The second argument, <code>values_from</code>, tells R which column should provide the cell values.</p>
+<p>We should also <strong>rename the column names</strong> to match those in the codebook. Conveniently, we can use a function called <code>rename()</code> that works exactly like <code>select()</code> (following the pattern <code>new_name = old_name</code>), but it keeps all other column names the same rather than reducing the number of columns.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a>sats_t1 <span class="ot">&lt;-</span> sats_t1 <span class="sc">%&gt;%</span> </span>
 <span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Subscale, <span class="at">values_from =</span> mean_score) <span class="sc">%&gt;%</span> </span>
@@ -1064,11 +1066,11 @@ Single pipe of activity 4
 <p>I have outlined my steps as follows:</p>
 <ul>
 <li>
-<strong>Step 1</strong>: reverse-code the single column first because that’s less hassle than having to do that with conditional statements (<code>Supervisor_15_R</code>). <code>mutate()</code> is my friend.</li>
+<strong>Step 1</strong>: Reverse-code the single column first because that’s less hassle than having to do that with conditional statements (<code>Supervisor_15_R</code>). <code>mutate()</code> is my friend.</li>
 <li>
 <strong>Step 2</strong>: I want to filter out everyone who failed the attention check in <code>Supervisor_7</code>. I can do this with a Boolean expression within the <code><a href="https://rdrr.io/r/stats/filter.html">filter()</a></code> function. The correct response was “completely disagree” which is 1.</li>
 <li>
-<strong>Step 3</strong>: select their id from time point 2 and all the columns that start with the word “super”, apart from <code>Supervisor_7</code> and the original <code>Supervisor_15_R</code> column</li>
+<strong>Step 3</strong>: Select their id from time point 2 and all the columns that start with the word “super”, apart from <code>Supervisor_7</code> and the original <code>Supervisor_15_R</code> column</li>
 <li>
 <strong>Step 4</strong>: pivot into long format so I can calculate the averages better</li>
 <li>
@@ -1126,7 +1128,8 @@ Reveal solution
 </div>
 <ul>
 <li>Note that the <strong>semantic error</strong> in line 2 will not give you an error message.</li>
-<li>Were you thrown off by the <code>starts_with("Super")</code> expression in line 4? <code>starts_with()</code> and <code>ends_with()</code> are great alternatives to selecting columns via <code>:</code> But, using <code>select(Code, Supervisor_1:Supervisor_6, Supervisor_8:Supervisor_14)</code> would have given us the same result. [I admit, that one was a bit mean]</li>
+<li>Were you thrown off by the <code>starts_with("Super")</code> expression in line 4? <code>starts_with()</code> and <code>ends_with()</code> are great alternatives to selecting columns via <code>:</code> But, using <code>select(Code, Supervisor_1:Supervisor_6, Supervisor_8:Supervisor_14)</code> would have given us the same result. <em>[I admit, that one was perhaps a bit mean]</em>
+</li>
 </ul>
 </div>
 </div>
@@ -1134,7 +1137,7 @@ Reveal solution
 </section></section><section id="activity-6-join-everything-together-with-_join" class="level2" data-number="3.6"><h2 data-number="3.6" class="anchored" data-anchor-id="activity-6-join-everything-together-with-_join">
 <span class="header-section-number">3.6</span> Activity 6: Join everything together with <code>???_join()</code>
 </h2>
-<p>Time to join all of the relevant data files together so we have a single dataframe ready for the next chapter on data visualisation. There are 4 options of joining data together, namely <code>inner_join()</code>, <code>left_join()</code>, <code>right_join()</code>, and <code>full_join()</code>. Each of these functions differs in terms of what information is retained from the two data objects being joined. Here is a quick overview:</p>
+<p>Time to join all the relevant data files into a single dataframe, which will be used in the next chapters on data visualization. There are four ways to join data: <code>inner_join()</code>, <code>left_join()</code>, <code>right_join()</code>, and <code>full_join()</code>. Each function behaves differently in terms of what information is retained from the two data objects. Here is a quick overview:</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1186,9 +1189,9 @@ Info on mutating joins
 </div>
 </div>
 </div>
-<p>From our <code>data_prp</code>, we need to select demographics data and all summarised questionnaire data from time point 2. Next, we will join this with all other aggregated datasets from time point 1 which are currently stored in separate data objects in the <code>Global Environment</code>.</p>
-<p>You have already encountered <code>inner_join</code> last year, but for now, we want to retain all data from all the data objects, so we will use <code>full_join</code> instead. Keep in mind, you can only join two data objects at a time, so there will be quite a bit of piping and joining in the upcoming code chunk.</p>
-<p>PS: Since I (Gaby) am a bit particular, I want my columns to be arranged meaningfully. Hence I’m using <code>select</code> to sort them in a better way.</p>
+<p>From our original <code>data_prp</code>, we need to select demographics data and all summarised questionnaire data from time point 2. Next, we will join this with all other aggregated datasets from time point 1 which are currently stored in separate data objects in the <code>Global Environment</code>.</p>
+<p>While you may be familiar with <code>inner_join()</code> from last year, for this task, we want to retain all data from all the data objects. Therefore, we will use <code>full_join()</code>. Keep in mind, you can only join two data objects at a time, so the upcoming code chunk will involve a fair bit of piping and joining.</p>
+<p>Note: Since I (Gaby) like my columns arranged in a meaningful way, I will use <code>select()</code> at the end to order them better.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a>data_prp_final <span class="ot">&lt;-</span> data_prp <span class="sc">%&gt;%</span> </span>
 <span id="cb28-2"><a href="#cb28-2"></a>  <span class="fu">select</span>(Code<span class="sc">:</span>Plan_prereg, Other_OS_behav_2<span class="sc">:</span>Time2_Understanding_OS) <span class="sc">%&gt;%</span> </span>
@@ -1222,6 +1225,7 @@ Solution
 </div>
 </section><section id="pair-coding" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="pair-coding"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding</span></h2>
 <p>We will be working with the data from Binfet et al.&nbsp;(2021) again - the randomised controlled trial data about therapy dog intervention. Today we want to <strong>calculate an average <code>Loneliness</code> score for each participant</strong> measured at time point 1 (pre-intervention) from the raw data file <code>dog_data_raw</code>. Currently, it looks like this:</p>
+<p>We will once again be working with data from Binfet et al.&nbsp;(2021), which focuses on the randomised controlled trials data involving therapy dog interventions. Today, our goal is to calculate the average <code>Loneliness</code> score for each participant measured at time point 1 (pre-intervention) using the raw data file <code>dog_data_raw</code>. Currently, the data looks like this:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="kable-table">
@@ -1393,7 +1397,7 @@ Solution
 </div>
 </div>
 </div>
-<p>But we want to have the data looking like this:</p>
+<p>But we want the data to look like this:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="kable-table">
@@ -1428,7 +1432,7 @@ Solution
 </div>
 </div>
 </div>
-<p>This task is a bit more challenging compared to last week’s lab activity since the loneliness scale contains some reverse-coded items.</p>
+<p>This task is a bit more challenging compared to last week’s lab activity, as the Loneliness scale includes some reverse-coded items.</p>
 <section id="task-1-open-the-r-project-for-the-lab" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="task-1-open-the-r-project-for-the-lab">Task 1: Open the R project for the lab</h3>
 </section><section id="task-2-open-your-.rmd-file-from-last-week-or-create-a-new-.rmd-file" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="task-2-open-your-.rmd-file-from-last-week-or-create-a-new-.rmd-file">Task 2: Open your <code>.Rmd</code> file from last week or create a new <code>.Rmd</code> file</h3>
 <p>You could continue the <code>.Rmd</code> file you used last week, or create a new <code>.Rmd</code>. If you need some guidance, have a look at <a href="01-basics.html#sec-rmd"><span>Section&nbsp;1.3</span></a>.</p>
@@ -1461,8 +1465,7 @@ Hint
 </h3>
 <ul>
 <li>
-<strong>Step 1</strong>: select all relevant columns, such as participant ID and all the 20 items of the <code>Loneliness</code> questionnaire that participants completed before the intervention. Store them in an object called <code>data_loneliness</code>
-</li>
+<strong>Step 1</strong>: Select all relevant columns, such as the participant ID and all 20 items of the <code>Loneliness</code> questionnaire completed by participants before the intervention. Store this data in an object called <code>data_loneliness</code>.</li>
 </ul>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
@@ -1507,7 +1510,7 @@ More concrete hint
 </div>
 <ul>
 <li>
-<strong>Step 2</strong>: pivot the data from wide format to long format so we can reverse-score and calculate the average score more easily (in step 3)</li>
+<strong>Step 2</strong>: Pivot the data from wide format to long format so we can reverse-score and calculate the average score more easily (in step 3)</li>
 </ul>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
@@ -1553,7 +1556,7 @@ More concrete hint
 <li>
 <strong>Step 3</strong>: Reverse-scoring</li>
 </ul>
-<p>Identify the reverse-coded items of the loneliness scale and reverse-score them.</p>
+<p>Identify the items on the <code>Loneliness</code> scale that are reverse-coded, and then reverse-score them accordingly.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1607,7 +1610,7 @@ More concrete hint
 </div>
 <ul>
 <li>
-<strong>Step 4</strong>: calculate the average Loneliness score per participant. To match with the table above, we want to call this column <code>Loneliness_pre</code>
+<strong>Step 4</strong>: Calculate the average Loneliness score per participant. To match with the table above, we want to call this column <code>Loneliness_pre</code>
 </li>
 </ul>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
@@ -1686,11 +1689,59 @@ Solution
 </div>
 </section></section><section id="test-your-knowledge-and-challenge-yourself" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="test-your-knowledge-and-challenge-yourself"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge and challenge yourself</span></h2>
 <section id="knowledge-check" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="knowledge-check">Knowledge check</h3>
-<p><strong>include a few mcq items here</strong></p>
-</section><section id="challenge-yourself" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="challenge-yourself">Challenge Yourself</h3>
+<section id="question-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-1">Question 1</h4>
+<p>When using <code>mutate()</code>, which additional function could you use to recode an existing variable? <select class="webex-select"><option value="blank"></option>
+<option value="x">arrange()</option>
+<option value="x">filter()</option>
+<option value="answer">case_match()</option>
+<option value="x">case_when()</option></select></p>
+</section><section id="question-2" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-2">Question 2</h4>
+<p>When using <code>mutate()</code>, which additional function could you use to create a new variable based on one or multiple conditional statements? <select class="webex-select"><option value="blank"></option>
+<option value="x">arrange()</option>
+<option value="x">filter()</option>
+<option value="x">case_match()</option>
+<option value="answer">case_when()</option></select></p>
+</section><section id="question-3" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-3">Question 3</h4>
+<p>Which of the following functions would you use if you wanted to join two data sets by their shared identifier? <select class="webex-select"><option value="blank"></option>
+<option value="answer">inner_join()</option>
+<option value="x">left_join()</option>
+<option value="x">right_join()</option>
+<option value="x">full_join()</option></select></p>
+</section><section id="question-4" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-4">Question 4</h4>
+<p>Your data object contains a column <code>Score</code> with numbers, but they have been read in incorrectly as a character datatype. Which of the following functions would <em>not</em> work for fixing this issue? <select class="webex-select"><option value="blank"></option>
+<option value="x">parse_number()</option>
+<option value="answer">factor(Score)</option>
+<option value="x">mutate(Score = as.numeric(Score))</option>
+<option value="x">as.numeric()</option></select></p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Explain this answer
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-29" class="callout-29-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>
+<code>parse_number()</code> from the <code>readr</code> package extracts numeric values from strings, so this would work.</li>
+<li>
+<code>factor(Score)</code>: This would <em>not</em> work as expected because it converts the column into a factor, not a numeric datatype, leading to incorrect results if numeric operations are needed.</li>
+<li>
+<code>mutate(Score = as.numeric(Score))</code>: This would work too because <code>mutate()</code> can be used in combination with <code><a href="https://rdrr.io/r/base/numeric.html">as.numeric()</a></code> to create a new numeric column or override the existing character column.</li>
+<li>
+<code><a href="https://rdrr.io/r/base/numeric.html">as.numeric()</a></code>: This would also work to convert a character column to numeric. Without mutate, you could use it in a BaseR way, e.g., <code>data$Score &lt;- as.numeric(data$Score)</code> (<em>shudder, BaseR!!! But effective</em>)</li>
+</ul>
+</div>
+</div>
+</div>
+</section></section><section id="challenge-yourself" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="challenge-yourself">Challenge yourself</h3>
 <p>If you want to <strong>challenge yourself</strong> and apply the skills from chapter 3 further, you could wrangle the data from <code>dog_data_raw</code> for one of the other questionnaires. There are plenty of options to choose from:</p>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1699,7 +1750,7 @@ Difficulty level: easy
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-31" class="callout-31-contents callout-collapse collapse">
+<div id="callout-32" class="callout-32-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li>recode column <code>Live_Pets</code> so the values read yes and no rather than 1 and 2</li>
@@ -1711,7 +1762,7 @@ Difficulty level: easy
 </ul>
 <p>Any of these tasks should be doable in one step. No need to select or pivot anything. You could just modify <code>dog_data_raw</code>.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1720,7 +1771,7 @@ Hints
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-29" class="callout-29-contents callout-collapse collapse">
+<div id="callout-30" class="callout-30-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li>For the <strong>recoding tasks</strong>, you need to work out which function to use to recode one value as another - just plain replacing, no conditional statements</li>
@@ -1731,7 +1782,7 @@ Hints
 </div>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1740,7 +1791,7 @@ Solution for <strong>Challenge yourself - easy</strong>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div id="callout-31" class="callout-31-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a><span class="do">## Live_Pets</span></span>
@@ -1777,7 +1828,7 @@ Solution for <strong>Challenge yourself - easy</strong>
 </div>
 </div>
 <div class="callout callout-style-default callout-warning no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-35-contents" aria-controls="callout-35" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1786,13 +1837,13 @@ Difficulty level: medium
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-34" class="callout-34-contents callout-collapse collapse">
+<div id="callout-35" class="callout-35-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li>reverse-code the Social connectedness scale (pre-intervention) and compute a mean score per participant</li>
 </ul>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1801,14 +1852,14 @@ Hints
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-32" class="callout-32-contents callout-collapse collapse">
+<div id="callout-33" class="callout-33-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>This task would take 4 steps to complete. These are the exact same steps we applied to <code>Loneliness_pre</code> in the lab activity. You would just need to figure out which items are related to the Social connectedness scale (pre-intervention) and which ones of those are reverse-coded. The codebook has all the answers.</p>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1817,7 +1868,7 @@ Solution for <strong>Challenge yourself - medium</strong>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-33" class="callout-33-contents callout-collapse collapse">
+<div id="callout-34" class="callout-34-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="do">## SCS pre</span></span>
@@ -1839,7 +1890,7 @@ Solution for <strong>Challenge yourself - medium</strong>
 </div>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-37-contents" aria-controls="callout-37" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-38-contents" aria-controls="callout-38" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1848,7 +1899,7 @@ Difficulty level: hard
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-37" class="callout-37-contents callout-collapse collapse">
+<div id="callout-38" class="callout-38-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li>reverse-code the Loneliness scale (post-intervention) and compute a mean score per participant</li>
@@ -1856,7 +1907,7 @@ Difficulty level: hard
 </ul>
 <p>Both activities are similar to Activity 3 from the individual walkthrough and would take about 5 steps to complete. <strong>Start by mapping out the steps</strong>.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-35-contents" aria-controls="callout-35" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-36-contents" aria-controls="callout-36" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1865,7 +1916,7 @@ Hints
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-35" class="callout-35-contents callout-collapse collapse">
+<div id="callout-36" class="callout-36-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li>
@@ -1883,7 +1934,7 @@ Hints
 </div>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-36-contents" aria-controls="callout-36" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-37-contents" aria-controls="callout-37" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1892,7 +1943,7 @@ Solution for <strong>Challenge yourself - hard</strong>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-36" class="callout-36-contents callout-collapse collapse">
+<div id="callout-37" class="callout-37-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="do">## loneliness post</span></span>
@@ -1949,7 +2000,7 @@ Solution for <strong>Challenge yourself - hard</strong>
 </div>
 </div>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-40-contents" aria-controls="callout-40" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-41-contents" aria-controls="callout-41" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1958,7 +2009,7 @@ Difficulty level: extra hard
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-40" class="callout-40-contents callout-collapse collapse">
+<div id="callout-41" class="callout-41-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li>PANAS: positive and negative affect of pre- and post-intervention in a single pipe rather than in 4 different data objects (see last week’s)</li>
@@ -2183,7 +2234,7 @@ Difficulty level: extra hard
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-38-contents" aria-controls="callout-38" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-39-contents" aria-controls="callout-39" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2192,7 +2243,7 @@ Hints
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-38" class="callout-38-contents callout-collapse collapse">
+<div id="callout-39" class="callout-39-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><strong>Start by mapping out the steps</strong></p>
 <ul>
@@ -2216,7 +2267,7 @@ Hints
 </div>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-39-contents" aria-controls="callout-39" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-40-contents" aria-controls="callout-40" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -2225,7 +2276,7 @@ Solution for <strong>Challenge yourself - extra hard</strong>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-39" class="callout-39-contents callout-collapse collapse">
+<div id="callout-40" class="callout-40-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>PANAS <span class="ot">&lt;-</span> dog_data_raw <span class="sc">%&gt;%</span> </span>
