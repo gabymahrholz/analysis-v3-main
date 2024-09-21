@@ -14,7 +14,7 @@ library(wesanderson)
 By the end of this chapter you should be able to:
 
 -   choose an appropriate plot for continuous variables 
--   choose an appropriate plot when you've got a mix of continuous/categorical variables 
+-   choose an appropriate plot for a mix of continuous/categorical variables 
 -   create a basic version of an appropriate plot
 -   apply extra layers to change the appearance of the plot
 

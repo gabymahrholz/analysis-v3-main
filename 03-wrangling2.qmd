@@ -640,9 +640,7 @@ library(tidyverse)
 dog_data_raw <- read_csv("data/dog_data_raw.csv")
 ```
 
-We will be working with the data from Binfet et al. (2021) again - the randomised controlled trial data about therapy dog intervention. Today we want to **calculate an average `Loneliness` score for each participant** measured at time point 1 (pre-intervention) from the raw data file `dog_data_raw`. Currently, it looks like this:
-
-We will once again be working with data from Binfet et al. (2021), which focuses on the randomised controlled trials data involving therapy dog interventions. Today, our goal is to calculate the average `Loneliness` score for each participant measured at time point 1 (pre-intervention) using the raw data file `dog_data_raw`. Currently, the data looks like this:
+We will once again be working with data from Binfet et al. (2021), which focuses on the randomised controlled trials data involving therapy dog interventions. Today, our goal is to **calculate the average `Loneliness` score for each participant** measured at time point 1 (pre-intervention) using the raw data file `dog_data_raw`. Currently, the data looks like this:
 
 ```{r echo=FALSE}
 loneliness_brief <- dog_data_raw %>% 
@@ -872,7 +870,7 @@ Your data object contains a column `Score` with numbers, but they have been read
 
 ### Challenge yourself {.unnumbered}
 
-If you want to **challenge yourself** and apply the skills from chapter 3 further, you could wrangle the data from `dog_data_raw` for one of the other questionnaires. There are plenty of options to choose from:
+If you want to **challenge yourself** and further apply the skills from Chapter 3, you could wrangle the data from `dog_data_raw` for one of the other questionnaires. There are plenty of options to choose from:
 
 ::: {.callout-tip collapse="true" icon="false"}
 

@@ -293,10 +293,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#activity-2-load-in-libraries-read-in-data-and-adjust-data-types" id="toc-activity-2-load-in-libraries-read-in-data-and-adjust-data-types" class="nav-link" data-scroll-target="#activity-2-load-in-libraries-read-in-data-and-adjust-data-types"><span class="header-section-number">4.3</span> Activity 2: Load in libraries, read in data, and adjust data types</a></li>
   <li><a href="#activity-3-barchart-geom_bar" id="toc-activity-3-barchart-geom_bar" class="nav-link" data-scroll-target="#activity-3-barchart-geom_bar"><span class="header-section-number">4.4</span> Activity 3: Barchart (<code>geom_bar()</code>)</a></li>
   <li><a href="#activity-4-column-plot-geom_col" id="toc-activity-4-column-plot-geom_col" class="nav-link" data-scroll-target="#activity-4-column-plot-geom_col"><span class="header-section-number">4.5</span> Activity 4: Column plot (<code>geom_col()</code>)</a></li>
-  <li><a href="#activity-5-stacked-percent-stacked-and-grouped-barchart" id="toc-activity-5-stacked-percent-stacked-and-grouped-barchart" class="nav-link" data-scroll-target="#activity-5-stacked-percent-stacked-and-grouped-barchart"><span class="header-section-number">4.6</span> Activity 5: Stacked, percent stacked, and grouped barchart</a></li>
+  <li><a href="#activity-5-stacked-percent-stacked-and-grouped-barchart" id="toc-activity-5-stacked-percent-stacked-and-grouped-barchart" class="nav-link" data-scroll-target="#activity-5-stacked-percent-stacked-and-grouped-barchart"><span class="header-section-number">4.6</span> Activity 5: Stacked, Percent Stacked, and Grouped Barchart</a></li>
   <li><a href="#activity-6-save-your-plots" id="toc-activity-6-save-your-plots" class="nav-link" data-scroll-target="#activity-6-save-your-plots"><span class="header-section-number">4.7</span> Activity 6: Save your plots</a></li>
-  <li><a href="#pair-coding" id="toc-pair-coding" class="nav-link" data-scroll-target="#pair-coding"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding</span></a></li>
-  <li><a href="#test-your-knowledge" id="toc-test-your-knowledge" class="nav-link" data-scroll-target="#test-your-knowledge"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge</span></a></li>
+  <li>
+<a href="#pair-coding" id="toc-pair-coding" class="nav-link" data-scroll-target="#pair-coding"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding</span></a>
+  <ul class="collapse">
+<li><a href="#task-1-open-the-r-project-for-the-lab" id="toc-task-1-open-the-r-project-for-the-lab" class="nav-link" data-scroll-target="#task-1-open-the-r-project-for-the-lab">Task 1: Open the R project for the lab</a></li>
+  <li><a href="#task-2-create-a-new-.rmd-file" id="toc-task-2-create-a-new-.rmd-file" class="nav-link" data-scroll-target="#task-2-create-a-new-.rmd-file">Task 2: Create a new <code>.Rmd</code> file</a></li>
+  <li><a href="#task-3-load-in-the-library-and-read-in-the-data" id="toc-task-3-load-in-the-library-and-read-in-the-data" class="nav-link" data-scroll-target="#task-3-load-in-the-library-and-read-in-the-data">Task 3: Load in the library and read in the data</a></li>
+  <li><a href="#task-4-create-an-appropriate-plot" id="toc-task-4-create-an-appropriate-plot" class="nav-link" data-scroll-target="#task-4-create-an-appropriate-plot">Task 4: Create an appropriate plot</a></li>
+  </ul>
+</li>
+  <li>
+<a href="#test-your-knowledge" id="toc-test-your-knowledge" class="nav-link" data-scroll-target="#test-your-knowledge"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge</span></a>
+  <ul class="collapse">
+<li><a href="#knowledge-check" id="toc-knowledge-check" class="nav-link" data-scroll-target="#knowledge-check">Knowledge check</a></li>
+  <li><a href="#error-mode" id="toc-error-mode" class="nav-link" data-scroll-target="#error-mode">Error mode</a></li>
+  </ul>
+</li>
   </ul></nav>
     </div>
 <!-- main -->
@@ -315,22 +329,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   
 
 </header><section id="intended-learning-outcomes" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="intended-learning-outcomes">Intended Learning Outcomes</h2>
-<p>By the end of this chapter you should be able to:</p>
+<p>By the end of this chapter, you should be able to:</p>
 <ul>
 <li>explain the layered grammar of graphics</li>
 <li>choose an appropriate plot for categorical variables</li>
 <li>create a basic version of an appropriate plot</li>
-<li>apply extra layers to change the appearance of the plot</li>
+<li>apply additional layers to modify the appearance of the plot</li>
 </ul>
-<p>It is time to think about which plot is the appropriate plot for your data. Different types of variables require different types of plots, so this comes back to how many variables are you aiming to plot and what kind of data type are they. Today, we will focus on <strong>plots for categorical data</strong>. Next week, we’ll cover plots for continuous variables and discover which plots are appropriate if you have a mix of continuous and categorical variables.</p>
+<p>It is time to think about selecting the most appropriate plot for your data. Different types of variables call for different kinds of plots, which depends on how many variables you’re aiming to plot and what their data types are. In this chapter, we will focus on <strong>plots for categorical data</strong>. Next week, we will explore plots for continuous variables and learn which plots work best when combining continuous and categorical data.</p>
 </section><section id="individual-walkthrough" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="individual-walkthrough"><span style="color: #F39C12; text-transform: uppercase;">Individual Walkthrough</span></h2>
 </section><section id="building-plots" class="level2" data-number="4.1"><h2 data-number="4.1" class="anchored" data-anchor-id="building-plots">
 <span class="header-section-number">4.1</span> Building plots</h2>
 <p>We are using the package <code>ggplot2</code> to create data visualisations. It’s part of the tidyverse package. Actually, most people call th package <code>ggplot</code> but it’s official name is <code>ggplot2</code>.</p>
+<p>We’ll be using the <code>ggplot2</code> package to create data visualisations. It’s part of the <code>tidyverse</code> suite of packages. Although many people refer to it simply as <code>ggplot</code>, its official name is <code>ggplot2</code>.</p>
 <div class="grid">
 <div class="g-col-6">
-<p><strong>ggplot2</strong> uses a <strong>layered grammar of graphics</strong>, in which plots are built up in a series of layers. You would start with a base layer (opening ggplot), adding <strong>data</strong> and <strong>aesthetics</strong>, and selecting the <strong>geometries</strong> for plot.</p>
-<p>These first 3 layers will give you the most simple version of a complete plot, but you could add other layers to make the plots more accessible (and pretty) by using <strong>scales</strong>, <strong>facets</strong>, <strong>coordinates</strong>, <strong>labels</strong> and <strong>themes</strong>.</p>
+<p><strong>ggplot2</strong> uses a layered grammar of graphics, where plots are constructed through a series of layers. You start with a base layer (by calling <code>ggplot</code>), then add <strong>data</strong> and <strong>aesthetics</strong>, followed by selecting the appropriate <strong>geometries</strong> for the plot.</p>
+<p>These first 3 layers will give you the most simple version of a complete plot. However, you can enhance the plot’s clarity and appearance by adding additional layers such as <strong>scales</strong>, <strong>facets</strong>, <strong>coordinates</strong>, <strong>labels</strong> and <strong>themes</strong>.</p>
 </div>
 <div class="g-col-6">
 <div class="quarto-figure quarto-figure-center">
@@ -339,7 +354,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>To give you a brief overview of the layering system, let’s use the package <code>palmerpenguins</code> (<a href="https://allisonhorst.github.io/palmerpenguins/" target="_blank">https://allisonhorst.github.io/palmerpenguins/</a>). It contains data about bill length and depth, flipper length, and body mass, etc.</p>
+<p>To give you a brief overview of the layering system, we will use the <code>palmerpenguins</code> package (<a href="https://allisonhorst.github.io/palmerpenguins/" target="_blank">https://allisonhorst.github.io/palmerpenguins/</a>). This dataset contains information about penguins, including bill length and depth, flipper length, body mass, and more.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">head</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -432,20 +447,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Let’s build a basic scatterplot to show the relationship between <code>flipper_length</code> and <code>body_mass</code>. We will customise plots further later on in the individual plots. This is just a quick overview of the different layers.</p>
+<p>Let’s build a basic scatterplot to show the relationship between <code>flipper_length</code> and <code>body_mass</code>. We will further customise the plots in subsequent sections, but for now, this will provide a quick overview of the different layers.</p>
 <ul>
-<li>Layer 1 creates a plot base to built up upon.</li>
-<li>Layer 2 adds the <code>data</code> and some <code>aesthetics</code>
+<li>
+<strong>Layer 1</strong> creates the base plot that we build upon.</li>
+<li>
+<strong>Layer 2</strong> adds the <code>data</code> and some <code>aesthetics</code>:
 <ul>
-<li>data is first argument</li>
-<li>aesthetics are added via the mapping argument. There you define your variables to be added (such as x, or x and y) and allows you specify overall properties like the colour of grouping variables etc.</li>
+<li>The data is passed as the first argument.</li>
+<li>Aesthetics are added via the mapping argument, where you define your variables (e.g., x or both x and y). This also allows you to specify general properties, like the color for grouping variables, etc.</li>
 </ul>
 </li>
-<li>Layer 3 adds the geometries or <code>geom_?</code> for short. This tells ggplot in which style we want to plot the data points. Remember to add these layers with a <code>+</code> rather than a pipe <code>%&gt;%</code>. You can add multiple geoms if you wish, e.g., building a violin-boxplot</li>
-<li>Layer 4 adds the <code>scale_?</code> functions which can help you customise the aesthetics, such as changing colour. You can do much more with scales, but we’ll get to that later.</li>
-<li>Layer 5 introduces <code>facets</code>, such as <code>facet_wrap()</code> which allows you to add another dimension to the data output by showing the relationship you are interested in for each level of a categorical variable.</li>
-<li>Layer 6 - coordinates: <code>coord_cartesian()</code> controls the limits for the x- and y-axes (arguments <code>xlim</code> and <code>ylim</code>). Changing those allows you to zoom in or out of your plot.</li>
-<li>Layer 7 helps you to modify axes labels.</li>
-<li>Layer 8 controls the general style of a ggplot (e.g., background colour, size of text, borders, etc.). R comes with a few pre-defined ones (like <code>theme_classic</code>, <code>theme_bw</code>, <code>theme_minimal</code>, <code>theme_light</code>).</li>
+<li>
+<strong>Layer 3</strong> adds geometries, or <code>geom_?</code> for short. This tells ggplot how to display the data points. Remember to add these layers with a <code>+</code>, rather than using a pipe (<code>%&gt;%</code>). You can also add multiple geoms if needed, for example, combining a violin plot with a boxplot.</li>
+<li>
+<strong>Layer 4</strong> includes <code>scale_?</code> functions, which let you customise aesthetics like color. You can do much more with scales, but we’ll explore later.</li>
+<li>
+<strong>Layer 5</strong> introduces facets, such as <code>facet_wrap()</code>, allowing you to add an extra dimension to your plot by showing the relationship you are interested in for each level of a categorical variable.</li>
+<li>
+<strong>Layer 6</strong> involves coordinates, where <code>coord_cartesian()</code> controls the limits for the x- and y-axes (xlim and ylim), enabling you to zoom in or out of the plot.</li>
+<li>
+<strong>Layer 7</strong> helps you modify axis labels.</li>
+<li>
+<strong>Layer 8</strong> controls the overall style of the plot, including background color, text size, and borders. R provides several predefined themes, such as <code>theme_classic</code>, <code>theme_bw</code>, <code>theme_minimal</code>, and <code>theme_light</code>.</li>
 </ul>
 <p>Click on the tabs below to see how each layer contributes to refining the plot.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
@@ -470,11 +494,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>We don’t see much here. It’s basically an empty plot layer.</p>
+<p>There’s not much to see at this stage - this is basically an empty plot layer.</p>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>body_mass_g, <span class="at">y=</span>flipper_length_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g, <span class="at">y =</span> flipper_length_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="04-dataviz_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
@@ -482,7 +506,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-<p>You won’t see any data points yet, because we haven’t specified how we want to display the data points. But we mapped in the aesthetics, that we want to plot variable body mass on the x-axis and flipper length on the y-axis. This also adds the axes titles and the values and break points of the axes.</p>
+<p>You won’t see any data points yet because we haven’t specified how to display them. However, we have mapped the aesthetics, indicating that we want to plot <code>body_mass</code> on the x-axis and <code>flipper_length</code> on the y-axis. This also sets the axis titles, as well as the axis values and breakpoints.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -494,6 +518,7 @@ Tip
 </div>
 <div class="callout-body-container callout-body">
 <p>You won’t need to add <code>data =</code> or <code>mapping =</code> if you keep those arguments in exactly that order. Likewise, the first column name you enter within the <code>aes()</code> function will always be interpreted as x, and the second as y, so you could omit them if you wish.</p>
+<p>You don’t need to include <code>data =</code> or <code>mapping =</code> if you keep those arguments in the default order. Similarly, the first column name you enter in the <code>aes()</code> function will automatically be interpreted as the x variable, and the second as y, so you can omit specifying <code>x</code> and <code>y</code> if you prefer.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(body_mass_g, flipper_length_mm))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -503,7 +528,7 @@ Tip
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>body_mass_g, <span class="at">y=</span>flipper_length_mm, <span class="at">colour=</span>sex)) <span class="sc">+</span></span>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g, <span class="at">y =</span> flipper_length_mm, <span class="at">colour =</span> sex)) <span class="sc">+</span></span>
 <span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Removed 2 rows containing missing values or values outside the scale range
@@ -516,12 +541,12 @@ Tip
 </div>
 </div>
 </div>
-<p>Here we are telling ggplot that we want a scatterplot added. There is a warning displayed showing that rows were removed because of missing values.</p>
-<p>The argument <code>colour</code> adds colour to the points according to a grouping variable (in this case sex). If you want all of the points to be black (i.e.&nbsp;only represent 2 rather than 3 dimensions of the data), leave the <code>colour</code> argument out.</p>
+<p>Here we are telling <code>ggplot</code> to add a scatterplot. You may notice a warning indicating that some rows were removed due to missing values.</p>
+<p>The <code>colour</code> argument adds colour to the points based on a grouping variable (in this case, <code>sex</code>). If you want all the points to be black — representing only two dimensions rather than three — simply omit the <code>colour</code> argument.</p>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>body_mass_g, <span class="at">y=</span>flipper_length_mm, <span class="at">colour=</span>sex)) <span class="sc">+</span></span>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(<span class="at">data =</span> penguins, <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> body_mass_g, <span class="at">y =</span> flipper_length_mm, <span class="at">colour =</span> sex)) <span class="sc">+</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
 <span id="cb7-3"><a href="#cb7-3"></a>  <span class="co"># changes colour palette</span></span>
 <span id="cb7-4"><a href="#cb7-4"></a>  <span class="fu">scale_colour_brewer</span>(<span class="at">palette =</span> <span class="st">"Dark2"</span>) <span class="sc">+</span> </span>
@@ -538,7 +563,7 @@ Tip
 </div>
 </div>
 </div>
-<p>The <code>scale_?</code> functions allow us to change the colour palette of the plot or the axes breaks etc. You could change the name of the axis in <code>scale_x_continuous()</code> as well or leave it for Layer 7.</p>
+<p>The <code>scale_?</code> functions allow us to modify the color palette of the plot, adjust axis breaks, and more. You could change the axis labels within <code>scale_x_continuous()</code> as well or leave it for Layer 7.</p>
 </div>
 <div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
 <div class="cell" data-layout-align="center">
@@ -558,7 +583,7 @@ Tip
 </div>
 </div>
 </div>
-<p>Here we are faceting this plot out for the individual species.</p>
+<p>In this step, we’re using faceting to split the plot by species.</p>
 </div>
 <div id="tabset-1-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-6-tab">
 <div class="cell" data-layout-align="center">
@@ -579,7 +604,7 @@ Tip
 </div>
 </div>
 </div>
-<p>Changing the limits of the y axis to zoom in or out of the plot. If you wanted to the same for the x axis, you would add an argument <code>xlim</code> to the <code>coord_cartesian()</code> function.</p>
+<p>Here we adjust the limits of the y-axis to zoom out of the plot. If you want to zoom in or out of the x-axis, you can add the <code>xlim</code> argument to the <code>coord_cartesian()</code> function.</p>
 </div>
 <div id="tabset-1-7" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-7-tab">
 <div class="cell" data-layout-align="center">
@@ -601,7 +626,7 @@ Tip
 </div>
 </div>
 </div>
-<p>You can change the axes labels via the <code>labs()</code> function or include that step when modifying the scales (i.e.&nbsp;in the <code>scale_x_continuous()</code> function).</p>
+<p>You can change the axis labels using the <code>labs()</code> function, or you can modify them when adjusting the scales (e.g., within the <code>scale_x_continuous()</code> function).</p>
 </div>
 <div id="tabset-1-8" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-8-tab">
 <div class="cell" data-layout-align="center">
@@ -625,7 +650,7 @@ Tip
 </div>
 </div>
 </div>
-<p><code>theme_classic()</code> is applied to change the overall appearance of the plot.</p>
+<p>The <code>theme_classic()</code> function is applied to change the overall appearance of the plot.</p>
 </div>
 </div>
 </div>
@@ -639,19 +664,19 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You need to stick to the first 3 layers to get your base plot. Everything else is optional meaning you don’t have to use all 8 layers in a plot. And layers 4-8 can be added in a random order whereas layers 1-3 are fixed.</p>
+<p>You need to stick to the first three layers to create your base plot. Everything else is optional, meaning you don’t need to use all eight layers. Additionally, layers 4-8 can be added in any order (more or less), whereas layers 1-3 must follow a fixed sequence.</p>
 </div>
 </div>
 </section><section id="activity-1-set-up-and-data-for-today" class="level2" data-number="4.2"><h2 data-number="4.2" class="anchored" data-anchor-id="activity-1-set-up-and-data-for-today">
 <span class="header-section-number">4.2</span> Activity 1: Set-up and data for today</h2>
 <ul>
-<li>We are still working with the data by Pownall et al.&nbsp;(2023), so <strong>open your project</strong>.</li>
-<li>However, we could do with a fresh Rmd: <strong>Create a new <code>.Rmd</code> file</strong>* and save it to your project folder. Name it something meaningful (e.g., “chapter_04.Rmd”, “04_data_viz.Rmd”). See <a href="01-basics.html#sec-rmd"><span>Section&nbsp;1.3</span></a> if you need some guidance. Delete everything below line 12 (keep the set-up code chunk)</li>
-<li>We aggregated the data in <a href="02-wrangling.html"><span>Chapter&nbsp;2</span></a> and <a href="03-wrangling2.html"><span>Chapter&nbsp;3</span></a>. If you want a fresh copy, download the data here: <a href="data/data_prp_for_ch4.csv" title="download">data_prp_for_ch4.csv</a>. Make sure to place the csv file in the project folder.</li>
-<li>If you need a reminder about the data and variables, have a look at the codebook and/or <a href="01-basics.html#sec-download_data_ch1"><span>Section&nbsp;1.4</span></a>.</li>
+<li>We are still working with the data from Pownall et al.&nbsp;(2023), so <strong>open your project</strong>.</li>
+<li>However, let’s start with a fresh R Markdown file: <strong>Create a new <code>.Rmd</code> file</strong> and save it in your project folder. Give it a meaningful name (e.g., “chapter_04.Rmd” or “04_data_viz.Rmd”). If you need guidance, refer to <a href="01-basics.html#sec-rmd"><span>Section&nbsp;1.3</span></a>. Delete everything below line 12, but keep the setup code chunk.</li>
+<li>We previously aggregated the data in <a href="02-wrangling.html"><span>Chapter&nbsp;2</span></a> and <a href="03-wrangling2.html"><span>Chapter&nbsp;3</span></a>. If you want a fresh copy, download the data here: <a href="data/data_prp_for_ch4.csv" title="download">data_prp_for_ch4.csv</a>. Make sure to place the csv file in the project folder.</li>
+<li>If you need a reminder about the data and variables, check the codebook or refer back to <a href="01-basics.html#sec-download_data_ch1"><span>Section&nbsp;1.4</span></a>.</li>
 </ul></section><section id="activity-2-load-in-libraries-read-in-data-and-adjust-data-types" class="level2" data-number="4.3"><h2 data-number="4.3" class="anchored" data-anchor-id="activity-2-load-in-libraries-read-in-data-and-adjust-data-types">
 <span class="header-section-number">4.3</span> Activity 2: Load in libraries, read in data, and adjust data types</h2>
-<p>We need the package <code>tidyverse</code> today, and the data <code>data_prp_for_ch4.csv</code>.</p>
+<p>Today, we will be using the <code>tidyverse</code> package and the dataset <code>data_prp_for_ch4.csv</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="do">## packages </span></span>
 <span id="cb17-2"><a href="#cb17-2"></a>???</span>
@@ -678,7 +703,7 @@ Solution
 </div>
 </div>
 </div>
-<p>As we said in <a href="01-basics.html#sec-familiarise"><span>Section&nbsp;1.6</span></a>, it is always recommended to glimpse at the data to see how many variables and observations there are in the dataset and what kind of data type they are.</p>
+<p>As mentioned in <a href="01-basics.html#sec-familiarise"><span>Section&nbsp;1.6</span></a>, it is always a good idea to take a glimpse at the data to see how many variables and observations are in the dataset, as well as the data types.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -729,8 +754,8 @@ $ Mean_Supervisor_Support               &lt;dbl&gt; 5.230769, 6.285714, 6.857143
 </div>
 </div>
 </div>
-<p>We can see that some of the categorical data in <code>data_prp_viz</code> was read in as numeric variables which makes them continuous. This is going to haunt us big time when building the plots. We would be better off addressing these changes in the dataset before we start plotting (and potentially getting frustrated with R and data viz in general)</p>
-<p>Let’s turn a few of the categorical variables into factors.</p>
+<p>We can see that some of the categorical data in <code>data_prp_viz</code> was read in as numeric variables which makes them continuous. This will haunt us big time when building the plots. We would be better off addressing these changes in the dataset before we start plotting (and potentially getting frustrated with R and data viz in general).</p>
+<p>Let’s convert some of the categorical variables into factors.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1"></a>data_prp_viz <span class="ot">&lt;-</span> data_prp_viz <span class="sc">%&gt;%</span> </span>
 <span id="cb21-2"><a href="#cb21-2"></a>  <span class="fu">mutate</span>(<span class="at">Gender =</span> <span class="fu">factor</span>(Gender,</span>
@@ -750,8 +775,8 @@ $ Mean_Supervisor_Support               &lt;dbl&gt; 5.230769, 6.285714, 6.857143
 </div>
 </section><section id="activity-3-barchart-geom_bar" class="level2" data-number="4.4"><h2 data-number="4.4" class="anchored" data-anchor-id="activity-3-barchart-geom_bar">
 <span class="header-section-number">4.4</span> Activity 3: Barchart (<code>geom_bar()</code>)</h2>
-<p>A barchart is the way to go when you have a single categorical variable you want to plot.</p>
-<p>Let’s say we want to count some demographics. To keep it simple, we want to show gender counts. We would use a <strong>barplot</strong> for it. This is done with <code>geom_bar()</code> in your third layer, and because the counting is done in the background, the <code>aes</code> only requires an x value (i.e.&nbsp;the name of your variable).</p>
+<p>A bar chart is the best choice when you want to plot a single categorical variable.</p>
+<p>For example, let’s say we want to count some demographic data, such as gender. To visualise the gender counts, we would use a <strong>barplot</strong>. This is done with <code>geom_bar()</code> in the third layer. Since the counting is done automatically in the background, the <code>aes()</code> function only requires an x value (i.e., the name of your variable).</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">ggplot</span>(data_prp_viz, <span class="fu">aes</span>(<span class="at">x =</span> Gender)) <span class="sc">+</span></span>
 <span id="cb22-2"><a href="#cb22-2"></a>  <span class="fu">geom_bar</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -762,7 +787,7 @@ $ Mean_Supervisor_Support               &lt;dbl&gt; 5.230769, 6.285714, 6.857143
 </div>
 </div>
 </div>
-<p>This is the base plot done. You can customise it by adding different layers. For example, the labels aren’t super clear or it could do with a dash of colour. Click on the tabs below to see examples of what could be added and practice on your base plot in your own Rmd.</p>
+<p>This is the base plot done. You can customise it by adding different layers. For example, the <strong>labels</strong> could be clearer, or you might want to add a splash <strong>colour</strong>. Click on the tabs below to see examples of additional customisations, and try applying them to your base plot in your own <code>.Rmd</code> file.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist">
 <li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">Colour</a></li>
@@ -772,7 +797,7 @@ $ Mean_Supervisor_Support               &lt;dbl&gt; 5.230769, 6.285714, 6.857143
 </ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<p>We can change the colour by adding a fill argument in the <code>aes()</code>. If we want to modify these colours further, we would add a <code>scale_fill_?</code> argument. If you have specific colours in mind, you would use <code>scale_fill_manual()</code> or if you want to stick with pre-defined ones, like viridis, use <code>scale_fill_viridis_d()</code></p>
+<p>We can change the colour by adding a <code>fill</code> argument in the <code>aes()</code>. If we want to modify these colours further, we would add a <code>scale_fill_?</code> argument. If you have specific colours in mind, you would use <code>scale_fill_manual()</code>, or if you prefer to stick with pre-defined options like viridis, you can use <code>scale_fill_viridis_d()</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1"></a><span class="fu">ggplot</span>(data_prp_viz, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">fill =</span> Gender)) <span class="sc">+</span></span>
 <span id="cb23-2"><a href="#cb23-2"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
@@ -787,8 +812,8 @@ $ Mean_Supervisor_Support               &lt;dbl&gt; 5.230769, 6.285714, 6.857143
 </div>
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<p>The x-axis label is fine, but the categories need to be relabeled. You can achieve that with the <code>scale_x_discrete()</code> function and the argument <code>labels =</code>. But make sure you order them in the order of the labels in the dataframe.</p>
-<p>There is also this gap between bottom of the chart and the bars which seems a bit weird. We can remove that with an <code>expansion()</code> function.</p>
+<p>The x-axis label is fine, but the categories need to be relabelled. You can achieve this with the <code>scale_x_discrete()</code> function and the <code>labels =</code> argument. Just make sure to order the labels according to the order in the dataframe.</p>
+<p>There is also a gap between the bottom of the chart and the bars that looks a bit odd. You can remove it by using the <code>expansion()</code> function.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">ggplot</span>(data_prp_viz, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">fill =</span> Gender)) <span class="sc">+</span></span>
 <span id="cb24-2"><a href="#cb24-2"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
@@ -810,7 +835,7 @@ $ Mean_Supervisor_Support               &lt;dbl&gt; 5.230769, 6.285714, 6.857143
 </div>
 </div>
 <div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
-<p>The legend does not add any information because the labels are already provided on the x axis. We can remove the legend by adding the argument <code>guide = "none"</code> into the <code>scale_fill</code> function.</p>
+<p>The legend does not add any useful information because the labels are already provided on the x-axis. We can remove the legend by adding the argument <code>guide = "none"</code> to the <code>scale_fill</code> function.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1"></a><span class="fu">ggplot</span>(data_prp_viz, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">fill =</span> Gender)) <span class="sc">+</span></span>
 <span id="cb25-2"><a href="#cb25-2"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
@@ -831,7 +856,7 @@ $ Mean_Supervisor_Support               &lt;dbl&gt; 5.230769, 6.285714, 6.857143
 </div>
 </div>
 <div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
-<p>Let’s experiment with the themes. For this plot we have chosen <code>theme_minimal()</code></p>
+<p>Let’s experiment with the themes. For this plot we have chosen <code>theme_minimal()</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">ggplot</span>(data_prp_viz, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">fill =</span> Gender)) <span class="sc">+</span></span>
 <span id="cb26-2"><a href="#cb26-2"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span></span>
@@ -856,7 +881,7 @@ $ Mean_Supervisor_Support               &lt;dbl&gt; 5.230769, 6.285714, 6.857143
 </div>
 </section><section id="activity-4-column-plot-geom_col" class="level2" data-number="4.5"><h2 data-number="4.5" class="anchored" data-anchor-id="activity-4-column-plot-geom_col">
 <span class="header-section-number">4.5</span> Activity 4: Column plot (<code>geom_col()</code>)</h2>
-<p>If someone had already summarised those counts for you, you would not be able to use <code>geom_bar()</code>. In that case, you would switch to <code>geom_col()</code>.</p>
+<p>If the counts had already been summarised for you, <code>geom_bar()</code> would not work. Instead, you’d need to use <code>geom_col()</code> to display the pre-aggregated data.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1"></a>gender_count <span class="ot">&lt;-</span> data_prp_viz <span class="sc">%&gt;%</span> </span>
 <span id="cb27-2"><a href="#cb27-2"></a>  <span class="fu">count</span>(Gender)</span>
@@ -887,7 +912,7 @@ $ Mean_Supervisor_Support               &lt;dbl&gt; 5.230769, 6.285714, 6.857143
 </div>
 </div>
 </div>
-<p>The mapping for <code>geom_col()</code> requires both an <strong>x</strong> and a <strong>y</strong> aesthetics. In our example, x would be our categorical variable (e.g., <code>Gender</code>), and y would be the column name that stored the values (<code>n</code>). Note how the base version has now n as an axis title (instead of count).</p>
+<p>The mapping for <code>geom_col()</code> requires both <strong>x</strong> and <strong>y</strong> aesthetics. In this example, <strong>x</strong> would represent the categorical variable (e.g., <code>Gender</code>), while <strong>y</strong> would refer to the column storing the summarised values (e.g., <code>n</code>). Notice how the axis title now reflects <code>n</code> instead of <code>count</code> in the base version.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">ggplot</span>(gender_count, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">y =</span> n, <span class="at">fill =</span> Gender)) <span class="sc">+</span></span>
 <span id="cb28-2"><a href="#cb28-2"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -908,18 +933,18 @@ Your Turn: Make the column plot pretty
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The other layers to change the colour scheme, axes labels and margins, removing the legend and altering the theme require exactly the same functions as with the boxplot above. Test yourself to see if you could…</p>
+<p>The other layers to change the colour scheme, axes labels and margins, removing the legend and altering the theme require exactly the same functions as with the boxplot above. Test yourself to see if you can…</p>
 <ul class="task-list">
 <li>
 <input type="checkbox">change the colour scheme (e.g., viridis or <a href="https://www.datanovia.com/en/blog/the-a-z-of-rcolorbrewer-palette/" target="_blank">any other colour palettes</a>)</li>
 <li>
 <input type="checkbox">remove the legend</li>
 <li>
-<input type="checkbox">change the title of the x and y axes</li>
+<input type="checkbox">change the titles of the x and y axes</li>
 <li>
-<input type="checkbox">make the bars start directly on the x axis</li>
+<input type="checkbox">make the bars start directly on the x-axis</li>
 <li>
-<input type="checkbox">add a theme of your linking</li>
+<input type="checkbox">add a theme of your liking</li>
 </ul>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
@@ -963,10 +988,10 @@ Possible solution code for the column plot (with a different colour palette and 
 </div>
 </div>
 </section><section id="activity-5-stacked-percent-stacked-and-grouped-barchart" class="level2" data-number="4.6"><h2 data-number="4.6" class="anchored" data-anchor-id="activity-5-stacked-percent-stacked-and-grouped-barchart">
-<span class="header-section-number">4.6</span> Activity 5: Stacked, percent stacked, and grouped barchart</h2>
-<p>If we are dealing with <strong>two categorical variables</strong>, we have the three options to display stacked barcharts - “normal” <strong>Stacked barchart</strong> (default option), a <strong>Percent stacked barchart</strong>, or a <strong>Grouped barchart</strong>.</p>
-<p>For this activity, we can look at the variable <code>Plan_prereg</code> measuring whether students planned to pre-register their undergraduate dissertation at time point 1, and <code>Pre_reg_group</code> whether they actually ended up doing a pre-registration for their undergraduate dissertations.</p>
-<p>One way to display that data is by creating a <strong>Stacked barchart</strong> (default option) or a <strong>Percent stacked barchart</strong>. For both options, the subgroups are displayed on top of each other. To show the two plots next to each other for better comparison, we moved the legend to the bottom of the chart.</p>
+<span class="header-section-number">4.6</span> Activity 5: Stacked, Percent Stacked, and Grouped Barchart</h2>
+<p>When dealing with <strong>two categorical variables</strong>, you have three options for displaying stacked barcharts: the “normal” <strong>Stacked Barchart</strong> (the default option), a <strong>Percent Stacked Barchart</strong>, or a <strong>Grouped Barchart</strong>.</p>
+<p>For this activity, we will explore the variable <code>Plan_prereg</code>, which measures whether students planned to pre-register their undergraduate dissertation at time point 1, and <code>Pre_reg_group</code>, which tracks whether they actually followed through with a pre-registration for their dissertation.</p>
+<p>One way to display this data is by creating either a <strong>Stacked Barchart</strong> (the default) or a <strong>Percent Stacked Barchart</strong>. In both cases, the subgroups are displayed on top of each other. To make comparison easier, we will place the two plots side by side and move the legend to the bottom of the chart.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="do">## Stacked barchart</span></span>
 <span id="cb30-2"><a href="#cb30-2"></a><span class="fu">ggplot</span>(data_prp_viz, <span class="fu">aes</span>(<span class="at">x =</span> Plan_prereg, <span class="at">fill =</span> Pre_reg_group)) <span class="sc">+</span></span>
@@ -986,9 +1011,9 @@ Possible solution code for the column plot (with a different colour palette and 
 </div>
 </div>
 </div>
-<p>In the <strong>stacked barchart</strong> (<a href="#fig-barcharts_stacked">Figure&nbsp;<span>4.3</span></a>, left plot), you are able to plot participant numbers. Here we can see that the highest student number were unsure whether they wanted to pre-register their dissertation or not, followed closely by participants who answered yes. We can also see that the number of people who did not end up with a pre-registered dissertation (blue category) is the same for students who had planned to pre-register and those who did not want to pre-register. However, because <code>No</code> has quite a lower number than the other two categories, we are having a tough time seeing whether the ratio is the same across all 3 groups.</p>
-<p>If we wanted to show that, a <strong>Percent stacked barchart</strong> (<a href="#fig-barcharts_stacked">Figure&nbsp;<span>4.3</span></a>, right plot) would make a lot more sense. Now we would see that approximately 80% of the students who wanted to pre-register their dissertations, 50% of the students who were initially unsure, and only 33% of the students who had no pre-registration plans ended up with a ended up with a pre-registered dissertation. BUT! We would lose the information about the raw values in the sample.</p>
-<p><strong>It’s all a trade-off and the plot you choose depends on which “story” of the data you want to tell.</strong></p>
+<p>In the <strong>stacked barchart</strong> (<a href="#fig-barcharts_stacked">Figure&nbsp;<span>4.3</span></a>, left plot), you can display participant numbers. From this, we can see that the highest number of students were unsure whether they wanted to pre-register their dissertation, followed closely by those who answered “yes.” We also see that the number of students who did not end up with a pre-registered dissertation (blue category) is the same for both those who had planned to pre-register and those who did not want to. However, since the “No” category has significantly fewer participants than the other two, it’s difficult to tell if the ratio remains consistent across all three groups.</p>
+<p>If we want to highlight this ratio, a <strong>Percent Stacked Barchart</strong> (<a href="#fig-barcharts_stacked">Figure&nbsp;<span>4.3</span></a>, right plot) would be more appropriate. This plot shows that approximately 80% of the students who had planned to pre-register their dissertations, 50% of the students who were initially unsure, and only 33% of the students who had no plan to pre-register ended up with a pre-registered dissertation. BUT! We would lose the information about the raw values in the sample.</p>
+<p><strong>It’s all a trade-off, and the plot you choose depends on the “story” you want the data to tell.</strong></p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -999,18 +1024,17 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>The position argument <code>position = "stack"</code> is the default. Adding this argument to the code for the left plot in <a href="#fig-barcharts_stacked">Figure&nbsp;<span>4.3</span></a> would produce the same plot a leaving the argument out.</p>
+<p>The position argument <code>position = "stack"</code> is the default. Adding this argument to the code for the left plot in <a href="#fig-barcharts_stacked">Figure&nbsp;<span>4.3</span></a> would produce the same plot as leaving the argument out.</p>
 </div>
 </div>
-<p>The other option is a <strong>Grouped barchart</strong> which displays the bars next to each other. We would achieve that by changing the position argument to <strong>“dogde”</strong>. You can see the default version of the plot in the <a href="#fig-barchart_grouped">Figure&nbsp;<span>4.4</span></a> on the left, and one with more layers on the right.</p>
-<p>Instead of using an existing colour palette, we changed the colours manually using hex codes. These are some of the colours Gaby used in her PhD thesis, but you can either …</p>
+<p>The other option is a <strong>Grouped Barchart</strong>, which displays the bars next to each other. You can achieve this by changing the <code>position</code> argument to <code>"dodge"</code>. You can see the default version of the plot in <a href="#fig-barchart_grouped">Figure&nbsp;<span>4.4</span></a> on the left, and one with additional layers on the right.</p>
+<p>Instead of using a pre-existing colour palette, we manually changed the colours using hex codes. These are some of the colours Gaby used in her PhD thesis, but you can:</p>
 <ul>
-<li>create your own colour hex codes; check out <a href="https://www.hexcolortool.com/" target="_blank">this website</a> OR</li>
-<li>use a pre-defined colour name like “green” or “purple instead. See a full list <a href="https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/" target="_blank">here</a>
-</li>
+<li>create your own colour hex codes by using <a href="https://www.hexcolortool.com/" target="_blank">this website</a>, OR</li>
+<li>use pre-defined colour names like “green” or “purple” instead. See a full list <a href="https://www.datanovia.com/en/blog/awesome-list-of-657-r-color-names/" target="_blank">here</a>.</li>
 </ul>
 <p>Feel free to explore.</p>
-<p>Since the legend title for the second plot is a bit long, we displayed the legend content across 2 rows by adding the layer <code>guides(fill = guide_legend(nrow = 2))</code> at the end.</p>
+<p>Since the legend title for the second plot is a bit long, we displayed the legend content across two rows by adding the layer <code>guides(fill = guide_legend(nrow = 2))</code> at the end.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1"></a><span class="do">## Default grouped barchart</span></span>
 <span id="cb31-2"><a href="#cb31-2"></a><span class="fu">ggplot</span>(data_prp_viz, <span class="fu">aes</span>(<span class="at">x =</span> Plan_prereg, <span class="at">fill =</span> Pre_reg_group)) <span class="sc">+</span></span>
@@ -1056,7 +1080,7 @@ Special case: Categorical variables with missing values
 </div>
 <div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>If we had chosen a different categorical variable containing missing values, such as <code>Closely_follow</code> then our plots would have included those missing values by default. The code for changing the colour of the missing values columns would need to be specified slightly differently using an <code>na.value =</code> argument within the <code>scale_fill</code> function. Here is an example of a grouped barchart.</p>
+<p>If we had chosen a different categorical variable that contains missing values, such as <code>Closely_follow</code>, our plots would have included those missing values by default. To change the colour of the missing value bars, you would need to specify this using the <code>na.value =</code> argument within the <code>scale_fill()</code> function. Here’s an example of a grouped barchart.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># default grouped barchart with missing values</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a><span class="fu">ggplot</span>(data_prp_viz, <span class="fu">aes</span>(<span class="at">x =</span> Plan_prereg, <span class="at">fill =</span> Closely_follow)) <span class="sc">+</span></span>
@@ -1085,7 +1109,7 @@ Special case: Categorical variables with missing values
 </div>
 </div>
 </div>
-<p>If you did not want those missing values to appear in the plot, you would have to do some data wrangling first to remove them. The function for that is <code>drop_na()</code>. Here we used <code>drop_na()</code> on <code>Closely_follow</code> only.</p>
+<p>If you don’t want the missing values to appear in the plot, you will need to do some data wrangling to remove them first. The function for this is <code>drop_na()</code>. Here we applied <code>drop_na()</code> to <code>Closely_follow</code> only.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a><span class="co"># remove NA</span></span>
 <span id="cb33-2"><a href="#cb33-2"></a>prereg_plan_follow <span class="ot">&lt;-</span> data_prp_viz <span class="sc">%&gt;%</span> </span>
@@ -1176,8 +1200,8 @@ check NAs have been removed
 </div>
 </section><section id="activity-6-save-your-plots" class="level2" data-number="4.7"><h2 data-number="4.7" class="anchored" data-anchor-id="activity-6-save-your-plots">
 <span class="header-section-number">4.7</span> Activity 6: Save your plots</h2>
-<p>You can save your figures with the function <code>ggsave()</code>. It will save to your project folder.</p>
-<p>There are two ways you can use <code>ggsave()</code>. If you don’t tell <code>ggsave()</code> which plot you want to save, by <strong>default</strong> it will <strong>save the last plot you created</strong>. Our last plot was the one without <code>NA</code> from the special case scenario (<a href="#fig-barchart_na_no_na">Figure&nbsp;<span>4.6</span></a>). However, if you did not follow along with the special case scenario, your last plot will be grouped bar chart on the right from <a href="#fig-barchart_grouped">Figure&nbsp;<span>4.4</span></a>.</p>
+<p>You can save your figures using the <code>ggsave()</code> function, which will save them to your project folder.</p>
+<p>There are two ways to use <code>ggsave()</code>. If you don’t specify which plot to save, by <strong>default</strong> it will <strong>save the last plot you created</strong>. In our case, the last plot was the one without <code>NA</code> from the special case scenario (<a href="#fig-barchart_na_no_na">Figure&nbsp;<span>4.6</span></a>). However, if you did not follow along with the special case scenario, your last plot will be the grouped bar chart on the right from <a href="#fig-barchart_grouped">Figure&nbsp;<span>4.4</span></a>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">"last_plot.png"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -1198,6 +1222,7 @@ Our last plot saved
 </div>
 </div>
 <p>The second option is to save the plot as an object and refer to the object within <code>ggsave()</code>. As an example, let’s save the grouped barchart that contained missing values (<a href="#fig-barchart_grouped">Figure&nbsp;<span>4.4</span></a>) as an object called <code>grouped_bar</code>.</p>
+<p>The second option is to save the plot as an object and then refer to that object within <code>ggsave()</code>. For example, let’s save the grouped barchart that contained missing values (<a href="#fig-barchart_grouped">Figure&nbsp;<span>4.4</span></a>) as an object called <code>grouped_bar</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>grouped_bar <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(data_prp_viz, <span class="fu">aes</span>(<span class="at">x =</span> Plan_prereg, <span class="at">fill =</span> Closely_follow)) <span class="sc">+</span></span>
 <span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span> </span>
@@ -1211,7 +1236,7 @@ Our last plot saved
 <span id="cb37-10"><a href="#cb37-10"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span> </span>
 <span id="cb37-11"><a href="#cb37-11"></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="fu">guide_legend</span>(<span class="at">nrow =</span> <span class="dv">3</span>)) <span class="co"># display across 3 rows</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Then you run the line</p>
+<p>Then, you can run the following line:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">"grouped_bar.png"</span>, </span>
 <span id="cb38-2"><a href="#cb38-2"></a>       <span class="at">plot =</span> grouped_bar)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1221,7 +1246,7 @@ Our last plot saved
 <pre><code>Saving 7 x 5 in image</code></pre>
 </div>
 </div>
-<p>Filename is the name you want your png to be called, plot refers to the object name.</p>
+<p>The <code>filename</code> is the name you want your PNG file to have, and <code>plot</code> refers to the name of the plot object.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-11-contents" aria-controls="callout-11" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -1238,7 +1263,7 @@ Our saved <code>grouped_bar.png</code> would look like this:
 </div>
 </div>
 </div>
-<p>That is with default settings. If you like it, keep it, but if you think it looks a bit “off”, you can specify the width, the height, and the units (e.g., “cm”, “mm”, “in”, “px” are possible). You might need to play about with the dimension before it feels right.</p>
+<p>This is the plot saved with the default settings. If you like it, feel free to keep it as is. However, if it seems a bit “off”, you can adjust the width, height, and units (e.g., “cm”, “mm”, “in”, “px”). You might need to experiment with the dimensions until it feels about right.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">ggsave</span>(<span class="at">filename =</span> <span class="st">"grouped_bar2.png"</span>, </span>
 <span id="cb40-2"><a href="#cb40-2"></a>       <span class="at">plot =</span> grouped_bar, </span>
@@ -1261,12 +1286,526 @@ Our saved <code>grouped_bar.png</code> would look like this:
 </div>
 </div>
 </section><section id="pair-coding" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="pair-coding"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding</span></h2>
-<p>Provide a barchart, a violin-boxplot, and a scatterplot from the loneliness data and the students have to try and recreate one of those in the lab. If they are overly fast, they can do the other 2.</p>
-</section><section id="test-your-knowledge" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="test-your-knowledge"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge</span></h2>
-<p>Which plot would you choose for</p>
+<section id="task-1-open-the-r-project-for-the-lab" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="task-1-open-the-r-project-for-the-lab">Task 1: Open the R project for the lab</h3>
+</section><section id="task-2-create-a-new-.rmd-file" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="task-2-create-a-new-.rmd-file">Task 2: Create a new <code>.Rmd</code> file</h3>
+<p>… and name it something useful. If you need help, have a look at <a href="01-basics.html#sec-rmd"><span>Section&nbsp;1.3</span></a>.</p>
+</section><section id="task-3-load-in-the-library-and-read-in-the-data" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="task-3-load-in-the-library-and-read-in-the-data">Task 3: Load in the library and read in the data</h3>
+<p>The data should already be in your project folder. If you want a fresh copy, you can download the data again here: <a href="data/data_pair_ch1.zip" title="download">data_pair_ch1</a>.</p>
+<p>We are using the package <code>tidyverse</code> today, and the datafile we should read in is <code>dog_data_clean_wide.csv</code>.</p>
+</section><section id="task-4-create-an-appropriate-plot" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="task-4-create-an-appropriate-plot">Task 4: Create an appropriate plot</h3>
+<p>Pick <strong>any single or two categorical variables</strong> from the Binfet dataset and <strong>choose one of the appropriate plot choices</strong>. Things to think about:</p>
+<ul class="task-list">
+<li>
+<input type="checkbox">Select your categorical variable(s): <code>GroupAssignment</code>, <code>Year_of_Study</code>, <code>Live_Pets</code>, and/or <code>Consumer_BARK</code>
+</li>
+<li>
+<input type="checkbox">Decide on the plot you want to display: barchart, stacked barchart, percent stacked barchart, or grouped barchart</li>
+<li>
+<input type="checkbox">You may need to convert your variables into factors</li>
+<li>
+<input type="checkbox">Think about what you want to do with missing data</li>
+<li>
+<input type="checkbox">Pick a colour scheme (manual or pre-defined colour palette)</li>
+<li>
+<input type="checkbox">Tidy the axes labels</li>
+<li>
+<input type="checkbox">Decide whether you need a legend or not, and if so, where you would want to place it</li>
+<li>
+<input type="checkbox">Remove the gap between the bottom of the chart and the bars</li>
+<li>
+<input type="checkbox">Pick a theme</li>
+</ul>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Possible solution for a plot with 1 categorical variable
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-13" class="callout-13-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Converting some variables into factors</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a>dog_data_wide <span class="ot">&lt;-</span> dog_data_wide <span class="sc">%&gt;%</span> </span>
+<span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">mutate</span>(<span class="at">Year_of_Study =</span> <span class="fu">factor</span>(Year_of_Study,</span>
+<span id="cb41-3"><a href="#cb41-3"></a>                                <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"First"</span>, <span class="st">"Second"</span>, <span class="st">"Third"</span>, <span class="st">"Fourth"</span>, <span class="st">"Fifth or above"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Now we can plot</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a><span class="fu">ggplot</span>(dog_data_wide, <span class="fu">aes</span>(<span class="at">x =</span> Year_of_Study, <span class="at">fill =</span> Year_of_Study)) <span class="sc">+</span></span>
+<span id="cb42-2"><a href="#cb42-2"></a>  <span class="fu">geom_bar</span>() <span class="sc">+</span> </span>
+<span id="cb42-3"><a href="#cb42-3"></a>  <span class="fu">scale_fill_brewer</span>(</span>
+<span id="cb42-4"><a href="#cb42-4"></a>    <span class="at">palette =</span> <span class="st">"Dark2"</span>,</span>
+<span id="cb42-5"><a href="#cb42-5"></a>    <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span> </span>
+<span id="cb42-6"><a href="#cb42-6"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Year of Study"</span>) <span class="sc">+</span> </span>
+<span id="cb42-7"><a href="#cb42-7"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Count"</span>,</span>
+<span id="cb42-8"><a href="#cb42-8"></a>                     <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.05</span>))) <span class="sc">+</span> </span>
+<span id="cb42-9"><a href="#cb42-9"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="04-dataviz_files/figure-html/unnamed-chunk-37-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Possible solution for a plot with 2 categorical variables
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-14" class="callout-14-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Converting some variables into factors</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>dog_data_wide <span class="ot">&lt;-</span> dog_data_wide <span class="sc">%&gt;%</span> </span>
+<span id="cb43-2"><a href="#cb43-2"></a>  <span class="fu">mutate</span>(<span class="at">GroupAssignment =</span> <span class="fu">factor</span>(GroupAssignment,</span>
+<span id="cb43-3"><a href="#cb43-3"></a>                                  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Direct"</span>, <span class="st">"Indirect"</span>, <span class="st">"Control"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Now we can plot</strong></p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="fu">ggplot</span>(dog_data_wide, <span class="fu">aes</span>(<span class="at">x =</span> GroupAssignment , <span class="at">fill =</span> Live_Pets)) <span class="sc">+</span></span>
+<span id="cb44-2"><a href="#cb44-2"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span> </span>
+<span id="cb44-3"><a href="#cb44-3"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Experimental Group"</span>, <span class="at">y =</span> <span class="st">"Count"</span>, <span class="at">fill =</span> <span class="st">"Pets at Home"</span>) <span class="sc">+</span></span>
+<span id="cb44-4"><a href="#cb44-4"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">'deeppink'</span>, <span class="st">'springgreen2'</span>), <span class="at">na.value =</span> <span class="st">'orangered'</span>,</span>
+<span id="cb44-5"><a href="#cb44-5"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"Yes"</span>, <span class="st">"No"</span>)) <span class="sc">+</span></span>
+<span id="cb44-6"><a href="#cb44-6"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.05</span>))) <span class="sc">+</span></span>
+<span id="cb44-7"><a href="#cb44-7"></a>  <span class="fu">theme_classic</span>() <span class="sc">+</span> </span>
+<span id="cb44-8"><a href="#cb44-8"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="04-dataviz_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section></section><section id="test-your-knowledge" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="test-your-knowledge"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge</span></h2>
+<p>Let’s go back to the <code>palmerpenguins</code> package (<a href="https://allisonhorst.github.io/palmerpenguins/" target="_blank">https://allisonhorst.github.io/palmerpenguins/</a>), and assume you have the following data available:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb45-2"><a href="#cb45-2"></a></span>
+<span id="cb45-3"><a href="#cb45-3"></a>penguin_selection <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb45-4"><a href="#cb45-4"></a>  <span class="fu">group_by</span>(species, island) <span class="sc">%&gt;%</span> </span>
+<span id="cb45-5"><a href="#cb45-5"></a>  <span class="fu">summarise</span>(<span class="at">penguin_count =</span> <span class="fu">n</span>())</span>
+<span id="cb45-6"><a href="#cb45-6"></a></span>
+<span id="cb45-7"><a href="#cb45-7"></a>penguin_selection</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="kable-table">
+<table class="table table-sm table-striped small">
+<thead><tr class="header">
+<th style="text-align: left;">species</th>
+<th style="text-align: left;">island</th>
+<th style="text-align: right;">penguin_count</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Adelie</td>
+<td style="text-align: left;">Biscoe</td>
+<td style="text-align: right;">44</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Adelie</td>
+<td style="text-align: left;">Dream</td>
+<td style="text-align: right;">56</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Adelie</td>
+<td style="text-align: left;">Torgersen</td>
+<td style="text-align: right;">52</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Chinstrap</td>
+<td style="text-align: left;">Dream</td>
+<td style="text-align: right;">68</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Gentoo</td>
+<td style="text-align: left;">Biscoe</td>
+<td style="text-align: right;">124</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<section id="knowledge-check" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="knowledge-check">Knowledge check</h3>
+<section id="question-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-1">Question 1</h4>
+<p>What <code>geom</code> would you use to plot penguin count for each species? <select class="webex-select"><option value="blank"></option>
+<option value="x">geom_bar</option>
+<option value="answer">geom_col</option></select></p>
+</section><section id="question-2" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-2">Question 2</h4>
+What mapping would you use to display penguin count across species?
+<div id="radio_JJMBPRESUH" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_JJMBPRESUH" value="x"><span>aes(x = penguin_count, y = species)</span></label><label><input type="radio" autocomplete="off" name="radio_JJMBPRESUH" value="answer"><span>aes(x = species, y = penguin_count)</span></label><label><input type="radio" autocomplete="off" name="radio_JJMBPRESUH" value="x"><span>aes(x = species)</span></label><label><input type="radio" autocomplete="off" name="radio_JJMBPRESUH" value="x"><span>aes(x = penguin_count)</span></label>
+</div>
+</section><section id="question-3" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-3">Question 3</h4>
+<p>What <code>geom</code> would you use to count the number of species on each island? <select class="webex-select"><option value="blank"></option>
+<option value="answer">geom_bar</option>
+<option value="x">geom_col</option></select></p>
+</section><section id="question-4" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-4">Question 4</h4>
+What mapping would you use to display the count of species per island?
+<div id="radio_YYEBJKFFAG" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_YYEBJKFFAG" value="x"><span>aes(x = island, y = species)</span></label><label><input type="radio" autocomplete="off" name="radio_YYEBJKFFAG" value="x"><span>aes(x = species, y = island)</span></label><label><input type="radio" autocomplete="off" name="radio_YYEBJKFFAG" value="answer"><span>aes(x = island)</span></label><label><input type="radio" autocomplete="off" name="radio_YYEBJKFFAG" value="x"><span>aes(x = species)</span></label>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Explain these answers
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-15" class="callout-15-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><strong>Question 1</strong>: <code>geom_col()</code> is the appropriate choice for bar charts with predefined y-values, such as <code>penguin_count</code>.</p>
+<p><strong>Question 2</strong>: The correct aesthetic mapping places the categorical variable (<code>species</code>) on the x-axis and the numeric variable (number of observed penguins) on the y-axis. Using <code>aes(x = penguin_count, y = species)</code> would flip the axes, placing the number of penguins on the x-axis and species on the y-axis, which doesn’t match the conventional structure of a bar chart.</p>
+<p><strong>Question 3</strong>: <code>geom_bar()</code> is the appropriate choice when you want to automatically count the number of observations within each category, such as counting the number of penguin species on each island.</p>
+<p><strong>Question 4</strong>: For a simple count of species per island, you only need to map the categorical variable (<code>island</code>) to the x-axis. The y-axis will automatically represent counts when using <code>geom_bar()</code>.</p>
+</div>
+</div>
+</div>
+</section></section><section id="error-mode" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="error-mode">Error mode</h3>
+<p>Some of the code chunks contain mistakes and result in errors, while others do not produce the expected results. Your task is to identify any issues, explain why they occurred, and, if possible, fix them.</p>
+<section id="question-5" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-5">Question 5</h4>
+<p>We want to plot the number of penguins across the different islands.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> islands)) <span class="sc">+</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `geom_bar()`:
+! Problem while computing aesthetics.
+ℹ Error occurred in the 1st layer.
+Caused by error in `check_aesthetics()`:
+! Aesthetics must be either length 1 or the same as the data (344).
+✖ Fix the following mappings: `x`.</code></pre>
+</div>
+</div>
+<p>What does this error message mean and how do you fix it?</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Explain the solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-16" class="callout-16-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The error message consists of 2 parts. Part 1 is perhaps a bit trickier to interpret, but part 2 gives some useful hints:</p>
+<ul>
+<li>
+<em>“Aesthetics must be either length 1 or the same as the data (344)”</em>: This means that the variable mapped to <code>x</code> should either be a constant (like a single value) or a column that has 344 entries (matching the number of rows in the penguins dataset).</li>
+<li>
+<em>“Fix the following mappings: <code>x</code>”</em>: The issue is specifically with the <code>x</code> aesthetic, meaning <code>islands</code> is either misspelled or doesn’t exist in the dataset.</li>
+</ul>
+<p>To check the <code>penguins</code> data, you can use <code>glimpse()</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1"></a><span class="fu">glimpse</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 344
+Columns: 8
+$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+$ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…
+$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…</code></pre>
+</div>
+</div>
+<p>To fix the error, you need to correct the column name. The correct column in the <code>penguins</code> dataset is called <code>island</code> (without the “s” at the end). The <code>island</code> column has 344 entries, just like the rest of the dataset, so the mapping now works properly.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> island)) <span class="sc">+</span></span>
+<span id="cb50-2"><a href="#cb50-2"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="04-dataviz_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section id="question-6" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-6">Question 6</h4>
+<p>Next, we want to create a grouped bar chart displaying species per island, using the viridis color palette.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> island, <span class="at">fill =</span> species)) <span class="sc">+</span></span>
+<span id="cb51-2"><a href="#cb51-2"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb51-3"><a href="#cb51-3"></a>  <span class="fu">scale_fill_viridis</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in scale_fill_viridis(): could not find function "scale_fill_viridis"</code></pre>
+</div>
+</div>
+<p>What does this error message mean and how do you fix it?</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Explain the solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-17" class="callout-17-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The function <code>scale_fill_viridis()</code> is incorrect; the correct function is called <code>scale_fill_viridis_d()</code>.</p>
+<p>FIX: correct the function name to display the grouped bar chart with the viridis color palette.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> island, <span class="at">fill =</span> species)) <span class="sc">+</span></span>
+<span id="cb53-2"><a href="#cb53-2"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb53-3"><a href="#cb53-3"></a>  <span class="fu">scale_fill_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="04-dataviz_files/figure-html/unnamed-chunk-45-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section id="question-7" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-7">Question 7</h4>
+<p>We want to create a grouped bar chart showing the number of penguins on each island, broken down by year.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> island, <span class="at">fill =</span> year)) <span class="sc">+</span></span>
+<span id="cb54-2"><a href="#cb54-2"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: The following aesthetics were dropped during statistical transformation: fill.
+ℹ This can happen when ggplot fails to infer the correct grouping structure in
+  the data.
+ℹ Did you forget to specify a `group` aesthetic or to convert a numerical
+  variable into a factor?</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="04-dataviz_files/figure-html/unnamed-chunk-46-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Hmmm. We got a plot, but certainly not the one we intended. The warning message mentions something about the grouping structure and gives some additional hints.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Explain the solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The grouping variable needs to be a factor. R helpfully asks if we’ve forgotten to convert a numerical variable into a factor!!! Oh, let’s check that in the <code>penguins</code> data using the <code>glimpse()</code> function.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1"></a><span class="fu">glimpse</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 344
+Columns: 8
+$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+$ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…
+$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…</code></pre>
+</div>
+</div>
+<p>Indeed, <code>year</code> is currently stored as a numeric (integer) variable. To fix this, we need to convert <code>year</code> to a factor. We can do this directly within the <code>ggplot()</code> function.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> island, <span class="at">fill =</span> <span class="fu">as.factor</span>(year))) <span class="sc">+</span></span>
+<span id="cb58-2"><a href="#cb58-2"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="04-dataviz_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section id="question-8" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-8">Question 8</h4>
+<p>We want to create a percent stacked bar chart that displays the ratio of penguins’ sex on each island, using a manual color palette. Female penguins should be displayed in blue, males in green, and <code>NA</code> values in red.</p>
+<p><strong>Note</strong>: This task is trickier than it looks. Although the code runs and produces a plot, there are three mistakes to identify and fix.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">fill =</span> island)) <span class="sc">+</span></span>
+<span id="cb59-2"><a href="#cb59-2"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb59-3"><a href="#cb59-3"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"green"</span>, <span class="st">"red"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="04-dataviz_files/figure-html/unnamed-chunk-49-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Explain the solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint for Mistake 1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-20" class="callout-20-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The task was to create a <strong>percent stacked barchart</strong>, but the current plot is displaying a grouped barchart. You will need to adjust the argument that defines the type of plot to achieve the correct visualisation.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Fixing of Mistake 1
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> sex, <span class="at">fill =</span> island)) <span class="sc">+</span></span>
+<span id="cb60-2"><a href="#cb60-2"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
+<span id="cb60-3"><a href="#cb60-3"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"green"</span>, <span class="st">"red"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="04-dataviz_files/figure-html/unnamed-chunk-50-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint for Mistake 2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>You may have also noticed that the colours are mapped to the islands, not to the penguins’ sex, which needs to be corrected.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Fixing of Mistake 2
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-21" class="callout-21-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We need to switch the columns mapped to the <code>x</code> and <code>fill</code> aesthetics.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> island, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
+<span id="cb61-2"><a href="#cb61-2"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
+<span id="cb61-3"><a href="#cb61-3"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"green"</span>, <span class="st">"red"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="04-dataviz_files/figure-html/unnamed-chunk-51-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hint for Mistake 3
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Now that the correct variables are mapped to the x-axis and the fill argument, the colour scheme no longer matches the instructions. According to the guidelines, missing values should be displayed in red.</p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Fixing of Mistake 3
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Changing the colour of missing values is a special case that requires the argument <code>na.value =</code>.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> island, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
+<span id="cb62-2"><a href="#cb62-2"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>) <span class="sc">+</span></span>
+<span id="cb62-3"><a href="#cb62-3"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"blue"</span>, <span class="st">"green"</span>), <span class="at">na.value =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="04-dataviz_files/figure-html/unnamed-chunk-52-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 
-</section></main><!-- /main --><script>
+</section></section></section></main><!-- /main --><script>
 
 /* update total correct if #webex-total_correct exists */
 update_total_correct = function() {
