@@ -27,10 +27,10 @@ In this chapter, we are continuing our journey of appropriate plots. Last week, 
 
 ## Activity 1: Set-up and data for today
 
--   We are still working with the data by Pownall et al. (2023). **Open the project**.
--   You could use the same `.Rmd` file as last week if you want to keep all plotting in one document or create a new `.Rmd` to separate plots for categorical and continuous variables. Up to you.
--   The aggregated data is the same as last week. It should be in your project folder but in case it got lost, download it again and place it in your project folder: [data_prp_for_ch4.csv](data/data_prp_for_ch4.csv "download").
--   If you need a reminder about the data and variables, have a look at the codebook and/or @sec-download_data_ch1.
+* We are still working with the data by Pownall et al. (2023). **Open the project**.
+* You could use the same `.Rmd` file as last week if you want to keep all plotting in one document or create a new `.Rmd` to separate plots for categorical and continuous variables. Up to you.
+* The aggregated data is the same as last week. It should be in your project folder but in case it got lost, download it again and place it in your project folder: [data_prp_for_ch4.csv](data/data_prp_for_ch4.csv "download").
+* If you need a reminder about the data and variables, have a look at the codebook and/or @sec-download_data_ch1.
 
 
 
