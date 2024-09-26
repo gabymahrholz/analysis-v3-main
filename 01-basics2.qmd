@@ -381,3 +381,39 @@ You can see what test you conducted by looking at the df in the table.
 * If the df is $n1 - 1$ or $n2 - 1$ it's a paired t-test (even though it would be more useful to only have one n displayed in that case - but ah well)
 
 :::
+
+
+
+You have two options to tackle this task:
+
+**Option 1**: Follow the three steps below to code along with the hints.
+
+**Option 2**: Copy the code from Activity 4 in the individual walkthrough (@sec-ch2_act4) and replace the parameters/values in the functions based on the hints to fit the new data. 
+
+
+#### Option 2: if you have yet to complete the individual walkthrough {.unnumbered}
+
+Copy the code from Activity 4 and replace the arguments accordingly.
+
+```{r eval=FALSE}
+# Code from Activity 4
+
+qrp_t1 <- data_prp %>% 
+  #Step 1
+  select(Code, QRPs_1_Time1:QRPs_11_Time1) %>%
+  # Step 2
+  pivot_longer(cols = -Code, names_to = "Items", values_to = "Scores") %>% 
+  # Step 3
+  group_by(Code) %>% # grouping by participant id
+  summarise(QRPs_Acceptance_Time1_mean = mean(Scores)) %>% # calculating the average Score
+  ungroup() # just make it a habit
+```
+
+Things you need to modify:
+
+* [ ] The data object should be named `data_flourishing` and the data we are using as a starting point should be `dog_data_raw` 
+* [ ] Step 1: Check the codebook and `dog_data_raw` what the participant id column is called, and which columns refer to the Flourishing data at time point 1 (pre-intervention).
+* [ ] Step 2: Think about which columns you need to pivot, what you want to name the column that will store all the original column heading names, and what you want to name the column that will store all the values.
+* [ ] Step 3a: Think about the column to group by if you want to calculate the average score **per participant**.
+* [ ] Step 3b: To match with the final outcome table above, the column that has all the mean scores should be called `Flourishing_pre`. Think about which column we want to calculate the mean from.
+
