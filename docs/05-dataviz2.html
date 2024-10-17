@@ -1210,11 +1210,11 @@ Solution
 <p>… and name it something useful. If you need help, have a look at <a href="01-basics.html#sec-rmd"><span>Section&nbsp;1.3</span></a>.</p>
 </section><section id="task-3-load-in-the-library-and-read-in-the-data" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="task-3-load-in-the-library-and-read-in-the-data">Task 3: Load in the library and read in the data</h3>
 <p>The data should already be in your project folder. If you want a fresh copy, you can download the data again here: <a href="data/data_pair_coding.zip" title="download">data_pair_coding</a>.</p>
-<p>We are using the package <code>tidyverse</code> today, and the data file we should read in today is <code>dog_data_clean_wide.csv</code>. I’ve named my data object <code>dog_data_wide</code> to shorten the name.</p>
+<p>We are using the package <code>tidyverse</code> today, and the data file we need to read in is <code>dog_data_clean_wide.csv</code>. I’ve named my data object <code>dog_data_wide</code> to shorten the name but feel free to use whatever object name sounds intuitive to you.</p>
 </section><section id="task-4-re-create-one-of-the-3-plots-below" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="task-4-re-create-one-of-the-3-plots-below">Task 4: Re-create one of the 3 plots below</h3>
 <p>Re-create one of the 3 plot below:</p>
 <ul>
-<li>grouped bar chart (easy)</li>
+<li>grouped barchart (easy)</li>
 <li>violin-boxplot (medium)</li>
 <li>scatterplot (hard)</li>
 </ul>
@@ -1228,62 +1228,6 @@ Solution
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Hints
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-19" class="callout-19-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ul>
-<li>I’ve created a new data object <code>data_bar</code> but you could also work straight from <code>dog_data_wide</code>.</li>
-<li>Consider turning the 2 variables into factors before plotting</li>
-<li>Plotting should be relatively straightforward - default colours and changing the axes labels/ legend title</li>
-</ul>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-18" class="callout-18-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>data_bar <span class="ot">&lt;-</span> dog_data_wide <span class="sc">%&gt;%</span> </span>
-<span id="cb33-2"><a href="#cb33-2"></a>  <span class="fu">select</span>(RID, GroupAssignment, Year_of_Study) <span class="sc">%&gt;%</span> </span>
-<span id="cb33-3"><a href="#cb33-3"></a>  <span class="fu">mutate</span>(<span class="at">GroupAssignment =</span> <span class="fu">factor</span>(GroupAssignment,</span>
-<span id="cb33-4"><a href="#cb33-4"></a>                                  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Direct"</span>, <span class="st">"Indirect"</span>, <span class="st">"Control"</span>)),</span>
-<span id="cb33-5"><a href="#cb33-5"></a>         <span class="at">Year_of_Study =</span> <span class="fu">factor</span>(Year_of_Study,</span>
-<span id="cb33-6"><a href="#cb33-6"></a>                                <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"First"</span>, <span class="st">"Second"</span>, <span class="st">"Third"</span>, <span class="st">"Fourth"</span>, <span class="st">"Fifth or above"</span>)))</span>
-<span id="cb33-7"><a href="#cb33-7"></a></span>
-<span id="cb33-8"><a href="#cb33-8"></a><span class="fu">ggplot</span>(data_bar, <span class="fu">aes</span>(<span class="at">x =</span> GroupAssignment, <span class="at">fill =</span> Year_of_Study)) <span class="sc">+</span></span>
-<span id="cb33-9"><a href="#cb33-9"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
-<span id="cb33-10"><a href="#cb33-10"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Experimental Group"</span>, <span class="at">y =</span> <span class="st">"Count"</span>, <span class="at">fill =</span> <span class="st">"Year of Study"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section><section id="difficulty-level-medium" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="difficulty-level-medium">Difficulty level: medium</h4>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="05-dataviz2_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="callout callout-style-default callout-warning no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
@@ -1296,45 +1240,147 @@ Hints
 <div id="callout-21" class="callout-21-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
-<li>I’ve created a new data object <code>data_vb</code> but you could also work straight from <code>dog_data_wide</code>.</li>
-<li>Consider turning the categorical variable into a factor before plotting</li>
-<li>Plotting tips:
-<ul>
-<li>the colour scale is one of the viridis options</li>
-<li>it’s a bit of trial and error for the opacity of the violin and the box width of the boxes</li>
-<li>the tricky part might be adjusting the y-axis ticks. Take inspiration from the histogram in <a href="#sec-hist"><span>Section&nbsp;5.3</span></a>
-</li>
+<li>I’ve created a new data object <code>data_bar</code> to select the relevant variables but you could also work straight from <code>dog_data_wide</code>.</li>
+<li>Consider turning the 2 categorical variables into factors before plotting</li>
+<li>Plotting should be relatively straightforward - these are default colours and you would only need to change the axes labels/ legend title.</li>
 </ul>
-</li>
-</ul>
+<div class="callout callout-style-default callout-tip no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-18-contents" aria-controls="callout-18" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+More hints
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-18" class="callout-18-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We can change all of the 3 labels in one go. Check out the <em>## Prettier grouped barchart</em> in <a href="04-dataviz.html#sec-adv_bar"><span>Section&nbsp;4.6</span></a>, where we did exactly that.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution for <code>data_bar</code>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-19" class="callout-19-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1"></a>data_bar <span class="ot">&lt;-</span> dog_data_wide <span class="sc">%&gt;%</span> </span>
+<span id="cb33-2"><a href="#cb33-2"></a>  <span class="fu">select</span>(RID, GroupAssignment, Year_of_Study) <span class="sc">%&gt;%</span> </span>
+<span id="cb33-3"><a href="#cb33-3"></a>  <span class="fu">mutate</span>(<span class="at">GroupAssignment =</span> <span class="fu">factor</span>(GroupAssignment,</span>
+<span id="cb33-4"><a href="#cb33-4"></a>                                  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"Direct"</span>, <span class="st">"Indirect"</span>, <span class="st">"Control"</span>)),</span>
+<span id="cb33-5"><a href="#cb33-5"></a>         <span class="at">Year_of_Study =</span> <span class="fu">factor</span>(Year_of_Study,</span>
+<span id="cb33-6"><a href="#cb33-6"></a>                                <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"First"</span>, <span class="st">"Second"</span>, <span class="st">"Third"</span>, <span class="st">"Fourth"</span>, <span class="st">"Fifth or above"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Solution
+Solution for the barchart
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
 <div id="callout-20" class="callout-20-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a>data_vb <span class="ot">&lt;-</span> dog_data_wide <span class="sc">%&gt;%</span> </span>
-<span id="cb34-2"><a href="#cb34-2"></a>  <span class="fu">select</span>(RID, Year_of_Study, Loneliness_post) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-3"><a href="#cb34-3"></a>  <span class="fu">mutate</span>(<span class="at">Year_of_Study =</span> <span class="fu">factor</span>(Year_of_Study,</span>
-<span id="cb34-4"><a href="#cb34-4"></a>                                <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"First"</span>, <span class="st">"Second"</span>, <span class="st">"Third"</span>, <span class="st">"Fourth"</span>, <span class="st">"Fifth or above"</span>)))</span>
-<span id="cb34-5"><a href="#cb34-5"></a></span>
-<span id="cb34-6"><a href="#cb34-6"></a></span>
-<span id="cb34-7"><a href="#cb34-7"></a><span class="fu">ggplot</span>(data_vb, <span class="fu">aes</span>(<span class="at">x =</span> Year_of_Study, <span class="at">y =</span> Loneliness_post, <span class="at">fill =</span> Year_of_Study)) <span class="sc">+</span></span>
-<span id="cb34-8"><a href="#cb34-8"></a>  <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb34-9"><a href="#cb34-9"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
-<span id="cb34-10"><a href="#cb34-10"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">4</span>, <span class="at">by =</span> <span class="fl">0.5</span>)),</span>
-<span id="cb34-11"><a href="#cb34-11"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>)) <span class="sc">+</span></span>
-<span id="cb34-12"><a href="#cb34-12"></a>  <span class="fu">scale_fill_viridis_d</span>(<span class="at">option =</span> <span class="st">"magma"</span>,</span>
-<span id="cb34-13"><a href="#cb34-13"></a>                       <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb34-14"><a href="#cb34-14"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year of Study"</span>, <span class="at">y =</span> <span class="st">"Loneliness scores post intervention"</span>) <span class="sc">+</span></span>
-<span id="cb34-15"><a href="#cb34-15"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">ggplot</span>(data_bar, <span class="fu">aes</span>(<span class="at">x =</span> GroupAssignment, <span class="at">fill =</span> Year_of_Study)) <span class="sc">+</span></span>
+<span id="cb34-2"><a href="#cb34-2"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
+<span id="cb34-3"><a href="#cb34-3"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Experimental Group"</span>, <span class="at">y =</span> <span class="st">"Count"</span>, <span class="at">fill =</span> <span class="st">"Year of Study"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section id="difficulty-level-medium" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="difficulty-level-medium">Difficulty level: medium</h4>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="05-dataviz2_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Hints
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>I’ve created a new data object <code>data_vb</code> to select the relevant variables but you could also work straight from <code>dog_data_wide</code>.</li>
+<li>Consider turning the categorical variable into a factor before plotting</li>
+<li>Plotting tips:
+<ul>
+<li>the colour scale is one of the viridis options</li>
+<li>it’s a bit of trial and error for the opacity of the violin and the box width of the boxes (it is totally fine if it looks approximately right)</li>
+<li>the tricky part might be adjusting the y-axis ticks. Take inspiration from the histogram in <a href="#sec-hist"><span>Section&nbsp;5.3</span></a> (Tab <em>Axes labels, margins, and breaks</em>)</li>
+</ul>
+</li>
+</ul>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution for <code>data_vb</code>
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>data_vb <span class="ot">&lt;-</span> dog_data_wide <span class="sc">%&gt;%</span> </span>
+<span id="cb35-2"><a href="#cb35-2"></a>  <span class="fu">select</span>(RID, Year_of_Study, Loneliness_post) <span class="sc">%&gt;%</span> </span>
+<span id="cb35-3"><a href="#cb35-3"></a>  <span class="fu">mutate</span>(<span class="at">Year_of_Study =</span> <span class="fu">factor</span>(Year_of_Study,</span>
+<span id="cb35-4"><a href="#cb35-4"></a>                                <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"First"</span>, <span class="st">"Second"</span>, <span class="st">"Third"</span>, <span class="st">"Fourth"</span>, <span class="st">"Fifth or above"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Solution for the violin-boxplot
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">ggplot</span>(data_vb, <span class="fu">aes</span>(<span class="at">x =</span> Year_of_Study, <span class="at">y =</span> Loneliness_post, <span class="at">fill =</span> Year_of_Study)) <span class="sc">+</span></span>
+<span id="cb36-2"><a href="#cb36-2"></a>  <span class="fu">geom_violin</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb36-3"><a href="#cb36-3"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.25</span>) <span class="sc">+</span></span>
+<span id="cb36-4"><a href="#cb36-4"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">1</span>, <span class="at">to =</span> <span class="dv">4</span>, <span class="at">by =</span> <span class="fl">0.5</span>)),</span>
+<span id="cb36-5"><a href="#cb36-5"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">4</span>)) <span class="sc">+</span></span>
+<span id="cb36-6"><a href="#cb36-6"></a>  <span class="fu">scale_fill_viridis_d</span>(<span class="at">option =</span> <span class="st">"magma"</span>,</span>
+<span id="cb36-7"><a href="#cb36-7"></a>                       <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb36-8"><a href="#cb36-8"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Year of Study"</span>, <span class="at">y =</span> <span class="st">"Loneliness scores post intervention"</span>) <span class="sc">+</span></span>
+<span id="cb36-9"><a href="#cb36-9"></a>  <span class="fu">theme_classic</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1346,13 +1392,13 @@ Solution
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="05-dataviz2_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figure class="figure"><p><img src="05-dataviz2_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-important no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1361,7 +1407,7 @@ Hints
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-28" class="callout-28-contents callout-collapse collapse">
+<div id="callout-31" class="callout-31-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li>
@@ -1370,7 +1416,7 @@ Hints
 <li>Remember, some finetuning might need to be done in <code>data_scatter</code> rather than plot itself.</li>
 </ul>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1379,7 +1425,7 @@ Data structure you have
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-22" class="callout-22-contents callout-collapse collapse">
+<div id="callout-25" class="callout-25-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -1437,7 +1483,7 @@ Data structure you have
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-23-contents" aria-controls="callout-23" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1446,7 +1492,7 @@ Data structure you need
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-23" class="callout-23-contents callout-collapse collapse">
+<div id="callout-26" class="callout-26-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -1498,7 +1544,7 @@ Data structure you need
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-24-contents" aria-controls="callout-24" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1507,7 +1553,7 @@ Hints for <code>data_scatter</code>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-24" class="callout-24-contents callout-collapse collapse">
+<div id="callout-27" class="callout-27-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li>
@@ -1523,7 +1569,7 @@ Hints for <code>data_scatter</code>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-25-contents" aria-controls="callout-25" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1532,7 +1578,7 @@ Hints for the plot
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-25" class="callout-25-contents callout-collapse collapse">
+<div id="callout-28" class="callout-28-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li>The colour scheme is Dark2 from the colour palette brewer</li>
@@ -1545,7 +1591,7 @@ Hints for the plot
 </div>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1554,25 +1600,25 @@ Solution for <code>data_scatter</code>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-26" class="callout-26-contents callout-collapse collapse">
+<div id="callout-29" class="callout-29-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1"></a>data_scatter <span class="ot">&lt;-</span> dog_data_wide <span class="sc">%&gt;%</span> </span>
-<span id="cb35-2"><a href="#cb35-2"></a>  <span class="fu">select</span>(RID, <span class="fu">starts_with</span>(<span class="st">"PANAS"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb35-3"><a href="#cb35-3"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>RID, <span class="at">names_to =</span> <span class="st">"Q"</span>, <span class="at">values_to =</span> <span class="st">"Values"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb35-4"><a href="#cb35-4"></a>  <span class="fu">separate</span>(Q, <span class="at">into =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">"Subscale"</span>, <span class="st">"Timepoint"</span>), <span class="at">sep =</span> <span class="st">"_"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb35-5"><a href="#cb35-5"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Timepoint, <span class="at">values_from =</span> Values) <span class="sc">%&gt;%</span> </span>
-<span id="cb35-6"><a href="#cb35-6"></a>  <span class="fu">mutate</span>(<span class="at">Subscale =</span> <span class="fu">case_match</span>(Subscale,</span>
-<span id="cb35-7"><a href="#cb35-7"></a>                               <span class="st">"NA"</span> <span class="sc">~</span> <span class="st">"Negative Affect"</span>,</span>
-<span id="cb35-8"><a href="#cb35-8"></a>                               <span class="st">"PA"</span> <span class="sc">~</span> <span class="st">"Positive Affect"</span>),</span>
-<span id="cb35-9"><a href="#cb35-9"></a>         <span class="at">Subscale =</span> <span class="fu">factor</span>(Subscale)) <span class="sc">%&gt;%</span> </span>
-<span id="cb35-10"><a href="#cb35-10"></a>  <span class="fu">drop_na</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a>data_scatter <span class="ot">&lt;-</span> dog_data_wide <span class="sc">%&gt;%</span> </span>
+<span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">select</span>(RID, <span class="fu">starts_with</span>(<span class="st">"PANAS"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb37-3"><a href="#cb37-3"></a>  <span class="fu">pivot_longer</span>(<span class="at">cols =</span> <span class="sc">-</span>RID, <span class="at">names_to =</span> <span class="st">"Q"</span>, <span class="at">values_to =</span> <span class="st">"Values"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb37-4"><a href="#cb37-4"></a>  <span class="fu">separate</span>(Q, <span class="at">into =</span> <span class="fu">c</span>(<span class="cn">NA</span>, <span class="st">"Subscale"</span>, <span class="st">"Timepoint"</span>), <span class="at">sep =</span> <span class="st">"_"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb37-5"><a href="#cb37-5"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> Timepoint, <span class="at">values_from =</span> Values) <span class="sc">%&gt;%</span> </span>
+<span id="cb37-6"><a href="#cb37-6"></a>  <span class="fu">mutate</span>(<span class="at">Subscale =</span> <span class="fu">case_match</span>(Subscale,</span>
+<span id="cb37-7"><a href="#cb37-7"></a>                               <span class="st">"NA"</span> <span class="sc">~</span> <span class="st">"Negative Affect"</span>,</span>
+<span id="cb37-8"><a href="#cb37-8"></a>                               <span class="st">"PA"</span> <span class="sc">~</span> <span class="st">"Positive Affect"</span>),</span>
+<span id="cb37-9"><a href="#cb37-9"></a>         <span class="at">Subscale =</span> <span class="fu">factor</span>(Subscale)) <span class="sc">%&gt;%</span> </span>
+<span id="cb37-10"><a href="#cb37-10"></a>  <span class="fu">drop_na</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1581,18 +1627,18 @@ Solution for the scatterplot
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-27" class="callout-27-contents callout-collapse collapse">
+<div id="callout-30" class="callout-30-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1"></a><span class="fu">ggplot</span>(data_scatter, <span class="fu">aes</span>(<span class="at">x =</span> pre, <span class="at">y =</span> post, <span class="at">colour =</span> Subscale)) <span class="sc">+</span></span>
-<span id="cb36-2"><a href="#cb36-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb36-3"><a href="#cb36-3"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm, <span class="at">colour =</span> <span class="st">"#7570b3"</span>) <span class="sc">+</span></span>
-<span id="cb36-4"><a href="#cb36-4"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Subscale) <span class="sc">+</span></span>
-<span id="cb36-5"><a href="#cb36-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Pre-Intervention (Timepoint 1)"</span>,</span>
-<span id="cb36-6"><a href="#cb36-6"></a>       <span class="at">y =</span> <span class="st">"Post-Intervention (Timepoint 2)"</span>) <span class="sc">+</span></span>
-<span id="cb36-7"><a href="#cb36-7"></a>  <span class="fu">scale_colour_brewer</span>(<span class="at">palette =</span> <span class="st">"Dark2"</span>,</span>
-<span id="cb36-8"><a href="#cb36-8"></a>                      <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb36-9"><a href="#cb36-9"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">ggplot</span>(data_scatter, <span class="fu">aes</span>(<span class="at">x =</span> pre, <span class="at">y =</span> post, <span class="at">colour =</span> Subscale)) <span class="sc">+</span></span>
+<span id="cb38-2"><a href="#cb38-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb38-3"><a href="#cb38-3"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm, <span class="at">colour =</span> <span class="st">"#7570b3"</span>) <span class="sc">+</span></span>
+<span id="cb38-4"><a href="#cb38-4"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Subscale) <span class="sc">+</span></span>
+<span id="cb38-5"><a href="#cb38-5"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Pre-Intervention (Timepoint 1)"</span>,</span>
+<span id="cb38-6"><a href="#cb38-6"></a>       <span class="at">y =</span> <span class="st">"Post-Intervention (Timepoint 2)"</span>) <span class="sc">+</span></span>
+<span id="cb38-7"><a href="#cb38-7"></a>  <span class="fu">scale_colour_brewer</span>(<span class="at">palette =</span> <span class="st">"Dark2"</span>,</span>
+<span id="cb38-8"><a href="#cb38-8"></a>                      <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb38-9"><a href="#cb38-9"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1606,19 +1652,19 @@ Solution for the scatterplot
 <section id="question-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-1">Question 1</h4>
 <p>Why would this line of code not create a barplot, assuming you already loaded all data and libraries and you spelt the data and column names correctly?</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> sex)) <span class="sc">+</span></span>
-<span id="cb37-2"><a href="#cb37-2"></a>  <span class="fu">geom_barplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">ggplot</span>(summarydata, <span class="fu">aes</span>(<span class="at">x =</span> sex)) <span class="sc">+</span></span>
+<span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">geom_barplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="radio_JFHMAZLBVZ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_JFHMAZLBVZ" value="x"><span>because you have piped the barplot and not added it</span></label><label><input type="radio" autocomplete="off" name="radio_JFHMAZLBVZ" value="x"><span>because this would create a histogram</span></label><label><input type="radio" autocomplete="off" name="radio_JFHMAZLBVZ" value="answer"><span>because there is no geom_barplot() and it should be geom_bar()</span></label><label><input type="radio" autocomplete="off" name="radio_JFHMAZLBVZ" value="x"><span>because you have not included a y axis</span></label>
+<div id="radio_PWLLXMFWYT" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_PWLLXMFWYT" value="x"><span>because you have not included a y axis</span></label><label><input type="radio" autocomplete="off" name="radio_PWLLXMFWYT" value="x"><span>because this would create a histogram</span></label><label><input type="radio" autocomplete="off" name="radio_PWLLXMFWYT" value="x"><span>because you have piped the barplot and not added it</span></label><label><input type="radio" autocomplete="off" name="radio_PWLLXMFWYT" value="answer"><span>because there is no geom_barplot() and it should be geom_bar()</span></label>
 </div>
 </section><section id="question-2" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-2">Question 2</h4>
 <p>If I wanted precisely 5 bars in my histogram, what argument would I use?</p>
-<div id="radio_HENRNCYPLQ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_HENRNCYPLQ" value="x"><span>ggplot() + geom_histogram(bars = 5)</span></label><label><input type="radio" autocomplete="off" name="radio_HENRNCYPLQ" value="answer"><span>ggplot() + geom_histogram(bins = 5)</span></label><label><input type="radio" autocomplete="off" name="radio_HENRNCYPLQ" value="x"><span>ggplot() + geom_histogram()</span></label><label><input type="radio" autocomplete="off" name="radio_HENRNCYPLQ" value="x"><span>ggplot() + geom_histogram(binwidth = 5)</span></label>
+<div id="radio_YOPMPPLOFO" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_YOPMPPLOFO" value="x"><span>ggplot() + geom_histogram()</span></label><label><input type="radio" autocomplete="off" name="radio_YOPMPPLOFO" value="x"><span>ggplot() + geom_histogram(binwidth = 5)</span></label><label><input type="radio" autocomplete="off" name="radio_YOPMPPLOFO" value="x"><span>ggplot() + geom_histogram(bars = 5)</span></label><label><input type="radio" autocomplete="off" name="radio_YOPMPPLOFO" value="answer"><span>ggplot() + geom_histogram(bins = 5)</span></label>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-29-contents" aria-controls="callout-29" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1627,7 +1673,7 @@ Explain this answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-29" class="callout-29-contents callout-collapse collapse">
+<div id="callout-32" class="callout-32-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
 <li>
@@ -1644,15 +1690,15 @@ Explain this answer
 </div>
 </section><section id="question-3" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-3">Question 3</h4>
 <p>You want to create a scatterplot to show the correlation between two continuous variables, which geom would you use?</p>
-<div id="radio_DNNVIKVYMX" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_DNNVIKVYMX" value="x"><span>geom_violin()</span></label><label><input type="radio" autocomplete="off" name="radio_DNNVIKVYMX" value="x"><span>geom_boxplot()</span></label><label><input type="radio" autocomplete="off" name="radio_DNNVIKVYMX" value="answer"><span>geom_point()</span></label><label><input type="radio" autocomplete="off" name="radio_DNNVIKVYMX" value="x"><span>geom_histogram()</span></label>
+<div id="radio_AZWVSIKOJU" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_AZWVSIKOJU" value="x"><span>geom_histogram()</span></label><label><input type="radio" autocomplete="off" name="radio_AZWVSIKOJU" value="answer"><span>geom_point()</span></label><label><input type="radio" autocomplete="off" name="radio_AZWVSIKOJU" value="x"><span>geom_violin()</span></label><label><input type="radio" autocomplete="off" name="radio_AZWVSIKOJU" value="x"><span>geom_boxplot()</span></label>
 </div>
 </section><section id="question-4" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-4">Question 4</h4>
 <p>True or False? To showcase different groups in a scatterplot, you could specify a grouping variable using the <code>fill</code> argument to change the colour of the points. <select class="webex-select"><option value="blank"></option>
 <option value="">TRUE</option>
 <option value="answer">FALSE</option></select></p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-30-contents" aria-controls="callout-30" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1661,7 +1707,7 @@ Explain this answer
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-30" class="callout-30-contents callout-collapse collapse">
+<div id="callout-33" class="callout-33-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Have a look in the scatterplot section again. There, we explained that we cannot “colour in” the area of the points using <code>fill</code>, but need to change the outline colour of the points with <code>colour</code> instead.</p>
 </div>
@@ -1671,13 +1717,13 @@ Explain this answer
 <p>Some of the code chunks contain mistakes and result in errors, while others do not produce the expected results. Your task is to identify any issues, explain why they occurred, and, if possible, fix them.</p>
 <p>Let’s go back to the Palmer penguins for this part.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1"></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <section id="question-5" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-5">Question 5</h4>
 <p>We want to plot the number of penguins across the different islands.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> islands)) <span class="sc">%&gt;%</span> </span>
-<span id="cb39-2"><a href="#cb39-2"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> islands)) <span class="sc">%&gt;%</span> </span>
+<span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-error">
 <pre><code>Error in `geom_bar()`:
 ! `mapping` must be created by `aes()`.
@@ -1686,7 +1732,7 @@ Explain this answer
 </div>
 <p>The error message is incredibly useful. So that should be an easy fix!</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-31-contents" aria-controls="callout-31" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-34-contents" aria-controls="callout-34" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1695,65 +1741,12 @@ Explain the solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-31" class="callout-31-contents callout-collapse collapse">
+<div id="callout-34" class="callout-34-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>To fix the error, all we need to do is turn the pipe <code>%&gt;%</code> into a plus <code>+</code>.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> island)) <span class="sc">+</span></span>
-<span id="cb41-2"><a href="#cb41-2"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="05-dataviz2_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section><section id="question-6" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-6">Question 6</h4>
-<p>We want to create a violin-boxplot showing the bill length across species, separately for male and female penguins.</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1"></a>penguins_no_na <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb42-2"><a href="#cb42-2"></a>  <span class="fu">drop_na</span>(island, flipper_length_mm, sex)</span>
-<span id="cb42-3"><a href="#cb42-3"></a></span>
-<span id="cb42-4"><a href="#cb42-4"></a><span class="fu">ggplot</span>(penguins_no_na, <span class="fu">aes</span>(<span class="at">x =</span> island, <span class="at">y =</span> flipper_length_mm, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
-<span id="cb42-5"><a href="#cb42-5"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
-<span id="cb42-6"><a href="#cb42-6"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb42-7"><a href="#cb42-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Island"</span>, <span class="at">y =</span> <span class="st">"Bill length in mm"</span>) <span class="sc">+</span></span>
-<span id="cb42-8"><a href="#cb42-8"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="05-dataviz2_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Hmmm. We got a plot, but is it the one we aimed for? <select class="webex-select"><option value="blank"></option>
-<option value="">TRUE</option>
-<option value="answer">FALSE</option></select></p>
-<div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-32-contents" aria-controls="callout-32" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Explain the solution
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-32" class="callout-32-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>This was a tricky one. The code runs, so we think everything is fine. Despite having re-labelled the y-axis “Bill length in mm”, it’s really showing the flipper length. Did you spot this???</p>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a>penguins_no_na <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> </span>
-<span id="cb43-2"><a href="#cb43-2"></a>  <span class="fu">drop_na</span>(island, bill_length_mm, sex)</span>
-<span id="cb43-3"><a href="#cb43-3"></a></span>
-<span id="cb43-4"><a href="#cb43-4"></a><span class="fu">ggplot</span>(penguins_no_na, <span class="fu">aes</span>(<span class="at">x =</span> island, <span class="at">y =</span> bill_length_mm, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
-<span id="cb43-5"><a href="#cb43-5"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
-<span id="cb43-6"><a href="#cb43-6"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
-<span id="cb43-7"><a href="#cb43-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Island"</span>, <span class="at">y =</span> <span class="st">"Bill length in mm"</span>) <span class="sc">+</span></span>
-<span id="cb43-8"><a href="#cb43-8"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> island)) <span class="sc">+</span></span>
+<span id="cb43-2"><a href="#cb43-2"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="05-dataviz2_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
@@ -1764,16 +1757,69 @@ Explain the solution
 </div>
 </div>
 </div>
+</section><section id="question-6" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-6">Question 6</h4>
+<p>We want to create a violin-boxplot showing the bill length across species, separately for male and female penguins.</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a>penguins_no_na <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb44-2"><a href="#cb44-2"></a>  <span class="fu">drop_na</span>(island, flipper_length_mm, sex)</span>
+<span id="cb44-3"><a href="#cb44-3"></a></span>
+<span id="cb44-4"><a href="#cb44-4"></a><span class="fu">ggplot</span>(penguins_no_na, <span class="fu">aes</span>(<span class="at">x =</span> island, <span class="at">y =</span> flipper_length_mm, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
+<span id="cb44-5"><a href="#cb44-5"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb44-6"><a href="#cb44-6"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb44-7"><a href="#cb44-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Island"</span>, <span class="at">y =</span> <span class="st">"Bill length in mm"</span>) <span class="sc">+</span></span>
+<span id="cb44-8"><a href="#cb44-8"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="05-dataviz2_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Hmmm. We got a plot, but is it the one we aimed for? <select class="webex-select"><option value="blank"></option>
+<option value="">TRUE</option>
+<option value="answer">FALSE</option></select></p>
+<div class="callout callout-style-default callout-caution no-icon callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-35-contents" aria-controls="callout-35" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Explain the solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-35" class="callout-35-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>This was a tricky one. The code runs, so we think everything is fine. Despite having re-labelled the y-axis “Bill length in mm”, it’s really showing the flipper length. Did you spot this???</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1"></a>penguins_no_na <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span> </span>
+<span id="cb45-2"><a href="#cb45-2"></a>  <span class="fu">drop_na</span>(island, bill_length_mm, sex)</span>
+<span id="cb45-3"><a href="#cb45-3"></a></span>
+<span id="cb45-4"><a href="#cb45-4"></a><span class="fu">ggplot</span>(penguins_no_na, <span class="fu">aes</span>(<span class="at">x =</span> island, <span class="at">y =</span> bill_length_mm, <span class="at">fill =</span> sex)) <span class="sc">+</span></span>
+<span id="cb45-5"><a href="#cb45-5"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb45-6"><a href="#cb45-6"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb45-7"><a href="#cb45-7"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Island"</span>, <span class="at">y =</span> <span class="st">"Bill length in mm"</span>) <span class="sc">+</span></span>
+<span id="cb45-8"><a href="#cb45-8"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="05-dataviz2_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section><section id="question-7" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-7">Question 7</h4>
 <p>This time, we want to show the relationship between flipper length and body mass of the penguins. The following code runs, but the x- and y-axes are misbehaving somehow. Not what we wanted. Any idea why?</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g, <span class="at">colour =</span> island)) <span class="sc">+</span></span>
-<span id="cb44-2"><a href="#cb44-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb44-3"><a href="#cb44-3"></a>  <span class="fu">scale_colour_viridis_d</span>(<span class="at">name =</span> <span class="st">"Island"</span>) <span class="sc">+</span></span>
-<span id="cb44-4"><a href="#cb44-4"></a>  <span class="fu">scale_y_discrete</span>(<span class="at">name =</span> <span class="st">"Body mass in g"</span>,</span>
-<span id="cb44-5"><a href="#cb44-5"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">2500</span>, <span class="dv">6500</span>, <span class="dv">500</span>),</span>
-<span id="cb44-6"><a href="#cb44-6"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">2500</span>, <span class="dv">6500</span>)) <span class="sc">+</span></span>
-<span id="cb44-7"><a href="#cb44-7"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Flipper length in mm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g, <span class="at">colour =</span> island)) <span class="sc">+</span></span>
+<span id="cb46-2"><a href="#cb46-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb46-3"><a href="#cb46-3"></a>  <span class="fu">scale_colour_viridis_d</span>(<span class="at">name =</span> <span class="st">"Island"</span>) <span class="sc">+</span></span>
+<span id="cb46-4"><a href="#cb46-4"></a>  <span class="fu">scale_y_discrete</span>(<span class="at">name =</span> <span class="st">"Body mass in g"</span>,</span>
+<span id="cb46-5"><a href="#cb46-5"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">2500</span>, <span class="dv">6500</span>, <span class="dv">500</span>),</span>
+<span id="cb46-6"><a href="#cb46-6"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">2500</span>, <span class="dv">6500</span>)) <span class="sc">+</span></span>
+<span id="cb46-7"><a href="#cb46-7"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">name =</span> <span class="st">"Flipper length in mm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in scale_y_discrete(name = "Body mass in g", breaks = seq(2500, : Continuous limits supplied to discrete scale.
 ℹ Did you mean `limits = factor(...)` or `scale_*_continuous()`?</code></pre>
@@ -1784,13 +1830,13 @@ Explain the solution
 </div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="05-dataviz2_files/figure-html/unnamed-chunk-42-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figure class="figure"><p><img src="05-dataviz2_files/figure-html/unnamed-chunk-44-1.png" class="img-fluid figure-img" style="width:100.0%"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-33-contents" aria-controls="callout-33" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-36-contents" aria-controls="callout-36" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -1799,17 +1845,17 @@ Explain the solution
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-33" class="callout-33-contents callout-collapse collapse">
+<div id="callout-36" class="callout-36-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>In this example, we used the wrong function for continuous variables. We used <code>scale_y_discrete</code> and <code>scale_y_discrete</code>, instead of <code>scale_x_continuous</code> and <code>scale_y_continuous</code>. We must honour the variable type when we customise the plot, so think about what type of variable is on each axis and which function lets you edit it.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g, <span class="at">colour =</span> island)) <span class="sc">+</span></span>
-<span id="cb47-2"><a href="#cb47-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb47-3"><a href="#cb47-3"></a>  <span class="fu">scale_colour_viridis_d</span>(<span class="at">name =</span> <span class="st">"Island"</span>) <span class="sc">+</span></span>
-<span id="cb47-4"><a href="#cb47-4"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Body mass in g"</span>,</span>
-<span id="cb47-5"><a href="#cb47-5"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">2500</span>, <span class="dv">6500</span>, <span class="dv">500</span>),</span>
-<span id="cb47-6"><a href="#cb47-6"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">2500</span>, <span class="dv">6500</span>)) <span class="sc">+</span></span>
-<span id="cb47-7"><a href="#cb47-7"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">"Flipper length in mm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1"></a><span class="fu">ggplot</span>(penguins, <span class="fu">aes</span>(<span class="at">x =</span> flipper_length_mm, <span class="at">y =</span> body_mass_g, <span class="at">colour =</span> island)) <span class="sc">+</span></span>
+<span id="cb49-2"><a href="#cb49-2"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb49-3"><a href="#cb49-3"></a>  <span class="fu">scale_colour_viridis_d</span>(<span class="at">name =</span> <span class="st">"Island"</span>) <span class="sc">+</span></span>
+<span id="cb49-4"><a href="#cb49-4"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">name =</span> <span class="st">"Body mass in g"</span>,</span>
+<span id="cb49-5"><a href="#cb49-5"></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">2500</span>, <span class="dv">6500</span>, <span class="dv">500</span>),</span>
+<span id="cb49-6"><a href="#cb49-6"></a>                     <span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">2500</span>, <span class="dv">6500</span>)) <span class="sc">+</span></span>
+<span id="cb49-7"><a href="#cb49-7"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">name =</span> <span class="st">"Flipper length in mm"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>

@@ -718,7 +718,7 @@ ggplot(data_facet, aes(x = Time1, y = Time2)) +
 
 The data should already be in your project folder. If you want a fresh copy, you can download the data again here: [data_pair_coding](data/data_pair_coding.zip "download").
 
-We are using the package `tidyverse` today, and the data file we should read in today is `dog_data_clean_wide.csv`. I've named my data object `dog_data_wide` to shorten the name.
+We are using the package `tidyverse` today, and the data file we need to read in is `dog_data_clean_wide.csv`. I've named my data object `dog_data_wide` to shorten the name but feel free to use whatever object name sounds intuitive to you.
 
 ```{r reading in data for me, echo=FALSE, message=FALSE}
 library(tidyverse)
@@ -732,7 +732,7 @@ dog_data_long <- read_csv("data/dog_data_clean_long.csv")
 
 Re-create one of the 3 plot below:
 
-* grouped bar chart (easy)
+* grouped barchart (easy)
 * violin-boxplot (medium)
 * scatterplot (hard)
 
@@ -756,12 +756,20 @@ ggplot(data_bar, aes(x = GroupAssignment, fill = Year_of_Study)) +
 ::: {.callout-tip collapse="true" icon="false"}
 ## Hints 
 
-* I've created a new data object `data_bar` but you could also work straight from `dog_data_wide`.
-* Consider turning the 2 variables into factors before plotting
-* Plotting should be relatively straightforward - default colours and changing the axes labels/ legend title
+* I've created a new data object `data_bar` to select the relevant variables but you could also work straight from `dog_data_wide`.
+* Consider turning the 2 categorical variables into factors before plotting
+* Plotting should be relatively straightforward - these are default colours and you would only need to change the axes labels/ legend title. 
+
+
+::: {.callout-tip collapse="true" icon="false"}
+## More hints 
+
+We can change all of the 3 labels in one go. Check out the *## Prettier grouped barchart* in @sec-adv_bar, where we did exactly that.
+
+:::
 
 ::: {.callout-caution collapse="true" icon="false"}
-## Solution
+## Solution for `data_bar`
 
 ```{r eval=FALSE}
 data_bar <- dog_data_wide %>% 
@@ -770,12 +778,19 @@ data_bar <- dog_data_wide %>%
                                   levels = c("Direct", "Indirect", "Control")),
          Year_of_Study = factor(Year_of_Study,
                                 levels = c("First", "Second", "Third", "Fourth", "Fifth or above")))
+```
+:::
 
+::: {.callout-caution collapse="true" icon="false"}
+## Solution for the barchart
+
+```{r eval=FALSE}
 ggplot(data_bar, aes(x = GroupAssignment, fill = Year_of_Study)) +
   geom_bar(position = "dodge") +
   labs(x = "Experimental Group", y = "Count", fill = "Year of Study")
 ```
 :::
+
 
 :::
 
@@ -801,24 +816,30 @@ ggplot(data_vb, aes(x = Year_of_Study, y = Loneliness_post, fill = Year_of_Study
 ::: {.callout-warning collapse="true" icon="false"}
 ## Hints 
 
-* I've created a new data object `data_vb` but you could also work straight from `dog_data_wide`.
+* I've created a new data object `data_vb` to select the relevant variables but you could also work straight from `dog_data_wide`.
 * Consider turning the categorical variable into a factor before plotting
 * Plotting tips:
   * the colour scale is one of the viridis options 
-  * it's a bit of trial and error for the opacity of the violin and the box width of the boxes 
-  * the tricky part might be adjusting the y-axis ticks. Take inspiration from the histogram in @sec-hist
+  * it's a bit of trial and error for the opacity of the violin and the box width of the boxes (it is totally fine if it looks approximately right)
+  * the tricky part might be adjusting the y-axis ticks. Take inspiration from the histogram in @sec-hist (Tab *Axes labels, margins, and breaks*)
 
 
 ::: {.callout-caution collapse="true" icon="false"}
-## Solution
+## Solution for `data_vb`
 
 ```{r eval=FALSE}
 data_vb <- dog_data_wide %>% 
   select(RID, Year_of_Study, Loneliness_post) %>% 
   mutate(Year_of_Study = factor(Year_of_Study,
                                 levels = c("First", "Second", "Third", "Fourth", "Fifth or above")))
+```
 
+::: 
 
+::: {.callout-caution collapse="true" icon="false"}
+## Solution for the violin-boxplot
+
+```{r eval=FALSE}
 ggplot(data_vb, aes(x = Year_of_Study, y = Loneliness_post, fill = Year_of_Study)) +
   geom_violin(alpha = 0.5) +
   geom_boxplot(width = 0.25) +
