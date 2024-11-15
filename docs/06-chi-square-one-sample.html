@@ -344,14 +344,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></section><section id="individual-walkthrough" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="individual-walkthrough"><span style="color: #F39C12; text-transform: uppercase;">Individual Walkthrough</span></h2>
 </section><section id="overview" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="overview">
 <span class="header-section-number">6.1</span> Overview</h2>
-<p>they are all part of a general linear model.</p>
-<p>The general linear model incorporates a number of different statistical models: ANOVA, ANCOVA, MANOVA, MANCOVA, ordinary linear regression, t-test and F-test.</p>
-<p>Which test to use depends on what type of variable(s) you have, what design you chose, and what your research question is about. You can see them in the flowchart below.</p>
+<p>From here on, we will explore inferential statistics, including chi-square test, various t-tests, correlations, ANOVAs, and regression. Most of these tests belong to the General Linear Model (GLM) family, which helps us analyse relationships between variables using linear equations. The chi-square test, while not part of the GLM, is also included here as it’s useful for analysing categorical data.</p>
+<p>To help you choose the most appropriate test, refer to the simplified flowchart below. It guides you based on the types of variables - whether they are categorical or continuous.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure"><p><img src="images/Flowchart_tests_drawio.png" class="img-fluid figure-img"></p>
 <figcaption class="figure-caption">Simplified flowchart to help select the most appropriate test (created with <a href="https://draw.io/" target="_blank">drawio</a>). <a href="images/Flowchart_tests_drawio.png" target="_blank">View larger version</a></figcaption></figure>
 </div>
-<p>You can see below in which chapter they will be discussed:</p>
+<p>Each test is discussed in its respective chapter with guidance on when and how to apply it:</p>
 <ul>
 <li>Cross-tabulation chi-Square test (this chapter, <a href="#sec-chi_square"><span>Section&nbsp;6.5</span></a>)</li>
 <li>One-sample t-test (this chapter, <a href="#sec-onesample"><span>Section&nbsp;6.6</span></a>)</li>
@@ -364,6 +363,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Factorial ANOVA (<a href="13-factorial-anova.html"><span>Chapter&nbsp;13</span></a>)</li>
 </ul></section><section id="activity-1-setup-download-the-data" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="activity-1-setup-download-the-data">
 <span class="header-section-number">6.2</span> Activity 1: Setup &amp; download the data</h2>
+<p>This week, we will be working with a new dataset. Follow the steps below to set up your project:</p>
 <ul>
 <li>
 <strong>Create a new project</strong> and name it something meaningful (e.g., “2A_chapter6”, or “06_chi_square_one_sample_t”). See <a href="01-basics.html#sec-project"><span>Section&nbsp;1.2</span></a> if you need some guidance.</li>
@@ -371,8 +371,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <strong>Create a new <code>.Rmd</code> file</strong> and save it to your project folder. See <a href="01-basics.html#sec-rmd"><span>Section&nbsp;1.3</span></a> if you get stuck.</li>
 <li>Delete everything after the setup code chunk (e.g., line 12 and below)</li>
 <li>
-<strong>Download a reduced dataset</strong> here: <a href="data/data_ch6.zip" title="download">data_ch6.zip</a>. You’ll see one csv file with demographic information and questionnaire data as well as the codebook.</li>
-<li>Extract the data files from the zip folder and place them in your project folder. If you need help, see <a href="01-basics.html#sec-download_data_ch1"><span>Section&nbsp;1.4</span></a>.</li>
+<strong>Download the new dataset</strong> here: <a href="data/data_ch6.zip" title="download">data_ch6.zip</a>. This zip file contains one csv file with demographic information and questionnaire data as well as and Excel codebook.</li>
+<li>Extract the data files from the zip folder and place them directly in your project folder (next to the project icon, not in a subfolder). For more help, see <a href="01-basics.html#sec-download_data_ch1"><span>Section&nbsp;1.4</span></a>.</li>
 </ul>
 <p><strong>Citation</strong></p>
 <blockquote class="blockquote">
@@ -385,13 +385,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </blockquote>
 <p><strong>Changes made to the dataset</strong></p>
 <ul>
-<li>We selected demographic variables, such as age, gender, ethnicity, employment, education level, and the Warwick-Edinburgh Mental Wellbeing Scale from the rich dataset.</li>
-<li>We removed rows with missing values and categorical groupings for which observed frequencies were considered too small for the purpose of this chapter.</li>
-<li>We won’t be looking into any game-related associations, but feel free to download the full dataset to explore further.</li>
-<li>The original authors had quite strict inclusion criteria for their analysis. We did not, hence we ended up with more participants than the original study</li>
+<li>We extracted key demographic variables from the rich dataset, including age, gender, ethnicity, employment, education level, and scores from the Warwick-Edinburgh Mental Wellbeing Scale.</li>
+<li>We removed rows with missing values and categorical groupings with low observed frequencies for the purpose of this chapter.</li>
+<li>We won’t explore any associations related to gaming, but feel free to download the full dataset if you wish to investigate further.</li>
+<li>Unlike the original study, which applied strict inclusion criteria, we used more flexible criteria, resulting in a larger sample size than the original analysis.</li>
 </ul></section><section id="activity-2-load-in-the-library-read-in-the-data-and-familiarise-yourself-with-the-data" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="activity-2-load-in-the-library-read-in-the-data-and-familiarise-yourself-with-the-data">
 <span class="header-section-number">6.3</span> Activity 2: Load in the library, read in the data, and familiarise yourself with the data</h2>
-<p>Today, we’ll need the following packages <code>tidyverse</code>, <code>lsr</code>, <code>scales</code>, <code>qqplotr</code>, <code>car</code>, <code>pwr</code>, and <code>rcompanion</code> as well as the data <code>data_ballou_reduced</code>.</p>
+<p>Today, we will be using the following packages: <code>tidyverse</code>, <code>lsr</code>, <code>scales</code>, <code>qqplotr</code>, <code>car</code>, <code>pwr</code>, and <code>rcompanion</code>. If you need to install any of them, do so via the console (see <a href="01-basics.html#sec-install_packages"><span>Section&nbsp;1.5.1</span></a> for more detail).</p>
+<p>Additionally, we will need to read in the data <code>data_ballou_reduced</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># load in the packages</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>???</span>
@@ -429,12 +430,13 @@ Solution
 </div>
 </section><section id="activity-3-data-wrangling" class="level2" data-number="6.4"><h2 data-number="6.4" class="anchored" data-anchor-id="activity-3-data-wrangling">
 <span class="header-section-number">6.4</span> Activity 3: Data wrangling</h2>
-<p>The categorical variables look quite tidy, but we need to <strong>convert gender and education level into factors</strong>. Our statistical test requires factors and categories might be sorted more easily when plotting.</p>
-<p>We also have to <strong>calculate the overall score for the Warwick-Edinburgh Mental Wellbeing Scale</strong>. According to the <a href="https://warwick.ac.uk/fac/sci/med/research/platform/wemwbs/using/howto/" target="_blank">official WEMWBS website</a>, the scores of the individual items are summed up.</p>
+<p>The categorical variables in our dataset look tidy, but we need to make a few adjustments to prepare for our analysis:</p>
 <ul>
-<li>create a new data object <code>data_wemwbs</code> to calculate the summed up scores for the wemwbs.</li>
-<li>convert gender and education level into factors in the original <code>data_ballou</code> object. Feel free to sort them in a meaningful order.</li>
-<li>join this <code>data_ballou</code> with <code>data_wembs</code>.</li>
+<li>
+<strong>Convert <code>gender</code> and <code>education_level</code> into factors</strong> in the original <code>data_ballou</code> object. Our statistical tests require these variables to be factors, and converting them will also help with sorting categories effectively for plotting. Feel free to arrange the categories in a meaningful order.</li>
+<li>Create a new data object called <code>data_wemwbs</code> to <strong>calculate the total score for the Warwick-Edinburgh Mental Wellbeing Scale (WEMWBS</strong>): According to the <a href="https://warwick.ac.uk/fac/sci/med/research/platform/wemwbs/using/howto/" target="_blank">official WEMWBS website</a>, the individual item scores should be summed to get the total.</li>
+<li>
+<strong>Join</strong> the the original <code>data_ballou</code> dataset with the new <code>data_wemwbs</code> dataset to have all the information in one place.</li>
 </ul>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -449,8 +451,8 @@ Hints
 <div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <ul>
-<li>We converted categorical variables into factors in <a href="04-dataviz.html"><span>Chapter&nbsp;4</span></a> if you need a refresher</li>
-<li>Check the <code>QRPs</code> questionnaire in <a href="02-wrangling.html"><span>Chapter&nbsp;2</span></a> to see how we approached aggregating scores</li>
+<li>We converted categorical variables into factors previously in <a href="04-dataviz.html"><span>Chapter&nbsp;4</span></a> - refer back if you need a refresher</li>
+<li>Check how we handled the <code>QRPs</code> questionnaire in <a href="02-wrangling.html"><span>Chapter&nbsp;2</span></a> for guidance on aggregating scores</li>
 </ul>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -488,23 +490,23 @@ Solution
 </div>
 </section><section id="sec-chi_square" class="level2" data-number="6.5"><h2 data-number="6.5" class="anchored" data-anchor-id="sec-chi_square">
 <span class="header-section-number">6.5</span> Activity 4: Cross-tabulation Chi-square test</h2>
-<p>A Cross-Tabulation Chi-Square Test, also known as a Chi-square test of association/independence, tests how one variable is associated with the distribution of outcomes in another variable.</p>
+<p>A Cross-Tabulation Chi-Square Test, also known as a Chi-Square Test of Association or Independence, tests how one variable is associated with the distribution of outcomes in another variable.</p>
 <p>We will be performing a Chi-Square test using the categorical variables <strong>gender</strong> and <strong>eduLevel</strong>:</p>
 <ul>
 <li>Potential research question: “Is there an association between gender and level of education in the population?”</li>
-<li>Null Hypothesis (H<sub>0</sub>): “Gender and student status are independent; there is no association between gender and level of education.”</li>
-<li>Alternative Hypothesis (H<sub>1</sub>): “Gender and student status are not independent; there is an association between gender and level of education.”</li>
+<li>Null Hypothesis (H<sub>0</sub>): “Gender and level of education are independent; there is no association between gender and level of education.”</li>
+<li>Alternative Hypothesis (H<sub>1</sub>): “Gender and level of education are not independent; there is an association between gender and level of education.”</li>
 </ul>
 <section id="task-1-preparing-the-dataframe" class="level3" data-number="6.5.1"><h3 data-number="6.5.1" class="anchored" data-anchor-id="task-1-preparing-the-dataframe">
 <span class="header-section-number">6.5.1</span> Task 1: Preparing the dataframe</h3>
-<p>We need to select your variables of interest. We don’t have missing values in this dataset, but if your future dataframe might contain some, use <code>drop_na()</code> before you turn categorical variables into factors.</p>
+<p>First, select your variables of interest - here participant id, gender, and education levels. This dataset does not contain missing values, but in future datasets that might, use <code>drop_na()</code> to remove them before converting categorical variables into factors.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>chi_square <span class="ot">&lt;-</span> data_ballou <span class="sc">%&gt;%</span> </span>
 <span id="cb5-2"><a href="#cb5-2"></a>  <span class="fu">select</span>(pid, gender, eduLevel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="task-2-compute-descriptives" class="level3" data-number="6.5.2"><h3 data-number="6.5.2" class="anchored" data-anchor-id="task-2-compute-descriptives">
 <span class="header-section-number">6.5.2</span> Task 2: Compute descriptives</h3>
-<p>We need to calculate counts for each combination of the variables. This is best done in a frequency table. This also allows us to check that we don’t have missing values in the cells. The function we are using does not work with missing values.</p>
+<p>Next, we need to calculate counts for each combination of the variables, which is best done in a frequency table. This will also allow us to verify that there are no missing values in any cells, as the function we’re using cannot handle missing values</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a>chi_square_frequency <span class="ot">&lt;-</span> chi_square <span class="sc">%&gt;%</span> </span>
 <span id="cb6-2"><a href="#cb6-2"></a>  <span class="fu">count</span>(gender, eduLevel) <span class="sc">%&gt;%</span> </span>
@@ -560,24 +562,23 @@ Solution
 </div>
 </div>
 </div>
-<p>We should be ok here, even though the count for non-binary/vocational is quite low.</p>
+<p>We should be fine here, even though the count for the non-binary/vocational category is quite low.</p>
 </section><section id="task-3-check-assumptions" class="level3" data-number="6.5.3"><h3 data-number="6.5.3" class="anchored" data-anchor-id="task-3-check-assumptions">
 <span class="header-section-number">6.5.3</span> Task 3: Check assumptions</h3>
 <section id="assumption-1-categorical-data" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="assumption-1-categorical-data">Assumption 1: categorical data</h4>
-<p>The two variables should be categorical data measured either at an ordinal or nominal level.</p>
+<p>Both variables should be categorical, measured at either the ordinal or nominal level.</p>
 <p>We can confirm that for our dataset. Gender is <select class="webex-select"><option value="blank"></option>
 <option value="x">ordinal</option>
 <option value="answer">nominal</option></select>, and level of education is <select class="webex-select"><option value="blank"></option>
 <option value="answer">ordinal</option>
 <option value="x">nominal</option></select>.</p>
 </section><section id="assumption-2-independent-observartions" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="assumption-2-independent-observartions">Assumption 2: Independent observartions</h4>
-<p>The value of one observation in the dataset does not affect the value of any other observation.</p>
+<p>Each observation in the dataset has to be independent, meaning the value of one observation does not affect the value of any other.</p>
 <p>And we assume as much for our data.</p>
 </section><section id="assumption-3-cells-in-the-contingency-table-are-mutually-exclusive" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="assumption-3-cells-in-the-contingency-table-are-mutually-exclusive">Assumption 3: Cells in the contingency table are mutually exclusive</h4>
-<p>Individuals can only belong to one cell in the contingency table.</p>
-<p>We can confirm that by looking at the data and the contingency table.</p>
+<p>Each individual can belong to only one cell in the contingency table. We can confirm this by examining the data and reviewing the contingency table.</p>
 </section><section id="assumption-4-expected-frequencies-are-sufficiently-large" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="assumption-4-expected-frequencies-are-sufficiently-large">Assumption 4: Expected frequencies are sufficiently large</h4>
-<p>Not an assumption that is listed consistently across various sources. When it is, it suggests that expected frequencies are larger than 5 or at least 80% of the the expected frequencies are above 5 and none of them are below 1. However, Danielle Navarro points out that this seems to be a “somewhat conservative” criterion and should be taken as “rough guidelines” only (see <a href="https://learningstatisticswithr.com/book/chisquare.html#chisqassumptions" target="_blank">https://learningstatisticswithr.com/book/chisquare.html#chisqassumptions</a>.</p>
+<p>Assumption 4 is not an assumption that is listed consistently across various sources. When it is, it suggests that expected frequencies are larger than 5 or at least 80% of the the expected frequencies are above 5 and none of them are below 1. However, Danielle Navarro points out that this seems to be a “somewhat conservative” criterion and should be taken as “rough guidelines” only (see <a href="https://learningstatisticswithr.com/book/chisquare.html#chisqassumptions" target="_blank">https://learningstatisticswithr.com/book/chisquare.html#chisqassumptions</a>.</p>
 <p>This is information, we can either compute manually (see lecture slides) or wait till we get the output from the inferential statistics later.</p>
 </section></section><section id="task-4-create-an-appropriate-plot" class="level3" data-number="6.5.4"><h3 data-number="6.5.4" class="anchored" data-anchor-id="task-4-create-an-appropriate-plot">
 <span class="header-section-number">6.5.4</span> Task 4: Create an appropriate plot</h3>
@@ -591,7 +592,7 @@ Solution
 <option value="x">geom_histogram</option>
 <option value="x">geom_point</option>
 <option value="x">geom_boxplot and geom_violin</option></select></p>
-<p>Try first before looking at the solution. Feel free to practice adding other layers to make the plot pretty.</p>
+<p>Try creating the plot on your own before checking the solution. Feel free to practice adding different layers to make the plot pretty!</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -605,7 +606,7 @@ One possible solution
 <div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>… is a grouped bar chart.</p>
-<p>I played about with the labels of the x-axis categories since the graduate label is super long. Google was my friend in this instance and showed me a nifty function called <code>label_wrap()</code> from the <code>scales</code> package which automatically adds line breaks after X characters. Here we chose 12; looked best. (See other options for long labels at <a href="https://www.andrewheiss.com/blog/2022/06/23/long-labels-ggplot/" target="_blank">https://www.andrewheiss.com/blog/2022/06/23/long-labels-ggplot/</a>).</p>
+<p>I played about with the labels of the x-axis categories since the graduate label is super long. Google was my friend in this instance and showed me a nifty function called <code>label_wrap()</code> from the <code>scales</code> package which automatically inserts line breaks after a set number of characters. Setting it to 12 characters looked best. (See other options for long labels at <a href="https://www.andrewheiss.com/blog/2022/06/23/long-labels-ggplot/" target="_blank">https://www.andrewheiss.com/blog/2022/06/23/long-labels-ggplot/</a>).</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a><span class="fu">ggplot</span>(chi_square, <span class="fu">aes</span>(<span class="at">x =</span> eduLevel, <span class="at">fill =</span> gender)) <span class="sc">+</span></span>
 <span id="cb7-2"><a href="#cb7-2"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span> </span>
@@ -626,11 +627,11 @@ One possible solution
 </div>
 </section><section id="task-5-compute-a-chi-square-test" class="level3" data-number="6.5.5"><h3 data-number="6.5.5" class="anchored" data-anchor-id="task-5-compute-a-chi-square-test">
 <span class="header-section-number">6.5.5</span> Task 5: Compute a chi-square test</h3>
-<p>Before we can do that, we need to turn our tibble into a dataframe - the <code>associationTest()</code> function we are using to compute the Chi-square test does not like tibbles. [<em>you have nooooo clue how long that took to figure out - let’s say the error message was not entirely useful</em>]</p>
+<p>Before we can do that, we need to turn our tibble into a dataframe - the <code>associationTest()</code> function we are using to compute the Chi-square test does not like tibbles. [<em>you have nooooo clue how long that took to figure out - let’s say the error message was not exactly helpful</em>]</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>chi_square_df <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(chi_square)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Now we can run the <code>associationTest()</code> function from the <code>lsr</code> package. The first argument is a formula. It starts with a <code>~</code> and then expects the 2 variables we want to associate connected with a <code>+</code>. The second argument is the dataframe.</p>
+<p>Now we can run the <code>associationTest()</code> function from the <code>lsr</code> package. The first argument is a formula. It starts with a <code>~</code> followed by the two variables you want to associate, separated by a <code>+</code>. The second argument is the dataframe.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a><span class="fu">associationTest</span>(<span class="at">formula =</span> <span class="sc">~</span> eduLevel <span class="sc">+</span> gender, <span class="at">data =</span> chi_square_df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -682,24 +683,24 @@ Other information:
    warning: expected frequencies too small, results may be inaccurate</code></pre>
 </div>
 </div>
-<p>The output is quite informative. It gives information about:</p>
+<p>The output is quite informative as it gives information about:</p>
 <ul>
 <li>the variables that were tested,</li>
 <li>the null and alternative hypotheses,</li>
-<li>a table with the observed frequencies (which matches what we calculated in <code>chi_square_assumptions</code> without the rows/columns of the missing values we removed),</li>
+<li>a table with the observed frequencies (which matches our calculations in <code>chi_square_frequency</code> without the rows/columns of the missing values we removed),</li>
 <li>an output of the frequencies you’d expect if the null hypothesis were true,</li>
 <li>the result of the hypothesis test, and</li>
 <li>the effect size Cramer’s v.</li>
 </ul>
-<p>And it gives us a <strong>warning message</strong> saying that expected frequencies are too small and that the chi-squared approximation may be incorrect. This ties in with Assumption 4. Depending on your stance on Assumption 4, you may or may not want to ignore the warning.</p>
-<p>The p-value tells us that the null hypothesis is not being rejected, since the p-value is larger than 0.05.</p>
+<p>It also gives us a <strong>warning message</strong> saying that expected frequencies are too small and that the chi-squared approximation may be incorrect. This relates to Assumption 4. Depending on your stance on Assumption 4, you may choose to either address or ignore this warning.</p>
+<p>The p-value indicates that we do not reject the null hypothesis, as it is greater than 0.05.</p>
 </section><section id="task-6-the-write-up" class="level3" data-number="6.5.6"><h3 data-number="6.5.6" class="anchored" data-anchor-id="task-6-the-write-up">
 <span class="header-section-number">6.5.6</span> Task 6: The write-up</h3>
-<p>The Chi-Square test revealed that there is no statistically significant association between Gender and Student Status, <span class="math inline">\(\chi^2(8) = 13.59, p = .093, V = .079\)</span>. The strength of the association between the variables is considered small. We therefore fail to reject the null hypothesis.</p>
+<p>The Chi-Square test revealed that there is no statistically significant association between Gender and Level of Education, <span class="math inline">\(\chi^2(8) = 13.59, p = .093, V = .079\)</span>. The strength of the association between the variables is considered small. We therefore fail to reject the null hypothesis.</p>
 </section></section><section id="sec-onesample" class="level2" data-number="6.6"><h2 data-number="6.6" class="anchored" data-anchor-id="sec-onesample">
 <span class="header-section-number">6.6</span> Activity 5: One-sample t-test</h2>
-<p>The one-sample t-test is used to determine whether a sample comes from a population with a specific mean. This population mean is not always known, but is sometimes hypothesized.</p>
-<p>We will be performing a one-sample t-test using the continuous variable <strong>wemwbs_sum</strong>. The <a href="https://warwick.ac.uk/fac/sci/med/research/platform/wemwbs/using/howto/" target="_blank">official website for the Warwick-Edinburgh Mental Wellbeing Scales</a> states that the “WEMWBS has a mean score of 51.0 in general population samples in the UK with a standard deviation of 7 (Tennant et al., 2007)”.</p>
+<p>The one-sample t-test is used to determine whether a sample comes from a population with a specific mean. This population mean is not always known, but is sometimes hypothesised.</p>
+<p>We will perform a one-sample t-test using the continuous variable <strong>wemwbs_sum</strong>. The <a href="https://warwick.ac.uk/fac/sci/med/research/platform/wemwbs/using/howto/" target="_blank">official website for the Warwick-Edinburgh Mental Wellbeing Scales</a> states that the “WEMWBS has a mean score of 51.0 in general population samples in the UK with a standard deviation of 7 (Tennant et al., 2007)”.</p>
 <ul>
 <li>Potential research question: “Is the average mental well-being of gamers different from the general population’s average well-being?”</li>
 <li>Null Hypothesis (H<sub>0</sub>): “The summed-up WEMWBS score of gamers is not different to 51.0.”</li>
@@ -707,14 +708,14 @@ Other information:
 </ul>
 <section id="task-1-preparing-the-dataframe-1" class="level3" data-number="6.6.1"><h3 data-number="6.6.1" class="anchored" data-anchor-id="task-1-preparing-the-dataframe-1">
 <span class="header-section-number">6.6.1</span> Task 1: Preparing the dataframe</h3>
-<p>We need to select your variables of interest.</p>
+<p>First, we need to select the variables of interest: participant ID and <code>wemwbs_sum</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>one_sample <span class="ot">&lt;-</span> data_ballou <span class="sc">%&gt;%</span> </span>
 <span id="cb12-2"><a href="#cb12-2"></a>  <span class="fu">select</span>(pid, wemwbs_sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="task-2-compute-descriptives-1" class="level3" data-number="6.6.2"><h3 data-number="6.6.2" class="anchored" data-anchor-id="task-2-compute-descriptives-1">
 <span class="header-section-number">6.6.2</span> Task 2: Compute descriptives</h3>
-<p>We want to compute means and standard deviations for our variable of interest. This should be straight forward. Try it yourself and then compare your result with the solution below.</p>
+<p>Next, we want to compute means and standard deviations for our variable of interest. This should be straight forward. Try it yourself and then compare your result with the solution below.</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -753,7 +754,7 @@ Solution
 </div>
 </section><section id="task-3-create-an-appropriate-plot" class="level3" data-number="6.6.3"><h3 data-number="6.6.3" class="anchored" data-anchor-id="task-3-create-an-appropriate-plot">
 <span class="header-section-number">6.6.3</span> Task 3: Create an appropriate plot</h3>
-<p>This is the one you want to include in your report, so make sure everything is clearly labelled. Which plot would you choose? Start creating one first before comparing with the solution below.</p>
+<p>This is the plot you will want to include in your report, so make sure everything is clearly labelled. Which plot would you choose? Try creating one on your own first, then compare it with the solution below.</p>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -786,12 +787,12 @@ Solution
 </section><section id="task-4-check-assumptions" class="level3" data-number="6.6.4"><h3 data-number="6.6.4" class="anchored" data-anchor-id="task-4-check-assumptions">
 <span class="header-section-number">6.6.4</span> Task 4: Check assumptions</h3>
 <section id="assumption-1-continuous-dv" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="assumption-1-continuous-dv">Assumption 1: Continuous DV</h4>
-<p>The dependent variable needs to be measured at interval or ratio level. We can confirm that by looking at <code>one_sample</code>.</p>
+<p>The dependent variable (DV) needs to be measured at interval or ratio level. We can confirm that by looking at <code>one_sample</code>.</p>
 </section><section id="assumption-2-data-are-independent" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="assumption-2-data-are-independent">Assumption 2: Data are independent</h4>
-<p>There is no relationship between the observations. Whilst this is an important assumption, it’s not one we can really test for. It has more to do with study design. Anyway, we assume this assumption holds for our data.</p>
+<p>There should be no relationship between the observations. While this is an important assumption, it is more related to study design and isn’t something we can easily test for. Anyway, we will assume this assumption holds for our data.</p>
 </section><section id="assumption-3-no-significant-outliers" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="assumption-3-no-significant-outliers">Assumption 3: No significant outliers</h4>
 <p>We can check for that visually, for example in the violin-boxplot above.</p>
-<p>It appears that there is one outlier on the lower tail, however, when inspecting the data in <code>one_sample</code>, we can see that it’s one person who got a score of 14 which is a possible value. Furthermore, when sample sizes are sufficiently large, like ours with 1083 participants, removing a single outlier makes not much sense. So we have checked this assumption, consider this outlier not significant, and therefore keep this observation in the dataset.</p>
+<p>It appears there is one outlier in the lower tail. However, upon inspecting the <code>one_sample</code> data, we see it is a single participant with a score of 14, which is a possible value. Additionally, with a large sample size of 1,083 participants, removing a single outlier makes not much sense. Thus, we have checked this assumption, considered this outlier not significant, and therefore keep this observation in the dataset.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -802,12 +803,12 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>If you are removing any of the outliers, you need to recalculated the descriptive stats.</p>
+<p>If you decide to remove any outliers, remember to recalculate the descriptive statistics.</p>
 </div>
 </div>
 </section><section id="assumption-4-dv-should-be-approximately-normally-distributed" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="assumption-4-dv-should-be-approximately-normally-distributed">Assumption 4: DV should be approximately normally distributed</h4>
-<p>We can already check normality from the violin-boxplot above but you could plot a histogram, a density plot, or a qqplot as an alternative to assess normality visually.</p>
-<p>All of these options show that <strong>the data is normally distributed</strong>. That means, we will conduct a parametric test, i.e.&nbsp;a one-sample t-test.</p>
+<p>We can already check normality from the violin-boxplot above but you could also use a histogram, a density plot, or a Q-Q plot as an alternative to assess normality visually.</p>
+<p>Each of these options shows that <strong>the data is normally distributed</strong>. This allows us to proceed with a parametric test, specifically a one-sample t-test.</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -841,7 +842,7 @@ Alternatives to visually assess normality
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>A density plot shows a smooth distribution curve of the data. The curve represents the proportion of the data in each range rather than the frequency. This means that the height of the curve doesn’t show how many times a value appears but rather the proportion of the data that falls into that range.</p>
+<p>A density plot shows a smooth distribution curve of the data. Unlike a histogram, the height of the curve reflects the proportion of data within each range rather than the frequency of individual values. This means the curve shows where data points are concentrated, not how many times each value appears.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">ggplot</span>(one_sample, <span class="fu">aes</span>(<span class="at">x =</span> wemwbs_sum)) <span class="sc">+</span></span>
 <span id="cb16-2"><a href="#cb16-2"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"magenta"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -854,11 +855,11 @@ Alternatives to visually assess normality
 </div>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
-<p>Q-Q plot stands for Quantile-Quantile Plot and compare two distributions by matching a common set of quantiles. It basically means that it’s comparing the distribution you have in your data with a normal distribution and plots this along a 45 degree line.</p>
-<p><strong>If the dots in the Q-Q plot fall roughly along that line, you can assume normality of the data. If they stray away from the line (and worse in some sort of pattern), we might not assume normality and conduct a non-parametric test instead. For the non-parametric equivalent, see <a href="#sec-alternative_one_sample"><span>Section&nbsp;6.7</span></a>.</strong></p>
-<p>We can either use the package <code>car</code> or <code>qqplotr</code> to build the qqplot.</p>
+<p>Q-Q plot stands for Quantile-Quantile Plot and compare two distributions by matching a common set of quantiles. Essentially, it compares the distribution of your data to a normal distribution and plots the points along a 45-degree line.</p>
+<p><strong>If the dots in the Q-Q plot fall roughly along that line, we can assume the data is normally distributed. If they stray away from the line (and worse in some sort of pattern), we might not assume normality and conduct a non-parametric test instead. For the non-parametric equivalent, see <a href="#sec-alternative_one_sample"><span>Section&nbsp;6.7</span></a>.</strong></p>
+<p>To create the Q-Q plot, you can use either the <code>car</code> or <code>qqplotr</code> package</p>
 <ul>
-<li>The function <code>qqPlot()</code> is a single line but uses BaseR coding (i.e., the <code>$</code> symbol) to access the column in the data object.</li>
+<li>The <code>qqPlot()</code> function is a single line but requires BaseR syntax (i.e., the <code>$</code> symbol) to access the column within the data object. For example, <code>one_sample$wemwbs_sum</code> directs R to look for a column named <code>wemwbs_sum</code> that is located within the data object <code>one_sample</code>.</li>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a><span class="co"># Version 1 with the car package</span></span>
@@ -910,7 +911,7 @@ Important
 <p>In contrast, when you have large sample sizes, Shapiro-Wilk is overly sensitive and will definitely produce a significant p-value regardless of what the distribution looks like. So don’t rely on its output when you have large sample sizes, and be mindful of its output when you have small sample sizes.</p>
 </div>
 </div>
-<p>The function in R is <code><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test()</a></code> and it’s built into BaseR, meaning, we need our data object, the <code>$</code> and the column we want to address.</p>
+<p>The function in R for this test is <code><a href="https://rdrr.io/r/stats/shapiro.test.html">shapiro.test()</a></code> which is part of BaseR. This means, we need to specify our data object, use the <code>$</code>, and indicate the column we want to address.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a><span class="fu">shapiro.test</span>(one_sample<span class="sc">$</span>wemwbs_sum)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -921,7 +922,7 @@ data:  one_sample$wemwbs_sum
 W = 0.99404, p-value = 0.0002619</code></pre>
 </div>
 </div>
-<p>No surprise here, the test shows p &lt; .001 because we have more than 1000 participants. Nevertheless, if you decided on using the Shapiro-Wilk test in your report, you’d need to write this result up in APA style: <span class="math inline">\(W = .99, p &lt; .001\)</span>.</p>
+<p>No surprise here! The test shows a p-value of &lt; .001 due to our large sample size of over 1000 participants. Nevertheless, if you decided on using the Shapiro-Wilk test in your report, you’d need to write this result up in APA style: <span class="math inline">\(W = .99, p &lt; .001\)</span>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -942,7 +943,7 @@ Report-writing Tip
 </div>
 </section></section><section id="task-5-compute-a-one-sample-t-test-and-effect-size" class="level3" data-number="6.6.5"><h3 data-number="6.6.5" class="anchored" data-anchor-id="task-5-compute-a-one-sample-t-test-and-effect-size">
 <span class="header-section-number">6.6.5</span> Task 5: Compute a One-sample t-test and effect size</h3>
-<p>We can use the <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> function to compute a one-sample t-test. The <code><a href="https://rdrr.io/r/stats/t.test.html">t.test()</a></code> function is part of BaseR, and yes, you guessed it, our first argument has to follow the pattern <code>data$column</code>. The second argument (<code>mu</code>) lists the population mean we are testing our sample against (here 51.0). The <code>alternative</code> is “two.sided” by default, so you could leave the argument out.</p>
+<p>To compute a one-sample t-test, we can use the <code>t.test() function</code>, which is part of Base R. And yes, you guessed it, our first argument should follow the pattern <code>data$column</code>. The second argument, <code>mu</code>, specifies the population mean we are testing our sample against (in this case, 51.0). The <code>alternative</code> is “two.sided” by default, so it can be omitted if you are conducting a two-sided test.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1"></a><span class="fu">t.test</span>(one_sample<span class="sc">$</span>wemwbs_sum, <span class="at">mu =</span> <span class="fl">51.0</span>, <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -959,7 +960,7 @@ mean of x
  45.42013 </code></pre>
 </div>
 </div>
-<p>The output is quite informative. It gives us information about:</p>
+<p>The output is quite informative. It provides information about:</p>
 <ul>
 <li>the variable column that was tested,</li>
 <li>the t value, degrees of freedom, and p,</li>
@@ -967,7 +968,7 @@ mean of x
 <li>a 95% confidence interval,</li>
 <li>and the mean of the column (which matches the one we computed in the descriptive - yay)</li>
 </ul>
-<p>What it doesn’t give us is an <strong>effect size</strong>. Meh. So we have to compute one ourselves.</p>
+<p>What it doesn’t give us is an <strong>effect size</strong>. Meh. So we will need to compute one ourselves.</p>
 <p>We will calculate <strong>Cohen’s d</strong> using the function <code>cohensD()</code> from the <code>lsr</code> package. Similar to the t-test we just conducted, the first argument is <code>data$column</code>, the second argument is <code>mu</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1"></a><span class="fu">cohensD</span>(one_sample<span class="sc">$</span>wemwbs_sum, <span class="at">mu =</span> <span class="fl">51.0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -977,8 +978,8 @@ mean of x
 </div>
 </section><section id="task-6-sensitivity-power-analysis" class="level3" data-number="6.6.6"><h3 data-number="6.6.6" class="anchored" data-anchor-id="task-6-sensitivity-power-analysis">
 <span class="header-section-number">6.6.6</span> Task 6: Sensitivity power analysis</h3>
-<p>A <strong>sensitivity power analysis allows you to determine the minimum effect size that the study could reliably detect</strong> given the number of participants you have in the sample, the alpha level at 0.05, and an assumed power of 0.8.</p>
-<p>The function we need to compute this is <code>pwr.t.test()</code> which is part of the <code>pwr</code> package. There are 4 factors - the APES (alpha, power, effect size, and sample size) - if you have 3, you can calculate the 4th. As stated above, we have 3. We also need to specify the <code>type</code>, i.e., that we are using it for a one-sample t-test, and that <code>alternative</code> is “two.sided” because we have a non-directional hypothesis.</p>
+<p>A <strong>sensitivity power analysis allows you to determine the minimum effect size that the study could reliably detect</strong> given the number of participants you have in the sample (i.e., sample size), the alpha level at 0.05, and an assumed power of 0.8.</p>
+<p>To perform this calculation, we use the <code>pwr.t.test()</code> function from the <code>pwr</code> package. This function relies on four key factors — alpha, power, effect size, and sample size (APES). If you know three, you can calculate the fourth. Since we have three specified, we can solve for the effect size. Additionally, we need to specify the <code>type</code> argument to indicate we are using a one-sample t-test, and set <code>alternative</code> to “two.sided” for a non-directional hypothesis.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1"></a><span class="fu">pwr.t.test</span>(<span class="at">n =</span> <span class="dv">1083</span>, <span class="at">sig.level =</span> <span class="fl">0.05</span>, <span class="at">power =</span> <span class="fl">0.8</span>, <span class="at">type =</span> <span class="st">"one.sample"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -998,11 +999,11 @@ mean of x
 <p>A one-sample t-test was computed to determine whether the average mental well-being of gamers as measured by the WEMWBS was different to the population well-being mean. The average WEMWBS of the gamers <span class="math inline">\((N = 1083, M = 45.42, SD = 10.89)\)</span> was significantly lower than the population mean well-being score of 51.0, <span class="math inline">\(t(1082) = 16.87, p &lt; .001, d = .51\)</span>. The strength of the effect is considered medium and the study was sufficiently powered. We therefore reject the null hypothesis in favour of H<sub>1</sub>.</p>
 </section></section><section id="sec-alternative_one_sample" class="level2" data-number="6.7"><h2 data-number="6.7" class="anchored" data-anchor-id="sec-alternative_one_sample">
 <span class="header-section-number">6.7</span> Activity 6: Non-parametric alternative</h2>
-<p>If any of the assumptions are violated, you need to switch to the non-parametric alternative. For the one-sample t-test, this is a <strong>One-sample Wilcoxon signed-rank test</strong>. Instead of the mean, it compares the median of a sample against a single value (i.e., the population median).</p>
-<p>That means we need to find the population median, and calculate some <strong>summary stats</strong> for our sample:</p>
+<p>If any of the assumptions are violated, switch to the non-parametric alternative. For the one-sample t-test, this would be a <strong>One-sample Wilcoxon signed-rank test</strong>. Instead of the mean, it compares the median of a sample against a single value (i.e., the population median).</p>
+<p>That means we will need to determine the population median, and calculate some <strong>summary stats</strong> for our sample:</p>
 <ul>
 <li>The population median is listed in a supporting document on the <a href="https://warwick.ac.uk/fac/sci/med/research/platform/wemwbs/using/howto/" target="_blank">official WEMWBS website</a> as 53.0.</li>
-<li>We can easily calculate the summary statistics using the function summary.</li>
+<li>We can easily calculate the summary statistics using the function <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>.</li>
 </ul>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1"></a><span class="fu">summary</span>(one_sample)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1016,7 +1017,7 @@ mean of x
                     Max.   :70.00  </code></pre>
 </div>
 </div>
-<p>The function to <strong>compute a one-sample Wilcoxon test</strong> is <code><a href="https://rdrr.io/r/stats/wilcox.test.html">wilcox.test()</a></code>. It’s part of BaseR and code-wise, it works very similar to the one-sample t-test.</p>
+<p>The function to <strong>compute a one-sample Wilcoxon test</strong> is <code><a href="https://rdrr.io/r/stats/wilcox.test.html">wilcox.test()</a></code> which is part of BaseR. Code-wise, it works very similar to the one-sample t-test.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1"></a><span class="fu">wilcox.test</span>(one_sample<span class="sc">$</span>wemwbs_sum, <span class="at">mu =</span> <span class="fl">53.0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1028,7 +1029,7 @@ V = 87218, p-value &lt; 2.2e-16
 alternative hypothesis: true location is not equal to 53</code></pre>
 </div>
 </div>
-<p>As we can see, the output gives us a V value, but we need to report <strong>the standardised test statistic Z</strong> in the final write-up. Unfortunately, we have to calculate Z manually. According to Andy Field (2012, p.&nbsp;665), we need to use the qnorm function on the halved p-value from our Wilcoxon test above. Here, we store the p-value in the <code>Global Environment</code> as <code>p_wilcoxon</code> because it can store more decimal places than we see on the output above which means the Z value will be more accurate.</p>
+<p>As we can see, the output shows a V value, but for the final write-up, we need to report <strong>the standardised test statistic Z</strong> in the final write-up. Unfortunately, this requires manual calculation. According to Andy Field (2012, p.&nbsp;665), we need to use the qnorm function on the halved p-value from our Wilcoxon test above. Here, we store the p-value in the <code>Global Environment</code> as <code>p_wilcoxon</code>. This retains more decimal places than shown in the output, giving us a more precise Z value.”</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1"></a><span class="co"># storing the p-value</span></span>
 <span id="cb32-2"><a href="#cb32-2"></a>p_wilcoxon <span class="ot">&lt;-</span> <span class="fu">wilcox.test</span>(one_sample<span class="sc">$</span>wemwbs_sum, <span class="at">mu =</span> <span class="fl">53.0</span>)<span class="sc">$</span>p.value</span>
@@ -1040,7 +1041,7 @@ alternative hypothesis: true location is not equal to 53</code></pre>
 <pre><code>[1] -19.12264</code></pre>
 </div>
 </div>
-<p>We also need to <strong>calculate the effect size <code>r</code></strong>, which we can do via the <code>wilcoxonOneSampleR</code> from the <code>rcompanion</code> package. The default value will be 3 decimal places, but you can change that with the <code>digits</code> argument.</p>
+<p>We also need to <strong>calculate the effect size <code>r</code></strong> for the One-sample Wilcoxon signed-rank test. This can be done using the <code>wilcoxonOneSampleR()</code> function from the <code>rcompanion</code> package. By default, the result is rounded to three decimal places, but you can adjust this by adding the <code>digits</code> argument.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1"></a><span class="fu">wilcoxonOneSampleR</span>(one_sample<span class="sc">$</span>wemwbs_sum, <span class="at">mu =</span> <span class="fl">53.0</span>, <span class="at">digits =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1051,7 +1052,9 @@ alternative hypothesis: true location is not equal to 53</code></pre>
 <p>Now we have all the numbers we need to <strong>write up the results</strong>:</p>
 <p>A One-sample Wilcoxon signed-rank test was used to compare Gamers’ mental-wellbeing median scores (Mdn = 46.0) to the population median of 53.0. The test showed a significant difference, <span class="math inline">\(Z = -19.12, p &lt; .001, r = .590\)</span>. The strength of the effect is considered medium. We therefore reject the null hypothesis in favour of H<sub>1</sub>.</p>
 </section><section id="pair-coding" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="pair-coding"><span style="color: #F39C12; text-transform: uppercase;">Pair-coding</span></h2>
+<p>to be added</p>
 </section><section id="test-your-knowledge-on-chapters-3-and-4" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="test-your-knowledge-on-chapters-3-and-4"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge on Chapters 3 and 4</span></h2>
+<p>to be added</p>
 
 
 </section></main><!-- /main --><script>
