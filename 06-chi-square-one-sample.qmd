@@ -656,8 +656,8 @@ dog_chi <- ??? %>%
 library(tidyverse)
 library(lsr)
 
-# reading in `dog_data_wide.csv`
-dog_data_wide <- read_csv("dog_data_wide.csv")
+# reading in `dog_data_clean_wide.csv`
+dog_data_wide <- read_csv("dog_data_clean_wide.csv")
 
 # Task 4: Tidying 
 dog_chi <- dog_data_wide %>% 
@@ -890,6 +890,8 @@ A one-sample t-test is appropriate when comparing the mean of a single sample (e
 ## Explain this answer
 
 Since the p-value (.15) is greater than the significance level (.05), we fail to reject the null hypothesis. This means there is no evidence to suggest that the sample mean is significantly different from the population mean.
+
+However, this does not mean we have evidence to confirm that the sample mean is exactly equal to the population mean. In statistics, 'not significantly different' is not the same as 'equal.' Therefore, the option 'The sample mean is equal to the population mean' is incorrect.
 
 :::
 
