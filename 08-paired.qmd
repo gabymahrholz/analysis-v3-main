@@ -23,9 +23,9 @@ We will still be working with the dataset from the study by Zwaan et al. (2018) 
 
 ## Activity 2: Library and data for today
 
-Today, we'll need the following packages `rstatix`, `tidyverse`, `qqplotr`, `lsr`, and `pwr`. You should have all the packages installed already from previous chapters installed already, but if you need to install any of them, do so via the console (see @sec-install_packages for more detail). 
+Today, we will need the following packages `rstatix`, `tidyverse`, `qqplotr`, `lsr`, and `pwr`. You should have all the necessary packages installed from previous chapters already. If not, you can install them via the console (see @sec-install_packages for more details).
 
-Again, load package `rstatix` before `tidyverse`, and read in the data from `MeansSimonTask.csv` and the demographics information from `DemoSimonTask.csv`.
+Again, load the `rstatix` package before `tidyverse`. Then read in the data from `MeansSimonTask.csv` and the demographics information from `DemoSimonTask.csv`.
 
 
 ```{r eval=FALSE}
@@ -73,22 +73,22 @@ zwaan_demo <- read_csv("DemoSimonTask.csv")
 :::
 
 
-As usual, take some time to familiarize yourself with the data before starting the within-subjects t-test.
+As usual, take some time to familiarise yourself with the data before starting the within-subjects t-test.
 
-Today, we’ll focus on the Simon effect. Remember that the Simon effect predicts that congruent trials will have shorter response times than incongruent trials.
+Today, we will focus on the Simon effect. Remember that the Simon effect predicts shorter response times for congruent trials compared to incongruent trials.
 
 
 * **Potential research question**: "Is there a significant difference in response times between congruent and incongruent trials in a Simon task?"
 * **Null Hypothesis (H~0~)**: "There is no significant difference in response times between congruent and incongruent trials in a Simon task."
-* **Alternative Hypothesis (H~1~)**: "There is a significant difference in response times between congruent and incongruent trials in a Simon task."
+* **Alternative Hypothesis (H~1~)**: "Response times for congruent trials are significantly shorter than those for incongruent trials in a Simon task." or "Participants will respond significantly faster in congruent trials than in incongruent trials in a Simon task."
 
 ## Activity 3: Preparing the dataframe
 
-Again, we need to calculate one mean response time (RT) value for congruent and one for incongruent trials per participant. Like last week, we can also compute the Simon effect again as the difference score between incongruent and congruent trails.
+Again, we need to calculate the mean response time (RT) for both congruent and incongruent trials per participant. As we did last week, we can also compute the Simon effect as the difference score between incongruent and congruent trials.
 
-To keep all the data in one place, we should join this output with the demographics. While you won’t need the demographic information for the t-test itself, having it included will give you a complete dataframe. This can be useful when you need to calculate demographics for the Methods section; for example if you end up excluding data points you can compute sample size, age and gender splits straight away rather than having to apply the same exclusions to a different data object.
+To keep all the data in one place, we should join this output with the demographics. While you won’t need the demographic information for the t-test itself, having it included will give you a complete dataframe. This can be useful when you need to calculate demographics for the Methods section; for example if you end up excluding data points, you can compute sample size, age, and gender splits straight away rather than having to apply the same exclusion criteria to a different data object.
 
-For the paired version of the `t.test`, we need congruent and inconguent trials in separate columns, so that each participant still only has one row in the dataframe (i.e., wide format). Here is the output we are after:
+For the paired version of the `t.test`, we need the congruent and incongruent trials in separate columns, ensuring each participant still has only one row in the dataframe (i.e., **wide format**). Below is the output we aim to achieve:
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 simon_effect <- zwaan_data %>% 
@@ -105,8 +105,11 @@ simon_effect <- zwaan_data %>%
 head(simon_effect, n = 5)
 ```
 
+::: {.callout-note icon="false"}
 
-Challenge yourself: See if you could reproduce the table without hints this time.
+## Your Turn
+
+Challenge yourself! See if you can reproduce the table without hints this time.
 
 
 ::: {.callout-caution collapse="true" icon="false"}
@@ -130,17 +133,19 @@ simon_effect <- zwaan_data %>%
 
 ::: {.callout-tip collapse="true"}
 
-## You could have also
+## You could have also...
 
-1. looked at the hints from the last chapter, since this is exactly the same dataframe we need today.
+1. looked at the hints from the last chapter, since we are working with the exact same dataframe today.
 2. saved the data object from last week as a csv file and read it in here.
+
+:::
 
 :::
 
 
 ## Activity 4: Compute descriptives
 
-We want to compute means and standard deviations for the `congruent` and the `incongruent` trials. Then we want to subtract the mean RT of the congruent trials from the mean RT of the incongruent trials to get the average difference score between the two conditions.
+We want to compute means and standard deviations for both the `congruent` and the `incongruent` trials. Then, we will subtract the mean RT of the congruent trials from the mean RT of the incongruent trials to calculate the average difference score between the two conditions.
 
 
 ```{r}
@@ -158,7 +163,7 @@ descriptives
 
 ::: {.callout-note}
 
-Notice how we did not have to use `group_by()` here since the data is in wide format.
+Notice that we did not have to use `group_by()` here because the data is already in wide format.
 
 :::
 
@@ -167,7 +172,7 @@ Notice how we did not have to use `group_by()` here since the data is in wide fo
 
 ### Option 1: congruent and incongruent trials
 
-To create an appropriate plot, we'd like the data to be in long format, with a column for `congruency` that hold the labels of congruent and incorgruent trials, and a column that stores the `mean_RT` for each. Each participant should have 2 rows now:
+To create an appropriate plot, we need the data in long format. This format should include a `congruency` column containing the labels for congruent and incongruent trials, and a `mean_RT` column to store the corresponding mean response times. Each participant should now have two rows in the dataset."
 
 ```{r echo=FALSE, warning=FALSE, message=FALSE}
 simon_effect_long <- simon_effect %>% 
@@ -181,7 +186,9 @@ head(simon_effect_long, n = 5)
 
 ## Your Turn
 
-Create the table above and then create an appropriate plot
+Create the table above and then create an appropriate plot.
+
+First, recreate the table described above (i.e., wrangle data into long format). Then, use this table to create an appropriate plot that visualises the differences in mean response times between congruent and incongruent trials."
 
 ::: {.callout-caution collapse="true" icon="false"} 
 
@@ -216,19 +223,20 @@ ggplot(simon_effect_long, aes(x = congruency, y = mean_RT, fill = congruency)) +
 
 ### Option 2: difference scores between congruent and incongruent trials
 
-We could have displayed the difference scores between the 2 conditions. That would have involved using object `simon_effect` without further data wrangling. The difference score is stored in the column `simon_effect`. 
+We could have displayed the difference scores between the two conditions directly. This approach would use the `simon_effect` object without requiring additional data wrangling, as the difference scores are already stored in the `simon_effect` column."
 
 ::: {.callout-note collapse="true" icon="false"} 
 
 ## Hints for the plot
 
-We want to create a violin-boxplot, but it would only have 1 value on the x-axis rather than the grouping variable we are usually. That means the ggplot function behaves slightly differently than usual. You would leave the x-value blank.
+We want to create a violin-boxplot, but this time it will have only one value on the x-axis instead of a grouping variable as we usually include. This causes the `ggplot()` function to behave slightly differently. Specifically, you would leave the x-value blank.
 
 ```{r eval=FALSE}
 ggplot(data, aes(x = "", y = continuous_variable)) +
 ```
 
-Adding some colour would also have to be done within the `geom_` functions rather than within `ggplot()` like we usually do.
+
+To add colour, use the usual arguments (e.g., `fill`, `colour`), but specify them within the `geom_` functions instead of `ggplot()`, as we typically do.
 
 :::
 
@@ -270,7 +278,7 @@ This assumption requires the **difference scores** to be approximately normally 
 
 ## Your Turn
 
-Plot the difference score
+Plot the difference score.
 
 ::: {.callout-note collapse="true" icon="false"} 
 
@@ -334,7 +342,7 @@ We can use the `t.test()` function again to compute the paired t-test. However, 
 
 In case you haven't picked it up by now, I am not much a fan of `data$column` (i.e., wide format) and prefer the `DV ~ IV` (i.e., long format) pattern. And there was a time when the `t.test()` function allowed to add an extra argument `paired = TRUE` to the formula version but that is no longer the case. Now, the argument *only* works on the default method, specifying arguments x and y separately. And because the default version doesn't allow us to add a `data = ` argument, we have to revert to `data$column`.
 
-Long story short, here are the arguments you need from the data object in wide format (in this case `simon_effect`:
+Long story short, here are the arguments you need from the data object in wide format (in this case data object `simon_effect`):
 
 * `data$column` for condition 1
 * `data$column` for condition 2
@@ -343,11 +351,12 @@ Long story short, here are the arguments you need from the data object in wide f
 ```{r}
 t.test(simon_effect$congruent, simon_effect$incongruent, paired = TRUE)
 ```
+
 The output tells us pretty much what we need to know:
 
 * the test that was conducted (here a paired t-test)
 * the conditions that were compared (here congruent and incongruent), 
-* the t value, degrees of freedom, and p,
+* the t-value, degrees of freedom, and a p-value,
 * the alternative hypothesis, 
 * a 95% confidence interval,
 * and the mean difference score between both conditions (which also matches with our descriptives above)
@@ -361,7 +370,7 @@ cohensD(simon_effect$congruent, simon_effect$incongruent, method = "paired")
 
 ::: {.callout-tip}
 
-The `cohensD()` function would take a long format formula approach, such as from `simon_effect_long`, but you would need to assure that the columns are ordered correctly, i.e., Participant 1: condition 1, condition 2; Participant 2: condition 1, condition 2; etc.
+The `cohensD()` function would also take a long format formula approach, such as from `simon_effect_long`, but you would need to assure that the columns are ordered correctly, i.e., Participant 1: condition 1, condition 2; Participant 2: condition 1, condition 2; etc.
 
 ```{r}
 cohensD(mean_RT ~ congruency, data = simon_effect_long, method = "paired")
@@ -370,13 +379,14 @@ cohensD(mean_RT ~ congruency, data = simon_effect_long, method = "paired")
 
 ## Activity 8: Sensitivity power analysis
 
-As we the other t-test, we are conducting a sensitivity power analysis to determine the minimum effect size we could have determined with the number of participants (n = 160), alpha of 0.05 and power of 0.8. This will tell us if our analysis was sufficiently powered or not.
+As with the other t-test, we are conducting a sensitivity power analysis to determine the minimum effect size detectable with the number of participants we have in our sample (n = 160), alpha of 0.05 and power of 0.8. This will tell us if our analysis was sufficiently powered or not.
 
-The function is once again `pwr.t.test()` from the `pwr` package. The arguments in the formula are the same as for the one-sample t-test; we just need to adjust the number of participants and set the type to "paired".
+The function we will use again is `pwr.t.test()` from the `pwr` package. The arguments in the formula are the same as for the one-sample t-test; we just need to adjust the number of participants and set the type to "paired".
 
 ```{r}
 pwr.t.test(n = 160, sig.level = 0.05, power = 0.8, type = "paired", alternative = "two.sided")
 ```
+
 The minimum effect size we could reliably detect is 0.22. Our actual effect size was 1.59, so this analysis was sufficiently powered.
 
 ## Activity 9: The write-up
@@ -433,7 +443,6 @@ p_wilcoxon <- wilcox.test(simon_effect$incongruent, simon_effect$congruent, pair
 # calculate the z value from half the p-value
 z = qnorm(p_wilcoxon/2)
 z
-
 ```
 
 

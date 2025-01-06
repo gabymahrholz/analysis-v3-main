@@ -377,7 +377,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>No other changes were made.</li>
 </ul></section><section id="activity-2-library-and-data-for-today" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="activity-2-library-and-data-for-today">
 <span class="header-section-number">7.2</span> Activity 2: Library and data for today</h2>
-<p>Today, we’ll be using the following packages: <code>rstatix</code>, <code>tidyverse</code>, <code>car</code>, <code>lsr</code>, and <code>pwr</code>. You may need to install the packages before using them (see <a href="01-basics.html#sec-install_packages"><span>Section&nbsp;1.5.1</span></a> if you need some help). Make sure that <code>rstatix</code> is loaded in before tidyverse to avoid masking certain functions that we will need later.</p>
+<p>Today, we will be using the following packages: <code>rstatix</code>, <code>tidyverse</code>, <code>car</code>, <code>lsr</code>, and <code>pwr</code>. You may need to install the packages before using them (see <a href="01-basics.html#sec-install_packages"><span>Section&nbsp;1.5.1</span></a> if you need some help). Make sure that <code>rstatix</code> is loaded in before tidyverse to avoid masking certain functions that we will need later.</p>
 <p>We will also read in the data from <code>MeansSimonTask.csv</code> and the demographic information from <code>DemoSimonTask.csv</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># load in the packages</span></span>
@@ -1208,8 +1208,8 @@ Solution
 </section><section id="task-6-check-assumptions" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="task-6-check-assumptions">Task 6: Check assumptions</h3>
 <section id="assumption-1-continuous-dv-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="assumption-1-continuous-dv-1">Assumption 1: Continuous DV</h4>
 Is the dependent variable (DV) continuous? Answer:
-<div id="radio_DUQCIFDSYQ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_DUQCIFDSYQ" value="answer"><span>Yes. The DV is called Flourishing and it is continuous</span></label><label><input type="radio" autocomplete="off" name="radio_DUQCIFDSYQ" value="x"><span>Yes. The DV is called GroupAssignment and it is continuous</span></label><label><input type="radio" autocomplete="off" name="radio_DUQCIFDSYQ" value="x"><span>No.&nbsp;The DV is called GroupAssignment and it is categorical</span></label><label><input type="radio" autocomplete="off" name="radio_DUQCIFDSYQ" value="x"><span>No.&nbsp;The DV is called Flourishing and it is categorical</span></label>
+<div id="radio_QEYCUBLDJW" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_QEYCUBLDJW" value="answer"><span>Yes. The DV is called Flourishing and it is continuous</span></label><label><input type="radio" autocomplete="off" name="radio_QEYCUBLDJW" value="x"><span>No.&nbsp;The DV is called Flourishing and it is categorical</span></label><label><input type="radio" autocomplete="off" name="radio_QEYCUBLDJW" value="x"><span>Yes. The DV is called GroupAssignment and it is continuous</span></label><label><input type="radio" autocomplete="off" name="radio_QEYCUBLDJW" value="x"><span>No.&nbsp;The DV is called GroupAssignment and it is categorical</span></label>
 </div>
 </section><section id="assumption-2-data-are-independent-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="assumption-2-data-are-independent-1">Assumption 2: Data are independent</h4>
 <p>Each observation in the dataset has to be independent, meaning the value of one observation does not affect the value of any other. Answer: <select class="webex-select"><option value="blank"></option>
@@ -1247,8 +1247,8 @@ Is the dependent variable (DV) continuous? Answer:
 </div>
 </div>
 Answer:
-<div id="radio_JVXUVVUPIF" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_JVXUVVUPIF" value="x"><span>The p-value of Levene's test is significant, therefore we conclude that there is a difference between the variances in the population.</span></label><label><input type="radio" autocomplete="off" name="radio_JVXUVVUPIF" value="x"><span>The p-value of Levene's test is non-significant, therefore we conclude that there is a difference between the variances in the population.</span></label><label><input type="radio" autocomplete="off" name="radio_JVXUVVUPIF" value="x"><span>The p-value of Levene's test is significant, therefore we conclude that the variances in the population are equal.</span></label><label><input type="radio" autocomplete="off" name="radio_JVXUVVUPIF" value="answer"><span>The p-value of Levene's test is non-significant, therefore we conclude that the variances in the population are equal.</span></label>
+<div id="radio_IFMJZEUVSR" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_IFMJZEUVSR" value="x"><span>The p-value of Levene's test is significant, therefore we conclude that there is a difference between the variances in the population.</span></label><label><input type="radio" autocomplete="off" name="radio_IFMJZEUVSR" value="x"><span>The p-value of Levene's test is non-significant, therefore we conclude that there is a difference between the variances in the population.</span></label><label><input type="radio" autocomplete="off" name="radio_IFMJZEUVSR" value="x"><span>The p-value of Levene's test is significant, therefore we conclude that the variances in the population are equal.</span></label><label><input type="radio" autocomplete="off" name="radio_IFMJZEUVSR" value="answer"><span>The p-value of Levene's test is non-significant, therefore we conclude that the variances in the population are equal.</span></label>
 </div>
 </section><section id="assumption-4-dv-should-be-approximately-normally-distributed-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="assumption-4-dv-should-be-approximately-normally-distributed-1">Assumption 4: DV should be approximately normally distributed</h4>
 <p>Looking at the violin-boxplot below, are both groups normally distributed?</p>
@@ -1267,14 +1267,14 @@ Answer:
 </div>
 </div>
 <p>Answer:</p>
-<div id="radio_SJBWLVPVRN" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_SJBWLVPVRN" value="x"><span>yes, both groups are normally distributed</span></label><label><input type="radio" autocomplete="off" name="radio_SJBWLVPVRN" value="answer"><span>no, both groups are sightly skewed</span></label><label><input type="radio" autocomplete="off" name="radio_SJBWLVPVRN" value="x"><span>no, both groups are extremely skewed</span></label>
+<div id="radio_ZHYYQGQQDX" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ZHYYQGQQDX" value="x"><span>yes, both groups are normally distributed</span></label><label><input type="radio" autocomplete="off" name="radio_ZHYYQGQQDX" value="answer"><span>no, both groups are sightly skewed</span></label><label><input type="radio" autocomplete="off" name="radio_ZHYYQGQQDX" value="x"><span>no, both groups are extremely skewed</span></label>
 </div>
 </section><section id="conclusion-from-assumption-tests" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="conclusion-from-assumption-tests">Conclusion from assumption tests</h4>
 <p>With all assumptions tested, which statistical test would you recommend for this analysis?</p>
 Answer:
-<div id="radio_HFPTYDKYTL" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_HFPTYDKYTL" value="x"><span>All assumptions held. We will conduct a Student two-sample t-test.</span></label><label><input type="radio" autocomplete="off" name="radio_HFPTYDKYTL" value="answer"><span>The assumption of normality was violated. We will conduct a Welch two-sample t-test because it has been shown to be robust to slight deviations from normality (Delacre et al., 2017).</span></label><label><input type="radio" autocomplete="off" name="radio_HFPTYDKYTL" value="x"><span>The assumptions of normality and homoscedasticity were violated. Therefore, we will conduct a non-parametric test.</span></label>
+<div id="radio_LOZHLNZFZZ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_LOZHLNZFZZ" value="x"><span>All assumptions held. We will conduct a Student two-sample t-test.</span></label><label><input type="radio" autocomplete="off" name="radio_LOZHLNZFZZ" value="answer"><span>The assumption of normality was violated. We will conduct a Welch two-sample t-test because it has been shown to be robust to slight deviations from normality (Delacre et al., 2017).</span></label><label><input type="radio" autocomplete="off" name="radio_LOZHLNZFZZ" value="x"><span>The assumptions of normality and homoscedasticity were violated. Therefore, we will conduct a non-parametric test.</span></label>
 </div>
 </section></section><section id="task-7-computing-a-two-sample-t-test-with-effect-size-interpret-the-output" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="task-7-computing-a-two-sample-t-test-with-effect-size-interpret-the-output">Task 7: Computing a two-sample t-test with effect size &amp; interpret the output</h3>
 <ul>
@@ -1387,8 +1387,8 @@ mean in group Control  mean in group Direct
 </section></section><section id="test-your-knowledge" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="test-your-knowledge"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge</span></h2>
 <section id="question-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-1">Question 1</h4>
 <p><strong>What is the main purpose of an independent t-test?</strong></p>
-<div id="radio_IAYHQVREUW" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_IAYHQVREUW" value="answer"><span>To compare means between two independent groups</span></label><label><input type="radio" autocomplete="off" name="radio_IAYHQVREUW" value="x"><span>To test for differences in variances between two independent groups</span></label><label><input type="radio" autocomplete="off" name="radio_IAYHQVREUW" value="x"><span>To compare means between two related groups</span></label><label><input type="radio" autocomplete="off" name="radio_IAYHQVREUW" value="x"><span>To assess the correlation between two continuous variables</span></label>
+<div id="radio_RXWNRWCNIV" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_RXWNRWCNIV" value="x"><span>To assess the correlation between two continuous variables</span></label><label><input type="radio" autocomplete="off" name="radio_RXWNRWCNIV" value="x"><span>To compare means between two related groups</span></label><label><input type="radio" autocomplete="off" name="radio_RXWNRWCNIV" value="answer"><span>To compare means between two independent groups</span></label><label><input type="radio" autocomplete="off" name="radio_RXWNRWCNIV" value="x"><span>To test for differences in variances between two independent groups</span></label>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-19-contents" aria-controls="callout-19" aria-expanded="false" aria-label="Toggle callout">
@@ -1408,8 +1408,8 @@ Explain this answer
 </div>
 </section><section id="question-2" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-2">Question 2</h4>
 <p><strong>Which of the following is a key assumption of the two-sample t-test that should be considered?</strong></p>
-<div id="radio_SAZEIOCBFQ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_SAZEIOCBFQ" value="x"><span>The dependent variable is categorical</span></label><label><input type="radio" autocomplete="off" name="radio_SAZEIOCBFQ" value="answer"><span>The observations are independent of each other</span></label><label><input type="radio" autocomplete="off" name="radio_SAZEIOCBFQ" value="x"><span>The sample sizes must be equal</span></label><label><input type="radio" autocomplete="off" name="radio_SAZEIOCBFQ" value="x"><span>The independent variable is normally distributed</span></label>
+<div id="radio_YNRTYSGUQL" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_YNRTYSGUQL" value="answer"><span>The observations are independent of each other</span></label><label><input type="radio" autocomplete="off" name="radio_YNRTYSGUQL" value="x"><span>The independent variable is normally distributed</span></label><label><input type="radio" autocomplete="off" name="radio_YNRTYSGUQL" value="x"><span>The dependent variable is categorical</span></label><label><input type="radio" autocomplete="off" name="radio_YNRTYSGUQL" value="x"><span>The sample sizes must be equal</span></label>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-20-contents" aria-controls="callout-20" aria-expanded="false" aria-label="Toggle callout">
@@ -1429,8 +1429,8 @@ Explain this answer
 </div>
 </section><section id="question-3" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-3">Question 3</h4>
 <p><strong>How can you recognise the difference between the output of a Student’s t-test and a Welch t-test?</strong></p>
-<div id="radio_YPFDMYVPKF" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_YPFDMYVPKF" value="x"><span>The Welch t-test reports an effect size directly, while the Student’s t-test does not.</span></label><label><input type="radio" autocomplete="off" name="radio_YPFDMYVPKF" value="x"><span>The Welch t-test uses medians instead of means, unlike the Student’s t-test.</span></label><label><input type="radio" autocomplete="off" name="radio_YPFDMYVPKF" value="x"><span>The Welch t-test includes a confidence interval, while the Student’s t-test does not.</span></label><label><input type="radio" autocomplete="off" name="radio_YPFDMYVPKF" value="answer"><span>The Welch t-test reports non-integer degrees of freedom, while the Student’s t-test reports integer degrees of freedom.</span></label>
+<div id="radio_ICVCLCNGTD" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_ICVCLCNGTD" value="answer"><span>The Welch t-test reports non-integer degrees of freedom, while the Student’s t-test reports integer degrees of freedom.</span></label><label><input type="radio" autocomplete="off" name="radio_ICVCLCNGTD" value="x"><span>The Welch t-test reports an effect size directly, while the Student’s t-test does not.</span></label><label><input type="radio" autocomplete="off" name="radio_ICVCLCNGTD" value="x"><span>The Welch t-test includes a confidence interval, while the Student’s t-test does not.</span></label><label><input type="radio" autocomplete="off" name="radio_ICVCLCNGTD" value="x"><span>The Welch t-test uses medians instead of means, unlike the Student’s t-test.</span></label>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-21-contents" aria-controls="callout-21" aria-expanded="false" aria-label="Toggle callout">
@@ -1456,8 +1456,8 @@ Explain this answer
 </div>
 </section><section id="question-4" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-4">Question 4</h4>
 <p><strong>You perform an independent t-test and find <span class="math inline">\(t(48)=2.10,p=.042,d=0.58\)</span>. How would you interpret these results?</strong></p>
-<div id="radio_LEIGHEPIZK" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_LEIGHEPIZK" value="x"><span>There is a significant difference between the two groups, with a large effect size.</span></label><label><input type="radio" autocomplete="off" name="radio_LEIGHEPIZK" value="x"><span>There is a significant difference between the two groups, with a small effect size.</span></label><label><input type="radio" autocomplete="off" name="radio_LEIGHEPIZK" value="x"><span>There is no significant difference between the two groups</span></label><label><input type="radio" autocomplete="off" name="radio_LEIGHEPIZK" value="answer"><span>There is a significant difference between the two groups, with a medium effect size.</span></label>
+<div id="radio_NAUMNZODZS" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_NAUMNZODZS" value="x"><span>There is a significant difference between the two groups, with a large effect size.</span></label><label><input type="radio" autocomplete="off" name="radio_NAUMNZODZS" value="answer"><span>There is a significant difference between the two groups, with a medium effect size.</span></label><label><input type="radio" autocomplete="off" name="radio_NAUMNZODZS" value="x"><span>There is no significant difference between the two groups</span></label><label><input type="radio" autocomplete="off" name="radio_NAUMNZODZS" value="x"><span>There is a significant difference between the two groups, with a small effect size.</span></label>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-22-contents" aria-controls="callout-22" aria-expanded="false" aria-label="Toggle callout">
