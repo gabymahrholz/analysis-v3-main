@@ -47,7 +47,8 @@ book:
     header: ''
     footer: ''
   margin-header: ''
-  page-footer: CC-BY (2024) Gaby Mahrholz
+  page-footer:
+    center: CC-BY (2024) Gaby Mahrholz
   chapters:
   - index.qmd
   - 01-basics.qmd

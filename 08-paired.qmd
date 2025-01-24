@@ -23,7 +23,7 @@ In this chapter, we will continue working with the dataset from the study by Zwa
 
 ## Activity 2: Library and data for today
 
-Today, we will need the following packages `rstatix`, `tidyverse`, `qqplotr`, `lsr`, and `pwr`. You should have all the necessary packages installed from previous chapters already. If not, you can install them via the console (see @sec-install_packages for more details).
+Today, we will need the following packages: `rstatix`, `tidyverse`, `qqplotr`, `lsr`, and `pwr`. You should have all the necessary packages installed from previous chapters already. If not, you can install them via the console (see @sec-install_packages for more details).
 
 Again, load the `rstatix` package before `tidyverse`. Then read in the data from `MeansSimonTask.csv` and the demographics information from `DemoSimonTask.csv`.
 

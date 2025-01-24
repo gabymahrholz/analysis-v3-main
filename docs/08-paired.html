@@ -349,7 +349,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Delete everything after the setup code chunk (e.g., line 12 and below)</li>
 </ul></section><section id="activity-2-library-and-data-for-today" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="activity-2-library-and-data-for-today">
 <span class="header-section-number">8.2</span> Activity 2: Library and data for today</h2>
-<p>Today, we will need the following packages <code>rstatix</code>, <code>tidyverse</code>, <code>qqplotr</code>, <code>lsr</code>, and <code>pwr</code>. You should have all the necessary packages installed from previous chapters already. If not, you can install them via the console (see <a href="01-basics.html#sec-install_packages"><span>Section&nbsp;1.5.1</span></a> for more details).</p>
+<p>Today, we will need the following packages: <code>rstatix</code>, <code>tidyverse</code>, <code>qqplotr</code>, <code>lsr</code>, and <code>pwr</code>. You should have all the necessary packages installed from previous chapters already. If not, you can install them via the console (see <a href="01-basics.html#sec-install_packages"><span>Section&nbsp;1.5.1</span></a> for more details).</p>
 <p>Again, load the <code>rstatix</code> package before <code>tidyverse</code>. Then read in the data from <code>MeansSimonTask.csv</code> and the demographics information from <code>DemoSimonTask.csv</code>.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co"># load in the packages</span></span>
@@ -1322,8 +1322,8 @@ Solution
 </section><section id="task-6-check-assumptions" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="task-6-check-assumptions">Task 6: Check assumptions</h3>
 <section id="assumption-1-continuous-dv-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="assumption-1-continuous-dv-1">Assumption 1: Continuous DV</h4>
 Is the dependent variable (DV) continuous? Answer:
-<div id="radio_AHYYMGEUFT" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_AHYYMGEUFT" value="answer"><span>Yes. The DV is the difference in loneliness scores and it is continuous</span></label><label><input type="radio" autocomplete="off" name="radio_AHYYMGEUFT" value="x"><span>No.&nbsp;The DV is the pre- and post-stages and it is categorical</span></label><label><input type="radio" autocomplete="off" name="radio_AHYYMGEUFT" value="x"><span>No.&nbsp;The DV is the difference in loneliness scores but it is categorical</span></label>
+<div id="radio_CDFNZBDVLX" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_CDFNZBDVLX" value="answer"><span>Yes. The DV is the difference in loneliness scores and it is continuous</span></label><label><input type="radio" autocomplete="off" name="radio_CDFNZBDVLX" value="x"><span>No.&nbsp;The DV is the pre- and post-stages and it is categorical</span></label><label><input type="radio" autocomplete="off" name="radio_CDFNZBDVLX" value="x"><span>No.&nbsp;The DV is the difference in loneliness scores but it is categorical</span></label>
 </div>
 </section><section id="assumption-2-data-are-independent-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="assumption-2-data-are-independent-1">Assumption 2: Data are independent</h4>
 <p>Each pair of values in the dataset has to be independent, meaning each pair of values needs to be from a separate participant. Answer: <select class="webex-select"><option value="blank"></option>
@@ -1370,14 +1370,14 @@ Note
 </div>
 </div>
 <p>Answer:</p>
-<div id="radio_RPDZRJFLKK" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_RPDZRJFLKK" value="x"><span>yes, because both pre- and post-scores in Plot 1 are approximately normally distributed</span></label><label><input type="radio" autocomplete="off" name="radio_RPDZRJFLKK" value="answer"><span>yes, because the difference scores in Plot 2 are approximately normally distributed</span></label><label><input type="radio" autocomplete="off" name="radio_RPDZRJFLKK" value="x"><span>no, because both pre- and post-scores in Plot 1 are extremely skewed</span></label><label><input type="radio" autocomplete="off" name="radio_RPDZRJFLKK" value="x"><span>no, because the difference scores in Plot 2 are extremely skewed</span></label>
+<div id="radio_TMUFBIVQCZ" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_TMUFBIVQCZ" value="x"><span>yes, because both pre- and post-scores in Plot 1 are approximately normally distributed</span></label><label><input type="radio" autocomplete="off" name="radio_TMUFBIVQCZ" value="answer"><span>yes, because the difference scores in Plot 2 are approximately normally distributed</span></label><label><input type="radio" autocomplete="off" name="radio_TMUFBIVQCZ" value="x"><span>no, because both pre- and post-scores in Plot 1 are extremely skewed</span></label><label><input type="radio" autocomplete="off" name="radio_TMUFBIVQCZ" value="x"><span>no, because the difference scores in Plot 2 are extremely skewed</span></label>
 </div>
 </section><section id="conclusion-from-assumption-tests" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="conclusion-from-assumption-tests">Conclusion from assumption tests</h4>
 <p>With all assumptions tested, which statistical test would you recommend for this analysis?</p>
 Answer:
-<div id="radio_PJZWPFAIKU" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_PJZWPFAIKU" value="answer"><span>All assumptions held. We will conduct a paired-samples t-test.</span></label><label><input type="radio" autocomplete="off" name="radio_PJZWPFAIKU" value="x"><span>The assumption of normality was violated. We will conduct a Wilcoxon signed-rank test.</span></label>
+<div id="radio_UFTLWWNAQD" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_UFTLWWNAQD" value="answer"><span>All assumptions held. We will conduct a paired-samples t-test.</span></label><label><input type="radio" autocomplete="off" name="radio_UFTLWWNAQD" value="x"><span>The assumption of normality was violated. We will conduct a Wilcoxon signed-rank test.</span></label>
 </div>
 </section></section><section id="task-7-computing-a-paired-sample-t-test-with-effect-size-interpret-the-output" class="level3 unnumbered"><h3 class="unnumbered anchored" data-anchor-id="task-7-computing-a-paired-sample-t-test-with-effect-size-interpret-the-output">Task 7: Computing a paired-sample t-test with effect size &amp; interpret the output</h3>
 <ul>
@@ -1487,8 +1487,8 @@ mean difference
 </section></section><section id="test-your-knowledge" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="test-your-knowledge"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge</span></h2>
 <section id="question-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-1">Question 1</h4>
 <p><strong>What is the main purpose of an paired-samples t-test?</strong></p>
-<div id="radio_NHWRLONTUU" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_NHWRLONTUU" value="x"><span>To assess the correlation between two continuous variables</span></label><label><input type="radio" autocomplete="off" name="radio_NHWRLONTUU" value="x"><span>To test for differences in variances between two independent groups</span></label><label><input type="radio" autocomplete="off" name="radio_NHWRLONTUU" value="x"><span>To compare means between two independent groups</span></label><label><input type="radio" autocomplete="off" name="radio_NHWRLONTUU" value="answer"><span>To compare means between two related groups</span></label>
+<div id="radio_QAJRJQLYEA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_QAJRJQLYEA" value="answer"><span>To compare means between two related groups</span></label><label><input type="radio" autocomplete="off" name="radio_QAJRJQLYEA" value="x"><span>To test for differences in variances between two independent groups</span></label><label><input type="radio" autocomplete="off" name="radio_QAJRJQLYEA" value="x"><span>To compare means between two independent groups</span></label><label><input type="radio" autocomplete="off" name="radio_QAJRJQLYEA" value="x"><span>To assess the correlation between two continuous variables</span></label>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-26-contents" aria-controls="callout-26" aria-expanded="false" aria-label="Toggle callout">
@@ -1508,8 +1508,8 @@ Explain this answer
 </div>
 </section><section id="question-2" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-2">Question 2</h4>
 <p><strong>Which of the following is a key assumption of the paired t-test?</strong></p>
-<div id="radio_YHDJKQFRCM" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_YHDJKQFRCM" value="answer"><span>The differences between paired observations are normally distributed.</span></label><label><input type="radio" autocomplete="off" name="radio_YHDJKQFRCM" value="x"><span>The two samples are independent.</span></label><label><input type="radio" autocomplete="off" name="radio_YHDJKQFRCM" value="x"><span>The two groups have equal variances.</span></label><label><input type="radio" autocomplete="off" name="radio_YHDJKQFRCM" value="x"><span>The dependent variable is categorical.</span></label>
+<div id="radio_CKOXJSETPA" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_CKOXJSETPA" value="x"><span>The dependent variable is categorical.</span></label><label><input type="radio" autocomplete="off" name="radio_CKOXJSETPA" value="x"><span>The two samples are independent.</span></label><label><input type="radio" autocomplete="off" name="radio_CKOXJSETPA" value="x"><span>The two groups have equal variances.</span></label><label><input type="radio" autocomplete="off" name="radio_CKOXJSETPA" value="answer"><span>The differences between paired observations are normally distributed.</span></label>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-27-contents" aria-controls="callout-27" aria-expanded="false" aria-label="Toggle callout">
@@ -1529,8 +1529,8 @@ Explain this answer
 </div>
 </section><section id="question-3" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-3">Question 3</h4>
 <p><strong>What is the null hypothesis for a paired t-test?</strong></p>
-<div id="radio_UPIIZAWUUB" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_UPIIZAWUUB" value="x"><span>The variances of the two samples are equal.</span></label><label><input type="radio" autocomplete="off" name="radio_UPIIZAWUUB" value="x"><span>The means of two independent groups are equal.</span></label><label><input type="radio" autocomplete="off" name="radio_UPIIZAWUUB" value="answer"><span>The differences between paired observations are equal to zero.</span></label><label><input type="radio" autocomplete="off" name="radio_UPIIZAWUUB" value="x"><span>There is no relationship between two variables.</span></label>
+<div id="radio_LHUUHUYDQI" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_LHUUHUYDQI" value="answer"><span>The differences between paired observations are equal to zero.</span></label><label><input type="radio" autocomplete="off" name="radio_LHUUHUYDQI" value="x"><span>The means of two independent groups are equal.</span></label><label><input type="radio" autocomplete="off" name="radio_LHUUHUYDQI" value="x"><span>There is no relationship between two variables.</span></label><label><input type="radio" autocomplete="off" name="radio_LHUUHUYDQI" value="x"><span>The variances of the two samples are equal.</span></label>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-28-contents" aria-controls="callout-28" aria-expanded="false" aria-label="Toggle callout">
@@ -1571,8 +1571,8 @@ Explain this answer
 <option value="answer">The result is statistically significant because p &lt; .001</option></select>
 </li>
 <li>Based on the means and standard deviations, how would you summarise the direction of the effect?
-<div id="radio_DQSBYBMPBU" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_DQSBYBMPBU" value="x"><span>The direction of the effect cannot be determined from the output.</span></label><label><input type="radio" autocomplete="off" name="radio_DQSBYBMPBU" value="answer"><span>Sleep quality was higher with white noise than without white noise.</span></label><label><input type="radio" autocomplete="off" name="radio_DQSBYBMPBU" value="x"><span>Sleep quality was higher without white noise than with white noise.</span></label><label><input type="radio" autocomplete="off" name="radio_DQSBYBMPBU" value="x"><span>Sleep quality was the same in both conditions.</span></label>
+<div id="radio_LJJJWRUAVC" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_LJJJWRUAVC" value="answer"><span>Sleep quality was higher with white noise than without white noise.</span></label><label><input type="radio" autocomplete="off" name="radio_LJJJWRUAVC" value="x"><span>The direction of the effect cannot be determined from the output.</span></label><label><input type="radio" autocomplete="off" name="radio_LJJJWRUAVC" value="x"><span>Sleep quality was the same in both conditions.</span></label><label><input type="radio" autocomplete="off" name="radio_LJJJWRUAVC" value="x"><span>Sleep quality was higher without white noise than with white noise.</span></label>
 </div>
 </li>
 </ul>
