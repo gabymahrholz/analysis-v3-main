@@ -649,21 +649,21 @@ The slope (0.08), not the intercept (10.2), tells us the expected change in the 
 
 **A simple regression analysis finds an $R^2_{Adjusted} = 0.62$ when predicting sprint speed from reaction time. What does this mean?**
 
-`r longmcq(sample(c(answer = "62% of the variance in sprint speed is explained by reaction time.", x = "62% of the variance in reaction time is explained by sprint speed.", x = "The predictor fully explains the outcome.", x = "The model does not fit well because the adjusted R^2 is too high.")))`
+`r longmcq(sample(c(answer = "62% of the variance in sprint speed is explained by reaction time.", x = "62% of the variance in reaction time is explained by sprint speed.", x = "The predictor fully explains the outcome.", x = "The model does not fit well because the adjusted $R^2$ is too high.")))`
 
 ::: {.callout-caution collapse="true" icon="false"}
 
 ## Explain this answer
 
-Adjusted R^2 represents the proportion of variance in the dependent variable (sprint speed) that is explained by the independent variable (reaction time). A value of 0.62 means that 62% of the differences in sprint speed can be accounted for by reaction time, indicating a strong predictive relationship.
+Adjusted $R^2$ represents the proportion of variance in the dependent variable (sprint speed) that is explained by the independent variable (reaction time). A value of 0.62 means that 62% of the differences in sprint speed can be accounted for by reaction time, indicating a strong predictive relationship.
 
 The other options are incorrect:
 
 * One of the options reverses the outcome variable and the predictor. Since the DV is sprint speed, we cannot say that 62% of reaction time is explained by sprint speed.
 
-* A high R^2 adjusted does not mean the predictor fully explains the outcome. Some variability ($1 - R^2_{Adjusted} = 38\%$) remains unexplained, meaning other factors beyond reaction time contribute to sprint speed. A perfect model would have ($R^2 = 1.00$), which is almost never the case in real data.
+* A high $R^2$ adjusted does not mean the predictor fully explains the outcome. Some variability ($1 - R^2_{Adjusted} = 38\%$) remains unexplained, meaning other factors beyond reaction time contribute to sprint speed. A perfect model would have ($R^2 = 1.00$), which is almost never the case in real data.
 
-* A high R^2 adjusted does not mean the model is bad. In fact, 0.62 is quite strong, meaning the model fits the data well. A high can sometimes be concerning if it’s unexpectedly large (e.g., above 0.90 in social sciences), but here it may simply indicate a strong relationship.
+* A high $R^2$ adjusted does not mean the model is bad. In fact, 0.62 is quite strong, meaning the model fits the data well. A high can sometimes be concerning if it’s unexpectedly large (e.g., above 0.90 in social sciences), but here it may simply indicate a strong relationship.
 
 :::
 

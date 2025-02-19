@@ -968,14 +968,14 @@ Solution
 </div>
 <ul>
 <li>Linearity: The relationship appears to be <select class="webex-select"><option value="blank"></option>
-<option value="x">non-linear</option>
-<option value="answer">linear</option></select>.</li>
+<option value="answer">linear</option>
+<option value="x">non-linear</option></select>.</li>
 <li>Normality: The residuals are <select class="webex-select"><option value="blank"></option>
-<option value="x">not normally distributed</option>
-<option value="answer">approximately normally distributed</option></select>.</li>
+<option value="answer">approximately normally distributed</option>
+<option value="x">not normally distributed</option></select>.</li>
 <li>Homoscedasticity: There is <select class="webex-select"><option value="blank"></option>
-<option value="x">heteroscedasticity as the residuals show a distinct pattern</option>
-<option value="answer">homoscedasticity as there is no distinct pattern in the residuals</option></select>.</li>
+<option value="answer">homoscedasticity as there is no distinct pattern in the residuals</option>
+<option value="x">heteroscedasticity as the residuals show a distinct pattern</option></select>.</li>
 </ul>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-13-contents" aria-controls="callout-13" aria-expanded="false" aria-label="Toggle callout">
@@ -1015,8 +1015,8 @@ I don’t understand - can you explain more?
 </ul></section></section><section id="test-your-knowledge" class="level2 unnumbered"><h2 class="unnumbered anchored" data-anchor-id="test-your-knowledge"><span style="color: #F39C12; text-transform: uppercase;">Test your knowledge</span></h2>
 <section id="question-1" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-1">Question 1</h4>
 <p><strong>What is the main purpose of a simple regression analysis?</strong></p>
-<div id="radio_BCISREPIGG" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_BCISREPIGG" value="x"><span>To assess whether multiple independent variables jointly predict an outcome variable.</span></label><label><input type="radio" autocomplete="off" name="radio_BCISREPIGG" value="answer"><span>To predict or explain changes in an outcome variable based on changes in a predictor variable.</span></label><label><input type="radio" autocomplete="off" name="radio_BCISREPIGG" value="x"><span>To compare means between two groups and determine if they are significantly different.</span></label><label><input type="radio" autocomplete="off" name="radio_BCISREPIGG" value="x"><span>To determine whether there is an association between two variables, without assuming causality.</span></label>
+<div id="radio_CFKSXBSAKO" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_CFKSXBSAKO" value="x"><span>To determine whether there is an association between two variables, without assuming causality.</span></label><label><input type="radio" autocomplete="off" name="radio_CFKSXBSAKO" value="answer"><span>To predict or explain changes in an outcome variable based on changes in a predictor variable.</span></label><label><input type="radio" autocomplete="off" name="radio_CFKSXBSAKO" value="x"><span>To compare means between two groups and determine if they are significantly different.</span></label><label><input type="radio" autocomplete="off" name="radio_CFKSXBSAKO" value="x"><span>To assess whether multiple independent variables jointly predict an outcome variable.</span></label>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-14-contents" aria-controls="callout-14" aria-expanded="false" aria-label="Toggle callout">
@@ -1037,8 +1037,8 @@ Explain this answer
 </section><section id="question-2" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-2">Question 2</h4>
 <p><strong>A sports scientist wants to examine whether an athlete’s reaction time (in milliseconds) can predict their sprint speed (in seconds) in a 100m race.</strong></p>
 <p><strong>Which of the following correctly specifies the simple regression model in R?</strong></p>
-<div id="radio_BUVAZBMYTQ" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_BUVAZBMYTQ" value="x"><span>lm(Sprint_Speed ~ Reaction_Time + Training_Hours, data = data)</span></label><label><input type="radio" autocomplete="off" name="radio_BUVAZBMYTQ" value="x"><span>lm(Reaction_Time ~ Sprint_Speed + Age, data = data)</span></label><label><input type="radio" autocomplete="off" name="radio_BUVAZBMYTQ" value="answer"><span>lm(Sprint_Speed ~ Reaction_Time, data = data)</span></label><label><input type="radio" autocomplete="off" name="radio_BUVAZBMYTQ" value="x"><span>lm(Reaction_Time ~ Sprint_Speed, data = data)</span></label>
+<div id="radio_XLQEGJXHJW" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_XLQEGJXHJW" value="answer"><span>lm(Sprint_Speed ~ Reaction_Time, data = data)</span></label><label><input type="radio" autocomplete="off" name="radio_XLQEGJXHJW" value="x"><span>lm(Reaction_Time ~ Sprint_Speed + Age, data = data)</span></label><label><input type="radio" autocomplete="off" name="radio_XLQEGJXHJW" value="x"><span>lm(Reaction_Time ~ Sprint_Speed, data = data)</span></label><label><input type="radio" autocomplete="off" name="radio_XLQEGJXHJW" value="x"><span>lm(Sprint_Speed ~ Reaction_Time + Training_Hours, data = data)</span></label>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-15-contents" aria-controls="callout-15" aria-expanded="false" aria-label="Toggle callout">
@@ -1064,8 +1064,8 @@ Explain this answer
 Sprint Speed = 10.2 + 0.08 × Reaction Time
 \]</span></p>
 <p><strong>How should the slope be interpreted?</strong></p>
-<div id="radio_DOAEQLEDRE" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_DOAEQLEDRE" value="answer"><span>A 1-millisecond increase in reaction time is associated with a 0.08-second increase in sprint speed.</span></label><label><input type="radio" autocomplete="off" name="radio_DOAEQLEDRE" value="x"><span>A 1-millisecond increase in reaction time is associated with a 0.08-second decrease in sprint speed.</span></label><label><input type="radio" autocomplete="off" name="radio_DOAEQLEDRE" value="x"><span>A 1-millisecond increase in reaction time is associated with a 10.2-second decrease in sprint speed.</span></label><label><input type="radio" autocomplete="off" name="radio_DOAEQLEDRE" value="x"><span>A 1-millisecond increase in reaction time is associated with a 10.2-second increase in sprint speed.</span></label>
+<div id="radio_EPMYKLUYLN" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_EPMYKLUYLN" value="x"><span>A 1-millisecond increase in reaction time is associated with a 10.2-second increase in sprint speed.</span></label><label><input type="radio" autocomplete="off" name="radio_EPMYKLUYLN" value="answer"><span>A 1-millisecond increase in reaction time is associated with a 0.08-second increase in sprint speed.</span></label><label><input type="radio" autocomplete="off" name="radio_EPMYKLUYLN" value="x"><span>A 1-millisecond increase in reaction time is associated with a 0.08-second decrease in sprint speed.</span></label><label><input type="radio" autocomplete="off" name="radio_EPMYKLUYLN" value="x"><span>A 1-millisecond increase in reaction time is associated with a 10.2-second decrease in sprint speed.</span></label>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-16-contents" aria-controls="callout-16" aria-expanded="false" aria-label="Toggle callout">
@@ -1085,8 +1085,8 @@ Explain this answer
 </div>
 </section><section id="question-4" class="level4 unnumbered"><h4 class="unnumbered anchored" data-anchor-id="question-4">Question 4</h4>
 <p><strong>A simple regression analysis finds an <span class="math inline">\(R^2_{Adjusted} = 0.62\)</span> when predicting sprint speed from reaction time. What does this mean?</strong></p>
-<div id="radio_QDZECKXIXB" class="webex-radiogroup">
-<label><input type="radio" autocomplete="off" name="radio_QDZECKXIXB" value="answer"><span>62% of the variance in sprint speed is explained by reaction time.</span></label><label><input type="radio" autocomplete="off" name="radio_QDZECKXIXB" value="x"><span>62% of the variance in reaction time is explained by sprint speed.</span></label><label><input type="radio" autocomplete="off" name="radio_QDZECKXIXB" value="x"><span>The model does not fit well because the adjusted R^2 is too high.</span></label><label><input type="radio" autocomplete="off" name="radio_QDZECKXIXB" value="x"><span>The predictor fully explains the outcome.</span></label>
+<div id="radio_UWRWQAQXWE" class="webex-radiogroup">
+<label><input type="radio" autocomplete="off" name="radio_UWRWQAQXWE" value="x"><span>62% of the variance in reaction time is explained by sprint speed.</span></label><label><input type="radio" autocomplete="off" name="radio_UWRWQAQXWE" value="answer"><span>62% of the variance in sprint speed is explained by reaction time.</span></label><label><input type="radio" autocomplete="off" name="radio_UWRWQAQXWE" value="x"><span>The predictor fully explains the outcome.</span></label><label><input type="radio" autocomplete="off" name="radio_UWRWQAQXWE" value="x"><span>The model does not fit well because the adjusted <span class="math inline">\(R^2\)</span> is too high.</span></label>
 </div>
 <div class="callout callout-style-default callout-caution no-icon callout-titled">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-17-contents" aria-controls="callout-17" aria-expanded="false" aria-label="Toggle callout">
@@ -1100,12 +1100,12 @@ Explain this answer
 </div>
 <div id="callout-17" class="callout-17-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Adjusted R^2 represents the proportion of variance in the dependent variable (sprint speed) that is explained by the independent variable (reaction time). A value of 0.62 means that 62% of the differences in sprint speed can be accounted for by reaction time, indicating a strong predictive relationship.</p>
+<p>Adjusted <span class="math inline">\(R^2\)</span> represents the proportion of variance in the dependent variable (sprint speed) that is explained by the independent variable (reaction time). A value of 0.62 means that 62% of the differences in sprint speed can be accounted for by reaction time, indicating a strong predictive relationship.</p>
 <p>The other options are incorrect:</p>
 <ul>
 <li><p>One of the options reverses the outcome variable and the predictor. Since the DV is sprint speed, we cannot say that 62% of reaction time is explained by sprint speed.</p></li>
-<li><p>A high R^2 adjusted does not mean the predictor fully explains the outcome. Some variability (<span class="math inline">\(1 - R^2_{Adjusted} = 38\%\)</span>) remains unexplained, meaning other factors beyond reaction time contribute to sprint speed. A perfect model would have (<span class="math inline">\(R^2 = 1.00\)</span>), which is almost never the case in real data.</p></li>
-<li><p>A high R^2 adjusted does not mean the model is bad. In fact, 0.62 is quite strong, meaning the model fits the data well. A high can sometimes be concerning if it’s unexpectedly large (e.g., above 0.90 in social sciences), but here it may simply indicate a strong relationship.</p></li>
+<li><p>A high <span class="math inline">\(R^2\)</span> adjusted does not mean the predictor fully explains the outcome. Some variability (<span class="math inline">\(1 - R^2_{Adjusted} = 38\%\)</span>) remains unexplained, meaning other factors beyond reaction time contribute to sprint speed. A perfect model would have (<span class="math inline">\(R^2 = 1.00\)</span>), which is almost never the case in real data.</p></li>
+<li><p>A high <span class="math inline">\(R^2\)</span> adjusted does not mean the model is bad. In fact, 0.62 is quite strong, meaning the model fits the data well. A high can sometimes be concerning if it’s unexpectedly large (e.g., above 0.90 in social sciences), but here it may simply indicate a strong relationship.</p></li>
 </ul>
 </div>
 </div>
