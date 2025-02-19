@@ -123,7 +123,7 @@ Lopez et al. appear to have published data for both the participants included in
 Today, we will focus on a few correlation values and attempt to reproduce some of the results presented in Table 2 of Lopez et al. (2024).
 
 
-![Table 2 (Lopez et al., 2024)](data/lopez_table2.png)
+![Table 2 (Lopez et al., 2024)](images/lopez_table2.png)
 
 As shown in the table above, the original authors aimed to replicate the correlations reported by Wansink et al. (2005). Specifically, they examined the following relationships:
 
@@ -172,7 +172,7 @@ Big datasets can be messy, so it is often helpful to focus only on the variables
 * Consumption volume - Control soup intake (`CtrlSoupAte`)
 * `SeatPosition` - so we can determine whether participants were sorted into in the Experimental or the Control group 
 
-Store the new data object as `lopez_control`.
+Store the new data object as `lopez_reduced`.
 
 
 ::: {.callout-caution collapse="true" icon="false"} 
@@ -307,7 +307,7 @@ lopez_reduced <- lopez_data %>%
 ## Activity 5: Compute descriptives
 
 
-Now that the data is ready, we can focus on reproducing the correlations. For the remainder of this chapter, we will focus on **correlating the estimated ounces of soup consumption with actual consumption volume** for the **control group**. Testing every correlation would require assessing assumptions for each relationship, making this chapter unnecessarily long. However, you are welcome to reproduce all other correlations in your own time if you wish.
+Now that the data is ready, we can focus on reproducing the correlations. For the remainder of this chapter, we will focus on **correlating the estimated calories of soup consumption with actual consumption volume** for the **control group**. Testing every correlation would require assessing assumptions for each relationship, making this chapter unnecessarily long. However, you are welcome to reproduce all other correlations in your own time if you wish.
 
 
 For the **descriptives**, we will compute the number of participants (**n**), **means** and **standard deviations** for the `Control` group of our variables of interest (i.e., `CalEstimate` and `M_postsoup`).
@@ -855,7 +855,7 @@ We can either do the assumption check by looking at the scatterplot above or we 
 
 
 
-### Task 6: Compute a Pearson correlation & interpret the output {.unnumbered}
+### Task 7: Compute a Pearson correlation & interpret the output {.unnumbered}
 
 * **Step 1**: Compute the Pearson correlation. The structure of the function is as follows:
 
