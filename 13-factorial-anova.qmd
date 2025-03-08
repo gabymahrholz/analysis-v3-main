@@ -3,6 +3,10 @@
 ## Intended Learning Outcomes {.unnumbered}
 
 By the end of this chapter you should be able to:
+- Apply and interpret a factorial ANOVA.
+- Break down the results of a factorial ANOVA using post-hocs tests and apply a correction for multiple comparisons.
+- Check statistical assumptions for factorial ANOVA through your understanding of the design and diagnostic plots.
+- Visualise the results of a factorial ANOVA through an interaction plot.
 
 
 ## [Individual Walkthrough]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}

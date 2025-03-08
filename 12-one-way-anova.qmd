@@ -4,14 +4,17 @@
 
 By the end of this chapter you should be able to:
 
+- Apply and interpret a one-way ANOVA.
+- Break down the results of a one-way ANOVA using post-hocs tests and apply a correction for multiple comparisons.
+- Conduct a power analysis for a one-way ANOVA.
 
 ## [Individual Walkthrough]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
 
 ## Activity 1: Setup
 
-* create a new project
-* create a new Rmd file and save it to your project folder
-* delete everything after the setup code chunk 
+* Open last week’s project
+* Create a new `.Rmd` file and save it to your project folder
+* Delete everything after the setup code chunk (e.g., line 12 and below)
 
 
 
