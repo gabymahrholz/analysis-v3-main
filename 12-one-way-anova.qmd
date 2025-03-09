@@ -16,6 +16,7 @@ By the end of this chapter you should be able to:
 * Create a new `.Rmd` file and save it to your project folder
 * Delete everything after the setup code chunk (e.g., line 12 and below)
 
+$\rightarrow$
 
 
 ## Activity 2: Download the data
