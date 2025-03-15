@@ -19,7 +19,7 @@ In the previous chapter, we have looked at simple regressions - predicting an ou
 
 This week, we will be working with a new dataset. Follow the steps below to set up your project:
 
-* **Create a new project** and name it something meaningful (e.g., "2B_chapter11", or "11_multople_regression"). See @sec-project if you need some guidance.
+* **Create a new project** and name it something meaningful (e.g., "2B_chapter11", or "11_multiple_regression"). See @sec-project if you need some guidance.
 * **Create a new `.Rmd` file** and save it to your project folder. See @sec-rmd if you need help. 
 * Delete everything after the setup code chunk (e.g., line 12 and below) 
 * **Download the new dataset** here: [data_ch11.zip](data/data_ch11.zip "download"). The zip folder includes:
@@ -187,6 +187,8 @@ We briefly covered this in @sec-wrangling, and the solution is more intuitive th
 
 Yes, that's right! The functions `min()` and `max()` are used to calculate the minimum and maximum values, respectively.
 
+We are just computing the information rather than storing it. If you want to save it as an object to your `Global Environment`, feel free to do so.
+
 ```{r}
 wemwbs %>% 
   summarise(mean = mean(WEMWBS_sum),
@@ -289,8 +291,6 @@ Since steps 4 and 5 contribute to creating a summary dataset rather than modifyi
 ::: {.callout-caution collapse="true" icon="false"}
 
 ## Solution
-
-We are just computing the information rather than storing it. If you want to save it as an object to your `Global Environment`, feel free to do so.
 
 ```{r}
 screen_long <- screentime %>%
