@@ -40,4 +40,25 @@ This week's pair-coding activity mirrors the one from @sec-within (Semester 1). 
 
 ## [Test your knowledge]{style="color: #F39C12; text-transform: uppercase;"} {.unnumbered}
 
+#### Question 1 {.unnumbered}
+
+**A researcher wants to compare memory test scores across three different age groups (young adults, middle-aged adults, and older adults). What type of ANOVA should they use?**
+
+`r longmcq(sample(c( answer = "One-way between-subjects ANOVA", x = "One-way repeated-measures ANOVA", x = "Factorial ANOVA", x = "Mixed-design ANOVA" )))`
+
+::: {.callout-caution collapse="true" icon="false"}
+
+## Explain this answer
+
+Correct Answer:
+
+A **one-way between-subjects ANOVA** is appropriate because there is one independent variable (age group) with three levels, and each participant is only tested in one group.
+
+Incorrect Answers:
+
+* A repeated-measures ANOVA is incorrect because it is used when the same participants are measured multiple times.
+* A factorial ANOVA is incorrect because it is used when there are two or more independent variables.
+* A mixed-design ANOVA is incorrect because it is used when there is at least one between-subjects factor and one within-subjects factor.
+
+:::
 
